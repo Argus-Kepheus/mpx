@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" data-palette="blueprint" data-title-key="home.current.pageTitle">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Current numerical methods, calculation environments and development scope of Multiphysics." data-i18n="home.current.pageDescription" data-i18n-attr="content">
+  <meta name="theme-color" content="#17365d">
+  <title>Current model — Multiphysics</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
+  <header id="top" class="site-header">
+  <a class="brand" href="/" aria-label="Multiphysics home" data-i18n="accessibility.homeLink" data-i18n-attr="aria-label"><span data-i18n="home.hero.title">Multiphysics</span></a>
+  <nav class="site-nav site-nav-desktop" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+    <a href="/" data-i18n="nav.home">Home</a>
+    <a href="/vision/" data-i18n="nav.vision">Vision</a>
+    <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+    <a href="/current-model/" data-i18n="nav.current">Current model</a>
+    <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+  </nav>
+  <details class="site-nav-mobile">
+    <summary data-i18n="nav.menu">Sections</summary>
+    <nav class="site-nav-mobile-list" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/vision/" data-i18n="nav.vision">Vision</a>
+      <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+      <a href="/current-model/" data-i18n="nav.current">Current model</a>
+      <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+    </nav>
+  </details>
+  <div class="site-controls">
+    <label class="locale-control">
+      <span class="sr-only" data-i18n="locale.label">Language</span>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
+        <option value="en">English</option>
+        <option value="pt-BR">Português</option>
+        <option value="zh-CN">中文</option>
+      </select>
+    </label>
+    <button
+      class="palette-toggle"
+      id="palette-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Toggle palette"
+      title="Toggle palette"
+      data-i18n="palettes.toggle"
+      data-i18n-attr="aria-label,title">
+      <svg class="palette-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+      </svg>
+      <span class="sr-only" data-i18n="palettes.toggle">Toggle palette</span>
+    </button>
+  </div>
+</header>
+
+  <main id="main" class="section-shell">
+    <section id="current" class="content-section section-anchor" aria-labelledby="current-title">
+          <p class="kicker" data-i18n="home.current.kicker">Current development stage</p>
+          <h2 id="current-title" data-i18n="home.current.title">Consolidating the one-dimensional model</h2>
+          <blockquote data-i18n="home.current.principle">Correct and traceable models before larger models.</blockquote>
+          <p class="section-copy" data-i18n="home.current.body">The present priority is methodological correctness and experimental traceability before computational scale. Work is concentrated on consolidating the 1D numerical evidence, machine parametrisation, process configuration, material-property data, and the experimental basis required before flashing/upsetting modelling, calibration and validation can advance.</p>
+          <div class="state-columns">
+            <div>
+              <h3 data-i18n="home.current.methodsTitle">Spatial methods</h3>
+              <div id="method-states" class="state-list" role="list">
+                <div class="state-row" role="listitem"><span>FDM</span><span class="state-badge">implemented</span></div>
+                <div class="state-row" role="listitem"><span>FEM</span><span class="state-badge">implemented</span></div>
+                <div class="state-row" role="listitem"><span>FVM</span><span class="state-badge">fixed geometry implemented & verified</span></div>
+              </div>
+            </div>
+            <div>
+              <h3 data-i18n="home.current.enginesTitle">Calculation environments</h3>
+              <div id="engine-states" class="state-list" role="list">
+                <div class="state-row" role="listitem"><span>GNU Octave</span><span class="state-badge">active sibling · broad workflow coverage</span></div>
+                <div class="state-row" role="listitem"><span>C++</span><span class="state-badge">active sibling · FDM/FEM/FVM solver paths</span></div>
+                <div class="state-row" role="listitem"><span>Julia</span><span class="state-badge">planned sibling</span></div>
+              </div>
+            </div>
+          </div>
+        </section>
+  </main>
+  <footer class="site-footer">
+  <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
+  <a
+    id="back-to-top"
+    class="back-to-top"
+    href="#top"
+    data-i18n="nav.backToTop"
+    aria-label="Back to top"
+    data-i18n-attr="aria-label"
+    data-visible="false"
+    tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
+</footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

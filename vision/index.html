@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en" data-palette="blueprint" data-title-key="home.vision.pageTitle">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Long-term vision for the Multiphysics open modular research platform." data-i18n="home.vision.pageDescription" data-i18n-attr="content">
+  <meta name="theme-color" content="#17365d">
+  <title>Vision — Multiphysics</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
+  <header id="top" class="site-header">
+  <a class="brand" href="/" aria-label="Multiphysics home" data-i18n="accessibility.homeLink" data-i18n-attr="aria-label"><span data-i18n="home.hero.title">Multiphysics</span></a>
+  <nav class="site-nav site-nav-desktop" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+    <a href="/" data-i18n="nav.home">Home</a>
+    <a href="/vision/" data-i18n="nav.vision">Vision</a>
+    <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+    <a href="/current-model/" data-i18n="nav.current">Current model</a>
+    <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+  </nav>
+  <details class="site-nav-mobile">
+    <summary data-i18n="nav.menu">Sections</summary>
+    <nav class="site-nav-mobile-list" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/vision/" data-i18n="nav.vision">Vision</a>
+      <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+      <a href="/current-model/" data-i18n="nav.current">Current model</a>
+      <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+    </nav>
+  </details>
+  <div class="site-controls">
+    <label class="locale-control">
+      <span class="sr-only" data-i18n="locale.label">Language</span>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
+        <option value="en">English</option>
+        <option value="pt-BR">Português</option>
+        <option value="zh-CN">中文</option>
+      </select>
+    </label>
+    <button
+      class="palette-toggle"
+      id="palette-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Toggle palette"
+      title="Toggle palette"
+      data-i18n="palettes.toggle"
+      data-i18n-attr="aria-label,title">
+      <svg class="palette-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+      </svg>
+      <span class="sr-only" data-i18n="palettes.toggle">Toggle palette</span>
+    </button>
+  </div>
+</header>
+
+  <main id="main" class="section-shell">
+    <section id="vision" class="content-section section-anchor" aria-labelledby="vision-title">
+          <p class="kicker" data-i18n="home.vision.kicker">Long-term vision</p>
+          <h2 id="vision-title" data-i18n="home.vision.title">A reusable FOSS process-simulation platform</h2>
+          <p class="section-copy" data-i18n="home.vision.body">Multiphysics explores how an integrated process-simulation environment can be developed with a FOSS architecture, open scientific access and explicit separation between physical models, numerical methods and software implementations. The software is the long-term engineering artifact; modelling, numerical, experimental and validation problems encountered along the way are expected to generate independent scientific contributions and publications.</p>
+          <aside class="paragraph-note" aria-labelledby="vision-terminology-title">
+            <p id="vision-terminology-title" class="paragraph-note-title" data-i18n="home.vision.terminology.title">Terminology note</p>
+            <dl class="paragraph-note-list">
+              <div>
+                <dt data-i18n="home.vision.terminology.foss.term">FOSS</dt>
+                <dd data-i18n="home.vision.terminology.foss.definition">Free and Open Source Software: software distributed under licences that grant freedoms to use, study, modify and redistribute the software. Here, “free” refers primarily to those freedoms, not necessarily to zero price.</dd>
+              </div>
+              <div>
+                <dt data-i18n="home.vision.terminology.simulation.term">Simulation</dt>
+                <dd data-i18n="home.vision.terminology.simulation.definition">A computational representation of selected physical behaviour under explicit models, assumptions and numerical approximations; it is not a claim of exact reproduction of the real process.</dd>
+              </div>
+              <div>
+                <dt data-i18n="home.vision.terminology.access.term">Open access vs. free use</dt>
+                <dd data-i18n="home.vision.terminology.access.definition">Open access means that scientific material can be publicly read or consulted. It does not, by itself, grant unrestricted reuse; reuse of software, data, text or figures depends on the applicable licence and rights.</dd>
+              </div>
+              <div>
+                <dt data-i18n="home.vision.terminology.platform.term">Platform</dt>
+                <dd data-i18n="home.vision.terminology.platform.definition">A modular research and software environment in which models, numerical methods, calculation engines, data and workflows can be combined. It does not mean a commercial marketplace or necessarily a hosted online service.</dd>
+              </div>
+            </dl>
+          </aside>
+        </section>
+  </main>
+  <footer class="site-footer">
+  <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
+  <a
+    id="back-to-top"
+    class="back-to-top"
+    href="#top"
+    data-i18n="nav.backToTop"
+    aria-label="Back to top"
+    data-i18n-attr="aria-label"
+    data-visible="false"
+    tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
+</footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

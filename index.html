@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" data-palette="blueprint" data-title-key="site.title">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An open, modular research platform for computational modelling of coupled physical processes." data-i18n="site.description" data-i18n-attr="content">
+  <meta name="theme-color" content="#17365d">
+  <title>Multiphysics</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
+  <header id="top" class="site-header">
+  <a class="brand" href="/" aria-label="Multiphysics home" data-i18n="accessibility.homeLink" data-i18n-attr="aria-label"><span data-i18n="home.hero.title">Multiphysics</span></a>
+  <nav class="site-nav site-nav-desktop" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+    <a href="/" data-i18n="nav.home">Home</a>
+    <a href="/vision/" data-i18n="nav.vision">Vision</a>
+    <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+    <a href="/current-model/" data-i18n="nav.current">Current model</a>
+    <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+  </nav>
+  <details class="site-nav-mobile">
+    <summary data-i18n="nav.menu">Sections</summary>
+    <nav class="site-nav-mobile-list" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/vision/" data-i18n="nav.vision">Vision</a>
+      <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+      <a href="/current-model/" data-i18n="nav.current">Current model</a>
+      <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+    </nav>
+  </details>
+  <div class="site-controls">
+    <label class="locale-control">
+      <span class="sr-only" data-i18n="locale.label">Language</span>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
+        <option value="en">English</option>
+        <option value="pt-BR">Português</option>
+        <option value="zh-CN">中文</option>
+      </select>
+    </label>
+    <button
+      class="palette-toggle"
+      id="palette-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Toggle palette"
+      title="Toggle palette"
+      data-i18n="palettes.toggle"
+      data-i18n-attr="aria-label,title">
+      <svg class="palette-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+      </svg>
+      <span class="sr-only" data-i18n="palettes.toggle">Toggle palette</span>
+    </button>
+  </div>
+</header>
+
+  <main id="main">
+    <section id="home" class="hero section-anchor" aria-labelledby="home-title">
+      <div class="hero-copy">
+        <p class="kicker" data-i18n="home.hero.kicker">Open computational research</p>
+        <h1 id="home-title" data-i18n="home.hero.title">Multiphysics</h1>
+        <p class="hero-subtitle" data-i18n="home.hero.subtitle">Open, modular simulation of coupled physical processes</p>
+        <p class="lede" data-i18n="home.hero.lede">A research project aimed at developing a free and open-source computational environment in which materials, machines, process configurations, physical models, numerical methods, calculation engines and post-processing tools can evolve independently and be recombined as needed.</p>
+        <p class="status-note" data-i18n="home.hero.status">Current academic reference process: flash-butt welding. Current implementation: an evolving research platform, not a finished industrial product.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="/technical/" data-i18n="home.hero.primaryCta">Explore the technical documentation</a>
+          <a class="button secondary" href="/collaborate/" data-i18n="home.hero.secondaryCta">Contribute experimental data</a>
+        </div>
+      </div>
+      <figure class="hero-model" aria-labelledby="model-caption">
+        <figcaption id="model-caption" data-i18n="home.hero.diagram.caption">Reference process to software architecture</figcaption>
+        <div
+          class="model-flow"
+          role="img"
+          aria-label="Materials, machines and process feed physics and numerical methods, then calculation engines and post-processing."
+          data-i18n="home.hero.diagram.ariaLabel"
+          data-i18n-attr="aria-label">
+          <div class="model-node" data-i18n="home.hero.diagram.materials">materials</div>
+          <div class="model-node" data-i18n="home.hero.diagram.machines">machines</div>
+          <div class="model-node" data-i18n="home.hero.diagram.process">process</div>
+          <div class="model-arrow" aria-hidden="true">↓</div>
+          <div class="model-node wide" data-i18n="home.hero.diagram.physicsNumerics">physics + numerical methods</div>
+          <div class="model-arrow" aria-hidden="true">↓</div>
+          <div class="model-node wide" data-i18n="home.hero.diagram.enginesPostProcessing">engines + post-processing</div>
+        </div>
+      </figure>
+    </section>
+
+
+    <section id="reference" class="content-section split section-anchor" aria-labelledby="reference-title">
+      <div>
+        <p class="kicker" data-i18n="home.reference.kicker">Current academic reference process</p>
+        <h2 id="reference-title" data-i18n="home.reference.title">Why flash-butt welding?</h2>
+      </div>
+      <div>
+        <p data-i18n="home.reference.body">Flash-butt welding is the first process used to develop and stress the architecture, not the final scope of the platform. It combines electrical contact, resistance heating, flashing, heat transfer, moving boundaries, material loss, mechanical deformation, upsetting and metallurgical evolution in a single process family.</p>
+        <p class="muted" data-i18n="home.reference.note">The choice also builds on previous research from 2018, providing an established scientific starting point. The collaborators initially approached were contacted because their publications and academic work relate directly to the scientific questions addressed here. As the project evolves, additional researchers may be invited on the same basis, using relevant academic production as a starting point for focused, asynchronous scientific collaboration. Components developed here are intended to be reusable or adaptable where their governing assumptions remain valid.</p>
+      </div>
+    </section>
+
+
+    <section id="materials" class="content-section emphasis section-anchor" aria-labelledby="materials-title">
+      <p class="kicker" data-i18n="home.materials.kicker">Materials are extensible</p>
+      <h2 id="materials-title" data-i18n="home.materials.title">DP600 is the current dataset, not a platform restriction</h2>
+      <p class="section-copy" data-i18n="home.materials.body">The current material database is being assembled around DP600 steel. Collaborators may provide sufficiently documented experimental data for other metallic materials; those datasets can motivate new material entries and new validation cases.</p>
+    </section>
+
+
+  </main>
+  <footer class="site-footer">
+  <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
+  <a
+    id="back-to-top"
+    class="back-to-top"
+    href="#top"
+    data-i18n="nav.backToTop"
+    aria-label="Back to top"
+    data-i18n-attr="aria-label"
+    data-visible="false"
+    tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
+</footer>
+
+  <noscript><p class="noscript-notice" data-i18n="home.noScript">The project overview is available without JavaScript. Interactive palette and language selection are disabled.</p></noscript>
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

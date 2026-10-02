@@ -1,0 +1,266 @@
+{
+  "site": {
+    "title": "Multiphysics — Open modular process simulation",
+    "description": "An open, modular research platform for computational modelling of coupled physical processes.",
+    "projectLabel": "An Argus Kepheus project"
+  },
+  "nav": {
+    "menu": "Sections",
+    "home": "Home",
+    "vision": "Vision",
+    "architecture": "Architecture",
+    "current": "Current model",
+    "collaborate": "Collaborate",
+    "technical": "Technical",
+    "backToTop": "Back to top"
+  },
+  "locale": {
+    "label": "Language"
+  },
+  "palettes": {
+    "label": "Palette",
+    "blueprint": "Blueprint",
+    "blueprintDark": "Blueprint Dark",
+    "toggle": "Toggle palette"
+  },
+  "technical": {
+    "labels": {
+      "technical": "Technical",
+      "numericalFormulation": "Numerical formulation",
+      "implementations": "Implementations",
+      "verification": "Verification",
+      "noSections": "This page has no section index.",
+      "scope": "Scope",
+      "method": "Method",
+      "engine": "Engine",
+      "implementationStatus": "Implementation status",
+      "operator": "Operator",
+      "source": "source",
+      "reviewed": "reviewed",
+      "provenance": "Provenance and source references",
+      "sourceRevision": "Source revision",
+      "operatorRevision": "Operator revision",
+      "equationNotation": "Equation notation",
+      "workpieceR": "workpiece R",
+      "workpieceS": "workpiece S",
+      "interface": "welding interface",
+      "colourSupplement": "Colour is supplementary; symbols and labels remain authoritative.",
+      "onThisPage": "On this page"
+    }
+  },
+  "home": {
+    "hero": {
+      "kicker": "Open computational research",
+      "title": "Multiphysics",
+      "subtitle": "Open, modular simulation of coupled physical processes",
+      "lede": "A research project aimed at developing a free and open-source computational environment in which materials, machines, process configurations, physical models, numerical methods, calculation engines and post-processing tools can evolve independently and be recombined as needed.",
+      "status": "Current academic reference process: flash-butt welding. Current implementation: an evolving research platform, not a finished industrial product.",
+      "primaryCta": "Explore the technical documentation",
+      "secondaryCta": "Contribute experimental data",
+      "diagram": {
+        "caption": "Reference process to software architecture",
+        "ariaLabel": "Materials, machines and process feed physics and numerical methods, then calculation engines and post-processing.",
+        "materials": "materials",
+        "machines": "machines",
+        "process": "process",
+        "physicsNumerics": "physics + numerical methods",
+        "enginesPostProcessing": "engines + post-processing"
+      }
+    },
+    "vision": {
+      "kicker": "Long-term vision",
+      "title": "A reusable FOSS process-simulation platform",
+      "body": "Multiphysics explores how an integrated process-simulation environment can be developed with a FOSS architecture, open scientific access and explicit separation between physical models, numerical methods and software implementations. The software is the long-term engineering artifact; modelling, numerical, experimental and validation problems encountered along the way are expected to generate independent scientific contributions and publications.",
+      "terminology": {
+        "title": "Terminology note",
+        "foss": {
+          "term": "FOSS",
+          "definition": "Free and Open Source Software: software distributed under licences that grant freedoms to use, study, modify and redistribute the software. Here, “free” refers primarily to those freedoms, not necessarily to zero price."
+        },
+        "simulation": {
+          "term": "Simulation",
+          "definition": "A computational representation of selected physical behaviour under explicit models, assumptions and numerical approximations; it is not a claim of exact reproduction of the real process."
+        },
+        "access": {
+          "term": "Open access vs. free use",
+          "definition": "Open access means that scientific material can be publicly read or consulted. It does not, by itself, grant unrestricted reuse; reuse of software, data, text or figures depends on the applicable licence and rights."
+        },
+        "platform": {
+          "term": "Platform",
+          "definition": "A modular research and software environment in which models, numerical methods, calculation engines, data and workflows can be combined. It does not mean a commercial marketplace or necessarily a hosted online service."
+        }
+      },
+      "pageTitle": "Vision — Multiphysics",
+      "pageDescription": "Long-term vision for the Multiphysics open modular research platform."
+    },
+    "reference": {
+      "kicker": "Current academic reference process",
+      "title": "Why flash-butt welding?",
+      "body": "Flash-butt welding is the first process used to develop and stress the architecture, not the final scope of the platform. It combines electrical contact, resistance heating, flashing, heat transfer, moving boundaries, material loss, mechanical deformation, upsetting and metallurgical evolution in a single process family.",
+      "note": "The choice also builds on previous research from 2018, providing an established scientific starting point. The collaborators initially approached were contacted because their publications and academic work relate directly to the scientific questions addressed here. As the project evolves, additional researchers may be invited on the same basis, using relevant academic production as a starting point for focused, asynchronous scientific collaboration. Components developed here are intended to be reusable or adaptable where their governing assumptions remain valid."
+    },
+    "architecture": {
+      "kicker": "Modular by design",
+      "title": "Independent scientific and computational axes",
+      "intro": "The architecture deliberately keeps problem definition, physical modelling, numerical discretisation, calculation engines and post-processing distinct.",
+      "layers": [
+        {
+          "title": "Define the problem",
+          "items": [
+            "Materials",
+            "Machines",
+            "Welding configurations",
+            "Simulation methods"
+          ]
+        },
+        {
+          "title": "Assemble the model",
+          "items": [
+            "Geometry",
+            "Physics",
+            "Process stages",
+            "Couplings"
+          ]
+        },
+        {
+          "title": "Solve",
+          "items": [
+            "FDM",
+            "FEM",
+            "FVM — fixed geometry verified; geometry-changing unpromoted",
+            "Time integration",
+            "GNU Octave",
+            "C++",
+            "Julia — planned"
+          ]
+        },
+        {
+          "title": "Interpret",
+          "items": [
+            "Results",
+            "Post-processing — early stage",
+            "Analysis",
+            "Visualisation",
+            "Validation",
+            "Scientific outputs"
+          ]
+        }
+      ],
+      "pageTitle": "Architecture — Multiphysics",
+      "pageDescription": "Scientific and computational architecture of the Multiphysics research platform."
+    },
+    "materials": {
+      "kicker": "Materials are extensible",
+      "title": "DP600 is the current dataset, not a platform restriction",
+      "body": "The current material database is being assembled around DP600 steel. Collaborators may provide sufficiently documented experimental data for other metallic materials; those datasets can motivate new material entries and new validation cases."
+    },
+    "current": {
+      "kicker": "Current development stage",
+      "title": "Consolidating the one-dimensional model",
+      "principle": "Correct and traceable models before larger models.",
+      "body": "The present priority is methodological correctness and experimental traceability before computational scale. Work is concentrated on consolidating the 1D numerical evidence, machine parametrisation, process configuration, material-property data, and the experimental basis required before flashing/upsetting modelling, calibration and validation can advance.",
+      "methodsTitle": "Spatial methods",
+      "enginesTitle": "Calculation environments",
+      "methods": [
+        {
+          "name": "FDM",
+          "state": "implemented"
+        },
+        {
+          "name": "FEM",
+          "state": "implemented"
+        },
+        {
+          "name": "FVM",
+          "state": "fixed geometry implemented & verified"
+        }
+      ],
+      "engines": [
+        {
+          "name": "GNU Octave",
+          "state": "active sibling · broad workflow coverage"
+        },
+        {
+          "name": "C++",
+          "state": "active sibling · FDM/FEM/FVM solver paths"
+        },
+        {
+          "name": "Julia",
+          "state": "planned sibling"
+        }
+      ],
+      "pageTitle": "Current model — Multiphysics",
+      "pageDescription": "Current numerical methods, calculation environments and development scope of Multiphysics."
+    },
+    "collaborate": {
+      "kicker": "Experimental collaboration",
+      "title": "The current bottleneck is data",
+      "body": "Software development is not a prerequisite for collaboration. The immediate need is experimentally grounded information capable of constraining, calibrating and validating the models.",
+      "machineTitle": "Machine information",
+      "processTitle": "Process histories",
+      "validationTitle": "Material and validation data",
+      "groups": [
+        {
+          "title": "Machine information",
+          "items": [
+            "machine architecture",
+            "electrical characteristics",
+            "electrode or jaw geometry",
+            "motion systems",
+            "force capabilities",
+            "control strategies"
+          ]
+        },
+        {
+          "title": "Process histories",
+          "items": [
+            "current and voltage",
+            "stage timing",
+            "flashing parameters",
+            "burn-off or displacement",
+            "upset force",
+            "pre- and post-heating sequences"
+          ]
+        },
+        {
+          "title": "Material and validation data",
+          "items": [
+            "temperature-dependent properties",
+            "thermal and electrical properties",
+            "mechanical properties",
+            "metallography",
+            "hardness maps",
+            "temperature histories",
+            "mechanical-test results"
+          ]
+        }
+      ],
+      "rights": "Data ownership, redistribution rights and publication permissions are treated independently. Scientific use does not automatically imply permission to publish raw data.",
+      "credit": "Contributions may lead to formal project participation and, where the scientific contribution justifies it, co-authorship of resulting publications.",
+      "questionsKicker": "Questions already sent",
+      "questionsTitle": "Examples of targeted research questions",
+      "questionsIntro": "Researchers have already been approached with questions derived from their published work. The examples below are anonymized and illustrate the type of scientific exchange sought by the project.",
+      "questions": {
+        "thermalCycles": "Can measured welding thermal cycles be shared as numerical time–temperature series rather than only as plotted figures?",
+        "processHistories": "Can representative process schedules, stage boundaries, electrical signals, displacement or burn-off histories be made available in processed, anonymized or stage-averaged form?",
+        "validationObservables": "Which observables are most reliable for validating a reduced flash-butt-welding model when direct interface measurements are unavailable?",
+        "materialTransfer": "Which material-state variables and phase-transformation data should a reusable material library prioritize, and how should material properties be separated from process-specific calibration?"
+      },
+      "confidentialityTitle": "Confidentiality and industrial constraints",
+      "confidentialityBody": "Some relevant datasets may be owned by companies, protected by contractual confidentiality, or constitute industrially sensitive information and therefore cannot be disclosed. No researcher is expected to violate those obligations, and sharing raw proprietary data is not a prerequisite for contributing.",
+      "criticalFeedback": "When data cannot be released, researchers who choose to engage are explicitly asked for a critical technical assessment instead. Comments on questionable assumptions, missing physics, unrealistic machine or process inputs, unsuitable validation observables, or relevant literature may be sent directly to the project lead. This kind of feedback is treated as a substantive scientific contribution and is highly valued.",
+      "pageTitle": "Collaborate — Multiphysics",
+      "pageDescription": "Experimental collaboration needs and contribution paths for the Multiphysics project."
+    },
+    "footer": {
+      "statement": "This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material."
+    },
+    "noScript": "The project overview is available without JavaScript. Interactive palette and language selection are disabled."
+  },
+  "accessibility": {
+    "skipToContent": "Skip to content",
+    "primaryNavigation": "Primary navigation",
+    "homeLink": "Multiphysics home",
+    "breadcrumb": "Breadcrumb"
+  }
+}

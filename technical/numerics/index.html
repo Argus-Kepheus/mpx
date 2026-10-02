@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" data-palette="blueprint" data-title-key="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Numerical formulations documented by the Multiphysics project.">
+  <meta name="theme-color" content="#17365d">
+  <title>Numerical formulation — Multiphysics</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/mathjax-config.js"></script>
+  <script defer src="/assets/vendor/mathjax/tex-svg-full.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
+  <header id="top" class="site-header">
+  <a class="brand" href="/" aria-label="Multiphysics home" data-i18n="accessibility.homeLink" data-i18n-attr="aria-label"><span data-i18n="home.hero.title">Multiphysics</span></a>
+  <nav class="site-nav site-nav-desktop" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+    <a href="/" data-i18n="nav.home">Home</a>
+    <a href="/vision/" data-i18n="nav.vision">Vision</a>
+    <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+    <a href="/current-model/" data-i18n="nav.current">Current model</a>
+    <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+  </nav>
+  <details class="site-nav-mobile">
+    <summary data-i18n="nav.menu">Sections</summary>
+    <nav class="site-nav-mobile-list" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/vision/" data-i18n="nav.vision">Vision</a>
+      <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+      <a href="/current-model/" data-i18n="nav.current">Current model</a>
+      <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+    </nav>
+  </details>
+  <div class="site-controls">
+    <label class="locale-control">
+      <span class="sr-only" data-i18n="locale.label">Language</span>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
+        <option value="en">English</option>
+        <option value="pt-BR">Português</option>
+        <option value="zh-CN">中文</option>
+      </select>
+    </label>
+    <button
+      class="palette-toggle"
+      id="palette-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Toggle palette"
+      title="Toggle palette"
+      data-i18n="palettes.toggle"
+      data-i18n-attr="aria-label,title">
+      <svg class="palette-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+      </svg>
+      <span class="sr-only" data-i18n="palettes.toggle">Toggle palette</span>
+    </button>
+  </div>
+</header>
+
+  <main id="main" class="technical-shell">
+<nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></span></li></ol></nav>
+    <header class="technical-hero">
+      <p class="kicker">Technical · numerical formulation</p>
+      <h1>Spatial methods</h1>
+      <p class="technical-lede">Numerical methods are documented independently from programming language and calculation engine.</p>
+      
+    </header>
+    <div class="technical-card-grid technical-card-grid-wide"><a class="technical-card available" href="/technical/numerics/fdm-1d/">
+    <span class="status-chip" data-status="technical preview">technical preview</span>
+    <h2>FDM — 1D</h2>
+    <p>Current cell-centred finite-difference formulation, including physical closures, conservative flux construction, time-integration relationship and verification evidence.</p>
+  </a><a class="technical-card available" href="/technical/numerics/fem-1d/">
+    <span class="status-chip" data-status="technical preview">technical preview</span>
+    <h2>FEM — 1D</h2>
+    <p>Current cell-centred P1 Galerkin formulation, including weak form, two-point Gauss assembly, row-sum mass lumping, half-cell completion and shared physical flux closures.</p>
+  </a><a class="technical-card available" href="#fvm-1d">
+    <span class="status-chip" data-status="implemented / limited scope">implemented / limited scope</span>
+    <h2>FVM — 1D</h2>
+    <p>The 1D finite-volume solver has an implemented-and-verified fixed-geometry/current-heating path. Geometry-changing welding stages remain unpromoted and retain a separate experimental-data boundary.</p>
+  </a></div>
+    <section class="numerical-dossier" aria-labelledby="numerical-dossier-title">
+      <div class="dossier-heading">
+        <p class="kicker">Numerical model at a glance</p>
+        <h2 id="numerical-dossier-title">The equations behind the method pages</h2>
+        <p>The full FDM and FEM pages carry the derivation, closures, assembly rules, stability references and verification boundaries. This compact layer makes the governing and semi-discrete objects visible before the reader enters the long-form documentation.</p>
+      </div>
+      <div class="equation-grid">
+        <article class="equation-card">
+          <span class="status-chip">shared physical model</span>
+          <h3>Flux-form thermal balance</h3>
+          <div class="math-display">\[
+            \rho_\xi(T_\xi)c_{p,\xi}(T_\xi)\frac{\partial T_\xi}{\partial t}
+            =\frac{\partial}{\partial x}\left(\kappa_\xi(T_\xi)\frac{\partial T_\xi}{\partial x}\right)+q'''_{v,\xi}
+          \]</div>
+          <p>Material laws, sources and physical boundary/interface conditions are resolved before a spatial method is applied.</p>
+        </article>
+        <article class="equation-card">
+          <span class="status-chip">FDM · cell-centred</span>
+          <h3>Conservative cell balance</h3>
+          <div class="math-display">\[
+            \beta_i(T_i)\frac{dT_i}{dt}
+            =\frac{\Phi_{i+1/2}-\Phi_{i-1/2}}{\Delta x_i}+Q_i(T,t)
+          \]</div>
+          <p>A shared face-flux sequence makes the discrete conduction contribution auditable and keeps interface/boundary fluxes explicit.</p>
+        </article>
+        <article class="equation-card">
+          <span class="status-chip">FEM · P1 Galerkin</span>
+          <h3>Lumped semi-discrete system</h3>
+          <div class="math-display">\[
+            \mathbf M_L(\mathbf T)\dot{\mathbf T}
+            =\mathbf f_v(\mathbf T,t)-\mathbf K_\kappa(\mathbf T)\mathbf T
+            +\mathbf b_{\partial\Omega}(\mathbf T)+\mathbf f_{\Gamma}(\mathbf T,t)
+          \]</div>
+          <p>Two-point quadrature, row-sum mass lumping and explicit half-cell completion expose how the cell-centred support closes the physical domain.</p>
+        </article>
+        <article class="equation-card">
+          <span class="status-chip">temporal contract</span>
+          <h3>Explicit state advance</h3>
+          <div class="math-display">\[
+            \mathbf T^{n+1}=\mathbf T^n+\Delta t\left(\frac{3}{2}\mathbf F^n-\frac{1}{2}\mathbf F^{n-1}\right)
+          \]</div>
+          <p>Adams–Bashforth 2 is the current principal configuration; Forward Euler supplies the compatible starter and restart path.</p>
+        </article>
+      </div>
+      <p class="technical-note">Time integration remains a separate contract. The current principal explicit configuration is AB2 with a Forward-Euler starter/restart path; it is not part of the definition of FDM or FEM.</p>
+      <aside id="fvm-1d" class="contract-panel technical-anchor-target">
+        <h3>FVM current scope</h3>
+        <p>The 1D finite-volume path is implemented and verified for fixed-geometry/current-heating work. Geometry-changing welding stages remain a separate, unpromoted capability boundary and are not presented as experimentally validated.</p>
+      </aside>
+    </section>
+  </main>
+  <footer class="site-footer">
+  <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
+  <a
+    id="back-to-top"
+    class="back-to-top"
+    href="#top"
+    data-i18n="nav.backToTop"
+    aria-label="Back to top"
+    data-i18n-attr="aria-label"
+    data-visible="false"
+    tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
+</footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

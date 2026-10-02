@@ -1,0 +1,266 @@
+{
+  "site": {
+    "title": "Multiphysics — Simulação aberta de processos acoplados",
+    "description": "Uma plataforma de pesquisa aberta e modular para a modelagem computacional de processos físicos acoplados.",
+    "projectLabel": "Um projeto Argus Kepheus"
+  },
+  "nav": {
+    "menu": "Seções",
+    "home": "Início",
+    "vision": "Visão",
+    "architecture": "Arquitetura",
+    "current": "Modelo atual",
+    "collaborate": "Colaborar",
+    "technical": "Técnico",
+    "backToTop": "Voltar ao topo"
+  },
+  "locale": {
+    "label": "Idioma"
+  },
+  "palettes": {
+    "label": "Paleta",
+    "blueprint": "Blueprint",
+    "blueprintDark": "Blueprint escuro",
+    "toggle": "Alternar paleta"
+  },
+  "technical": {
+    "labels": {
+      "technical": "Técnico",
+      "numericalFormulation": "Formulação numérica",
+      "implementations": "Implementações",
+      "verification": "Verificação",
+      "noSections": "Esta página não possui índice de seções.",
+      "scope": "Escopo",
+      "method": "Método",
+      "engine": "Ambiente de cálculo",
+      "implementationStatus": "Estado da implementação",
+      "operator": "Operador",
+      "source": "fonte",
+      "reviewed": "revisado em",
+      "provenance": "Proveniência e referências de fonte",
+      "sourceRevision": "Revisão da fonte",
+      "operatorRevision": "Revisão do operador",
+      "equationNotation": "Notação das equações",
+      "workpieceR": "peça R",
+      "workpieceS": "peça S",
+      "interface": "interface de soldagem",
+      "colourSupplement": "A cor é suplementar; símbolos e rótulos permanecem autoritativos.",
+      "onThisPage": "Nesta página"
+    }
+  },
+  "home": {
+    "hero": {
+      "kicker": "Pesquisa computacional aberta",
+      "title": "Multiphysics",
+      "subtitle": "Simulação aberta e modular de processos físicos acoplados",
+      "lede": "Um projeto de pesquisa voltado ao desenvolvimento de um ambiente computacional livre e aberto, no qual materiais, máquinas, configurações de processo, modelos físicos, métodos numéricos, ambientes de cálculo e ferramentas de pós-processamento possam evoluir de forma independente e ser recombinados conforme necessário.",
+      "status": "Processo acadêmico de referência atual: soldagem de topo por centelhamento. Implementação atual: uma plataforma de pesquisa em evolução, não um produto industrial concluído.",
+      "primaryCta": "Explorar a documentação técnica",
+      "secondaryCta": "Contribuir com dados experimentais",
+      "diagram": {
+        "caption": "Do processo de referência à arquitetura de software",
+        "ariaLabel": "Materiais, máquinas e processo alimentam a física e os métodos numéricos, seguidos pelos ambientes de cálculo e pelo pós-processamento.",
+        "materials": "materiais",
+        "machines": "máquinas",
+        "process": "processo",
+        "physicsNumerics": "física + métodos numéricos",
+        "enginesPostProcessing": "ambientes de cálculo + pós-processamento"
+      }
+    },
+    "vision": {
+      "kicker": "Visão de longo prazo",
+      "title": "Uma plataforma FOSS reutilizável para simulação de processos",
+      "body": "Multiphysics investiga como desenvolver um ambiente integrado de simulação de processos com arquitetura FOSS, acesso científico aberto e separação explícita entre modelos físicos, métodos numéricos e implementações de software. O software é o artefato de engenharia de longo prazo; os problemas de modelagem, numéricos, experimentais e de validação encontrados no caminho devem gerar contribuições científicas e publicações independentes.",
+      "terminology": {
+        "title": "Nota terminológica",
+        "foss": {
+          "term": "FOSS",
+          "definition": "Software Livre e de Código Aberto: software distribuído sob licenças que concedem liberdades para usar, estudar, modificar e redistribuir o software. Aqui, “livre” refere-se principalmente a essas liberdades, não necessariamente a preço zero."
+        },
+        "simulation": {
+          "term": "Simulação",
+          "definition": "Uma representação computacional de comportamentos físicos selecionados sob modelos, hipóteses e aproximações numéricas explícitas; não é uma afirmação de reprodução exata do processo real."
+        },
+        "access": {
+          "term": "Acesso aberto vs. uso livre",
+          "definition": "Acesso aberto significa que o material científico pode ser lido ou consultado publicamente. Isso, por si só, não concede reutilização irrestrita; a reutilização de software, dados, textos ou figuras depende da licença e dos direitos aplicáveis."
+        },
+        "platform": {
+          "term": "Plataforma",
+          "definition": "Um ambiente modular de pesquisa e software no qual modelos, métodos numéricos, ambientes de cálculo, dados e fluxos de trabalho podem ser combinados. Não significa uma plataforma comercial de intermediação nem necessariamente um serviço hospedado on-line."
+        }
+      },
+      "pageTitle": "Visão — Multiphysics",
+      "pageDescription": "Visão de longo prazo da plataforma de pesquisa aberta e modular Multiphysics."
+    },
+    "reference": {
+      "kicker": "Processo acadêmico de referência atual",
+      "title": "Por que a soldagem de topo por centelhamento?",
+      "body": "A soldagem de topo por centelhamento é o primeiro processo usado para desenvolver e testar os limites da arquitetura, não o escopo final da plataforma. Ela combina contato elétrico, aquecimento resistivo, centelhamento, transferência de calor, fronteiras móveis, perda de material, deformação mecânica, recalque e evolução metalúrgica em uma única família de processos.",
+      "note": "A escolha também se apoia em pesquisas anteriores de 2018, oferecendo um ponto de partida científico estabelecido. Os colaboradores inicialmente contatados foram procurados porque suas publicações e produção acadêmica se relacionam diretamente às questões científicas tratadas aqui. À medida que o projeto evoluir, outros pesquisadores poderão ser convidados pelo mesmo critério, tomando produção acadêmica relevante como ponto de partida para uma colaboração científica focada e assíncrona. Os componentes desenvolvidos aqui devem ser reutilizáveis ou adaptáveis quando as hipóteses que os regem permanecerem válidas."
+    },
+    "architecture": {
+      "kicker": "Modular por projeto",
+      "title": "Eixos científicos e computacionais independentes",
+      "intro": "A arquitetura mantém deliberadamente distintos a definição do problema, a modelagem física, a discretização numérica, os mecanismos de cálculo e o pós-processamento.",
+      "layers": [
+        {
+          "title": "Definir o problema",
+          "items": [
+            "Materiais",
+            "Máquinas",
+            "Configurações de soldagem",
+            "Métodos de simulação"
+          ]
+        },
+        {
+          "title": "Montar o modelo",
+          "items": [
+            "Geometria",
+            "Física",
+            "Etapas do processo",
+            "Acoplamentos"
+          ]
+        },
+        {
+          "title": "Resolver",
+          "items": [
+            "FDM",
+            "FEM",
+            "FVM — geometria fixa verificada; geometria variável não promovida",
+            "Integração temporal",
+            "GNU Octave",
+            "C++",
+            "Julia — planejado"
+          ]
+        },
+        {
+          "title": "Interpretar",
+          "items": [
+            "Resultados",
+            "Pós-processamento — estágio inicial",
+            "Análise",
+            "Visualização",
+            "Validação",
+            "Resultados científicos"
+          ]
+        }
+      ],
+      "pageTitle": "Arquitetura — Multiphysics",
+      "pageDescription": "Arquitetura científica e computacional da plataforma de pesquisa Multiphysics."
+    },
+    "materials": {
+      "kicker": "Materiais são extensíveis",
+      "title": "DP600 é o conjunto de dados atual, não uma restrição da plataforma",
+      "body": "O banco de materiais atual está sendo montado em torno do aço DP600. Colaboradores podem fornecer dados experimentais suficientemente documentados para outros materiais metálicos; esses conjuntos podem motivar novas entradas de materiais e novos casos de validação."
+    },
+    "current": {
+      "kicker": "Etapa atual de desenvolvimento",
+      "title": "Consolidando o modelo unidimensional",
+      "principle": "Modelos corretos e rastreáveis antes de modelos maiores.",
+      "body": "A prioridade atual é a correção metodológica e a rastreabilidade experimental antes da escala computacional. O trabalho concentra-se na consolidação das evidências numéricas 1D, parametrização de máquinas, configuração de processos, dados de propriedades dos materiais e na base experimental necessária antes que a modelagem de faiscamento/recalque, a calibração e a validação possam avançar.",
+      "methodsTitle": "Métodos espaciais",
+      "enginesTitle": "Ambientes de cálculo",
+      "methods": [
+        {
+          "name": "FDM",
+          "state": "implementado"
+        },
+        {
+          "name": "FEM",
+          "state": "implementado"
+        },
+        {
+          "name": "FVM",
+          "state": "geometria fixa implementada e verificada"
+        }
+      ],
+      "engines": [
+        {
+          "name": "GNU Octave",
+          "state": "implementação-irmã ativa · ampla cobertura de fluxos de trabalho"
+        },
+        {
+          "name": "C++",
+          "state": "implementação-irmã ativa · solvers FDM/FEM/FVM"
+        },
+        {
+          "name": "Julia",
+          "state": "implementação-irmã planejada"
+        }
+      ],
+      "pageTitle": "Modelo atual — Multiphysics",
+      "pageDescription": "Métodos numéricos, ambientes de cálculo e escopo atual de desenvolvimento do Multiphysics."
+    },
+    "collaborate": {
+      "kicker": "Colaboração experimental",
+      "title": "O gargalo atual são os dados",
+      "body": "O desenvolvimento de software não é pré-requisito para colaborar. A necessidade imediata é de informação fundamentada experimentalmente, capaz de restringir, calibrar e validar os modelos.",
+      "machineTitle": "Informações da máquina",
+      "processTitle": "Históricos do processo",
+      "validationTitle": "Dados de material e validação",
+      "groups": [
+        {
+          "title": "Informações da máquina",
+          "items": [
+            "arquitetura da máquina",
+            "características elétricas",
+            "geometria de eletrodos ou mordentes",
+            "sistemas de movimento",
+            "capacidades de força",
+            "estratégias de controle"
+          ]
+        },
+        {
+          "title": "Históricos do processo",
+          "items": [
+            "corrente e tensão",
+            "temporização das etapas",
+            "parâmetros de faiscamento",
+            "perda de comprimento ou deslocamento",
+            "força de recalque",
+            "sequências de pré e pós-aquecimento"
+          ]
+        },
+        {
+          "title": "Dados de material e validação",
+          "items": [
+            "propriedades dependentes da temperatura",
+            "propriedades térmicas e elétricas",
+            "propriedades mecânicas",
+            "metalografia",
+            "mapas de dureza",
+            "históricos de temperatura",
+            "resultados de ensaios mecânicos"
+          ]
+        }
+      ],
+      "rights": "Propriedade dos dados, direitos de redistribuição e permissões de publicação são tratados de forma independente. Uso científico não implica automaticamente permissão para publicar dados brutos.",
+      "credit": "Contribuições podem levar à participação formal no projeto e, quando a contribuição científica justificar, à coautoria das publicações resultantes.",
+      "questionsKicker": "Perguntas já encaminhadas",
+      "questionsTitle": "Exemplos de perguntas de pesquisa direcionadas",
+      "questionsIntro": "Pesquisadores já foram contatados com perguntas derivadas de suas publicações. Os exemplos abaixo são anonimizados e ilustram o tipo de intercâmbio científico buscado pelo projeto.",
+      "questions": {
+        "thermalCycles": "Os ciclos térmicos medidos durante a soldagem podem ser compartilhados como séries numéricas tempo–temperatura, em vez de apenas como figuras?",
+        "processHistories": "Cronogramas representativos do processo, limites entre etapas, sinais elétricos, históricos de deslocamento ou perda de comprimento (burn-off) podem ser disponibilizados de forma processada, anonimizada ou agregada por etapa?",
+        "validationObservables": "Quais observáveis são mais confiáveis para validar um modelo reduzido de soldagem por centelhamento quando medições diretas na interface não estão disponíveis?",
+        "materialTransfer": "Quais variáveis de estado do material e dados de transformação de fase devem ter prioridade em uma biblioteca de materiais reutilizável, e como separar propriedades do material de calibrações específicas do processo?"
+      },
+      "confidentialityTitle": "Confidencialidade e restrições industriais",
+      "confidentialityBody": "Alguns conjuntos de dados relevantes podem pertencer a empresas, estar protegidos por confidencialidade contratual ou constituir informação industrialmente sensível e, por isso, não poder ser divulgados. Nenhum pesquisador deve violar essas obrigações, e o compartilhamento de dados proprietários brutos não é pré-requisito para contribuir.",
+      "criticalFeedback": "Quando os dados não puderem ser divulgados, solicita-se explicitamente aos pesquisadores que decidam participar uma avaliação técnica crítica. Comentários sobre hipóteses questionáveis, fenômenos físicos ausentes, entradas de máquina ou processo pouco realistas, observáveis de validação inadequados ou literatura relevante podem ser encaminhados diretamente ao responsável pelo projeto. Esse tipo de feedback é tratado como contribuição científica substantiva e é altamente valorizado.",
+      "pageTitle": "Colaborar — Multiphysics",
+      "pageDescription": "Necessidades de colaboração experimental e formas de contribuição para o projeto Multiphysics."
+    },
+    "footer": {
+      "statement": "Este website apresenta o estado científico publicável do projeto Multiphysics. Ele não expõe correspondência privada, perfis internos de pesquisadores ou material colaborativo não publicado."
+    },
+    "noScript": "A visão geral do projeto está disponível sem JavaScript. A alternância interativa de paleta e idioma está desabilitada."
+  },
+  "accessibility": {
+    "skipToContent": "Pular para o conteúdo",
+    "primaryNavigation": "Navegação principal",
+    "homeLink": "Página inicial do Multiphysics",
+    "breadcrumb": "Trilha de navegação"
+  }
+}

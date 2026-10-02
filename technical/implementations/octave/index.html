@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en" data-palette="blueprint" data-title-key="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GNU Octave implementation — current technical documentation for the Multiphysics project.">
+  <meta name="theme-color" content="#17365d">
+  <title>GNU Octave implementation — Multiphysics</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
+  <header id="top" class="site-header">
+  <a class="brand" href="/" aria-label="Multiphysics home" data-i18n="accessibility.homeLink" data-i18n-attr="aria-label"><span data-i18n="home.hero.title">Multiphysics</span></a>
+  <nav class="site-nav site-nav-desktop" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+    <a href="/" data-i18n="nav.home">Home</a>
+    <a href="/vision/" data-i18n="nav.vision">Vision</a>
+    <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+    <a href="/current-model/" data-i18n="nav.current">Current model</a>
+    <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+  </nav>
+  <details class="site-nav-mobile">
+    <summary data-i18n="nav.menu">Sections</summary>
+    <nav class="site-nav-mobile-list" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/vision/" data-i18n="nav.vision">Vision</a>
+      <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+      <a href="/current-model/" data-i18n="nav.current">Current model</a>
+      <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+    </nav>
+  </details>
+  <div class="site-controls">
+    <label class="locale-control">
+      <span class="sr-only" data-i18n="locale.label">Language</span>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
+        <option value="en">English</option>
+        <option value="pt-BR">Português</option>
+        <option value="zh-CN">中文</option>
+      </select>
+    </label>
+    <button
+      class="palette-toggle"
+      id="palette-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Toggle palette"
+      title="Toggle palette"
+      data-i18n="palettes.toggle"
+      data-i18n-attr="aria-label,title">
+      <svg class="palette-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+      </svg>
+      <span class="sr-only" data-i18n="palettes.toggle">Toggle palette</span>
+    </button>
+  </div>
+</header>
+
+  <main id="main" class="technical-shell technical-article-shell">
+<nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementations</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page">GNU Octave</span></li></ol></nav>
+    <header class="article-header">
+      <p class="kicker">Implementation · GNU Octave</p>
+      <h1>GNU Octave implementation</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview">technical preview</span>
+        <span><span data-i18n="technical.labels.source">source</span> 967e466af56c</span>
+        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-10-02</span>
+      </div>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.engine">Engine</dt><dd>GNU Octave</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Implementation status</dt><dd>active sibling / broad workflow coverage</dd></div></dl>
+    </header>
+
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">Provenance and source references</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.sourceRevision">Source revision</dt><dd><code>967e466af56ccc5fc41c939464096e5d72c19c37</code></dd></div><div><dt data-i18n="technical.labels.operatorRevision">Operator revision</dt><dd><code>not recorded</code></dd></div><div><dt>Curated authority records</dt><dd>4</dd></div><div><dt>Curated implementation records</dt><dd>8</dd></div><div><dt>Curated verification records</dt><dd>5</dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">On this page</summary>
+        <ol><li><a href="#1-role-in-the-project">1. Role in the project</a></li><li><a href="#2-canonical-entry-points">2. Canonical entry points</a></li><li><a href="#3-solver-registry">3. Solver registry</a></li><li><a href="#4-solver-adapters">4. Solver adapters</a></li><li><a href="#5-process-orchestration">5. Process orchestration</a></li><li><a href="#6-spatial-method-packages">6. Spatial method packages</a></li><li><a href="#7-shared-numerical-services">7. Shared numerical services</a></li><li><a href="#8-physical-and-numerical-ownership">8. Physical and numerical ownership</a></li><li><a href="#9-verification-surfaces">9. Verification surfaces</a></li><li><a href="#10-relationship-to-the-c-and-julia-engines">10. Relationship to the C++ and Julia engines</a></li><li><a href="#11-current-limitations-and-publication-boundary">11. Current limitations and publication boundary</a></li></ol>
+      </details>
+      <article class="technical-prose">
+        <h1 id="gnu-octave-implementation">GNU Octave implementation</h1>
+<blockquote><p>GNU Octave is one of the active sibling calculation engines of the Multiphysics project. It currently has the broadest process-workflow coverage, but this does not make it the scientific reference or permanent primary engine. This page describes software architecture and execution flow; it does not redefine the FDM, FEM or FVM numerical formulations.</p></blockquote>
+<h2 id="1-role-in-the-project">1. Role in the project</h2>
+<p>The Octave codebase is the original calculation environment and remains an active sibling of the C++ engine. Numerical method identity remains independent from engine identity: FDM, FEM and FVM are spatial methods, while GNU Octave is one implementation environment capable of hosting those methods.</p>
+<p>Octave is retained deliberately because its MATLAB-compatible language and high-level matrix/vector operations make numerical prototyping, array-oriented data manipulation, diagnostics and comparison with MATLAB-oriented scientific workflows straightforward. These are engine-specific advantages, not grounds for treating Octave results as scientific truth.</p>
+<p>The project remains in <code>research-development</code>. Octave currently has the broadest end-to-end process-workflow coverage, while the C++ sibling has a narrower resolved-case surface. Coverage and architectural status are separate: both engines are active. FDM and FEM are implemented. FVM is also implemented for the fixed-geometry/current-heating scope, and that target is implemented-and-verified under the R2 attestation. Broader geometry-changing welding stages remain unpromoted, so the package-level capability is still limited in scope; this is a capability boundary, not an unfinished fixed-geometry solver.</p>
+<h2 id="2-canonical-entry-points">2. Canonical entry points</h2>
+<p>New solver execution is expected to enter through the method-neutral API:</p>
+<pre><code class="language-octave">ctx = multiphysics.api.create_context(&#39;fdm&#39;, case_id);
+[T, T_sample, memory] = multiphysics.api.run_stage( ...
+    ctx, &#39;current_heating&#39;, profile, 1, 1, stage_input, nsteps);</code></pre>
+<p><code>create_context()</code> combines four things without collapsing their meanings:</p>
+<ul><li>a selected spatial method;</li><li>a physical/research case loaded from the project configuration layer;</li><li>a <code>RunSpecification</code> carrying numerical execution choices such as target</li></ul>
+<p>spacing and time step;</p>
+<ul><li>a solver factory obtained from the central solver registry.</li></ul>
+<p>The resulting context stores the method, resolved case, component metadata, run specification, solver adapter and the registry entry used to construct it.</p>
+<h2 id="3-solver-registry">3. Solver registry</h2>
+<p><code>+multiphysics/+api/solver_registry.m</code> is the central registry for spatial solver plugins. A method-specific entry declares whether the solver is implemented, its factory, contract version and advertised capabilities.</p>
+<p>The architectural intention is that adding a new spatial method requires its own solver package and registry entry, rather than adding method branches to the shared physics or process engine.</p>
+<p>At the current reviewed revision, the registry exposes:</p>
+<pre><code class="language-text">FDM  implemented   independent spatial solver
+FEM  implemented   independent spatial solver
+FVM  implemented   fixed geometry/current heating verified; geometry-changing unpromoted</code></pre>
+<p>The public website therefore describes FVM as implemented for a verified fixed-geometry scope while keeping geometry-changing welding capability explicitly unpromoted.</p>
+<h2 id="4-solver-adapters">4. Solver adapters</h2>
+<p>Each active spatial method supplies a small adapter with a shared shape:</p>
+<pre><code class="language-text">solver.id
+solver.operator_id
+solver.operator_revision
+solver.case
+solver.run_spec
+solver.config
+solver.step_fn</code></pre>
+<p>For example, the FDM adapter binds the current FDM runtime constants and <code>fdm_core_step</code>, while the FEM adapter binds its own runtime constants and <code>fem_core_step</code>. The shared process engine depends on the adapter contract, not on a hard-coded FDM or FEM implementation.</p>
+<p>This is the key separation:</p>
+<pre><code class="language-text">physical case + run specification
+             |
+             v
+       create_context()
+             |
+             v
+       solver registry
+             |
+       +-----+-----+
+       |           |
+      FDM         FEM        ...
+       |           |
+       +-----+-----+
+             |
+             v
+      shared process engine</code></pre>
+<h2 id="5-process-orchestration">5. Process orchestration</h2>
+<p><code>multiphysics.api.run_stage()</code> delegates to the solver-independent <code>run_stage_engine()</code>. The shared engine owns process chronology, state chaining, remapping/event handling, sampling and stage-handler dispatch. A spatial solver supplies the spatial step through <code>solver.step_fn</code>.</p>
+<p>The process controller therefore does not duplicate a complete sequence for FDM and another for FEM. Stage bodies live under the shared process namespace, and stage dispatch is itself registry-based.</p>
+<p>For schedule-oriented studies, <code>run_process()</code> reads the process schedule from the case and chains the stage outputs and private integrator memory through the selected solver.</p>
+<h2 id="6-spatial-method-packages">6. Spatial method packages</h2>
+<p>Method-specific Octave code is organised under:</p>
+<pre><code class="language-text">+multiphysics/+solvers/+fdm/
++multiphysics/+solvers/+fem/
++multiphysics/+solvers/+fvm/</code></pre>
+<p>FDM and FEM currently separate method-specific concerns into areas such as:</p>
+<pre><code class="language-text">configuration/
+numerics/
+runtime/
+stages/       historical compatibility surface
+variants/     historical compatibility surface</code></pre>
+<p>The <code>stages/</code>, <code>variants/</code> and <code>main.m</code> compatibility APIs are retained for transition/regression purposes. Current project documentation directs new code toward <code>create_context()</code> + <code>run_stage()</code> instead of those historical wrappers.</p>
+<h2 id="7-shared-numerical-services">7. Shared numerical services</h2>
+<p>Not every numerical operation belongs inside a spatial-method tree. Shared services live under <code>+multiphysics/+numerics/</code>, including:</p>
+<ul><li>boundary/interface numerical support;</li><li>interpolation;</li><li>meshes;</li><li>remapping;</li><li>temporal integration.</li></ul>
+<p>The time integrator is intentionally method-neutral. After a spatial solver constructs a semi-discrete right-hand side, <code>multiphysics.numerics.time.advance()</code> selects the configured temporal algorithm. The current implementation supports primary Forward Euler and Adams--Bashforth 2 with its configured starter/restart policy.</p>
+<p>Private integrator memory remains a numerical object distinct from the physical state and from the scientific process history.</p>
+<h2 id="8-physical-and-numerical-ownership">8. Physical and numerical ownership</h2>
+<p>The Octave solver trees do not own the universal definitions of materials, physical interface laws or stage semantics. Those responsibilities are shared project-level concepts and are resolved upstream or through common modules.</p>
+<p>Consequently, changing from FDM to FEM should not redefine:</p>
+<ul><li>the identity of R and S workpiece roles;</li><li>the physical thermal-contact law;</li><li>the physical distant-end condition;</li><li>the material dataset identity;</li><li>the process schedule itself.</li></ul>
+<p>Only the appropriate numerical representation changes.</p>
+<h2 id="9-verification-surfaces">9. Verification surfaces</h2>
+<p>The Octave implementation has separate verification surfaces for architecture and for individual spatial methods. Examples include solver-registry tests, canonical-API versus historical-wrapper equivalence, process-sequence tests, FDM conservation/refinement tests and FEM assembly/stability tests.</p>
+<p><code>test_api_wrapper_equivalence.m</code> specifically checks that direct use of the canonical context/stage API reproduces the historical wrapper outputs for the covered FDM and FEM calls, including the carried AB2 history objects.</p>
+<p>These tests are implementation evidence. Their existence must not be interpreted as experimental validation of the underlying physical model.</p>
+<h2 id="10-relationship-to-the-c-and-julia-engines">10. Relationship to the C++ and Julia engines</h2>
+<p>GNU Octave and C++ are active sibling engines. The Octave implementation does not call the C++ engine, and the C++ engine does not call Octave. Cross-language comparison is intentionally performed above both engines through resolved-case fixtures and neutral comparison tooling.</p>
+<p>This prevents one implementation from becoming an opaque backend of the other and makes cross-engine agreement useful as independent implementation evidence. Julia is planned as a third sibling rather than as a replacement. Its eventual role is to reproduce selected formulations independently and to investigate language/runtime trade-offs under equivalent numerical and benchmark contracts.</p>
+<h2 id="11-current-limitations-and-publication-boundary">11. Current limitations and publication boundary</h2>
+<p>This page documents architecture visible in the reviewed private source revision. It does not expose private cases, unpublished datasets or restricted collaboration material. It also does not claim that every registered method has the same stage coverage or verification maturity.</p>
+<p>The canonical private repository remains the implementation authority. MPX is a curated public technical view of that state rather than an independently edited copy of the solver code.</p>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+  <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
+  <a
+    id="back-to-top"
+    class="back-to-top"
+    href="#top"
+    data-i18n="nav.backToTop"
+    aria-label="Back to top"
+    data-i18n-attr="aria-label"
+    data-visible="false"
+    tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
+</footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

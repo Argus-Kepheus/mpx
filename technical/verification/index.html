@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en" data-palette="blueprint" data-title-key="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Verification framework and evidence boundaries for the Multiphysics project.">
+  <meta name="theme-color" content="#17365d">
+  <title>Verification — Multiphysics</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
+  <header id="top" class="site-header">
+  <a class="brand" href="/" aria-label="Multiphysics home" data-i18n="accessibility.homeLink" data-i18n-attr="aria-label"><span data-i18n="home.hero.title">Multiphysics</span></a>
+  <nav class="site-nav site-nav-desktop" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+    <a href="/" data-i18n="nav.home">Home</a>
+    <a href="/vision/" data-i18n="nav.vision">Vision</a>
+    <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+    <a href="/current-model/" data-i18n="nav.current">Current model</a>
+    <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+  </nav>
+  <details class="site-nav-mobile">
+    <summary data-i18n="nav.menu">Sections</summary>
+    <nav class="site-nav-mobile-list" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/vision/" data-i18n="nav.vision">Vision</a>
+      <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+      <a href="/current-model/" data-i18n="nav.current">Current model</a>
+      <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+    </nav>
+  </details>
+  <div class="site-controls">
+    <label class="locale-control">
+      <span class="sr-only" data-i18n="locale.label">Language</span>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
+        <option value="en">English</option>
+        <option value="pt-BR">Português</option>
+        <option value="zh-CN">中文</option>
+      </select>
+    </label>
+    <button
+      class="palette-toggle"
+      id="palette-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Toggle palette"
+      title="Toggle palette"
+      data-i18n="palettes.toggle"
+      data-i18n-attr="aria-label,title">
+      <svg class="palette-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+      </svg>
+      <span class="sr-only" data-i18n="palettes.toggle">Toggle palette</span>
+    </button>
+  </div>
+</header>
+
+  <main id="main" class="technical-shell">
+<nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page"><span data-i18n="technical.labels.verification">Verification</span></span></li></ol></nav>
+    <header class="technical-hero">
+      <p class="kicker">Technical · verification</p>
+      <h1>Evidence and validation boundaries</h1>
+      <p class="technical-lede">Verification is organised as a chain of complementary evidence rather than a single solver-to-solver agreement test.</p>
+      <p class="technical-note">Numerical verification, cross-method comparison, cross-engine parity, physical calibration and experimental validation answer different questions and are published with different evidentiary requirements.</p>
+    </header>
+    <div class="technical-card-grid technical-card-grid-wide"><a class="technical-card available" href="/technical/verification/framework/">
+    <span class="status-chip" data-status="technical preview">technical preview</span>
+    <h2>Verification framework</h2>
+    <p>The current evidence ladder, active FDM/FEM checks, controlled FDM/FEM/FVM studies, cross-engine boundaries and publication rules for validation claims.</p>
+  </a><a class="technical-card available" href="/technical/verification/framework/#evidence-layers">
+    <span class="status-chip" data-status="active / consolidating">active / consolidating</span>
+    <h2>Numerical verification</h2>
+    <p>Analytical/reference problems, conservation, stability and refinement checks exist across the source tree. The method-independent manufactured-solution layer is still being consolidated.</p>
+  </a><a class="technical-card available" href="/technical/verification/framework/#cross-method-and-cross-engine-questions-are-different">
+    <span class="status-chip" data-status="active">active</span>
+    <h2>Cross-engine verification</h2>
+    <p>Active GNU Octave and C++ sibling engines consume common resolved cases through an explicit exchange contract. Current tolerances are verification gates, not publication performance benchmarks.</p>
+  </a><a class="technical-card available" href="/technical/verification/framework/#physical-calibration-and-experimental-validation">
+    <span class="status-chip" data-status="future evidence">future evidence</span>
+    <h2>Experimental validation</h2>
+    <p>Calibration and independent validation require traceable real-process observables, sensitivity/identifiability work, uncertainty treatment and an independent validation case.</p>
+  </a></div>
+    
+  </main>
+  <footer class="site-footer">
+  <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
+  <a
+    id="back-to-top"
+    class="back-to-top"
+    href="#top"
+    data-i18n="nav.backToTop"
+    aria-label="Back to top"
+    data-i18n-attr="aria-label"
+    data-visible="false"
+    tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
+</footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

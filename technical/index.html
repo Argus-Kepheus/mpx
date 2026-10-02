@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en" data-palette="blueprint" data-title-key="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Technical documentation for the Multiphysics numerical and computational framework.">
+  <meta name="theme-color" content="#17365d">
+  <title>Technical — Multiphysics</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
+  <header id="top" class="site-header">
+  <a class="brand" href="/" aria-label="Multiphysics home" data-i18n="accessibility.homeLink" data-i18n-attr="aria-label"><span data-i18n="home.hero.title">Multiphysics</span></a>
+  <nav class="site-nav site-nav-desktop" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+    <a href="/" data-i18n="nav.home">Home</a>
+    <a href="/vision/" data-i18n="nav.vision">Vision</a>
+    <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+    <a href="/current-model/" data-i18n="nav.current">Current model</a>
+    <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+  </nav>
+  <details class="site-nav-mobile">
+    <summary data-i18n="nav.menu">Sections</summary>
+    <nav class="site-nav-mobile-list" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/vision/" data-i18n="nav.vision">Vision</a>
+      <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+      <a href="/current-model/" data-i18n="nav.current">Current model</a>
+      <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+    </nav>
+  </details>
+  <div class="site-controls">
+    <label class="locale-control">
+      <span class="sr-only" data-i18n="locale.label">Language</span>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
+        <option value="en">English</option>
+        <option value="pt-BR">Português</option>
+        <option value="zh-CN">中文</option>
+      </select>
+    </label>
+    <button
+      class="palette-toggle"
+      id="palette-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Toggle palette"
+      title="Toggle palette"
+      data-i18n="palettes.toggle"
+      data-i18n-attr="aria-label,title">
+      <svg class="palette-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+      </svg>
+      <span class="sr-only" data-i18n="palettes.toggle">Toggle palette</span>
+    </button>
+  </div>
+</header>
+
+  <main id="main" class="technical-shell">
+    <header class="technical-hero">
+      <p class="kicker">Living technical documentation</p>
+      <h1>Technical</h1>
+      <p class="technical-lede">This section provides a living overview of the current mathematical, numerical and computational state of the Multiphysics project.</p>
+      <p class="technical-note">It documents the present project state. Formal dissertations, papers and releases remain independently citable scientific outputs.</p>
+    </header>
+<section class="technical-group" aria-labelledby="numerics-title">
+    <div>
+      <p class="kicker">Numerical formulation</p>
+      <h2 id="numerics-title"><a class="heading-link" href="/technical/numerics/">Spatial methods</a></h2>
+    </div>
+    <div class="technical-card-grid"><a class="technical-card available" href="/technical/numerics/fdm-1d/">
+    <span class="status-chip" data-status="technical preview">technical preview</span>
+    <h3>FDM — 1D</h3>
+    <p>Current cell-centred finite-difference formulation, physical closures, semi-discrete system, time-integration relationship and verification evidence.</p>
+  </a><a class="technical-card available" href="/technical/numerics/fem-1d/">
+    <span class="status-chip" data-status="technical preview">technical preview</span>
+    <h3>FEM — 1D</h3>
+    <p>Current cell-centred P1 Galerkin formulation, including weak form, element assembly, mass lumping, half-cell completion, physical flux coupling and stability reference.</p>
+  </a><a class="technical-card available" href="/technical/numerics/#fvm-1d">
+    <span class="status-chip" data-status="implemented / limited scope">implemented / limited scope</span>
+    <h3>FVM — 1D</h3>
+    <p>The 1D finite-volume solver has an implemented-and-verified fixed-geometry/current-heating path. Geometry-changing welding stages remain unpromoted and are not presented as experimentally validated.</p>
+  </a></div>
+  </section>
+<section class="technical-group" aria-labelledby="engines-title">
+    <div>
+      <p class="kicker">Implementations</p>
+      <h2 id="engines-title"><a class="heading-link" href="/technical/implementations/">Calculation environments</a></h2>
+    </div>
+    <div class="technical-card-grid"><a class="technical-card available" href="/technical/implementations/octave/">
+    <span class="status-chip" data-status="active sibling">active sibling</span>
+    <h3>GNU Octave</h3>
+    <p>An active sibling engine with the broadest current process-workflow coverage. MATLAB compatibility and high-level matrix/vector operations make it useful for numerical development, inspection and scientific prototyping.</p>
+  </a><a class="technical-card available" href="/technical/implementations/cpp/">
+    <span class="status-chip" data-status="active sibling">active sibling</span>
+    <h3>C++</h3>
+    <p>An active independent C++17 sibling engine used for same-method cross-engine verification, explicit compiled implementations and LLM-assisted development. Its current workflow coverage is narrower than Octave, but its architectural role is not secondary.</p>
+  </a><a class="technical-card available" href="/technical/implementations/#julia">
+    <span class="status-chip" data-status="planned sibling">planned sibling</span>
+    <h3>Julia</h3>
+    <p>A planned third independent engine for the same formulations, intended to broaden implementation redundancy and investigate numerical expressiveness and execution efficiency on selected workloads. No performance advantage is claimed before equivalent benchmarks exist.</p>
+  </a></div>
+  </section>
+<section class="technical-group" aria-labelledby="tooling-title">
+    <div>
+      <p class="kicker">Scientific tooling</p>
+      <h2 id="tooling-title"><a class="heading-link" href="/technical/implementations/#python-tooling">Automation and evidence infrastructure</a></h2>
+    </div>
+    <div class="technical-card-grid"><a class="technical-card available" href="/technical/implementations/#python-tooling">
+    <span class="status-chip" data-status="active supporting tooling">active supporting tooling</span>
+    <h3>Python</h3>
+    <p>Python supports validation, governance, material-data workflows, package isolation, provenance, semantics, diagnostics and neutral cross-engine comparison. It is supporting scientific infrastructure, not a calculation engine.</p>
+  </a></div>
+  </section>
+<section class="technical-group" aria-labelledby="verification-title">
+    <div>
+      <p class="kicker">Verification</p>
+      <h2 id="verification-title"><a class="heading-link" href="/technical/verification/">Evidence and validation boundaries</a></h2>
+    </div>
+    <div class="technical-card-grid"><a class="technical-card available" href="/technical/verification/framework/">
+    <span class="status-chip" data-status="technical preview">technical preview</span>
+    <h3>Verification framework</h3>
+    <p>How analytical/reference cases, conservation, refinement, cross-method and cross-engine evidence fit together without being confused with experimental validation.</p>
+  </a><a class="technical-card available" href="/technical/verification/framework/#evidence-layers">
+    <span class="status-chip" data-status="active / consolidating">active / consolidating</span>
+    <h3>Numerical verification</h3>
+    <p>Current evidence includes conservation checks, analytical/reference cases, spatial refinement, stability references and controlled FDM/FEM/FVM studies.</p>
+  </a><a class="technical-card available" href="/technical/verification/framework/#physical-calibration-and-experimental-validation">
+    <span class="status-chip" data-status="future evidence">future evidence</span>
+    <h3>Experimental validation</h3>
+    <p>Physical calibration and an independent validation case require traceable experimental observables and uncertainty treatment; the complete FBW model is not currently presented as experimentally validated.</p>
+  </a></div>
+  </section>
+  </main>
+  <footer class="site-footer">
+  <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
+  <a
+    id="back-to-top"
+    class="back-to-top"
+    href="#top"
+    data-i18n="nav.backToTop"
+    aria-label="Back to top"
+    data-i18n-attr="aria-label"
+    data-visible="false"
+    tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
+</footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+html[data-palette="blueprint"] {
+  color-scheme: light;
+  --bg: #f5f8fb;
+  --surface: #ffffff;
+  --surface-alt: #e9f0f7;
+  --text: #17212b;
+  --muted: #5b6775;
+  --line: #b9c9d8;
+  --primary: #17365d;
+  --primary-strong: #0d2746;
+  --accent: #2f6fa9;
+  --on-primary: #ffffff;
+}
+
+html[data-palette="blueprint-dark"] {
+  color-scheme: dark;
+  --bg: #0d1722;
+  --surface: #142434;
+  --surface-alt: #1b3044;
+  --text: #edf4fb;
+  --muted: #b8c6d4;
+  --line: #35506a;
+  --primary: #8fc5f2;
+  --primary-strong: #b8dcfb;
+  --accent: #68a9df;
+  --on-primary: #07121d;
+}

@@ -1,0 +1,38 @@
+{
+  "siteUrl": "https://mpx.arguskepheus.com.br",
+  "basePath": "/",
+  "defaultLocale": "en",
+  "supportedLocales": [
+    "en",
+    "pt-BR",
+    "zh-CN"
+  ],
+  "rtlLocales": [],
+  "localeOptions": [
+    {
+      "code": "en",
+      "label": "English"
+    },
+    {
+      "code": "pt-BR",
+      "label": "Português"
+    },
+    {
+      "code": "zh-CN",
+      "label": "中文"
+    }
+  ],
+  "defaultPalette": "blueprint",
+  "paletteOptions": [
+    {
+      "code": "blueprint",
+      "labelKey": "palettes.blueprint",
+      "themeColor": "#17365d"
+    },
+    {
+      "code": "blueprint-dark",
+      "labelKey": "palettes.blueprintDark",
+      "themeColor": "#0d1722"
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" data-palette="blueprint" data-title-key="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Verification framework and current evidence — current technical documentation for the Multiphysics project.">
+  <meta name="theme-color" content="#17365d">
+  <title>Verification framework and current evidence — Multiphysics</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
+  <header id="top" class="site-header">
+  <a class="brand" href="/" aria-label="Multiphysics home" data-i18n="accessibility.homeLink" data-i18n-attr="aria-label"><span data-i18n="home.hero.title">Multiphysics</span></a>
+  <nav class="site-nav site-nav-desktop" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+    <a href="/" data-i18n="nav.home">Home</a>
+    <a href="/vision/" data-i18n="nav.vision">Vision</a>
+    <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+    <a href="/current-model/" data-i18n="nav.current">Current model</a>
+    <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+  </nav>
+  <details class="site-nav-mobile">
+    <summary data-i18n="nav.menu">Sections</summary>
+    <nav class="site-nav-mobile-list" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/vision/" data-i18n="nav.vision">Vision</a>
+      <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+      <a href="/current-model/" data-i18n="nav.current">Current model</a>
+      <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+    </nav>
+  </details>
+  <div class="site-controls">
+    <label class="locale-control">
+      <span class="sr-only" data-i18n="locale.label">Language</span>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
+        <option value="en">English</option>
+        <option value="pt-BR">Português</option>
+        <option value="zh-CN">中文</option>
+      </select>
+    </label>
+    <button
+      class="palette-toggle"
+      id="palette-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Toggle palette"
+      title="Toggle palette"
+      data-i18n="palettes.toggle"
+      data-i18n-attr="aria-label,title">
+      <svg class="palette-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+      </svg>
+      <span class="sr-only" data-i18n="palettes.toggle">Toggle palette</span>
+    </button>
+  </div>
+</header>
+
+  <main id="main" class="technical-shell technical-article-shell">
+<nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verification</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page">Verification framework</span></li></ol></nav>
+    <header class="article-header">
+      <p class="kicker">Verification · Verification framework</p>
+      <h1>Verification framework and current evidence</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview">technical preview</span>
+        <span><span data-i18n="technical.labels.source">source</span> ab27f4f8e145</span>
+        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-09-30</span>
+      </div>
+      
+    </header>
+
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">Provenance and source references</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.sourceRevision">Source revision</dt><dd><code>ab27f4f8e1455c157ac60c592c136161ed315ca5</code></dd></div><div><dt data-i18n="technical.labels.operatorRevision">Operator revision</dt><dd><code>not recorded</code></dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">On this page</summary>
+        <ol><li><a href="#evidence-layers">Evidence layers</a></li><li><a href="#fdm-evidence-presently-represented-in-the-source-tree">FDM evidence presently represented in the source tree</a></li><li><a href="#fem-evidence-presently-represented-in-the-source-tree">FEM evidence presently represented in the source tree</a></li><li><a href="#controlled-cross-method-studies">Controlled cross-method studies</a></li><li><a href="#cross-method-and-cross-engine-questions-are-different">Cross-method and cross-engine questions are different</a></li><li><a href="#regression-evidence">Regression evidence</a></li><li><a href="#manufactured-solution-programme">Manufactured-solution programme</a></li><li><a href="#physical-calibration-and-experimental-validation">Physical calibration and experimental validation</a></li><li><a href="#publication-rule-for-verification-claims">Publication rule for verification claims</a></li><li><a href="#current-public-interpretation">Current public interpretation</a></li></ol>
+      </details>
+      <article class="technical-prose">
+        <h1 id="verification-framework-and-current-evidence">Verification framework and current evidence</h1>
+<p>The Multiphysics project separates <strong>numerical verification</strong> from <strong>physical validation</strong>. Numerical verification asks whether a mathematical and discrete formulation is implemented consistently and whether its numerical behaviour is understood. Physical validation asks whether the resulting model represents measured behaviour of the real process within a declared scope and uncertainty.</p>
+<p>Agreement between two numerical methods or two programming-language implementations is useful evidence, but it is not experimental validation.</p>
+<h2 id="evidence-layers">Evidence layers</h2>
+<p>The current verification strategy is deliberately layered. Different checks answer different questions and none is treated as a universal substitute for the others.</p>
+<ul><li><strong>Model contracts and invariants</strong> define the continuum meaning that every method and engine must preserve: units, signs, interface conservation, boundary-law meaning and state-transfer semantics.</li><li><strong>Method-level checks</strong> exercise discrete operators, assembly, source insertion, boundary closures, stability references and limiting cases.</li><li><strong>Analytical and manufactured/reference cases</strong> compare numerical output against a field or balance known independently of another solver.</li><li><strong>Conservation checks</strong> verify integrated energy/flux behaviour where the continuous problem supplies a conservation statement.</li><li><strong>Spatial and temporal refinement</strong> asks whether discrepancies decrease as the numerical resolution is refined.</li><li><strong>Cross-method comparison</strong> compares independent discretisations of the same continuous problem without designating one method as the exact solution.</li><li><strong>Cross-engine comparison</strong> compares independent software implementations of a nominally equivalent method using the same already-resolved input.</li><li><strong>Regression tests</strong> permanently lock in corrections for previously identified defects.</li><li><strong>Physical calibration and validation</strong> use traceable real-world observables and remain separate from synthetic numerical-verification cases.</li></ul>
+<h2 id="fdm-evidence-presently-represented-in-the-source-tree">FDM evidence presently represented in the source tree</h2>
+<p>The finite-difference verification surface includes several complementary checks.</p>
+<p><code>tests/solvers/fdm/test_conservative_conduction.m</code> exercises the conservative shared-face construction, exact face differencing, preservation of supplied physical boundary fluxes, positive reconstructed conductivity and the constant-conductivity linear-field limit.</p>
+<p><code>tests/solvers/fdm/test_fourth_order_convergence.m</code> uses a manufactured variable-conductivity problem. Its own accepted observed <strong>global</strong> convergence floor is 1.9. This is why the public FDM page describes fourth-order internal stencil ingredients without claiming that the complete active variable-conductivity operator is globally fourth order.</p>
+<p><code>tests/solvers/fdm/test_steady_conduction_robin_refinement.m</code> compares both FDM and FEM with an analytical one-dimensional steady conduction/Robin profile and checks the steady energy balance. Because the analytical solution is linear, the test uses the absolute finest-grid error as the meaningful criterion rather than treating an already near-exact linear field as an order-estimation exercise.</p>
+<p>The interface-source tests add two further checks: <code>test_interface_source_energy_conservation.m</code> checks stored energy against known injected interface energy, while <code>test_interface_source_convergence.m</code> checks that the FDM–FEM interface-temperature gap decreases under refinement after the corrected interface-source treatment.</p>
+<p>These files are evidence that the project has explicit verification procedures. This website does not convert their mere presence into a claim that every scientific gate has been rerun for every current source revision.</p>
+<h2 id="fem-evidence-presently-represented-in-the-source-tree">FEM evidence presently represented in the source tree</h2>
+<p>The finite-element verification surface covers assembly, physical-domain accounting and explicit-time stability references.</p>
+<p><code>tests/solvers/fem/test_fem_domain_integrals.m</code> checks that the active cell-centred P1 representation, including the two boundary half-cell completions, recovers the correct integrated thermal capacity and volumetric source over the physical domain for constant properties. It also checks an independently constructed nodal mesh against the same continuous-domain measures.</p>
+<p><code>tests/solvers/fem/test_fem_stability.m</code> checks the constant-property reference for linear P1 FEM with row-sum lumped mass and AB2. It verifies an assembled critical Fourier number approaching 1/4 and separates the scalar AB2 recurrence immediately inside and outside that negative-real-axis boundary. The test itself states that this is not a nonlinear stability proof.</p>
+<p><code>tests/solvers/fem/test_fdm_fem_comparison.m</code> is deliberately a <strong>diagnostic</strong>, not a regression tolerance. It compares complete canonical FDM and FEM space-time temperature histories symmetrically and explicitly treats neither method as the exact reference.</p>
+<p>The accompanying <code>VALIDATION-NOTES.md</code> also draws an important evidence boundary: arithmetic reproduced independently during development can support the formulas used by the tests, but it does not by itself establish successful native execution of the complete GNU Octave stage engine.</p>
+<h2 id="controlled-cross-method-studies">Controlled cross-method studies</h2>
+<p><code>studies/numerical-verification/</code> provides a broader method-neutral verification layer. Its current-heating V0–V5 study asks whether the independent FDM, FEM and FVM spatial discretisations solve the same one-dimensional thermal problem consistently before any physical calibration.</p>
+<p>The controlled cases separate equilibrium, cooling, bimaterial behaviour, Joule heating and post-heating redistribution. The heterogeneous verification material is intentionally synthetic and is not a calibrated steel. Solver degrees of freedom are projected independently to a method-neutral observation grid, with spatially weighted L2 and Linf temperature discrepancies plus separate interface, Robin-surface and maximum-temperature observables.</p>
+<p>The quantitative refinement tier uses successive spatial resolutions while selecting a common method-independent timestep from the most restrictive active stability reference. No FDM, FEM or FVM solution is designated as the exact solution. These studies are classified as numerical verification, not physical validation.</p>
+<h2 id="cross-method-and-cross-engine-questions-are-different">Cross-method and cross-engine questions are different</h2>
+<p>Cross-method comparison asks whether different spatial discretisations approach the same continuous problem. For example, FDM and FEM should not be expected to produce identical numbers on a fixed coarse mesh because their discrete operators are different.</p>
+<p>Cross-engine comparison asks whether independent software implementations of the <strong>same method</strong> produce sufficiently consistent output for the same resolved input. The current exchange layer under <code>tools/cross-engine/</code> supplies both GNU Octave and C++ with <code>multiphysics.resolved-thermal-case.v1</code> and compares <code>multiphysics.temperature-history.v1</code> outputs without allowing either engine to call the other.</p>
+<p>The comparison tooling reports quantities such as sample count, maximum and RMS temperature error, maximum-temperature difference and final-energy difference. Its current same-method tolerances are explicitly provisional development gates. Cross-language agreement is implementation-verification evidence; a defect shared by both engines would still be a defect.</p>
+<h2 id="regression-evidence">Regression evidence</h2>
+<p>The project reserves <code>tests/regression/</code> for permanent tests that lock in a correction after a specific bug has been identified. This is intentionally distinct from analytical/manufactured-solution correctness and from generic per-method numerical tests.</p>
+<p>Some existing solver tests already document the defects that motivated them, such as the corrected interface-source sign/normalisation treatment. The dedicated regression directory remains a formal destination as the verification suite is reorganised.</p>
+<h2 id="manufactured-solution-programme">Manufactured-solution programme</h2>
+<p><code>tests/manufactured/</code> is reserved for method-independent manufactured-solution problems with known analytical fields and source terms. The repository explicitly states that FDM and FEM should be migrated into this layer progressively and that FVM must pass this layer before production acceptance.</p>
+<p>This means that the project already uses manufactured/reference reasoning in individual solver tests, but the method-independent manufactured-solution programme is not yet presented as complete.</p>
+<h2 id="physical-calibration-and-experimental-validation">Physical calibration and experimental validation</h2>
+<p>Physical calibration and validation are intentionally outside the numerical-verification studies. The current Flashing calibration study under <code>studies/physical-calibration/flashing/</code> first requires a defensible definition of the observables to be calibrated and warns against tuning several entangled parameters before sensitivity and identifiability are understood.</p>
+<p>Candidate observables include interface or near-interface thermal histories, electrical power, burn-off and stage timing, but only quantities supported by traceable source data should enter an objective function. Its expected outputs include an evidence ledger, sensitivity and identifiability analysis, calibrated parameters with uncertainty, and an <strong>independent validation case</strong>.</p>
+<p>The website therefore does not claim that the complete flash-butt-welding model is experimentally validated. Acquiring suitable experimental data and independent validation evidence is one of the reasons the project actively seeks research collaboration.</p>
+<h2 id="publication-rule-for-verification-claims">Publication rule for verification claims</h2>
+<p>A future public verification result should identify, at minimum, the problem definition, physical inputs, numerical controls, method and engine revisions, spatial/time resolution, reference or comparison basis, error metrics, acceptance rule when one exists, and the source revision against which the result was reviewed.</p>
+<p>A diagnostic without a rigid tolerance should remain labelled as a diagnostic. A cross-engine parity result should not be presented as physical validation. A calibration case should not be reused as its own independent validation case. These distinctions are part of the scientific meaning of the published result, not merely website wording.</p>
+<h2 id="current-public-interpretation">Current public interpretation</h2>
+<p>The present project state supports a substantial numerical-verification programme for the one-dimensional thermal model, with active evidence around conservation, boundary/interface closures, refinement, stability and method/engine comparison. The evidence is still being consolidated into more method-independent verification suites.</p>
+<p>Experimental calibration and independent physical validation remain separate future work. The project will only promote those claims when traceable experimental observables, uncertainty treatment and an independent validation case support them.</p>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+  <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
+  <a
+    id="back-to-top"
+    class="back-to-top"
+    href="#top"
+    data-i18n="nav.backToTop"
+    aria-label="Back to top"
+    data-i18n-attr="aria-label"
+    data-visible="false"
+    tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
+</footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

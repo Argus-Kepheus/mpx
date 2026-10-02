@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en" data-palette="blueprint" data-title-key="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Calculation-engine implementations of the Multiphysics numerical framework.">
+  <meta name="theme-color" content="#17365d">
+  <title>Implementations — Multiphysics</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
+  <header id="top" class="site-header">
+  <a class="brand" href="/" aria-label="Multiphysics home" data-i18n="accessibility.homeLink" data-i18n-attr="aria-label"><span data-i18n="home.hero.title">Multiphysics</span></a>
+  <nav class="site-nav site-nav-desktop" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+    <a href="/" data-i18n="nav.home">Home</a>
+    <a href="/vision/" data-i18n="nav.vision">Vision</a>
+    <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+    <a href="/current-model/" data-i18n="nav.current">Current model</a>
+    <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+  </nav>
+  <details class="site-nav-mobile">
+    <summary data-i18n="nav.menu">Sections</summary>
+    <nav class="site-nav-mobile-list" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/vision/" data-i18n="nav.vision">Vision</a>
+      <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+      <a href="/current-model/" data-i18n="nav.current">Current model</a>
+      <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+    </nav>
+  </details>
+  <div class="site-controls">
+    <label class="locale-control">
+      <span class="sr-only" data-i18n="locale.label">Language</span>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
+        <option value="en">English</option>
+        <option value="pt-BR">Português</option>
+        <option value="zh-CN">中文</option>
+      </select>
+    </label>
+    <button
+      class="palette-toggle"
+      id="palette-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Toggle palette"
+      title="Toggle palette"
+      data-i18n="palettes.toggle"
+      data-i18n-attr="aria-label,title">
+      <svg class="palette-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+      </svg>
+      <span class="sr-only" data-i18n="palettes.toggle">Toggle palette</span>
+    </button>
+  </div>
+</header>
+
+  <main id="main" class="technical-shell">
+<nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page"><span data-i18n="technical.labels.implementations">Implementations</span></span></li></ol></nav>
+    <header class="technical-hero">
+      <p class="kicker">Technical · implementations</p>
+      <h1>Calculation environments</h1>
+      <p class="technical-lede">Calculation engines are independent implementations of numerical methods. They are not the numerical methods themselves.</p>
+      
+    </header>
+    <div class="technical-card-grid technical-card-grid-wide"><a class="technical-card available" href="/technical/implementations/octave/">
+    <span class="status-chip" data-status="active sibling">active sibling</span>
+    <h2>GNU Octave</h2>
+    <p>An active sibling engine with the broadest current workflow coverage. Its MATLAB-compatible, matrix-oriented environment supports rapid numerical development and scientific inspection.</p>
+  </a><a class="technical-card available" href="/technical/implementations/cpp/">
+    <span class="status-chip" data-status="active sibling">active sibling</span>
+    <h2>C++</h2>
+    <p>An active C++17 sibling engine with independent FDM/FEM/FVM resolved-case paths. It supports cross-engine verification, compiled implementation studies and LLM-assisted development; current workflow coverage remains narrower than Octave.</p>
+  </a><a class="technical-card available" href="#julia">
+    <span class="status-chip" data-status="planned sibling">planned sibling</span>
+    <h2>Julia</h2>
+    <p>A planned third sibling engine for independent implementation and verification, with future experiments focused on numerical expressiveness and execution efficiency under equivalent, reproducible workloads.</p>
+  </a></div>
+    <section class="computational-dossier" aria-labelledby="computational-dossier-title">
+      <div class="dossier-heading">
+        <p class="kicker">Computational contract</p>
+        <h2 id="computational-dossier-title">How a resolved case reaches a history</h2>
+        <p>Method identity, physical case, temporal configuration and engine identity remain separate. GNU Octave and C++ are active sibling implementations; Julia is the planned third sibling. Their coverage may differ, but none is designated as the scientific truth or permanent backend of another.</p>
+        <p>The multi-engine strategy serves two purposes: independent implementation verification and deliberate exploration of language/runtime trade-offs. Engine-specific strengths can be retained where they are useful as the project matures, provided equivalent numerical contracts and reproducible evidence are preserved.</p>
+      </div>
+      <div class="execution-grid">
+        <ol class="execution-steps">
+          <li><div><strong>Resolve the physical case</strong><span>Geometry, material laws, sources, boundaries, interface data and process schedule become solver-ready inputs.</span></div></li>
+          <li><div><strong>Select method and engine</strong><span>FDM, FEM or the restricted FVM path is selected independently from an available engine. GNU Octave and C++ are active today; Julia is planned.</span></div></li>
+          <li><div><strong>Build the spatial right-hand side</strong><span>Fluxes, assembly, boundary closures, interface exchange and source terms are evaluated by the method adapter.</span></div></li>
+          <li><div><strong>Advance the state</strong><span>The shared temporal service applies Forward Euler or AB2 according to the run specification and history policy.</span></div></li>
+          <li><div><strong>Write evidence-bearing outputs</strong><span>Temperature histories, diagnostics and comparison metadata remain distinct from claims of physical validation.</span></div></li>
+        </ol>
+        <aside class="contract-panel">
+          <h3>Neutral exchange shape</h3>
+          <pre><code>resolved physical case
+ spatial method
+ run specification
+        ↓
+ solver adapter
+        ↓
+ semi-discrete RHS
+        ↓
+ FE / AB2 advance
+        ↓
+ history + diagnostics</code></pre>
+        </aside>
+      </div>
+      <aside id="julia" class="contract-panel technical-anchor-target">
+        <h3>Julia — planned sibling engine</h3>
+        <p>Julia is reserved as a third independent implementation path. Its future role is to reproduce selected formulations, add another disagreement detector and investigate numerical expressiveness and execution efficiency under equivalent, reproducible workloads. No performance advantage is claimed before those measurements exist.</p>
+      </aside>
+    </section><section id="python-tooling" class="computational-dossier technical-anchor-target" aria-labelledby="python-tooling-title">
+      <div class="dossier-heading">
+        <p class="kicker">Scientific tooling</p>
+        <h2 id="python-tooling-title">Why Python is used</h2>
+        <p>Python is an active supporting language in Multiphysics, but it is not currently one of the calculation engines that implements the FDM/FEM/FVM solution path. Instead, it provides scientific infrastructure around the engines and the project evidence.</p>
+      </div>
+      <div class="execution-grid">
+        <div>
+          <p>Current Python tooling covers configuration and governance validation, material-data preparation and review, package/export isolation, provenance and freeze checks, semantic/naming validation, diagnostics and reference calculations, and cross-engine output comparison.</p>
+          <p>Python is useful in this role because these tasks depend heavily on automation, file and structured-data processing, schema/metadata checks and reproducible command-line workflows. Keeping them outside the calculation engines also helps the verification layer remain neutral: for example, Python compares GNU Octave and C++ histories above both engines rather than making either implementation the reference backend.</p>
+          <p>The role is therefore complementary. GNU Octave, C++ and the planned Julia implementation address independent numerical execution; Python helps prepare inputs, audit contracts, compare evidence and preserve reproducibility around those executions.</p>
+        </div>
+        <aside class="contract-panel">
+          <h3>Current Python roles</h3>
+          <ul>
+            <li>governance and configuration validators;</li>
+            <li>material-data and provenance tooling;</li>
+            <li>package validation, export and isolated-test orchestration;</li>
+            <li>semantic and nomenclature checks;</li>
+            <li>cross-engine comparison of resolved-case outputs;</li>
+            <li>diagnostic and reference calculations where an independent tooling path is useful.</li>
+          </ul>
+        </aside>
+      </div>
+      <p class="technical-note">Python output is not treated as automatically authoritative merely because it is independent. Its scripts remain subject to the same provenance, review and evidence boundaries as the rest of the research software.</p>
+    </section>
+  </main>
+  <footer class="site-footer">
+  <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
+  <a
+    id="back-to-top"
+    class="back-to-top"
+    href="#top"
+    data-i18n="nav.backToTop"
+    aria-label="Back to top"
+    data-i18n-attr="aria-label"
+    data-visible="false"
+    tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
+</footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

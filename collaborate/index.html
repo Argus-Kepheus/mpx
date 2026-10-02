@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" data-palette="blueprint" data-title-key="home.collaborate.pageTitle">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Experimental collaboration needs and contribution paths for the Multiphysics project." data-i18n="home.collaborate.pageDescription" data-i18n-attr="content">
+  <meta name="theme-color" content="#17365d">
+  <title>Collaborate — Multiphysics</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
+  <header id="top" class="site-header">
+  <a class="brand" href="/" aria-label="Multiphysics home" data-i18n="accessibility.homeLink" data-i18n-attr="aria-label"><span data-i18n="home.hero.title">Multiphysics</span></a>
+  <nav class="site-nav site-nav-desktop" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+    <a href="/" data-i18n="nav.home">Home</a>
+    <a href="/vision/" data-i18n="nav.vision">Vision</a>
+    <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+    <a href="/current-model/" data-i18n="nav.current">Current model</a>
+    <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+  </nav>
+  <details class="site-nav-mobile">
+    <summary data-i18n="nav.menu">Sections</summary>
+    <nav class="site-nav-mobile-list" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/vision/" data-i18n="nav.vision">Vision</a>
+      <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+      <a href="/current-model/" data-i18n="nav.current">Current model</a>
+      <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+    </nav>
+  </details>
+  <div class="site-controls">
+    <label class="locale-control">
+      <span class="sr-only" data-i18n="locale.label">Language</span>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
+        <option value="en">English</option>
+        <option value="pt-BR">Português</option>
+        <option value="zh-CN">中文</option>
+      </select>
+    </label>
+    <button
+      class="palette-toggle"
+      id="palette-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Toggle palette"
+      title="Toggle palette"
+      data-i18n="palettes.toggle"
+      data-i18n-attr="aria-label,title">
+      <svg class="palette-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+      </svg>
+      <span class="sr-only" data-i18n="palettes.toggle">Toggle palette</span>
+    </button>
+  </div>
+</header>
+
+  <main id="main" class="section-shell">
+    <section id="collaborate" class="content-section section-anchor" aria-labelledby="collaborate-title">
+          <p class="kicker" data-i18n="home.collaborate.kicker">Experimental collaboration</p>
+          <h2 id="collaborate-title" data-i18n="home.collaborate.title">The current bottleneck is data</h2>
+          <p class="section-copy" data-i18n="home.collaborate.body">Software development is not a prerequisite for collaboration. The immediate need is experimentally grounded information capable of constraining, calibrating and validating the models.</p>
+          <div id="collaboration-groups" class="collaboration-grid" role="list">
+            <section class="collab-card"><h3 data-i18n="home.collaborate.machineTitle">Machine information</h3><ul><li>machine architecture</li><li>electrical characteristics</li><li>electrode or jaw geometry</li><li>motion systems</li><li>force capabilities</li><li>control strategies</li></ul></section>
+            <section class="collab-card"><h3 data-i18n="home.collaborate.processTitle">Process histories</h3><ul><li>current and voltage</li><li>stage timing</li><li>flashing parameters</li><li>burn-off or displacement</li><li>upset force</li><li>pre- and post-heating sequences</li></ul></section>
+            <section class="collab-card"><h3 data-i18n="home.collaborate.validationTitle">Material and validation data</h3><ul><li>temperature-dependent properties</li><li>thermal and electrical properties</li><li>mechanical properties</li><li>metallography</li><li>hardness maps</li><li>temperature histories</li><li>mechanical-test results</li></ul></section>
+          </div>
+    
+          <section class="collaboration-example" aria-labelledby="collaboration-questions-title">
+            <p class="kicker" data-i18n="home.collaborate.questionsKicker">Questions already sent</p>
+            <h3 id="collaboration-questions-title" data-i18n="home.collaborate.questionsTitle">Examples of targeted research questions</h3>
+            <p data-i18n="home.collaborate.questionsIntro">Researchers have already been approached with questions derived from their published work. The examples below are anonymized and illustrate the type of scientific exchange sought by the project.</p>
+            <ul class="collaboration-question-list">
+              <li data-i18n="home.collaborate.questions.thermalCycles">Can measured welding thermal cycles be shared as numerical time–temperature series rather than only as plotted figures?</li>
+              <li data-i18n="home.collaborate.questions.processHistories">Can representative process schedules, stage boundaries, electrical signals, displacement or burn-off histories be made available in processed, anonymized or stage-averaged form?</li>
+              <li data-i18n="home.collaborate.questions.validationObservables">Which observables are most reliable for validating a reduced flash-butt-welding model when direct interface measurements are unavailable?</li>
+              <li data-i18n="home.collaborate.questions.materialTransfer">Which material-state variables and phase-transformation data should a reusable material library prioritize, and how should material properties be separated from process-specific calibration?</li>
+            </ul>
+          </section>
+    
+          <aside class="collaboration-confidentiality" aria-labelledby="collaboration-confidentiality-title">
+            <h3 id="collaboration-confidentiality-title" data-i18n="home.collaborate.confidentialityTitle">Confidentiality and industrial constraints</h3>
+            <p data-i18n="home.collaborate.confidentialityBody">Some relevant datasets may be owned by companies, protected by contractual confidentiality, or constitute industrially sensitive information and therefore cannot be disclosed. No researcher is expected to violate those obligations, and sharing raw proprietary data is not a prerequisite for contributing.</p>
+            <p data-i18n="home.collaborate.criticalFeedback">When data cannot be released, researchers who choose to engage are explicitly asked for a critical technical assessment instead. Comments on questionable assumptions, missing physics, unrealistic machine or process inputs, unsuitable validation observables, or relevant literature may be sent directly to the project lead. This kind of feedback is treated as a substantive scientific contribution and is highly valued.</p>
+          </aside>
+    
+          <div class="collaboration-notes">
+            <p data-i18n="home.collaborate.rights">Data ownership, redistribution rights and publication permissions are treated independently. Scientific use does not automatically imply permission to publish raw data.</p>
+            <p data-i18n="home.collaborate.credit">Contributions may lead to formal project participation and, where the scientific contribution justifies it, co-authorship of resulting publications.</p>
+          </div>
+        </section>
+  </main>
+  <footer class="site-footer">
+  <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
+  <a
+    id="back-to-top"
+    class="back-to-top"
+    href="#top"
+    data-i18n="nav.backToTop"
+    aria-label="Back to top"
+    data-i18n-attr="aria-label"
+    data-visible="false"
+    tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
+</footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

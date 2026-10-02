@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en" data-palette="blueprint" data-title-key="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="One-dimensional finite-element formulation — current technical documentation for the Multiphysics project.">
+  <meta name="theme-color" content="#17365d">
+  <title>One-dimensional finite-element formulation — Multiphysics</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="/assets/js/mathjax-config.js"></script>
+  <script defer src="/assets/vendor/mathjax/tex-svg-full.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
+  <header id="top" class="site-header">
+  <a class="brand" href="/" aria-label="Multiphysics home" data-i18n="accessibility.homeLink" data-i18n-attr="aria-label"><span data-i18n="home.hero.title">Multiphysics</span></a>
+  <nav class="site-nav site-nav-desktop" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+    <a href="/" data-i18n="nav.home">Home</a>
+    <a href="/vision/" data-i18n="nav.vision">Vision</a>
+    <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+    <a href="/current-model/" data-i18n="nav.current">Current model</a>
+    <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+  </nav>
+  <details class="site-nav-mobile">
+    <summary data-i18n="nav.menu">Sections</summary>
+    <nav class="site-nav-mobile-list" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/vision/" data-i18n="nav.vision">Vision</a>
+      <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+      <a href="/current-model/" data-i18n="nav.current">Current model</a>
+      <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+    </nav>
+  </details>
+  <div class="site-controls">
+    <label class="locale-control">
+      <span class="sr-only" data-i18n="locale.label">Language</span>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
+        <option value="en">English</option>
+        <option value="pt-BR">Português</option>
+        <option value="zh-CN">中文</option>
+      </select>
+    </label>
+    <button
+      class="palette-toggle"
+      id="palette-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Toggle palette"
+      title="Toggle palette"
+      data-i18n="palettes.toggle"
+      data-i18n-attr="aria-label,title">
+      <svg class="palette-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+      </svg>
+      <span class="sr-only" data-i18n="palettes.toggle">Toggle palette</span>
+    </button>
+  </div>
+</header>
+
+  <main id="main" class="technical-shell technical-article-shell">
+<nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page">FEM 1D</span></li></ol></nav>
+    <header class="article-header">
+      <p class="kicker">Numerical formulation · FEM · 1D</p>
+      <h1>One-dimensional finite-element formulation</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview">technical preview</span>
+        <span><span data-i18n="technical.labels.operator">operator</span> 1.1.0</span>
+        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-09-29</span>
+      </div>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.scope">Scope</dt><dd>transient thermal problem with coupled R/S workpiece regions</dd></div><div><dt data-i18n="technical.labels.method">Method</dt><dd>FEM · 1D</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Implementation status</dt><dd>implemented</dd></div><div><dt data-i18n="technical.labels.operator">Operator</dt><dd>fem-1d-linear-galerkin-lumped-mass-quadratic-interface</dd></div></dl>
+    </header>
+
+    <aside class="scientific-legend" aria-label="Scientific notation colour legend">
+      <strong data-i18n="technical.labels.equationNotation">Equation notation</strong>
+      <span><i class="legend-swatch fdx"></i> discrete spatial notation</span>
+      <span><i class="legend-swatch side-r"></i> <span data-i18n="technical.labels.workpieceR">workpiece R</span></span>
+      <span><i class="legend-swatch side-s"></i> <span data-i18n="technical.labels.workpieceS">workpiece S</span></span>
+      <span><i class="legend-swatch interface"></i> <span data-i18n="technical.labels.interface">welding interface</span></span>
+      <small data-i18n="technical.labels.colourSupplement">Colour is supplementary; symbols and labels remain authoritative.</small>
+    </aside>
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">Provenance and source references</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.sourceRevision">Source revision</dt><dd><code>not recorded</code></dd></div><div><dt data-i18n="technical.labels.operatorRevision">Operator revision</dt><dd><code>1.1.0</code></dd></div><div><dt>Curated authority records</dt><dd>5</dd></div><div><dt>Curated derivation records</dt><dd>2</dd></div><div><dt>Curated implementation records</dt><dd>2</dd></div><div><dt>Curated verification records</dt><dd>7</dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">On this page</summary>
+        <ol><li><a href="#1-scope-and-current-status">1. Scope and current status</a></li><li><a href="#2-continuous-thermal-problem">2. Continuous thermal problem</a></li><li><a href="#3-cell-centred-support-and-galerkin-skeleton">3. Cell-centred support and Galerkin skeleton</a></li><li><a href="#4-regional-weak-form">4. Regional weak form</a></li><li><a href="#5-two-node-linear-galerkin-element">5. Two-node linear Galerkin element</a></li><li><a href="#6-element-capacity-conduction-and-source-terms">6. Element capacity, conduction and source terms</a></li><li><a href="#7-two-point-gauss-quadrature-and-current-assembly">7. Two-point Gauss quadrature and current assembly</a></li><li><a href="#8-row-sum-mass-lumping">8. Row-sum mass lumping</a></li><li><a href="#9-half-cell-completion-of-capacity-and-volumetric-source">9. Half-cell completion of capacity and volumetric source</a></li><li><a href="#10-global-assembly-and-residual-form">10. Global assembly and residual form</a></li><li><a href="#11-distant-end-robin-closure">11. Distant-end Robin closure</a></li><li><a href="#12-welding-interface-coupling">12. Welding-interface coupling</a></li><li><a href="#13-explicit-semi-discrete-right-hand-side-and-time-integration">13. Explicit semi-discrete right-hand side and time integration</a></li><li><a href="#14-constant-property-stability-reference">14. Constant-property stability reference</a></li><li><a href="#15-verification-evidence-and-publication-caution">15. Verification evidence and publication caution</a></li><li><a href="#16-current-assumptions-and-limits">16. Current assumptions and limits</a></li><li><a href="#17-scientific-notation-used-on-this-page">17. Scientific notation used on this page</a></li></ol>
+      </details>
+      <article class="technical-prose">
+        <h1 id="one-dimensional-finite-element-formulation">One-dimensional finite-element formulation</h1>
+<blockquote><p>This page is a public technical preview of the current FEM spatial formulation. It documents the present project state; it is not a republication of the 2018 dissertation and it does not make the dissertation the normative source of the model.</p></blockquote>
+<h2 id="1-scope-and-current-status">1. Scope and current status</h2>
+<p>The current finite-element method (FEM) solves the same transient one-dimensional thermal problem used by the FDM formulation in the two workpiece regions \(\sideR{R}\) and \(\sideS{S}\). It changes the spatial semi-discretisation while retaining the same model-level material laws, volumetric sources, welding-interface law, distant-end boundary condition and shared temporal-integration architecture.</p>
+<p>The active FEM uses a cell-centred support with two-node linear Galerkin (P1) elements connecting consecutive thermal degrees of freedom. The active GNU Octave implementation evaluates the spatial residual and passes the resulting semi-discrete right-hand side to the project-wide time integrator. An independent C++ implementation also exists for resolved-case cross-engine work.</p>
+<p>With the default <code>quadratic-second-order</code> interface closure, the current FEM operator identifies itself as:</p>
+<pre><code class="language-text">fem-1d-linear-galerkin-lumped-mass-quadratic-interface
+revision 1.1.0</code></pre>
+<p>This page describes the <strong>numerical formulation</strong>, not the Octave or C++ software architecture.</p>
+<h2 id="2-continuous-thermal-problem">2. Continuous thermal problem</h2>
+<p>For either workpiece role \(\xi\in\{\sideR{R},\sideS{S}\}\), define \(\beta_\xi=\rho_\xi c_{p,\xi}\). The continuous one-dimensional thermal balance is</p>
+<div class="math-display">\[
+  \beta_\xi(T_\xi)
+  \frac{\partial T_\xi}{\partial t}
+  -
+  \frac{\partial}{\partial\fdx{x}}
+  \left(
+    \kappa_\xi(T_\xi)
+    \frac{\partial T_\xi}{\partial\fdx{x}}
+  \right)
+  =
+  q'''_{v,\xi}(T_\xi,t).
+\]</div>
+<p>The formulation is written per unit cross-sectional area. Multiplying every term by a uniform represented area gives the equivalent total-power form.</p>
+<p>The physical boundary and interface laws are defined outside FEM. The finite- element method is responsible only for constructing a spatially discrete representation consistent with those laws.</p>
+<h2 id="3-cell-centred-support-and-galerkin-skeleton">3. Cell-centred support and Galerkin skeleton</h2>
+<p>For a physical region of length \(L_\xi\) divided into \(\fdx{N_\xi}\) equal cells,</p>
+<div class="math-display">\[
+  \fdx{\Delta x_\xi}=\frac{L_\xi}{\fdx{N_\xi}},
+  \qquad
+  \fdx{x}_{\xi,\fdx{i}}
+  =
+  \left(\fdx{i}-\frac{1}{2}\right)\fdx{\Delta x_\xi},
+  \qquad
+  \fdx{i}=1,\ldots,\fdx{N_\xi}.
+\]</div>
+<p>The \(\fdx{N_\xi}\) thermal degrees of freedom lie at cell centres. The \(\fdx{N_\xi}-1\) linear elements therefore span only the centre-to-centre Galerkin skeleton</p>
+<div class="math-display">\[
+  \widetilde\Omega_\xi
+  =
+  \left[
+    \frac{\fdx{\Delta x_\xi}}{2},
+    L_\xi-\frac{\fdx{\Delta x_\xi}}{2}
+  \right].
+\]</div>
+<p>The physical domain still includes the two omitted half-cells of width \(\fdx{\Delta x_\xi}/2\). They are not discarded and the P1 interpolation is not silently extended to the physical faces. Their capacity and volumetric source measures are completed explicitly, while their conductive transfer is handled by the welding-interface and distant-end flux closures.</p>
+<h2 id="4-regional-weak-form">4. Regional weak form</h2>
+<p>Let \(v_\xi\) be an admissible test function on the centre-to-centre skeleton. Multiplying the strong form by \(v_\xi\), integrating over \(\widetilde\Omega_\xi\), and integrating the conduction term by parts gives</p>
+<div class="math-display">\[
+  \int_{\widetilde\Omega_\xi}
+    \beta_\xi v_\xi
+    \frac{\partial T_\xi}{\partial t}
+    \,\mathrm d\fdx{x}
+  +
+  \int_{\widetilde\Omega_\xi}
+    \kappa_\xi
+    \frac{\partial v_\xi}{\partial\fdx{x}}
+    \frac{\partial T_\xi}{\partial\fdx{x}}
+    \,\mathrm d\fdx{x}
+  =
+  \int_{\widetilde\Omega_\xi}
+    v_\xi q'''_{v,\xi}
+    \,\mathrm d\fdx{x}
+  +
+  \left[
+    v_\xi\kappa_\xi
+    \frac{\partial T_\xi}{\partial\fdx{x}}
+  \right]_{\fdx{x}_{\xi,1}}^{\fdx{x}_{\xi,N_\xi}}.
+\]</div>
+<p>The endpoint term is not closed by pretending that the first and last FEM unknowns are physical surface temperatures. The welding side receives the cell-centred contact/interface flux; the distant side receives the cell-centred Robin flux.</p>
+<h2 id="5-two-node-linear-galerkin-element">5. Two-node linear Galerkin element</h2>
+<p>For an element \(e=[\fdx{x}_a,\fdx{x}_b]\) of length \(\fdx{h_e}=\fdx{x}_b-\fdx{x}_a\), introduce the reference coordinate \(\zeta\in[-1,1]\). The P1 shape functions are</p>
+<div class="math-display">\[
+  N_1(\zeta)=\frac{1-\zeta}{2},
+  \qquad
+  N_2(\zeta)=\frac{1+\zeta}{2},
+\]</div>
+<p>with isoparametric map and Jacobian</p>
+<div class="math-display">\[
+  \fdx{x}(\zeta)
+  =N_1\fdx{x}_a+N_2\fdx{x}_b,
+  \qquad
+  J_e=\frac{\fdx{h_e}}{2}.
+\]</div>
+<p>Defining</p>
+<div class="math-display">\[
+  \mathbf N=
+  \begin{bmatrix}N_1&N_2\end{bmatrix},
+  \qquad
+  \mathbf B
+  =
+  \frac{\partial\mathbf N}{\partial\fdx{x}}
+  =
+  \begin{bmatrix}
+    -1/\fdx{h_e} & 1/\fdx{h_e}
+  \end{bmatrix},
+\]</div>
+<p>the trial and test fields are approximated by</p>
+<div class="math-display">\[
+  T_{\xi,h}=\mathbf N\mathbf T_{\xi,e},
+  \qquad
+  v_{\xi,h}=\mathbf N\,\delta\mathbf T_{\xi,e}.
+\]</div>
+<p>No extra common thermal degree of freedom is introduced at the welding interface.</p>
+<h2 id="6-element-capacity-conduction-and-source-terms">6. Element capacity, conduction and source terms</h2>
+<p>The element thermal-capacity matrix is</p>
+<div class="math-display">\[
+  \mathbf M_{\xi,e}(\mathbf T_{\xi,e})
+  =
+  \int_{\Omega_e}
+    \rho_\xi(T_{\xi,h})c_{p,\xi}(T_{\xi,h})
+    \mathbf N^{\mathsf T}\mathbf N
+    \,\mathrm d\fdx{x},
+\]</div>
+<p>the conductive matrix is</p>
+<div class="math-display">\[
+  \mathbf K_{\kappa,\xi,e}(\mathbf T_{\xi,e})
+  =
+  \int_{\Omega_e}
+    \kappa_\xi(T_{\xi,h})
+    \mathbf B^{\mathsf T}\mathbf B
+    \,\mathrm d\fdx{x},
+\]</div>
+<p>and the consistent volumetric-load vector is</p>
+<div class="math-display">\[
+  \mathbf f_{v,\xi,e}(\mathbf T_{\xi,e},t)
+  =
+  \int_{\Omega_e}
+    \mathbf N^{\mathsf T}
+    q'''_{v,\xi}(T_{\xi,h},t)
+    \,\mathrm d\fdx{x}.
+\]</div>
+<p>For frozen coefficients that are constant over one element, \(\beta_{\xi,e}=\rho_{\xi,e}c_{p,\xi,e}\), the familiar reference forms are</p>
+<div class="math-display">\[
+  \mathbf M_{\xi,e}
+  =
+  \frac{\beta_{\xi,e}\fdx{h_e}}{6}
+  \begin{bmatrix}
+    2&1\\
+    1&2
+  \end{bmatrix},
+\]</div>
+<div class="math-display">\[
+  \mathbf K_{\kappa,\xi,e}
+  =
+  \frac{\kappa_{\xi,e}}{\fdx{h_e}}
+  \begin{bmatrix}
+     1&-1\\
+    -1& 1
+  \end{bmatrix},
+\]</div>
+<p>and, for constant \(q'''_{v,\xi,e}\),</p>
+<div class="math-display">\[
+  \mathbf f_{v,\xi,e}
+  =
+  \frac{q'''_{v,\xi,e}\fdx{h_e}}{2}
+  \begin{bmatrix}1\\1\end{bmatrix}.
+\]</div>
+<p>These are reference limits. The active nonlinear thermal implementation reevaluates temperature-dependent material coefficients at the current thermal state rather than replacing them with constants.</p>
+<h2 id="7-two-point-gauss-quadrature-and-current-assembly">7. Two-point Gauss quadrature and current assembly</h2>
+<p>The active Octave assembly uses a two-point Gauss rule on every P1 element. For \(\zeta=\pm1/\sqrt{3}\), the two shape-function weight pairs are</p>
+<div class="math-display">\[
+  (a,b)
+  =
+  \left(
+    \frac{1+1/\sqrt{3}}{2},
+    \frac{1-1/\sqrt{3}}{2}
+  \right)
+\]</div>
+<p>and \((b,a)\) at the opposite Gauss point. The code evaluates \(\rho c_p\), \(\kappa\), and the interpolated volumetric source at these states.</p>
+<p>The current implementation vectorises this assembly across all elements. This is an algebraic re-expression of the same P1/two-point-Gauss formulation: it does not change the trial space, quadrature, lumping rule, boundary completion or constitutive evaluation points.</p>
+<h2 id="8-row-sum-mass-lumping">8. Row-sum mass lumping</h2>
+<p>The Galerkin capacity matrix is retained in the mathematical derivation, but the active explicit solver uses row-sum mass lumping,</p>
+<div class="math-display">\[
+  \mathbf M_{L,\xi,e}
+  =
+  \operatorname{Diag}\!\left(
+    \mathbf M_{\xi,e}\mathbf 1
+  \right).
+\]</div>
+<p>For constant coefficients on a linear element,</p>
+<div class="math-display">\[
+  \mathbf M_{L,\xi,e}
+  =
+  \frac{\beta_{\xi,e}\fdx{h_e}}{2}
+  \begin{bmatrix}
+    1&0\\
+    0&1
+  \end{bmatrix}.
+\]</div>
+<p>Mass lumping makes the assembled capacity diagonal, so the explicit right-hand side can divide componentwise by the lumped capacity rather than solve a global capacity system at every evaluation. Diagonal capacity does <strong>not</strong> mean constant capacity: the current \(\rho c_p\) values still depend on temperature.</p>
+<h2 id="9-half-cell-completion-of-capacity-and-volumetric-source">9. Half-cell completion of capacity and volumetric source</h2>
+<p>The centre-to-centre P1 skeleton covers only \((\fdx{N_\xi}-1)\fdx{\Delta x_\xi}\), while the physical region has length \(\fdx{N_\xi}\fdx{\Delta x_\xi}\). The two missing measures are therefore added directly to the endpoint rows.</p>
+<p>For each boundary half-cell \(b\in\{1,N_\xi\}\), with \(w_{\xi,b}=\fdx{\Delta x_\xi}/2\), the active completion is</p>
+<div class="math-display">\[
+  \Delta M_{L,\xi,b}
+  =
+  \beta_\xi(T_{\xi,b})w_{\xi,b},
+\]</div>
+<div class="math-display">\[
+  \Delta f_{v,\xi,b}
+  =
+  q'''_{v,\xi}(T_{\xi,b},t)w_{\xi,b}.
+\]</div>
+<p>For constant capacity and source this restores the exact represented domain measure,</p>
+<div class="math-display">\[
+  \mathbf 1^{\mathsf T}\mathbf M_{L,\xi}\mathbf 1
+  =
+  \beta_\xi L_\xi,
+  \qquad
+  \mathbf 1^{\mathsf T}\mathbf f_{v,\xi}
+  =
+  q'''_{v,\xi}L_\xi.
+\]</div>
+<p>The dedicated domain-integral test checks these identities. Conductive stiffness is <strong>not</strong> completed by extending the P1 skeleton through the half- cells; conductive transfer there is represented by the support-aware physical flux closures.</p>
+<h2 id="10-global-assembly-and-residual-form">10. Global assembly and residual form</h2>
+<p>Let \(\mathcal A\) denote the usual finite-element assembly operator. For each region,</p>
+<div class="math-display">\[
+  \mathbf M_{L,\xi}
+  =\mathcal A_e\left(\mathbf M_{L,\xi,e}\right),
+  \qquad
+  \mathbf K_{\kappa,\xi}
+  =\mathcal A_e\left(\mathbf K_{\kappa,\xi,e}\right),
+  \qquad
+  \mathbf f_{v,\xi}
+  =\mathcal A_e\left(\mathbf f_{v,\xi,e}\right),
+\]</div>
+<p>with the endpoint half-cell capacity/source contributions included in \(\mathbf M_L\) and \(\mathbf f_v\).</p>
+<p>The active implementation is most directly expressed as the regional residual balance</p>
+<div class="math-display">\[
+  \mathbf M_L(\mathbf T)\dot{\mathbf T}
+  =
+  \mathbf f_v(\mathbf T,t)
+  -\mathbf K_\kappa(\mathbf T)\mathbf T
+  +\mathbf b_{end}(\mathbf T)
+  +\mathbf b_{\Gamma}(\mathbf T)
+  +\mathbf f_{0,J}(\mathbf T,t).
+\]</div>
+<p>Here \(\mathbf b_{end}\) represents distant-end heat exchange, \(\mathbf b_\Gamma\) the equal-and-opposite thermal contact exchange, and \(\mathbf f_{0,J}\) any zero-thickness electrical-interface power assigned to the adjacent degrees of freedom.</p>
+<h2 id="11-distant-end-robin-closure">11. Distant-end Robin closure</h2>
+<p>The physical distant-end law remains</p>
+<div class="math-display">\[
+  q''_{out,\xi}
+  =
+  h_{end,\xi}
+  \left(T_{s,\xi}-T_{\infty,end,\xi}\right).
+\]</div>
+<p>Because the last FEM unknown is a cell-centred temperature located half a cell inside the physical boundary, the active runtime uses the same support-aware closure as the other cell-centred spatial methods,</p>
+<div class="math-display">\[
+  q''_{out,\xi}
+  =
+  \frac{
+    T_{\xi,\fdx{N_\xi}}-T_{\infty,end,\xi}
+  }{
+    \dfrac{\fdx{\Delta x_\xi}}{2\kappa_{\xi,\fdx{N_\xi}}}
+    +\dfrac{1}{h_{end,\xi}}
+  }.
+\]</div>
+<p>The outward flux is subtracted from the corresponding endpoint residual. The classical nodal insertion <code>K_NN += h</code> and <code>f_N += h*T_inf</code> is a useful reference when the terminal FEM unknown lies on the physical surface, but it is <strong>not</strong> the active cell-centred boundary closure.</p>
+<h2 id="12-welding-interface-coupling">12. Welding-interface coupling</h2>
+<p>The physical R/S contact law is shared across spatial methods. With \(\sideinterface{q''_0}>0\) defined as heat transferred from \(\sideR{R}\) to \(\sideS{S}\), the active runtime evaluates the common cell-centred interface state and applies the same heat flux with opposite residual signs,</p>
+<div class="math-display">\[
+  r_{R,1}\leftarrow r_{R,1}-\sideinterface{q''_0},
+  \qquad
+  r_{S,1}\leftarrow r_{S,1}+\sideinterface{q''_0}.
+\]</div>
+<p>For the default quadratic cell-centred closure,</p>
+<div class="math-display">\[
+  \sideinterface{q''_0}
+  =
+  \frac{
+    9\sideR{T_{R,1}}-\sideR{T_{R,2}}
+    -9\sideS{T_{S,1}}+\sideS{T_{S,2}}
+  }{
+    8\sideinterface{R''_{th,0}}
+    +3\left(
+      \frac{\fdx{\Delta x_R}}{\kappa_{R,1}}
+      +
+      \frac{\fdx{\Delta x_S}}{\kappa_{S,1}}
+    \right)
+  }.
+\]</div>
+<p>No additional FEM degree of freedom is introduced at the welding interface. The historical scalar interface temperature is reconstructed from the updated one-sided states after the time step.</p>
+<p>Electrical power dissipated at a zero-thickness interface remains a separate source. The allocated power is added directly to the two interface-adjacent residual rows per unit represented area; it is not hidden inside an arbitrary element thickness.</p>
+<h2 id="13-explicit-semi-discrete-right-hand-side-and-time-integration">13. Explicit semi-discrete right-hand side and time integration</h2>
+<p>After assembly and physical flux coupling, the active FEM supplies</p>
+<div class="math-display">\[
+  \mathbf F_{\mathrm{FEM}}(\mathbf T,t)
+  =
+  \left[\mathbf M_L(\mathbf T)\right]^{-1}
+  \mathbf r_{\mathrm{FEM}}(\mathbf T,t)
+\]</div>
+<p>to the shared temporal layer. Because \(\mathbf M_L\) is diagonal, the runtime implements this inversion componentwise.</p>
+<p>The temporal architecture is independent of FEM. The current principal explicit configuration is AB2 with a Forward-Euler starter/restart path,</p>
+<div class="math-display">\[
+  \mathbf T^{n+1}
+  =
+  \mathbf T^n
+  +\Delta t
+  \left(
+    \frac{3}{2}\mathbf F^n
+    -\frac{1}{2}\mathbf F^{n-1}
+  \right),
+\]</div>
+<p>with Forward Euler used when compatible multistep history is unavailable. This is a current reproducible configuration, <strong>not a definition of FEM</strong>.</p>
+<p>At process events the physical state follows the model-level transfer contract, while private integrator memory is independently continued, restarted or reconstructed according to the time-integrator contract.</p>
+<h2 id="14-constant-property-stability-reference">14. Constant-property stability reference</h2>
+<p>For an infinite uniform mesh with constant \(\alpha=\kappa/(\rho c_p)\), P1 linear elements, row-sum lumped mass and no sources, the interior semi-discrete equation is</p>
+<div class="math-display">\[
+  \beta\fdx{h}\,\dot T_i
+  +
+  \frac{\kappa}{\fdx{h}}
+  \left(-T_{i-1}+2T_i-T_{i+1}\right)
+  =0.
+\]</div>
+<p>The corresponding Fourier eigenvalue is</p>
+<div class="math-display">\[
+  \lambda_L(\theta)
+  =
+  -\frac{4\alpha}{\fdx{h}^{2}}
+  \sin^2\!\left(\frac{\theta}{2}\right).
+\]</div>
+<p>For the current AB2 negative-real-axis stability interval, this gives the reference</p>
+<div class="math-display">\[
+  \mathrm{Fo}_{\mathrm{FEM},L}
+  =
+  \frac{\alpha\Delta t}{\fdx{h}^{2}}
+  \leq
+  \frac{1}{4}.
+\]</div>
+<p>The runtime uses this value as a constant-property interior reference scaled by the selected temporal integrator&#39;s negative-real stability radius. It is <strong>not</strong> a nonlinear stability proof for the complete finite-domain problem with state-dependent coefficients, Robin exchange, interface coupling, electrical sources and process events.</p>
+<h2 id="15-verification-evidence-and-publication-caution">15. Verification evidence and publication caution</h2>
+<p>The current source tree contains dedicated FEM checks for, among other items:</p>
+<ul><li>physical-domain capacity and source integrals under the cell-centred half-cell</li></ul>
+<p>completion;</p>
+<ul><li>equivalence of the vectorised assembly to the reference element-by-element</li></ul>
+<p>formulation;</p>
+<ul><li>the constant-property lumped-mass stability reference</li></ul>
+<p>\(\mathrm{Fo}_{crit}\approx1/4\);</p>
+<ul><li>Robin sign conventions and manufactured/reference boundary tests;</li><li>wrapper/canonical-path equivalence;</li><li>FDM/FEM cross-method diagnostics.</li></ul>
+<p>The FDM/FEM comparison is deliberately diagnostic: neither method is treated as an exact reference, and identical values on a fixed coarse mesh are not a correctness requirement. The meaningful scientific question is whether independent discretisations approach the same continuous problem under refinement while preserving the same physical laws and process inputs.</p>
+<p>A repository validation note also records that, in the environment where that note was written, native GNU Octave execution still had to be performed in the author&#39;s Octave environment. Therefore this page does <strong>not</strong> convert the mere existence of test files into a public <code>validated</code> or <code>PASS</code> badge. Any such badge must be tied to an accepted run, CI record or explicitly reviewed result for the published revision.</p>
+<h2 id="16-current-assumptions-and-limits">16. Current assumptions and limits</h2>
+<p>This page presently documents only the active one-dimensional thermal FEM path. It does not claim that:</p>
+<ul><li>the complete Multiphysics platform is one-dimensional;</li><li>every future FEM formulation must use P1 elements or cell-centred support;</li><li>mass lumping is a universal FEM requirement;</li><li>AB2/Forward Euler is the only permitted temporal configuration;</li><li>a nodal Robin matrix insertion is the active cell-centred boundary model;</li><li>numerical cross-method agreement constitutes experimental validation;</li><li>the C++ development engine has production status.</li></ul>
+<p>The current architecture intentionally separates physical model, spatial method, temporal integration and calculation engine so that each may evolve without silently redefining the others.</p>
+<h2 id="17-scientific-notation-used-on-this-page">17. Scientific notation used on this page</h2>
+<p>The technical website preserves the semantic equation colours inherited from the refactored dissertation:</p>
+<ul><li><code>\\fdx{...}</code> — discrete spatial notation;</li><li><code>\\sideR{...}</code> — workpiece role R;</li><li><code>\\sideS{...}</code> — workpiece role S;</li><li><code>\\sideinterface{...}</code> — welding-interface quantities.</li></ul>
+<p>These colours encode scientific meaning and are independent of the decorative website palette. Text labels and mathematical notation remain authoritative when colour is unavailable.</p>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+  <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
+  <a
+    id="back-to-top"
+    class="back-to-top"
+    href="#top"
+    data-i18n="nav.backToTop"
+    aria-label="Back to top"
+    data-i18n-attr="aria-label"
+    data-visible="false"
+    tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
+</footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

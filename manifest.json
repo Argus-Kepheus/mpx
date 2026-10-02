@@ -1,0 +1,9 @@
+{
+  "name": "Multiphysics",
+  "short_name": "MPX",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f8fb",
+  "theme_color": "#17365d",
+  "lang": "en"
+}

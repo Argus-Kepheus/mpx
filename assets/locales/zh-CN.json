@@ -1,0 +1,266 @@
+{
+  "site": {
+    "title": "Multiphysics — 开放式耦合过程模拟",
+    "description": "面向耦合物理过程计算建模的开放、模块化研究平台。",
+    "projectLabel": "Argus Kepheus 项目"
+  },
+  "nav": {
+    "menu": "栏目",
+    "home": "首页",
+    "vision": "愿景",
+    "architecture": "架构",
+    "current": "当前模型",
+    "collaborate": "合作",
+    "technical": "技术",
+    "backToTop": "返回顶部"
+  },
+  "locale": {
+    "label": "语言"
+  },
+  "palettes": {
+    "label": "配色",
+    "blueprint": "Blueprint",
+    "blueprintDark": "Blueprint 深色",
+    "toggle": "切换配色"
+  },
+  "technical": {
+    "labels": {
+      "technical": "技术",
+      "numericalFormulation": "数值形式",
+      "implementations": "实现",
+      "verification": "验证",
+      "noSections": "本页面没有章节索引。",
+      "scope": "范围",
+      "method": "方法",
+      "engine": "计算引擎",
+      "implementationStatus": "实现状态",
+      "operator": "算子",
+      "source": "来源",
+      "reviewed": "审阅日期",
+      "provenance": "来源与出处",
+      "sourceRevision": "源代码版本",
+      "operatorRevision": "算子版本",
+      "equationNotation": "方程符号",
+      "workpieceR": "工件 R",
+      "workpieceS": "工件 S",
+      "interface": "焊接界面",
+      "colourSupplement": "颜色仅作辅助；符号和标签仍是权威信息。",
+      "onThisPage": "本页内容"
+    }
+  },
+  "home": {
+    "hero": {
+      "kicker": "开放式计算研究",
+      "title": "Multiphysics",
+      "subtitle": "开放、模块化的耦合物理过程模拟",
+      "lede": "这是一个研究项目，旨在开发自由且开放的计算环境，使材料、机器、过程配置、物理模型、数值方法、计算引擎和后处理工具能够独立演进，并可按需要重新组合。",
+      "status": "当前学术参考过程：闪光对焊。当前实现：持续演进中的研究平台，而非完成的工业产品。",
+      "primaryCta": "浏览技术文档",
+      "secondaryCta": "贡献实验数据",
+      "diagram": {
+        "caption": "从参考过程到软件架构",
+        "ariaLabel": "材料、机器和过程输入物理模型与数值方法，随后进入计算引擎和后处理。",
+        "materials": "材料",
+        "machines": "机器",
+        "process": "过程",
+        "physicsNumerics": "物理 + 数值方法",
+        "enginesPostProcessing": "计算引擎 + 后处理"
+      }
+    },
+    "vision": {
+      "kicker": "长期愿景",
+      "title": "可复用的 FOSS 过程模拟平台",
+      "body": "Multiphysics 探索如何以 FOSS 架构、开放的科学访问和物理模型、数值方法及软件实现之间的明确分离，构建一个集成的过程模拟环境。软件是长期工程成果；在此过程中遇到的建模、数值、实验和验证问题，将形成独立的科学贡献和出版物。",
+      "terminology": {
+        "title": "术语说明",
+        "foss": {
+          "term": "FOSS",
+          "definition": "自由与开源软件：在相应许可证下发布的软件，允许使用、研究、修改和再分发。这里的“自由”主要指这些权利，并不必然意味着零价格。"
+        },
+        "simulation": {
+          "term": "模拟",
+          "definition": "在明确的模型、假设和数值近似下，对所选物理行为进行计算表示；这并不表示对真实过程的精确复现。"
+        },
+        "access": {
+          "term": "开放获取与自由使用",
+          "definition": "开放获取表示科学材料可以被公众阅读或查阅，但这本身并不授予不受限制的再利用权；软件、数据、文本或图像的再利用取决于适用的许可证和权利。"
+        },
+        "platform": {
+          "term": "平台",
+          "definition": "一种模块化的研究与软件环境，可组合模型、数值方法、计算引擎、数据和工作流程。这里并不指商业市场，也不一定是托管的在线服务。"
+        }
+      },
+      "pageTitle": "愿景 — Multiphysics",
+      "pageDescription": "Multiphysics 开放式模块化研究平台的长期愿景。"
+    },
+    "reference": {
+      "kicker": "当前学术参考过程",
+      "title": "为什么选择闪光对焊？",
+      "body": "闪光对焊是用于开发并检验该架构的第一个过程，并不是平台的最终范围。它在一个过程族中同时包含电接触、电阻加热、闪光、传热、移动边界、材料损失、机械变形、顶锻和冶金演化。",
+      "note": "这一选择也建立在 2018 年既有研究的基础上，因此具有明确的科学起点。最初联系的合作研究者之所以被邀请，是因为他们的论文和学术工作与本项目所关注的科学问题直接相关。随着项目的发展，还可以依据同样的原则邀请其他研究者，以相关学术成果为切入点开展有针对性的异步科学合作。在其基本假设仍然适用的范围内，此处开发的组件应能够被复用或调整。"
+    },
+    "architecture": {
+      "kicker": "模块化设计",
+      "title": "相互独立的科学与计算轴",
+      "intro": "架构有意将问题定义、物理建模、数值离散、计算引擎和后处理保持为不同层次。",
+      "layers": [
+        {
+          "title": "定义问题",
+          "items": [
+            "材料",
+            "机器",
+            "焊接配置",
+            "模拟方法"
+          ]
+        },
+        {
+          "title": "组装模型",
+          "items": [
+            "几何",
+            "物理",
+            "过程阶段",
+            "耦合"
+          ]
+        },
+        {
+          "title": "求解",
+          "items": [
+            "FDM",
+            "FEM",
+            "FVM — 固定几何已验证；几何变化范围尚未推广",
+            "时间积分",
+            "GNU Octave",
+            "C++",
+            "Julia — 计划中"
+          ]
+        },
+        {
+          "title": "解释结果",
+          "items": [
+            "结果",
+            "后处理 — 早期阶段",
+            "分析",
+            "可视化",
+            "验证",
+            "科学产出"
+          ]
+        }
+      ],
+      "pageTitle": "架构 — Multiphysics",
+      "pageDescription": "Multiphysics 研究平台的科学与计算架构。"
+    },
+    "materials": {
+      "kicker": "材料可扩展",
+      "title": "DP600 是当前数据集，而不是平台限制",
+      "body": "当前材料数据库围绕 DP600 钢建立。合作方可以提供有充分文档记录的其他金属材料实验数据；这些数据集可以推动新的材料条目和验证案例。"
+    },
+    "current": {
+      "kicker": "当前开发阶段",
+      "title": "巩固一维模型",
+      "principle": "先建立正确且可追溯的模型，再扩展到更大的模型。",
+      "body": "当前优先事项是在扩大计算规模之前确保方法正确性和实验可追溯性。工作重点是巩固一维数值证据、机器参数化、过程配置、材料属性数据，以及在闪光/顶锻建模、校准和验证进一步推进之前所需的实验基础。",
+      "methodsTitle": "空间方法",
+      "enginesTitle": "计算环境",
+      "methods": [
+        {
+          "name": "FDM",
+          "state": "已实现"
+        },
+        {
+          "name": "FEM",
+          "state": "已实现"
+        },
+        {
+          "name": "FVM",
+          "state": "固定几何已实现并验证"
+        }
+      ],
+      "engines": [
+        {
+          "name": "GNU Octave",
+          "state": "活跃的同级引擎 · 工作流覆盖较广"
+        },
+        {
+          "name": "C++",
+          "state": "活跃的同级引擎 · FDM/FEM/FVM 求解器路径"
+        },
+        {
+          "name": "Julia",
+          "state": "计划中的同级引擎"
+        }
+      ],
+      "pageTitle": "当前模型 — Multiphysics",
+      "pageDescription": "Multiphysics 当前的数值方法、计算环境与开发范围。"
+    },
+    "collaborate": {
+      "kicker": "实验合作",
+      "title": "当前瓶颈是数据",
+      "body": "参与合作不以软件开发为前提。当前最需要的是有实验依据的信息，用于约束、校准和验证模型。",
+      "machineTitle": "机器信息",
+      "processTitle": "过程历史",
+      "validationTitle": "材料与验证数据",
+      "groups": [
+        {
+          "title": "机器信息",
+          "items": [
+            "机器架构",
+            "电气特性",
+            "电极或夹具几何",
+            "运动系统",
+            "力能力",
+            "控制策略"
+          ]
+        },
+        {
+          "title": "过程历史",
+          "items": [
+            "电流与电压",
+            "阶段时序",
+            "闪光参数",
+            "烧损或位移",
+            "顶锻力",
+            "预热与后热序列"
+          ]
+        },
+        {
+          "title": "材料与验证数据",
+          "items": [
+            "温度相关属性",
+            "热学与电学属性",
+            "力学属性",
+            "金相",
+            "硬度图",
+            "温度历史",
+            "力学测试结果"
+          ]
+        }
+      ],
+      "rights": "数据所有权、再分发权和发表许可分别处理。科学使用并不自动意味着可以发表原始数据。",
+      "credit": "贡献可以促成正式的项目参与；当科学贡献足够充分时，也可以成为后续出版物的共同作者。",
+      "questionsKicker": "已提出的问题",
+      "questionsTitle": "有针对性的科研问题示例",
+      "questionsIntro": "项目已经根据研究人员的已发表工作向其提出具体问题。以下示例经过匿名化，用于说明本项目所寻求的科学交流形式。",
+      "questions": {
+        "thermalCycles": "能否将实测焊接热循环以数值化的时间–温度序列形式共享，而不仅仅以图形形式呈现？",
+        "processHistories": "能否以处理后、匿名化或按阶段汇总的形式提供代表性的工艺时序、阶段边界、电信号、位移或烧损历史？",
+        "validationObservables": "当无法直接测量界面时，哪些观测量最适合用于验证简化的闪光对焊模型？",
+        "materialTransfer": "可复用材料库应优先包含哪些材料状态变量和相变数据？又应如何将材料属性与工艺特定校准区分开来？"
+      },
+      "confidentialityTitle": "保密与工业限制",
+      "confidentialityBody": "部分相关数据集可能归企业所有、受合同保密约束，或属于工业敏感信息，因此无法公开。项目不要求任何研究人员违反这些义务，提供原始专有数据也不是参与合作的前提。",
+      "criticalFeedback": "当数据无法公开时，对于选择参与的研究人员，项目会明确请求其提供批判性的技术评估。对可疑假设、缺失物理机制、不现实的机器或工艺输入、不合适的验证观测量，或相关文献的意见，都可以直接发送给项目负责人。这类反馈被视为实质性的科学贡献，并受到高度重视。",
+      "pageTitle": "合作 — Multiphysics",
+      "pageDescription": "Multiphysics 项目的实验合作需求与参与方式。"
+    },
+    "footer": {
+      "statement": "本网站展示 Multiphysics 项目可公开发表的科学状态，不公开私人通信、内部研究人员资料或未发表的合作材料。"
+    },
+    "noScript": "项目概览可在没有 JavaScript 的情况下访问。交互式配色和语言切换已禁用。"
+  },
+  "accessibility": {
+    "skipToContent": "跳到主要内容",
+    "primaryNavigation": "主导航",
+    "homeLink": "Multiphysics 首页",
+    "breadcrumb": "面包屑导航"
+  }
+}

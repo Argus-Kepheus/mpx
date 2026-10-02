@@ -1,0 +1,15 @@
+:root {
+  --font-scientific-serif: "CMU Serif", "Computer Modern Unicode", "Latin Modern Roman", "STIX Two Text", Georgia, serif;
+  --font-interface-sans: "CMU Sans Serif", "Computer Modern Sans", "Latin Modern Sans", system-ui, sans-serif;
+  --content-width: 1180px;
+  --reading-width: 820px;
+  --radius: 5px;
+  --header-height: 4.2rem;
+  --focus: #d07b00;
+  --space-1: 0.35rem;
+  --space-2: 0.7rem;
+  --space-3: 1.1rem;
+  --space-4: 1.8rem;
+  --space-5: 3rem;
+  --space-6: 5rem;
+}
