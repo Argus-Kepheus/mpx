@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-palette="blueprint" data-title-key="">
+<html lang="en" dir="ltr" data-palette="blueprint" data-title-key="">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +29,7 @@
   <meta name="twitter:description" content="One-dimensional finite-difference formulation — current technical documentation for the Multiphysics project.">
   <meta name="twitter:image" content="https://mpx.arguskepheus.com.br/og-multiphysics.png">
   <meta name="twitter:image:alt" content="A worn, translucent lilac floppy disk with the AK initials.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/technical/numerics/fdm-1d/#webpage","url":"https://mpx.arguskepheus.com.br/technical/numerics/fdm-1d/","name":"One-dimensional finite-difference formulation — Multiphysics","description":"One-dimensional finite-difference formulation — current technical documentation for the Multiphysics project.","isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/technical/numerics/fdm-1d/#webpage","url":"https://mpx.arguskepheus.com.br/technical/numerics/fdm-1d/","name":"One-dimensional finite-difference formulation — Multiphysics","description":"One-dimensional finite-difference formulation — current technical documentation for the Multiphysics project.","inLanguage":"en","publisher":{"@type":"Organization","@id":"https://www.arguskepheus.com.br/#organization","name":"Argus Kepheus","url":"https://www.arguskepheus.com.br/"},"isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
@@ -41,6 +41,7 @@
     <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
     <a href="/current-model/" data-i18n="nav.current">Current model</a>
     <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/references/" data-i18n="nav.references">References</a>
     <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
   </nav>
   <details class="site-nav-mobile">
@@ -51,16 +52,17 @@
       <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
       <a href="/current-model/" data-i18n="nav.current">Current model</a>
       <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/references/" data-i18n="nav.references">References</a>
       <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
     </nav>
   </details>
   <div class="site-controls">
     <label class="locale-control">
       <span class="sr-only" data-i18n="locale.label">Language</span>
-      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
-        <option value="en">English</option>
-        <option value="pt-BR">Português</option>
-        <option value="zh-CN">中文</option>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label" disabled>
+        <option value="en" data-i18n-invariant="language-autonym">English</option>
+        <option value="pt-BR" data-i18n-invariant="language-autonym">Português</option>
+        <option value="zh-CN" data-i18n-invariant="language-autonym">中文</option>
       </select>
     </label>
     <button
@@ -82,54 +84,54 @@
 </header>
 
   <main id="main" class="technical-shell technical-article-shell">
-<nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page">FDM 1D</span></li></ol></nav>
+<div data-technical-article-host data-current-locale="en"><nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">FDM 1D</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Technical section navigation" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Technical layers</span>
+    <ul><li><a href="/technical/numerics/" aria-current="location"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementations</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verification</span></a></li></ul>
+  </nav>
     <header class="article-header">
-      <p class="kicker">Numerical formulation · FDM · 1D</p>
-      <h1>One-dimensional finite-difference formulation</h1>
+      <p class="kicker" data-i18n-meta="kicker">Numerical formulation · FDM · 1D</p>
+      <h1 id="one-dimensional-finite-difference-formulation" data-i18n-meta="title">One-dimensional finite-difference formulation</h1>
       <div class="article-meta">
-        <span class="status-chip" data-status="technical preview">technical preview</span>
-        <span><span data-i18n="technical.labels.operator">operator</span> 2.1.0</span>
-        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-09-29</span>
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">technical preview</span>
+        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-10-18</span>
       </div>
-      <dl class="article-summary"><div><dt data-i18n="technical.labels.scope">Scope</dt><dd>transient thermal problem with coupled R/S workpiece regions</dd></div><div><dt data-i18n="technical.labels.method">Method</dt><dd>FDM · 1D</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Implementation status</dt><dd>implemented</dd></div><div><dt data-i18n="technical.labels.operator">Operator</dt><dd>fdm-1d-cell-centred-positive-logkappa-flux-form-quadratic-interface</dd></div></dl>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.scope">Scope</dt><dd data-i18n-meta="model_scope">transient thermal problem with coupled R/S workpiece regions</dd></div><div><dt data-i18n="technical.labels.method">Method</dt><dd data-i18n-invariant="method-identifier">FDM · 1D</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Implementation status</dt><dd data-i18n-meta="implementation_status_label">implemented</dd></div></dl>
     </header>
 
-    <aside class="scientific-legend" aria-label="Scientific notation colour legend">
+    <aside class="scientific-legend" aria-label="Scientific notation colour legend" data-i18n="technical.labels.equationLegendAria" data-i18n-attr="aria-label">
       <strong data-i18n="technical.labels.equationNotation">Equation notation</strong>
-      <span><i class="legend-swatch fdx"></i> FDM / discrete spatial notation</span>
-      <span><i class="legend-swatch side-r"></i> <span data-i18n="technical.labels.workpieceR">workpiece R</span></span>
-      <span><i class="legend-swatch side-s"></i> <span data-i18n="technical.labels.workpieceS">workpiece S</span></span>
-      <span><i class="legend-swatch interface"></i> <span data-i18n="technical.labels.interface">welding interface</span></span>
+      <span><i class="legend-swatch math-role-axis1"></i> <span data-i18n="technical.labels.semanticAxis1">spatial axis x and its discretisation</span></span>
+      <span><i class="legend-swatch math-role-temporal"></i> <span data-i18n="technical.labels.semanticTemporal">time and its discretisation</span></span>
+      <span><i class="legend-swatch math-role-side-r"></i> <span data-i18n="technical.labels.workpieceR">workpiece R</span></span>
+      <span><i class="legend-swatch math-role-side-s"></i> <span data-i18n="technical.labels.workpieceS">workpiece S</span></span>
+      <span><i class="legend-swatch math-role-interface"></i> <span data-i18n="technical.labels.interface">welding interface</span></span>
       <small data-i18n="technical.labels.colourSupplement">Colour is supplementary; symbols and labels remain authoritative.</small>
     </aside>
-    <details class="provenance"><summary data-i18n="technical.labels.provenance">Provenance and source references</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.sourceRevision">Source revision</dt><dd><code>not recorded</code></dd></div><div><dt data-i18n="technical.labels.operatorRevision">Operator revision</dt><dd><code>2.1.0</code></dd></div><div><dt>Curated authority records</dt><dd>5</dd></div><div><dt>Curated derivation records</dt><dd>2</dd></div><div><dt>Curated implementation records</dt><dd>2</dd></div><div><dt>Curated verification records</dt><dd>8</dd></div></dl></details>
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">Provenance and source references</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">Curated authority records</dt><dd>5</dd></div><div><dt data-i18n="technical.labels.curatedDerivationRecords">Curated derivation records</dt><dd>2</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">Curated implementation records</dt><dd>2</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">Curated verification records</dt><dd>8</dd></div></dl></details>
     <div class="article-layout">
       <details class="article-toc" open>
         <summary data-i18n="technical.labels.onThisPage">On this page</summary>
-        <ol><li><a href="#1-scope-and-current-status">1. Scope and current status</a></li><li><a href="#2-continuous-thermal-problem">2. Continuous thermal problem</a></li><li><a href="#3-cell-centred-spatial-support">3. Cell-centred spatial support</a></li><li><a href="#4-conservative-shared-face-form">4. Conservative shared-face form</a></li><li><a href="#5-interior-face-gradient-approximation">5. Interior face-gradient approximation</a></li><li><a href="#6-positive-conductivity-reconstruction">6. Positive conductivity reconstruction</a></li><li><a href="#7-welding-interface-closure">7. Welding-interface closure</a></li><li><a href="#8-distant-end-robin-closure">8. Distant-end Robin closure</a></li><li><a href="#9-semi-discrete-system">9. Semi-discrete system</a></li><li><a href="#10-current-temporal-configuration">10. Current temporal configuration</a></li><li><a href="#11-stability-reference">11. Stability reference</a></li><li><a href="#12-accuracy-statement-local-high-order-does-not-imply-global-fourth-order">12. Accuracy statement: local high order does not imply global fourth order</a></li><li><a href="#13-verification-evidence-represented-by-the-current-test-suite">13. Verification evidence represented by the current test suite</a></li><li><a href="#14-current-assumptions-and-limits">14. Current assumptions and limits</a></li><li><a href="#15-scientific-notation-used-on-this-page">15. Scientific notation used on this page</a></li></ol>
+        <ol data-i18n-body="toc"><li><a href="#1-scope-and-current-status">Scope and current status</a></li><li><a href="#2-continuous-thermal-problem">Continuous thermal problem</a></li><li><a href="#3-cell-centred-spatial-support">Cell-centred spatial support</a></li><li><a href="#4-conservative-shared-face-form">Conservative shared-face form</a></li><li><a href="#5-interior-face-gradient-approximation">Interior face-gradient approximation</a></li><li><a href="#6-positive-conductivity-reconstruction">Positive conductivity reconstruction</a></li><li><a href="#7-welding-interface-closure">Welding-interface closure</a></li><li><a href="#8-distant-end-robin-closure">Distant-end Robin closure</a></li><li><a href="#9-semi-discrete-system">Semi-discrete system</a></li><li><a href="#10-current-temporal-configuration">Current temporal configuration</a></li><li><a href="#11-stability-reference">Stability reference</a></li><li><a href="#12-accuracy-statement-local-high-order-does-not-imply-global-fourth-order">Accuracy statement: local high order does not imply global fourth order</a></li><li><a href="#13-verification-evidence-represented-by-the-current-test-suite">Verification evidence represented by the current test suite</a></li><li><a href="#14-current-assumptions-and-limits">Current assumptions and limits</a></li><li><a href="#15-scientific-notation-used-on-this-page">Scientific notation used on this page</a></li></ol>
       </details>
-      <article class="technical-prose">
-        <h1 id="one-dimensional-finite-difference-formulation">One-dimensional finite-difference formulation</h1>
-<blockquote><p>This page is a draft public technical description of the current FDM spatial formulation. It documents the present project state; it is not a republication of the 2018 dissertation and it does not make the dissertation the normative source of the model.</p></blockquote>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>This page is a draft public technical description of the current FDM spatial formulation. It documents the present project state; it is not a republication of the 2018 dissertation and it does not make the dissertation the normative source of the model.</p></blockquote>
 <h2 id="1-scope-and-current-status">1. Scope and current status</h2>
 <p>The current finite-difference method (FDM) solves the transient one-dimensional thermal problem in two workpiece regions, \(\sideR{R}\) and \(\sideS{S}\), using a cell-centred spatial support. The local coordinate in each region points from the welding interface toward the distant end of that workpiece.</p>
 <p>The spatial method is independent of the temporal integrator and of the calculation engine. The active GNU Octave implementation uses the project-wide time-integration contract, and an independent C++ transcription exists for cross-engine work. This page describes the <strong>numerical formulation</strong>, not the Octave or C++ software architecture.</p>
-<p>The current production FDM operator identifies itself as:</p>
-<pre><code class="language-text">fdm-1d-cell-centred-positive-logkappa-flux-form-quadratic-interface
-revision 2.1.0</code></pre>
-<p>when the default <code>quadratic-second-order</code> interface closure is active.</p>
+<p>The current production configuration uses the default <code>quadratic-second-order</code> interface closure described below.</p>
 <h2 id="2-continuous-thermal-problem">2. Continuous thermal problem</h2>
 <p>For each workpiece role \(\xi\in\{\sideR{R},\sideS{S}\}\), the current thermal model is written in one-dimensional flux form as</p>
 <div class="math-display">\[
   \rho_\xi(T_\xi)c_{p,\xi}(T_\xi)
-  \frac{\partial T_\xi}{\partial t}
+  \frac{\partial T_\xi}{\partial \temporal{t}}
   =
   \frac{\partial}{\partial \fdx{x}}
   \left[
     \kappa_\xi(T_\xi)
     \frac{\partial T_\xi}{\partial \fdx{x}}
   \right]
-  + q'''_{v,\xi}(T_\xi,t).
+  + q'''_{v,\xi}(T_\xi,\temporal{t}).
 \]</div>
 <p>Here \(\rho\), \(c_p\) and \(\kappa\) are resolved constitutive properties, while \(q'''_v\) represents resolved distributed source/sink contributions. Depending on the active process stage, these may include volumetric electrical heating and reduced lateral heat exchange. Physical distant-end and welding- interface conditions are defined independently at the model layer and are only then converted into FDM boundary fluxes.</p>
 <p>The thermal problem therefore separates:</p>
@@ -290,39 +292,39 @@ revision 2.1.0</code></pre>
 <p>After spatial closure, each regional nodal balance can be written as</p>
 <div class="math-display">\[
   \rho_{\xi,\fdx{i}}c_{p,\xi,\fdx{i}}
-  \frac{dT_{\xi,\fdx{i}}}{dt}
+  \frac{dT_{\xi,\fdx{i}}}{d\temporal{t}}
   =
   \mathcal D_{h,\xi}(T)_{\fdx{i}}
-  +Q_{\xi,\fdx{i}}(T,t),
+  +Q_{\xi,\fdx{i}}(T,\temporal{t}),
 \]</div>
 <p>where \(Q\) denotes the resolved distributed source/sink contribution supplied by the active physical/process model.</p>
 <p>Equivalently,</p>
 <div class="math-display">\[
-  \frac{d\mathbf T_\xi}{dt}
+  \frac{d\mathbf T_\xi}{d\temporal{t}}
   =
   \mathbf F_\xi\!\left(
-    t,\sideR{\mathbf T_R},\sideS{\mathbf T_S};\mathcal P(t)
+    \temporal{t},\sideR{\mathbf T_R},\sideS{\mathbf T_S};\mathcal P(\temporal{t})
   \right).
 \]</div>
 <p>The FDM solver supplies this semi-discrete right-hand side to the shared project-level temporal integrator. The spatial method itself does not define a fixed time-stepping algorithm.</p>
 <h2 id="10-current-temporal-configuration">10. Current temporal configuration</h2>
 <p>The temporal architecture is method-neutral. At present, the principal explicit configuration is Adams--Bashforth of order two (AB2), with Forward Euler as the configured starter/restart method.</p>
-<p>For a right-hand side \(\mathbf F^n\), Forward Euler is</p>
+<p>For a right-hand side \(\mathbf F^{\temporal{n}}\), Forward Euler is</p>
 <div class="math-display">\[
-  \mathbf T^{n+1}
+  \mathbf T^{\temporal{n+1}}
   =
-  \mathbf T^n
-  +\Delta t\,\mathbf F^n,
+  \mathbf T^{\temporal{n}}
+  +\temporal{\Delta t}\,\mathbf F^{\temporal{n}},
 \]</div>
 <p>while AB2 is</p>
 <div class="math-display">\[
-  \mathbf T^{n+1}
+  \mathbf T^{\temporal{n+1}}
   =
-  \mathbf T^n
-  +\Delta t
+  \mathbf T^{\temporal{n}}
+  +\temporal{\Delta t}
   \left(
-    \frac{3}{2}\mathbf F^n
-    -\frac{1}{2}\mathbf F^{n-1}
+    \frac{3}{2}\mathbf F^{\temporal{n}}
+    -\frac{1}{2}\mathbf F^{\temporal{n-1}}
   \right).
 \]</div>
 <p>This is a current reproducible configuration, <strong>not a definition of FDM</strong>. Changing the time integrator does not redefine the physical stage-transfer law or the spatial finite-difference operator.</p>
@@ -340,7 +342,7 @@ revision 2.1.0</code></pre>
 <div class="math-display">\[
   \mathrm{Fo}
   =
-  \frac{\alpha\Delta t}{\fdx{\Delta x}^2}
+  \frac{\alpha\temporal{\Delta t}}{\fdx{\Delta x}^2}
   \leq
   \frac{3}{16}.
 \]</div>
@@ -356,8 +358,8 @@ revision 2.1.0</code></pre>
 <p>conductivity;</p>
 <ul><li>exact equilibrium of a linear temperature field with constant conductivity;</li><li>manufactured-solution spatial refinement for the active variable-</li></ul>
 <p>conductivity operator;</p>
-<ul><li>cell-centred Robin closure and steady Robin refinement;</li><li>interface-source convergence and interface-source energy conservation;</li><li>positive-conductivity production gates;</li><li>temporal discretisation and restart behaviour;</li><li>compatibility/equivalence of historical wrappers with the canonical API.</li></ul>
-<p>The existence of these tests shows what the project checks. A future public <code>verified</code> or <code>PASS</code> badge must still be tied to an accepted run/CI record for the actual revision published by MPX rather than inferred from the mere presence of test files.</p>
+<ul><li>cell-centred Robin closure and steady Robin refinement;</li><li>interface-source convergence and interface-source energy conservation;</li><li>positive-conductivity production gates;</li><li>temporal discretisation and restart behaviour;</li><li>frozen stage regressions through the canonical context/stage API.</li></ul>
+<p>The existence of these tests shows what the project checks. The current accepted native FDM/FEM verification run supplies execution evidence for the tested numerical snapshot. That attestation is numerical and implementation evidence only; it does not make the flash-butt-welding model experimentally validated, and future changed snapshots require their own applicable evidence.</p>
 <h2 id="14-current-assumptions-and-limits">14. Current assumptions and limits</h2>
 <p>This page presently describes only the active one-dimensional thermal FDM path. It does not claim that:</p>
 <ul><li>the complete multiphysics platform is one-dimensional;</li><li>every future FDM formulation must use the same cell-centred support;</li><li>AB2/Forward Euler is the only permitted temporal scheme;</li><li>the current endpoint coefficient represents a fully resolved physical</li></ul>
@@ -365,11 +367,875 @@ revision 2.1.0</code></pre>
 <ul><li>fixed-grid FDM and FEM results must be identical;</li><li>numerical verification constitutes experimental validation.</li></ul>
 <p>The current model keeps the physical law, numerical method and software engine as separate architectural concerns so that any of these may evolve without silently redefining the others.</p>
 <h2 id="15-scientific-notation-used-on-this-page">15. Scientific notation used on this page</h2>
-<p>The technical website preserves the semantic equation colours inherited from the refactored dissertation:</p>
-<ul><li><code>\\fdx{...}</code> — finite-difference/discrete spatial notation;</li><li><code>\\sideR{...}</code> — workpiece role R;</li><li><code>\\sideS{...}</code> — workpiece role S;</li><li><code>\\sideinterface{...}</code> — welding-interface quantities.</li></ul>
-<p>These colours encode scientific meaning and are independent of the decorative website palette. Text labels and mathematical notation must remain sufficient to identify the same roles when colour is unavailable.</p>
+<p>The semantic colour system retains the conventions derived from the refactored dissertation for the first spatial axis and for the physical roles, and extends them with a project-level reviewed role for the temporal dimension:</p>
+<ul><li><code>\\fdx{...}</code> — first spatial axis: the coordinate \(\fdx{x}\) together with the increments, indices and counts of the spatial discretisation along it. The macro name is historical; the role is not specific to the finite-difference method;</li><li><code>\\temporal{...}</code> — temporal dimension: \(\temporal{t}\), the time step \(\temporal{\Delta t}\) and time-level indices. This role is a project-level extension and is not part of the dissertation convention;</li><li><code>\\sideR{...}</code> — workpiece role R;</li><li><code>\\sideS{...}</code> — workpiece role S;</li><li><code>\\sideinterface{...}</code> — welding-interface quantities.</li></ul>
+<p>A colour marks the symbol that identifies a dimension or a role, not the whole operator: in a derivative or an integral only the coordinate is coloured, and a time level keeps the temporal colour on a symbol that carries another role.</p>
+<p>These colours encode scientific meaning and are independent of the decorative website palette: each palette renders a role in a contrast-checked colour of the same hue. Text labels and mathematical notation must remain sufficient to identify the same roles when colour is unavailable.</p>
       </article>
-    </div>
+    </div></div>
+<template data-technical-locale="en" data-page-title="One-dimensional finite-difference formulation — Multiphysics" data-page-description="One-dimensional finite-difference formulation — current technical documentation for the Multiphysics project."><nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">FDM 1D</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Technical section navigation" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Technical layers</span>
+    <ul><li><a href="/technical/numerics/" aria-current="location"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementations</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verification</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">Numerical formulation · FDM · 1D</p>
+      <h1 id="one-dimensional-finite-difference-formulation" data-i18n-meta="title">One-dimensional finite-difference formulation</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">technical preview</span>
+        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-10-18</span>
+      </div>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.scope">Scope</dt><dd data-i18n-meta="model_scope">transient thermal problem with coupled R/S workpiece regions</dd></div><div><dt data-i18n="technical.labels.method">Method</dt><dd data-i18n-invariant="method-identifier">FDM · 1D</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Implementation status</dt><dd data-i18n-meta="implementation_status_label">implemented</dd></div></dl>
+    </header>
+
+    <aside class="scientific-legend" aria-label="Scientific notation colour legend" data-i18n="technical.labels.equationLegendAria" data-i18n-attr="aria-label">
+      <strong data-i18n="technical.labels.equationNotation">Equation notation</strong>
+      <span><i class="legend-swatch math-role-axis1"></i> <span data-i18n="technical.labels.semanticAxis1">spatial axis x and its discretisation</span></span>
+      <span><i class="legend-swatch math-role-temporal"></i> <span data-i18n="technical.labels.semanticTemporal">time and its discretisation</span></span>
+      <span><i class="legend-swatch math-role-side-r"></i> <span data-i18n="technical.labels.workpieceR">workpiece R</span></span>
+      <span><i class="legend-swatch math-role-side-s"></i> <span data-i18n="technical.labels.workpieceS">workpiece S</span></span>
+      <span><i class="legend-swatch math-role-interface"></i> <span data-i18n="technical.labels.interface">welding interface</span></span>
+      <small data-i18n="technical.labels.colourSupplement">Colour is supplementary; symbols and labels remain authoritative.</small>
+    </aside>
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">Provenance and source references</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">Curated authority records</dt><dd>5</dd></div><div><dt data-i18n="technical.labels.curatedDerivationRecords">Curated derivation records</dt><dd>2</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">Curated implementation records</dt><dd>2</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">Curated verification records</dt><dd>8</dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">On this page</summary>
+        <ol data-i18n-body="toc"><li><a href="#1-scope-and-current-status">Scope and current status</a></li><li><a href="#2-continuous-thermal-problem">Continuous thermal problem</a></li><li><a href="#3-cell-centred-spatial-support">Cell-centred spatial support</a></li><li><a href="#4-conservative-shared-face-form">Conservative shared-face form</a></li><li><a href="#5-interior-face-gradient-approximation">Interior face-gradient approximation</a></li><li><a href="#6-positive-conductivity-reconstruction">Positive conductivity reconstruction</a></li><li><a href="#7-welding-interface-closure">Welding-interface closure</a></li><li><a href="#8-distant-end-robin-closure">Distant-end Robin closure</a></li><li><a href="#9-semi-discrete-system">Semi-discrete system</a></li><li><a href="#10-current-temporal-configuration">Current temporal configuration</a></li><li><a href="#11-stability-reference">Stability reference</a></li><li><a href="#12-accuracy-statement-local-high-order-does-not-imply-global-fourth-order">Accuracy statement: local high order does not imply global fourth order</a></li><li><a href="#13-verification-evidence-represented-by-the-current-test-suite">Verification evidence represented by the current test suite</a></li><li><a href="#14-current-assumptions-and-limits">Current assumptions and limits</a></li><li><a href="#15-scientific-notation-used-on-this-page">Scientific notation used on this page</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>This page is a draft public technical description of the current FDM spatial formulation. It documents the present project state; it is not a republication of the 2018 dissertation and it does not make the dissertation the normative source of the model.</p></blockquote>
+<h2 id="1-scope-and-current-status">1. Scope and current status</h2>
+<p>The current finite-difference method (FDM) solves the transient one-dimensional thermal problem in two workpiece regions, \(\sideR{R}\) and \(\sideS{S}\), using a cell-centred spatial support. The local coordinate in each region points from the welding interface toward the distant end of that workpiece.</p>
+<p>The spatial method is independent of the temporal integrator and of the calculation engine. The active GNU Octave implementation uses the project-wide time-integration contract, and an independent C++ transcription exists for cross-engine work. This page describes the <strong>numerical formulation</strong>, not the Octave or C++ software architecture.</p>
+<p>The current production configuration uses the default <code>quadratic-second-order</code> interface closure described below.</p>
+<h2 id="2-continuous-thermal-problem">2. Continuous thermal problem</h2>
+<p>For each workpiece role \(\xi\in\{\sideR{R},\sideS{S}\}\), the current thermal model is written in one-dimensional flux form as</p>
+<div class="math-display">\[
+  \rho_\xi(T_\xi)c_{p,\xi}(T_\xi)
+  \frac{\partial T_\xi}{\partial \temporal{t}}
+  =
+  \frac{\partial}{\partial \fdx{x}}
+  \left[
+    \kappa_\xi(T_\xi)
+    \frac{\partial T_\xi}{\partial \fdx{x}}
+  \right]
+  + q'''_{v,\xi}(T_\xi,\temporal{t}).
+\]</div>
+<p>Here \(\rho\), \(c_p\) and \(\kappa\) are resolved constitutive properties, while \(q'''_v\) represents resolved distributed source/sink contributions. Depending on the active process stage, these may include volumetric electrical heating and reduced lateral heat exchange. Physical distant-end and welding- interface conditions are defined independently at the model layer and are only then converted into FDM boundary fluxes.</p>
+<p>The thermal problem therefore separates:</p>
+<pre><code class="language-text">physical/model laws
+        -&gt; resolved material/process data
+        -&gt; FDM spatial closure
+        -&gt; semi-discrete ODE system
+        -&gt; selected time integrator</code></pre>
+<h2 id="3-cell-centred-spatial-support">3. Cell-centred spatial support</h2>
+<p>For a region of physical length \(L_\xi\) divided into \(\fdx{N_\xi}\) equal cells,</p>
+<div class="math-display">\[
+  \fdx{\Delta x_\xi}=\frac{L_\xi}{\fdx{N_\xi}},
+  \qquad
+  \fdx{x}_{\xi,\fdx{i}}
+  =\left(\fdx{i}-\frac{1}{2}\right)\fdx{\Delta x_\xi},
+  \qquad
+  \fdx{i}=1,\ldots,\fdx{N_\xi}.
+\]</div>
+<p>The stored temperature \(T_{\xi,\fdx{i}}\) is therefore associated with the centre of a physical cell. In particular, the first stored temperature is half a cell from the welding interface and the last stored temperature is half a cell from the distant physical surface.</p>
+<p>This distinction is essential: a stored endpoint value is <strong>not automatically identical to a physical surface temperature</strong>. The half-cell distance is handled by the relevant numerical boundary/interface closure.</p>
+<h2 id="4-conservative-shared-face-form">4. Conservative shared-face form</h2>
+<p>The active production operator constructs a single shared sequence of conductive face quantities</p>
+<div class="math-display">\[
+  \Phi_{\xi,\fdx{1/2}},
+  \Phi_{\xi,\fdx{3/2}},
+  \ldots,
+  \Phi_{\xi,\fdx{N_\xi+1/2}}
+\]</div>
+<p>and defines the cell-centred conductive contribution by the exact discrete face difference</p>
+<div class="math-display">\[
+  \mathcal D_{h,\xi}(T)_{\fdx{i}}
+  =
+  \frac{
+    \Phi_{\xi,\fdx{i+1/2}}
+    -\Phi_{\xi,\fdx{i-1/2}}
+  }{\fdx{\Delta x_\xi}}.
+\]</div>
+<p>The first and last entries of the same face sequence are the physical boundary fluxes supplied by the welding-interface and distant-end closures. They are not post-processing values added after an interior operator has already been formed.</p>
+<p>This is also the invariant exercised by the permanent conservation test: <code>D = diff(face_flux)/dx</code> exactly in the implementation.</p>
+<h2 id="5-interior-face-gradient-approximation">5. Interior face-gradient approximation</h2>
+<p>For an ordinary internal face between cells \(\fdx{i}\) and \(\fdx{i+1}\), the temperature gradient is evaluated using the fourth-order centred face formula</p>
+<div class="math-display">\[
+  \left.
+  \frac{\partial T_\xi}{\partial \fdx{x}}
+  \right|_{\fdx{i+1/2}}
+  \approx
+  \frac{
+    T_{\xi,\fdx{i-1}}
+    -27T_{\xi,\fdx{i}}
+    +27T_{\xi,\fdx{i+1}}
+    -T_{\xi,\fdx{i+2}}
+  }{24\fdx{\Delta x_\xi}}.
+\]</div>
+<p>Near the first and last internal faces, the implementation uses the approved one-sided counterparts so that no exterior ghost temperature is introduced merely to complete the stencil. For the first internal face the derivative is</p>
+<div class="math-display">\[
+  \left.
+  \frac{\partial T_\xi}{\partial \fdx{x}}
+  \right|_{\fdx{3/2}}
+  \approx
+  \frac{1}{\fdx{\Delta x_\xi}}
+  \left(
+    -\frac{11}{12}T_{\xi,1}
+    +\frac{17}{24}T_{\xi,2}
+    +\frac{3}{8}T_{\xi,3}
+    -\frac{5}{24}T_{\xi,4}
+    +\frac{1}{24}T_{\xi,5}
+  \right),
+\]</div>
+<p>with the right-side expression obtained by the corresponding mirrored stencil.</p>
+<h2 id="6-positive-conductivity-reconstruction">6. Positive conductivity reconstruction</h2>
+<p>The current implementation does not interpolate \(\kappa\) directly at an internal face. Instead, it reconstructs \(\log\kappa\) and exponentiates the result. For an ordinary internal face,</p>
+<div class="math-display">\[
+  \log \kappa_{\xi,\fdx{i+1/2}}
+  \approx
+  \frac{
+    -\log\kappa_{\xi,\fdx{i-1}}
+    +9\log\kappa_{\xi,\fdx{i}}
+    +9\log\kappa_{\xi,\fdx{i+1}}
+    -\log\kappa_{\xi,\fdx{i+2}}
+  }{16},
+\]</div>
+<p>followed by</p>
+<div class="math-display">\[
+  \kappa_{\xi,\fdx{i+1/2}}
+  =
+  \exp\!\left(
+    \log \kappa_{\xi,\fdx{i+1/2}}
+  \right).
+\]</div>
+<p>This is a current implementation detail that supersedes any older explanatory formula that interpolates conductivity itself. For finite positive nodal conductivities, the reconstruction is designed to preserve positivity unless floating-point range is exceeded, in which case the runtime fails explicitly.</p>
+<p>The conductive face quantity is then</p>
+<div class="math-display">\[
+  \Phi_{\xi,\fdx{i+1/2}}
+  =
+  \kappa_{\xi,\fdx{i+1/2}}
+  \left.
+    \frac{\partial T_\xi}{\partial \fdx{x}}
+  \right|_{\fdx{i+1/2}}.
+\]</div>
+<h2 id="7-welding-interface-closure">7. Welding-interface closure</h2>
+<p>The physical interface law is defined at the model layer. The current production cell-centred closure converts that law into the default <code>quadratic-second-order</code> interface flux. Defining \(\sideinterface{q''_0}>0\) as heat transferred from \(\sideR{R}\) to \(\sideS{S}\),</p>
+<div class="math-display">\[
+  \sideinterface{q''_0}
+  =
+  \frac{
+    9\sideR{T_{R,1}}-\sideR{T_{R,2}}
+    -9\sideS{T_{S,1}}+\sideS{T_{S,2}}
+  }{
+    8\sideinterface{R''_{th,0}}
+    +3\left(
+      \frac{\fdx{\Delta x_R}}{\kappa_{R,1}}
+      +
+      \frac{\fdx{\Delta x_S}}{\kappa_{S,1}}
+    \right)
+  }.
+\]</div>
+<p>The corresponding reconstructed interface-side temperatures are</p>
+<div class="math-display">\[
+  \sideR{T_R^I}
+  =
+  \frac{9\sideR{T_{R,1}}-\sideR{T_{R,2}}}{8}
+  -
+  \frac{3\fdx{\Delta x_R}\sideinterface{q''_0}}
+       {8\kappa_{R,1}},
+\]</div>
+<div class="math-display">\[
+  \sideS{T_S^I}
+  =
+  \frac{9\sideS{T_{S,1}}-\sideS{T_{S,2}}}{8}
+  +
+  \frac{3\fdx{\Delta x_S}\sideinterface{q''_0}}
+       {8\kappa_{S,1}}.
+\]</div>
+<p>The same thermal transfer is applied to the two regions with opposite signs. There is no fictitious interface temperature used as a ghost node to complete the FDM stencil.</p>
+<p>Interface electrical dissipation, when present, is a separate source term. The current runtime incorporates the allocated interface electrical power into the region boundary-flux bookkeeping rather than redefining the thermal contact law.</p>
+<p>A former two-point first-order interface closure remains available only for legacy reproduction/regression. It is not the current production default.</p>
+<h2 id="8-distant-end-robin-closure">8. Distant-end Robin closure</h2>
+<p>The active physical distant-end condition is Newton/Robin exchange,</p>
+<div class="math-display">\[
+  q''_{out,\xi}
+  =
+  h_{end,\xi}
+  \left(T_{s,\xi}-T_{\infty,end,\xi}\right),
+\]</div>
+<p>where \(T_{s,\xi}\) is the <strong>physical surface temperature</strong>. Because the final stored temperature is located half a cell inside that surface, the active cell-centred closure eliminates the un-stored surface value and uses</p>
+<div class="math-display">\[
+  q''_{out,\xi}
+  =
+  \frac{
+    T_{\xi,\fdx{N_\xi}}-T_{\infty,end,\xi}
+  }{
+    \dfrac{\fdx{\Delta x_\xi}}{2\kappa_{\xi,\fdx{N_\xi}}}
+    +\dfrac{1}{h_{end,\xi}}
+  }.
+\]</div>
+<p>The adiabatic limit is obtained for \(h_{end,\xi}=0\). The endpoint degree of freedom remains part of the evolving thermal state; it is not reset after each time step to a prescribed ambient temperature.</p>
+<h2 id="9-semi-discrete-system">9. Semi-discrete system</h2>
+<p>After spatial closure, each regional nodal balance can be written as</p>
+<div class="math-display">\[
+  \rho_{\xi,\fdx{i}}c_{p,\xi,\fdx{i}}
+  \frac{dT_{\xi,\fdx{i}}}{d\temporal{t}}
+  =
+  \mathcal D_{h,\xi}(T)_{\fdx{i}}
+  +Q_{\xi,\fdx{i}}(T,\temporal{t}),
+\]</div>
+<p>where \(Q\) denotes the resolved distributed source/sink contribution supplied by the active physical/process model.</p>
+<p>Equivalently,</p>
+<div class="math-display">\[
+  \frac{d\mathbf T_\xi}{d\temporal{t}}
+  =
+  \mathbf F_\xi\!\left(
+    \temporal{t},\sideR{\mathbf T_R},\sideS{\mathbf T_S};\mathcal P(\temporal{t})
+  \right).
+\]</div>
+<p>The FDM solver supplies this semi-discrete right-hand side to the shared project-level temporal integrator. The spatial method itself does not define a fixed time-stepping algorithm.</p>
+<h2 id="10-current-temporal-configuration">10. Current temporal configuration</h2>
+<p>The temporal architecture is method-neutral. At present, the principal explicit configuration is Adams--Bashforth of order two (AB2), with Forward Euler as the configured starter/restart method.</p>
+<p>For a right-hand side \(\mathbf F^{\temporal{n}}\), Forward Euler is</p>
+<div class="math-display">\[
+  \mathbf T^{\temporal{n+1}}
+  =
+  \mathbf T^{\temporal{n}}
+  +\temporal{\Delta t}\,\mathbf F^{\temporal{n}},
+\]</div>
+<p>while AB2 is</p>
+<div class="math-display">\[
+  \mathbf T^{\temporal{n+1}}
+  =
+  \mathbf T^{\temporal{n}}
+  +\temporal{\Delta t}
+  \left(
+    \frac{3}{2}\mathbf F^{\temporal{n}}
+    -\frac{1}{2}\mathbf F^{\temporal{n-1}}
+  \right).
+\]</div>
+<p>This is a current reproducible configuration, <strong>not a definition of FDM</strong>. Changing the time integrator does not redefine the physical stage-transfer law or the spatial finite-difference operator.</p>
+<p>At a process event, physical state and scientific process history follow the model-level transfer contract. Private multistep integrator memory may continue, restart or be reconstructed only according to the temporal-integrator contract.</p>
+<h2 id="11-stability-reference">11. Stability reference</h2>
+<p>For the constant-coefficient fourth-order five-point diffusion operator, the most negative Fourier eigenvalue used by the current runtime reference is</p>
+<div class="math-display">\[
+  \lambda_{min}
+  =
+  -\frac{16\alpha}{3\fdx{\Delta x}^2},
+  \qquad
+  \alpha=\frac{\kappa}{\rho c_p}.
+\]</div>
+<p>For AB2, whose current negative-real stability radius is one in this normalisation, this gives the reference Fourier-number limit</p>
+<div class="math-display">\[
+  \mathrm{Fo}
+  =
+  \frac{\alpha\temporal{\Delta t}}{\fdx{\Delta x}^2}
+  \leq
+  \frac{3}{16}.
+\]</div>
+<p>The runtime scales the stored spatial reference by the selected temporal integrator&#39;s negative-real stability radius. This bound is a practical constant-property reference. Temperature-dependent coefficients, physical boundary closures, interface coupling and event-driven changes still require refinement and verification; exceeding the configured reference is treated as an error rather than silently advancing.</p>
+<h2 id="12-accuracy-statement-local-high-order-does-not-imply-global-fourth-order">12. Accuracy statement: local high order does not imply global fourth order</h2>
+<p>The current FDM implementation retains fourth-order centred and one-sided <strong>ingredients</strong> for face gradients and related internal reconstruction. However, the project&#39;s manufactured-solution test for the active variable- conductivity conservative cell-centred operator explicitly accepts an observed <strong>global order of approximately two</strong>, with an acceptance floor of 1.9.</p>
+<p>Accordingly, the current public claim is:</p>
+<blockquote><p>The solver uses high-order/fourth-order spatial ingredients in its internal flux construction, while the approved observed global convergence order of the present variable-conductivity cell-centred operator is approximately second order.</p></blockquote>
+<p>The complete solver must <strong>not</strong> be presented as globally fourth-order unless a later accepted verification record changes this status.</p>
+<h2 id="13-verification-evidence-represented-by-the-current-test-suite">13. Verification evidence represented by the current test suite</h2>
+<p>The current source tree contains dedicated verification logic for, among other items:</p>
+<ul><li>exact shared-face difference structure and boundary-flux conservation;</li><li>constant-conductivity reconstruction and positivity of reconstructed face</li></ul>
+<p>conductivity;</p>
+<ul><li>exact equilibrium of a linear temperature field with constant conductivity;</li><li>manufactured-solution spatial refinement for the active variable-</li></ul>
+<p>conductivity operator;</p>
+<ul><li>cell-centred Robin closure and steady Robin refinement;</li><li>interface-source convergence and interface-source energy conservation;</li><li>positive-conductivity production gates;</li><li>temporal discretisation and restart behaviour;</li><li>frozen stage regressions through the canonical context/stage API.</li></ul>
+<p>The existence of these tests shows what the project checks. The current accepted native FDM/FEM verification run supplies execution evidence for the tested numerical snapshot. That attestation is numerical and implementation evidence only; it does not make the flash-butt-welding model experimentally validated, and future changed snapshots require their own applicable evidence.</p>
+<h2 id="14-current-assumptions-and-limits">14. Current assumptions and limits</h2>
+<p>This page presently describes only the active one-dimensional thermal FDM path. It does not claim that:</p>
+<ul><li>the complete multiphysics platform is one-dimensional;</li><li>every future FDM formulation must use the same cell-centred support;</li><li>AB2/Forward Euler is the only permitted temporal scheme;</li><li>the current endpoint coefficient represents a fully resolved physical</li></ul>
+<p>jaw/electrode model;</p>
+<ul><li>fixed-grid FDM and FEM results must be identical;</li><li>numerical verification constitutes experimental validation.</li></ul>
+<p>The current model keeps the physical law, numerical method and software engine as separate architectural concerns so that any of these may evolve without silently redefining the others.</p>
+<h2 id="15-scientific-notation-used-on-this-page">15. Scientific notation used on this page</h2>
+<p>The semantic colour system retains the conventions derived from the refactored dissertation for the first spatial axis and for the physical roles, and extends them with a project-level reviewed role for the temporal dimension:</p>
+<ul><li><code>\\fdx{...}</code> — first spatial axis: the coordinate \(\fdx{x}\) together with the increments, indices and counts of the spatial discretisation along it. The macro name is historical; the role is not specific to the finite-difference method;</li><li><code>\\temporal{...}</code> — temporal dimension: \(\temporal{t}\), the time step \(\temporal{\Delta t}\) and time-level indices. This role is a project-level extension and is not part of the dissertation convention;</li><li><code>\\sideR{...}</code> — workpiece role R;</li><li><code>\\sideS{...}</code> — workpiece role S;</li><li><code>\\sideinterface{...}</code> — welding-interface quantities.</li></ul>
+<p>A colour marks the symbol that identifies a dimension or a role, not the whole operator: in a derivative or an integral only the coordinate is coloured, and a time level keeps the temporal colour on a symbol that carries another role.</p>
+<p>These colours encode scientific meaning and are independent of the decorative website palette: each palette renders a role in a contrast-checked colour of the same hue. Text labels and mathematical notation must remain sufficient to identify the same roles when colour is unavailable.</p>
+      </article>
+    </div></template>
+<template data-technical-locale="pt-BR" data-page-title="Formulação unidimensional por diferenças finitas — Multiphysics" data-page-description="Formulação FDM 1D atual do projeto Multiphysics, incluindo suporte cell-centred, fluxos conservativos, fechamento de interface e Robin, integração temporal e evidências de verificação."><nav class="technical-breadcrumb" aria-label="Trilha de navegação" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Técnico</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Formulação numérica</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">FDM 1D</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Navegação da seção técnica" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Camadas técnicas</span>
+    <ul><li><a href="/technical/numerics/" aria-current="location"><span data-i18n="technical.labels.numericalFormulation">Formulação numérica</span></a></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementações</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verificação</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">Formulação numérica · FDM · 1D</p>
+      <h1 id="one-dimensional-finite-difference-formulation" data-i18n-meta="title">Formulação unidimensional por diferenças finitas</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">prévia técnica</span>
+        <span><span data-i18n="technical.labels.reviewed">revisado em</span> 2026-10-18</span>
+      </div>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.scope">Escopo</dt><dd data-i18n-meta="model_scope">problema térmico transiente com regiões de peças R/S acopladas</dd></div><div><dt data-i18n="technical.labels.method">Método</dt><dd data-i18n-invariant="method-identifier">FDM · 1D</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Estado da implementação</dt><dd data-i18n-meta="implementation_status_label">implementado</dd></div></dl>
+    </header>
+
+    <aside class="scientific-legend" aria-label="Legenda de cores da notação científica" data-i18n="technical.labels.equationLegendAria" data-i18n-attr="aria-label">
+      <strong data-i18n="technical.labels.equationNotation">Notação das equações</strong>
+      <span><i class="legend-swatch math-role-axis1"></i> <span data-i18n="technical.labels.semanticAxis1">eixo espacial x e sua discretização</span></span>
+      <span><i class="legend-swatch math-role-temporal"></i> <span data-i18n="technical.labels.semanticTemporal">tempo e sua discretização</span></span>
+      <span><i class="legend-swatch math-role-side-r"></i> <span data-i18n="technical.labels.workpieceR">peça R</span></span>
+      <span><i class="legend-swatch math-role-side-s"></i> <span data-i18n="technical.labels.workpieceS">peça S</span></span>
+      <span><i class="legend-swatch math-role-interface"></i> <span data-i18n="technical.labels.interface">interface de soldagem</span></span>
+      <small data-i18n="technical.labels.colourSupplement">A cor é suplementar; símbolos e rótulos permanecem autoritativos.</small>
+    </aside>
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">Proveniência e referências de fonte</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">Registros de autoridade selecionados</dt><dd>5</dd></div><div><dt data-i18n="technical.labels.curatedDerivationRecords">Registros de derivação selecionados</dt><dd>2</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">Registros de implementação selecionados</dt><dd>2</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">Registros de verificação selecionados</dt><dd>8</dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">Nesta página</summary>
+        <ol data-i18n-body="toc"><li><a href="#1-scope-and-current-status">Escopo e estado atual</a></li><li><a href="#2-continuous-thermal-problem">Problema térmico contínuo</a></li><li><a href="#3-cell-centred-spatial-support">Suporte espacial cell-centred</a></li><li><a href="#4-conservative-shared-face-form">Forma conservativa por faces compartilhadas</a></li><li><a href="#5-interior-face-gradient-approximation">Aproximação do gradiente nas faces internas</a></li><li><a href="#6-positive-conductivity-reconstruction">Reconstrução positiva da condutividade</a></li><li><a href="#7-welding-interface-closure">Fechamento da interface de soldagem</a></li><li><a href="#8-distant-end-robin-closure">Fechamento Robin na extremidade distante</a></li><li><a href="#9-semi-discrete-system">Sistema semidiscreto</a></li><li><a href="#10-current-temporal-configuration">Configuração temporal atual</a></li><li><a href="#11-stability-reference">Referência de estabilidade</a></li><li><a href="#12-accuracy-statement-local-high-order-does-not-imply-global-fourth-order">Declaração de precisão: alta ordem local não implica quarta ordem global</a></li><li><a href="#13-verification-evidence-represented-by-the-current-test-suite">Evidências de verificação representadas pela suíte de testes atual</a></li><li><a href="#14-current-assumptions-and-limits">Hipóteses e limites atuais</a></li><li><a href="#15-scientific-notation-used-on-this-page">Notação científica usada nesta página</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>Esta página é uma descrição técnica pública preliminar da formulação espacial FDM atual. Ela documenta o estado presente do projeto; não é uma republicação da dissertação de 2018 e não transforma a dissertação em fonte normativa do modelo.</p></blockquote>
+<h2 id="1-scope-and-current-status">1. Escopo e estado atual</h2>
+<p>O método de diferenças finitas (FDM) atual resolve o problema térmico transiente unidimensional em duas regiões de peças, \(\sideR{R}\) e \(\sideS{S}\), usando suporte espacial cell-centred. A coordenada local em cada região aponta da interface de soldagem para a extremidade distante daquela peça.</p>
+<p>O método espacial é independente do integrador temporal e do ambiente de cálculo. A implementação GNU Octave ativa usa o contrato de integração temporal comum ao projeto, e existe uma transcrição C++ independente para trabalho de verificação entre engines. Esta página descreve a <strong>formulação numérica</strong>, não a arquitetura de software em Octave ou C++.</p>
+<p>A configuração FDM de produção atual usa o fechamento de interface padrão <code>quadratic-second-order</code> descrito abaixo.</p>
+<h2 id="2-continuous-thermal-problem">2. Problema térmico contínuo</h2>
+<p>Para cada papel de peça \(\xi\in\{\sideR{R},\sideS{S}\}\), o modelo térmico atual é escrito em forma unidimensional de fluxo como</p>
+<div class="math-display">\[
+  \rho_\xi(T_\xi)c_{p,\xi}(T_\xi)
+  \frac{\partial T_\xi}{\partial \temporal{t}}
+  =
+  \frac{\partial}{\partial \fdx{x}}
+  \left[
+    \kappa_\xi(T_\xi)
+    \frac{\partial T_\xi}{\partial \fdx{x}}
+  \right]
+  + q'''_{v,\xi}(T_\xi,\temporal{t}).
+\]</div>
+<p>Aqui \(\rho\), \(c_p\) e \(\kappa\) são propriedades constitutivas resolvidas, enquanto \(q'''_v\) representa contribuições distribuídas resolvidas de fonte/sumidouro. Dependendo da etapa de processo ativa, elas podem incluir aquecimento elétrico volumétrico e troca térmica lateral reduzida. As condições físicas da extremidade distante e da interface de soldagem são definidas independentemente na camada do modelo e somente depois convertidas em fluxos de contorno FDM.</p>
+<p>O problema térmico, portanto, separa:</p>
+<pre><code class="language-text">leis físicas/do modelo
+        -&gt; dados resolvidos de material/processo
+        -&gt; fechamento espacial FDM
+        -&gt; sistema de EDOs semidiscreto
+        -&gt; integrador temporal selecionado</code></pre>
+<h2 id="3-cell-centred-spatial-support">3. Suporte espacial cell-centred</h2>
+<p>Para uma região de comprimento físico \(L_\xi\) dividida em \(\fdx{N_\xi}\) células iguais,</p>
+<div class="math-display">\[
+  \fdx{\Delta x_\xi}=\frac{L_\xi}{\fdx{N_\xi}},
+  \qquad
+  \fdx{x}_{\xi,\fdx{i}}
+  =\left(\fdx{i}-\frac{1}{2}\right)\fdx{\Delta x_\xi},
+  \qquad
+  \fdx{i}=1,\ldots,\fdx{N_\xi}.
+\]</div>
+<p>A temperatura armazenada \(T_{\xi,\fdx{i}}\) está, portanto, associada ao centro de uma célula física. Em particular, a primeira temperatura armazenada fica a meia célula da interface de soldagem e a última fica a meia célula da superfície física distante.</p>
+<p>Essa distinção é essencial: um valor armazenado na extremidade <strong>não é automaticamente idêntico a uma temperatura de superfície física</strong>. A distância de meia célula é tratada pelo fechamento numérico de contorno/interface correspondente.</p>
+<h2 id="4-conservative-shared-face-form">4. Forma conservativa por faces compartilhadas</h2>
+<p>O operador de produção ativo constrói uma única sequência compartilhada de quantidades condutivas nas faces</p>
+<div class="math-display">\[
+  \Phi_{\xi,\fdx{1/2}},
+  \Phi_{\xi,\fdx{3/2}},
+  \ldots,
+  \Phi_{\xi,\fdx{N_\xi+1/2}}
+\]</div>
+<p>e define a contribuição condutiva cell-centred pela diferença discreta exata entre faces</p>
+<div class="math-display">\[
+  \mathcal D_{h,\xi}(T)_{\fdx{i}}
+  =
+  \frac{
+    \Phi_{\xi,\fdx{i+1/2}}
+    -\Phi_{\xi,\fdx{i-1/2}}
+  }{\fdx{\Delta x_\xi}}.
+\]</div>
+<p>A primeira e a última entradas da mesma sequência de faces são os fluxos físicos de contorno fornecidos pelos fechamentos da interface de soldagem e da extremidade distante. Eles não são valores de pós-processamento adicionados depois que um operador interior já foi formado.</p>
+<p>Essa também é a invariável exercitada pelo teste permanente de conservação: <code>D = diff(face_flux)/dx</code> exatamente na implementação.</p>
+<h2 id="5-interior-face-gradient-approximation">5. Aproximação do gradiente nas faces internas</h2>
+<p>Para uma face interna ordinária entre as células \(\fdx{i}\) e \(\fdx{i+1}\), o gradiente de temperatura é avaliado pela fórmula centrada de quarta ordem na face</p>
+<div class="math-display">\[
+  \left.
+  \frac{\partial T_\xi}{\partial \fdx{x}}
+  \right|_{\fdx{i+1/2}}
+  \approx
+  \frac{
+    T_{\xi,\fdx{i-1}}
+    -27T_{\xi,\fdx{i}}
+    +27T_{\xi,\fdx{i+1}}
+    -T_{\xi,\fdx{i+2}}
+  }{24\fdx{\Delta x_\xi}}.
+\]</div>
+<p>Próximo à primeira e à última faces internas, a implementação usa as contrapartes unilaterais aprovadas para que nenhuma temperatura ghost exterior seja introduzida apenas para completar o stencil. Para a primeira face interna, a derivada é</p>
+<div class="math-display">\[
+  \left.
+  \frac{\partial T_\xi}{\partial \fdx{x}}
+  \right|_{\fdx{3/2}}
+  \approx
+  \frac{1}{\fdx{\Delta x_\xi}}
+  \left(
+    -\frac{11}{12}T_{\xi,1}
+    +\frac{17}{24}T_{\xi,2}
+    +\frac{3}{8}T_{\xi,3}
+    -\frac{5}{24}T_{\xi,4}
+    +\frac{1}{24}T_{\xi,5}
+  \right),
+\]</div>
+<p>sendo a expressão do lado direito obtida pelo stencil espelhado correspondente.</p>
+<h2 id="6-positive-conductivity-reconstruction">6. Reconstrução positiva da condutividade</h2>
+<p>A implementação atual não interpola \(\kappa\) diretamente em uma face interna. Em vez disso, reconstrói \(\log\kappa\) e exponencia o resultado. Para uma face interna ordinária,</p>
+<div class="math-display">\[
+  \log \kappa_{\xi,\fdx{i+1/2}}
+  \approx
+  \frac{
+    -\log\kappa_{\xi,\fdx{i-1}}
+    +9\log\kappa_{\xi,\fdx{i}}
+    +9\log\kappa_{\xi,\fdx{i+1}}
+    -\log\kappa_{\xi,\fdx{i+2}}
+  }{16},
+\]</div>
+<p>seguido de</p>
+<div class="math-display">\[
+  \kappa_{\xi,\fdx{i+1/2}}
+  =
+  \exp\!\left(
+    \log \kappa_{\xi,\fdx{i+1/2}}
+  \right).
+\]</div>
+<p>Esse é um detalhe da implementação atual que substitui qualquer fórmula explicativa mais antiga que interpole a própria condutividade. Para condutividades nodais finitas e positivas, a reconstrução é projetada para preservar positividade, a menos que o intervalo de ponto flutuante seja excedido; nesse caso o runtime falha explicitamente.</p>
+<p>A quantidade condutiva na face é então</p>
+<div class="math-display">\[
+  \Phi_{\xi,\fdx{i+1/2}}
+  =
+  \kappa_{\xi,\fdx{i+1/2}}
+  \left.
+    \frac{\partial T_\xi}{\partial \fdx{x}}
+  \right|_{\fdx{i+1/2}}.
+\]</div>
+<h2 id="7-welding-interface-closure">7. Fechamento da interface de soldagem</h2>
+<p>A lei física de interface é definida na camada do modelo. O fechamento cell-centred de produção atual converte essa lei no fluxo de interface padrão <code>quadratic-second-order</code>. Definindo \(\sideinterface{q''_0}>0\) como calor transferido de \(\sideR{R}\) para \(\sideS{S}\),</p>
+<div class="math-display">\[
+  \sideinterface{q''_0}
+  =
+  \frac{
+    9\sideR{T_{R,1}}-\sideR{T_{R,2}}
+    -9\sideS{T_{S,1}}+\sideS{T_{S,2}}
+  }{
+    8\sideinterface{R''_{th,0}}
+    +3\left(
+      \frac{\fdx{\Delta x_R}}{\kappa_{R,1}}
+      +
+      \frac{\fdx{\Delta x_S}}{\kappa_{S,1}}
+    \right)
+  }.
+\]</div>
+<p>As temperaturas reconstruídas correspondentes nos lados da interface são</p>
+<div class="math-display">\[
+  \sideR{T_R^I}
+  =
+  \frac{9\sideR{T_{R,1}}-\sideR{T_{R,2}}}{8}
+  -
+  \frac{3\fdx{\Delta x_R}\sideinterface{q''_0}}
+       {8\kappa_{R,1}},
+\]</div>
+<div class="math-display">\[
+  \sideS{T_S^I}
+  =
+  \frac{9\sideS{T_{S,1}}-\sideS{T_{S,2}}}{8}
+  +
+  \frac{3\fdx{\Delta x_S}\sideinterface{q''_0}}
+       {8\kappa_{S,1}}.
+\]</div>
+<p>A mesma transferência térmica é aplicada às duas regiões com sinais opostos. Não existe uma temperatura fictícia de interface usada como ghost node para completar o stencil FDM.</p>
+<p>A dissipação elétrica na interface, quando presente, é um termo-fonte separado. O runtime atual incorpora a potência elétrica de interface alocada na contabilização dos fluxos de contorno das regiões, em vez de redefinir a lei de contato térmico.</p>
+<p>Um antigo fechamento de interface de primeira ordem e dois pontos permanece disponível apenas para reprodução/regressão legada. Ele não é o padrão de produção atual.</p>
+<h2 id="8-distant-end-robin-closure">8. Fechamento Robin na extremidade distante</h2>
+<p>A condição física ativa na extremidade distante é troca de Newton/Robin,</p>
+<div class="math-display">\[
+  q''_{out,\xi}
+  =
+  h_{end,\xi}
+  \left(T_{s,\xi}-T_{\infty,end,\xi}\right),
+\]</div>
+<p>em que \(T_{s,\xi}\) é a <strong>temperatura da superfície física</strong>. Como a última temperatura armazenada está a meia célula para dentro dessa superfície, o fechamento cell-centred ativo elimina o valor de superfície não armazenado e usa</p>
+<div class="math-display">\[
+  q''_{out,\xi}
+  =
+  \frac{
+    T_{\xi,\fdx{N_\xi}}-T_{\infty,end,\xi}
+  }{
+    \dfrac{\fdx{\Delta x_\xi}}{2\kappa_{\xi,\fdx{N_\xi}}}
+    +\dfrac{1}{h_{end,\xi}}
+  }.
+\]</div>
+<p>O limite adiabático é obtido para \(h_{end,\xi}=0\). O grau de liberdade da extremidade permanece parte do estado térmico em evolução; ele não é reinicializado após cada passo de tempo para uma temperatura ambiente prescrita.</p>
+<h2 id="9-semi-discrete-system">9. Sistema semidiscreto</h2>
+<p>Após o fechamento espacial, cada balanço nodal regional pode ser escrito como</p>
+<div class="math-display">\[
+  \rho_{\xi,\fdx{i}}c_{p,\xi,\fdx{i}}
+  \frac{dT_{\xi,\fdx{i}}}{d\temporal{t}}
+  =
+  \mathcal D_{h,\xi}(T)_{\fdx{i}}
+  +Q_{\xi,\fdx{i}}(T,\temporal{t}),
+\]</div>
+<p>em que \(Q\) denota a contribuição distribuída resolvida de fonte/sumidouro fornecida pelo modelo físico/de processo ativo.</p>
+<p>Equivalentemente,</p>
+<div class="math-display">\[
+  \frac{d\mathbf T_\xi}{d\temporal{t}}
+  =
+  \mathbf F_\xi\!\left(
+    \temporal{t},\sideR{\mathbf T_R},\sideS{\mathbf T_S};\mathcal P(\temporal{t})
+  \right).
+\]</div>
+<p>O solver FDM fornece esse lado direito semidiscreto ao integrador temporal compartilhado no nível do projeto. O próprio método espacial não define um algoritmo fixo de avanço no tempo.</p>
+<h2 id="10-current-temporal-configuration">10. Configuração temporal atual</h2>
+<p>A arquitetura temporal é neutra em relação ao método. Atualmente, a principal configuração explícita é Adams--Bashforth de ordem dois (AB2), com Forward Euler como método configurado de partida/reinício.</p>
+<p>Para um lado direito \(\mathbf F^{\temporal{n}}\), Forward Euler é</p>
+<div class="math-display">\[
+  \mathbf T^{\temporal{n+1}}
+  =
+  \mathbf T^{\temporal{n}}
+  +\temporal{\Delta t}\,\mathbf F^{\temporal{n}},
+\]</div>
+<p>enquanto AB2 é</p>
+<div class="math-display">\[
+  \mathbf T^{\temporal{n+1}}
+  =
+  \mathbf T^{\temporal{n}}
+  +\temporal{\Delta t}
+  \left(
+    \frac{3}{2}\mathbf F^{\temporal{n}}
+    -\frac{1}{2}\mathbf F^{\temporal{n-1}}
+  \right).
+\]</div>
+<p>Esta é uma configuração reprodutível atual, <strong>não uma definição de FDM</strong>. Mudar o integrador temporal não redefine a lei física de transferência entre etapas nem o operador espacial de diferenças finitas.</p>
+<p>Em um evento de processo, o estado físico e o histórico científico do processo seguem o contrato de transferência no nível do modelo. A memória privada do integrador multipasso pode continuar, reiniciar ou ser reconstruída somente de acordo com o contrato do integrador temporal.</p>
+<h2 id="11-stability-reference">11. Referência de estabilidade</h2>
+<p>Para o operador de difusão de cinco pontos, quarta ordem e coeficientes constantes, o autovalor de Fourier mais negativo usado pela referência atual do runtime é</p>
+<div class="math-display">\[
+  \lambda_{min}
+  =
+  -\frac{16\alpha}{3\fdx{\Delta x}^2},
+  \qquad
+  \alpha=\frac{\kappa}{\rho c_p}.
+\]</div>
+<p>Para AB2, cujo raio de estabilidade atual no eixo real negativo é um nesta normalização, isso fornece o limite de referência para o número de Fourier</p>
+<div class="math-display">\[
+  \mathrm{Fo}
+  =
+  \frac{\alpha\temporal{\Delta t}}{\fdx{\Delta x}^2}
+  \leq
+  \frac{3}{16}.
+\]</div>
+<p>O runtime escala a referência espacial armazenada pelo raio de estabilidade no eixo real negativo do integrador temporal selecionado. Esse limite é uma referência prática para propriedades constantes. Coeficientes dependentes da temperatura, fechamentos físicos de contorno, acoplamento de interface e mudanças dirigidas por eventos ainda exigem refinamento e verificação; exceder a referência configurada é tratado como erro, em vez de avançar silenciosamente.</p>
+<h2 id="12-accuracy-statement-local-high-order-does-not-imply-global-fourth-order">12. Declaração de precisão: alta ordem local não implica quarta ordem global</h2>
+<p>A implementação FDM atual mantém <strong>ingredientes</strong> centrados e unilaterais de quarta ordem para gradientes nas faces e reconstrução interna relacionada. Entretanto, o teste de solução manufaturada do projeto para o operador conservativo cell-centred ativo com condutividade variável aceita explicitamente uma <strong>ordem global observada de aproximadamente dois</strong>, com piso de aceitação igual a 1.9.</p>
+<p>Assim, a afirmação pública atual é:</p>
+<blockquote><p>O solver usa ingredientes espaciais de alta ordem/quarta ordem na construção interna de fluxos, enquanto a ordem global de convergência observada e aprovada do operador cell-centred atual com condutividade variável é aproximadamente de segunda ordem.</p></blockquote>
+<p>O solver completo <strong>não deve</strong> ser apresentado como globalmente de quarta ordem, a menos que um registro de verificação aceito posteriormente altere esse estado.</p>
+<h2 id="13-verification-evidence-represented-by-the-current-test-suite">13. Evidências de verificação representadas pela suíte de testes atual</h2>
+<p>A árvore-fonte atual contém lógica de verificação dedicada, entre outros itens, a:</p>
+<ul><li>estrutura exata de diferença entre faces compartilhadas e conservação dos</li></ul>
+<p>fluxos de contorno;</p>
+<ul><li>reconstrução para condutividade constante e positividade da condutividade</li></ul>
+<p>reconstruída na face;</p>
+<ul><li>equilíbrio exato de um campo de temperatura linear com condutividade constante;</li><li>refinamento espacial por solução manufaturada para o operador ativo com</li></ul>
+<p>condutividade variável;</p>
+<ul><li>fechamento Robin cell-centred e refinamento Robin em regime permanente;</li><li>convergência da fonte de interface e conservação de energia da fonte de interface;</li><li>gates de produção para condutividade positiva;</li><li>discretização temporal e comportamento de reinício;</li><li>regressões de etapa com referências congeladas pela API canônica de contexto/etapa.</li></ul>
+<p>A existência desses testes mostra o que o projeto verifica. A execução nativa FDM/FEM atualmente aceita fornece evidência de execução para o snapshot numérico testado. Essa atestação é somente evidência numérica e de implementação; ela não torna o modelo de flash-butt welding experimentalmente validado, e snapshots futuros modificados exigem suas próprias evidências aplicáveis.</p>
+<h2 id="14-current-assumptions-and-limits">14. Hipóteses e limites atuais</h2>
+<p>Esta página descreve atualmente apenas o caminho térmico FDM unidimensional ativo. Ela não afirma que:</p>
+<ul><li>a plataforma multifísica completa seja unidimensional;</li><li>toda formulação FDM futura deva usar o mesmo suporte cell-centred;</li><li>AB2/Forward Euler seja o único esquema temporal permitido;</li><li>o coeficiente atual da extremidade represente um modelo físico completamente</li></ul>
+<p>resolvido de mordente/eletrodo;</p>
+<ul><li>resultados FDM e FEM em malha fixa devam ser idênticos;</li><li>verificação numérica constitua validação experimental.</li></ul>
+<p>O modelo atual mantém a lei física, o método numérico e o ambiente de software como preocupações arquiteturais separadas, para que qualquer uma delas possa evoluir sem redefinir silenciosamente as outras.</p>
+<h2 id="15-scientific-notation-used-on-this-page">15. Notação científica usada nesta página</h2>
+<p>O sistema de cores semânticas mantém as convenções derivadas da dissertação refatorada para o primeiro eixo espacial e para os papéis físicos, e as estende com um papel revisado em nível de projeto para a dimensão temporal:</p>
+<ul><li><code>\\fdx{...}</code> — primeiro eixo espacial: a coordenada \(\fdx{x}\) junto com os incrementos, índices e contagens da discretização espacial ao longo dela. O nome da macro é histórico; o papel não é específico do método de diferenças finitas;</li><li><code>\\temporal{...}</code> — dimensão temporal: \(\temporal{t}\), o passo de tempo \(\temporal{\Delta t}\) e os índices de nível de tempo. Esse papel é uma extensão em nível de projeto e não faz parte da convenção da dissertação;</li><li><code>\\sideR{...}</code> — papel da peça R;</li><li><code>\\sideS{...}</code> — papel da peça S;</li><li><code>\\sideinterface{...}</code> — grandezas da interface de soldagem.</li></ul>
+<p>A cor marca o símbolo que identifica uma dimensão ou um papel, não o operador inteiro: em uma derivada ou integral apenas a coordenada recebe cor, e um nível de tempo mantém a cor temporal sobre um símbolo que carrega outro papel.</p>
+<p>Essas cores codificam significado científico e são independentes da paleta decorativa do website: cada paleta apresenta um papel em uma cor de mesmo matiz com contraste verificado. Rótulos textuais e notação matemática devem continuar suficientes para identificar os mesmos papéis quando a cor não estiver disponível.</p>
+      </article>
+    </div></template>
+<template data-technical-locale="zh-CN" data-page-title="一维有限差分形式 — Multiphysics" data-page-description="Multiphysics 项目当前的一维 FDM 形式，包括 cell-centred 支撑、守恒通量、界面与 Robin 闭合、时间积分以及验证证据。"><nav class="technical-breadcrumb" aria-label="面包屑导航" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">技术</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">数值形式</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">FDM 1D</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="技术栏目导航" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">技术层次</span>
+    <ul><li><a href="/technical/numerics/" aria-current="location"><span data-i18n="technical.labels.numericalFormulation">数值形式</span></a></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">实现</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">验证</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">数值形式 · FDM · 1D</p>
+      <h1 id="one-dimensional-finite-difference-formulation" data-i18n-meta="title">一维有限差分形式</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">技术预览</span>
+        <span><span data-i18n="technical.labels.reviewed">审阅日期</span> 2026-10-18</span>
+      </div>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.scope">范围</dt><dd data-i18n-meta="model_scope">具有耦合 R/S 工件区域的瞬态热问题</dd></div><div><dt data-i18n="technical.labels.method">方法</dt><dd data-i18n-invariant="method-identifier">FDM · 1D</dd></div><div><dt data-i18n="technical.labels.implementationStatus">实现状态</dt><dd data-i18n-meta="implementation_status_label">已实现</dd></div></dl>
+    </header>
+
+    <aside class="scientific-legend" aria-label="科学符号颜色图例" data-i18n="technical.labels.equationLegendAria" data-i18n-attr="aria-label">
+      <strong data-i18n="technical.labels.equationNotation">方程符号</strong>
+      <span><i class="legend-swatch math-role-axis1"></i> <span data-i18n="technical.labels.semanticAxis1">空间轴 x 及其离散化</span></span>
+      <span><i class="legend-swatch math-role-temporal"></i> <span data-i18n="technical.labels.semanticTemporal">时间及其离散化</span></span>
+      <span><i class="legend-swatch math-role-side-r"></i> <span data-i18n="technical.labels.workpieceR">工件 R</span></span>
+      <span><i class="legend-swatch math-role-side-s"></i> <span data-i18n="technical.labels.workpieceS">工件 S</span></span>
+      <span><i class="legend-swatch math-role-interface"></i> <span data-i18n="technical.labels.interface">焊接界面</span></span>
+      <small data-i18n="technical.labels.colourSupplement">颜色仅作辅助；符号和标签仍是权威信息。</small>
+    </aside>
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">来源与出处</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">已整理的权威记录</dt><dd>5</dd></div><div><dt data-i18n="technical.labels.curatedDerivationRecords">已整理的推导记录</dt><dd>2</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">已整理的实现记录</dt><dd>2</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">已整理的验证记录</dt><dd>8</dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">本页内容</summary>
+        <ol data-i18n-body="toc"><li><a href="#1-scope-and-current-status">范围与当前状态</a></li><li><a href="#2-continuous-thermal-problem">连续热问题</a></li><li><a href="#3-cell-centred-spatial-support">cell-centred 空间支撑</a></li><li><a href="#4-conservative-shared-face-form">共享面的守恒形式</a></li><li><a href="#5-interior-face-gradient-approximation">内部面梯度近似</a></li><li><a href="#6-positive-conductivity-reconstruction">正值导热系数重构</a></li><li><a href="#7-welding-interface-closure">焊接界面闭合</a></li><li><a href="#8-distant-end-robin-closure">远端 Robin 闭合</a></li><li><a href="#9-semi-discrete-system">半离散系统</a></li><li><a href="#10-current-temporal-configuration">当前时间配置</a></li><li><a href="#11-stability-reference">稳定性参考</a></li><li><a href="#12-accuracy-statement-local-high-order-does-not-imply-global-fourth-order">精度说明：局部高阶并不意味着全局四阶</a></li><li><a href="#13-verification-evidence-represented-by-the-current-test-suite">当前测试套件所代表的验证证据</a></li><li><a href="#14-current-assumptions-and-limits">当前假设与限制</a></li><li><a href="#15-scientific-notation-used-on-this-page">本页面使用的科学符号</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>本页面是当前 FDM 空间形式的公开技术草案说明。 它记录项目的当前状态；这不是对 2018 年学位论文的再版， 也不意味着该学位论文成为模型的规范性来源。</p></blockquote>
+<h2 id="1-scope-and-current-status">1. 范围与当前状态</h2>
+<p>当前有限差分法（FDM）在两个工件区域 \(\sideR{R}\) 和 \(\sideS{S}\) 中求解一维瞬态热问题，并采用 cell-centred 空间支撑。每个区域中的局部坐标均从焊接界面指向该工件的远端。</p>
+<p>空间方法独立于时间积分器，也独立于计算引擎。当前 GNU Octave 实现使用项目统一的时间积分契约，同时存在独立的 C++ 转写版本， 用于跨引擎验证工作。本页面描述的是<strong>数值形式</strong>，而不是 Octave 或 C++ 的软件架构。</p>
+<p>当前生产 FDM 配置使用下文所述的默认 <code>quadratic-second-order</code> 界面闭合。</p>
+<h2 id="2-continuous-thermal-problem">2. 连续热问题</h2>
+<p>对于每个工件角色 \(\xi\in\{\sideR{R},\sideS{S}\}\)，当前热模型写成 一维通量形式：</p>
+<div class="math-display">\[
+  \rho_\xi(T_\xi)c_{p,\xi}(T_\xi)
+  \frac{\partial T_\xi}{\partial \temporal{t}}
+  =
+  \frac{\partial}{\partial \fdx{x}}
+  \left[
+    \kappa_\xi(T_\xi)
+    \frac{\partial T_\xi}{\partial \fdx{x}}
+  \right]
+  + q'''_{v,\xi}(T_\xi,\temporal{t}).
+\]</div>
+<p>其中 \(\rho\)、\(c_p\) 和 \(\kappa\) 是已解析的本构性质， 而 \(q'''_v\) 表示已解析的分布式源/汇项。根据当前工艺阶段， 这些项可以包括体积电阻加热和约化的侧向换热。远端和焊接界面的 物理条件在模型层独立定义，随后才转换为 FDM 边界通量。</p>
+<p>因此，热问题明确分离为：</p>
+<pre><code class="language-text">物理/模型定律
+        -&gt; 已解析的材料/工艺数据
+        -&gt; FDM 空间闭合
+        -&gt; 半离散 ODE 系统
+        -&gt; 所选时间积分器</code></pre>
+<h2 id="3-cell-centred-spatial-support">3. cell-centred 空间支撑</h2>
+<p>对于物理长度为 \(L_\xi\)、划分为 \(\fdx{N_\xi}\) 个等长单元的区域，</p>
+<div class="math-display">\[
+  \fdx{\Delta x_\xi}=\frac{L_\xi}{\fdx{N_\xi}},
+  \qquad
+  \fdx{x}_{\xi,\fdx{i}}
+  =\left(\fdx{i}-\frac{1}{2}\right)\fdx{\Delta x_\xi},
+  \qquad
+  \fdx{i}=1,\ldots,\fdx{N_\xi}.
+\]</div>
+<p>因此，存储温度 \(T_{\xi,\fdx{i}}\) 对应于物理单元的中心。 特别地，第一个存储温度距焊接界面半个单元，最后一个存储温度 距远端物理表面半个单元。</p>
+<p>这一点至关重要：存储在端部的值<strong>并不自动等同于物理表面温度</strong>。 半单元距离由相应的数值边界/界面闭合处理。</p>
+<h2 id="4-conservative-shared-face-form">4. 共享面的守恒形式</h2>
+<p>当前生产算子构造唯一的一组共享导热面量：</p>
+<div class="math-display">\[
+  \Phi_{\xi,\fdx{1/2}},
+  \Phi_{\xi,\fdx{3/2}},
+  \ldots,
+  \Phi_{\xi,\fdx{N_\xi+1/2}}
+\]</div>
+<p>并通过精确的离散面差定义 cell-centred 导热贡献：</p>
+<div class="math-display">\[
+  \mathcal D_{h,\xi}(T)_{\fdx{i}}
+  =
+  \frac{
+    \Phi_{\xi,\fdx{i+1/2}}
+    -\Phi_{\xi,\fdx{i-1/2}}
+  }{\fdx{\Delta x_\xi}}.
+\]</div>
+<p>同一面序列的第一项和最后一项是由焊接界面闭合与远端闭合提供的 物理边界通量。它们不是在内部算子已经形成之后才附加的后处理值。</p>
+<p>永久守恒测试也直接检验这一不变量：实现中严格满足 <code>D = diff(face_flux)/dx</code>。</p>
+<h2 id="5-interior-face-gradient-approximation">5. 内部面梯度近似</h2>
+<p>对于单元 \(\fdx{i}\) 与 \(\fdx{i+1}\) 之间的普通内部面， 温度梯度采用四阶中心面公式计算：</p>
+<div class="math-display">\[
+  \left.
+  \frac{\partial T_\xi}{\partial \fdx{x}}
+  \right|_{\fdx{i+1/2}}
+  \approx
+  \frac{
+    T_{\xi,\fdx{i-1}}
+    -27T_{\xi,\fdx{i}}
+    +27T_{\xi,\fdx{i+1}}
+    -T_{\xi,\fdx{i+2}}
+  }{24\fdx{\Delta x_\xi}}.
+\]</div>
+<p>在第一个和最后一个内部面附近，实现采用已批准的单边对应公式， 从而不会仅仅为了补齐 stencil 而引入域外 ghost 温度。 对于第一个内部面，导数为</p>
+<div class="math-display">\[
+  \left.
+  \frac{\partial T_\xi}{\partial \fdx{x}}
+  \right|_{\fdx{3/2}}
+  \approx
+  \frac{1}{\fdx{\Delta x_\xi}}
+  \left(
+    -\frac{11}{12}T_{\xi,1}
+    +\frac{17}{24}T_{\xi,2}
+    +\frac{3}{8}T_{\xi,3}
+    -\frac{5}{24}T_{\xi,4}
+    +\frac{1}{24}T_{\xi,5}
+  \right),
+\]</div>
+<p>右侧表达式由相应的镜像 stencil 得到。</p>
+<h2 id="6-positive-conductivity-reconstruction">6. 正值导热系数重构</h2>
+<p>当前实现并不直接在内部面插值 \(\kappa\)。相反，它重构 \(\log\kappa\)，然后对结果取指数。对于普通内部面，</p>
+<div class="math-display">\[
+  \log \kappa_{\xi,\fdx{i+1/2}}
+  \approx
+  \frac{
+    -\log\kappa_{\xi,\fdx{i-1}}
+    +9\log\kappa_{\xi,\fdx{i}}
+    +9\log\kappa_{\xi,\fdx{i+1}}
+    -\log\kappa_{\xi,\fdx{i+2}}
+  }{16},
+\]</div>
+<p>随后</p>
+<div class="math-display">\[
+  \kappa_{\xi,\fdx{i+1/2}}
+  =
+  \exp\!\left(
+    \log \kappa_{\xi,\fdx{i+1/2}}
+  \right).
+\]</div>
+<p>这是当前实现细节，它取代了任何直接插值导热系数本身的旧说明公式。 对于有限且为正的节点导热系数，该重构被设计为保持正值； 若超出浮点数值范围，runtime 会显式失败。</p>
+<p>于是导热面量为</p>
+<div class="math-display">\[
+  \Phi_{\xi,\fdx{i+1/2}}
+  =
+  \kappa_{\xi,\fdx{i+1/2}}
+  \left.
+    \frac{\partial T_\xi}{\partial \fdx{x}}
+  \right|_{\fdx{i+1/2}}.
+\]</div>
+<h2 id="7-welding-interface-closure">7. 焊接界面闭合</h2>
+<p>物理界面定律在模型层定义。当前生产 cell-centred 闭合把该定律 转换为默认的 <code>quadratic-second-order</code> 界面通量。定义 \(\sideinterface{q''_0}>0\) 表示热量从 \(\sideR{R}\) 传向 \(\sideS{S}\)，则</p>
+<div class="math-display">\[
+  \sideinterface{q''_0}
+  =
+  \frac{
+    9\sideR{T_{R,1}}-\sideR{T_{R,2}}
+    -9\sideS{T_{S,1}}+\sideS{T_{S,2}}
+  }{
+    8\sideinterface{R''_{th,0}}
+    +3\left(
+      \frac{\fdx{\Delta x_R}}{\kappa_{R,1}}
+      +
+      \frac{\fdx{\Delta x_S}}{\kappa_{S,1}}
+    \right)
+  }.
+\]</div>
+<p>相应的界面两侧重构温度为</p>
+<div class="math-display">\[
+  \sideR{T_R^I}
+  =
+  \frac{9\sideR{T_{R,1}}-\sideR{T_{R,2}}}{8}
+  -
+  \frac{3\fdx{\Delta x_R}\sideinterface{q''_0}}
+       {8\kappa_{R,1}},
+\]</div>
+<div class="math-display">\[
+  \sideS{T_S^I}
+  =
+  \frac{9\sideS{T_{S,1}}-\sideS{T_{S,2}}}{8}
+  +
+  \frac{3\fdx{\Delta x_S}\sideinterface{q''_0}}
+       {8\kappa_{S,1}}.
+\]</div>
+<p>同一热传递以相反符号施加到两个区域。不存在用于补齐 FDM stencil 的虚构界面温度 ghost node。</p>
+<p>当存在界面电耗散时，它是独立的源项。当前 runtime 把分配到界面的 电功率纳入区域边界通量记账，而不是重新定义热接触定律。</p>
+<p>旧的两点一阶界面闭合仅保留用于历史复现/回归，不是当前生产默认值。</p>
+<h2 id="8-distant-end-robin-closure">8. 远端 Robin 闭合</h2>
+<p>当前有效的远端物理条件是 Newton/Robin 换热：</p>
+<div class="math-display">\[
+  q''_{out,\xi}
+  =
+  h_{end,\xi}
+  \left(T_{s,\xi}-T_{\infty,end,\xi}\right),
+\]</div>
+<p>其中 \(T_{s,\xi}\) 是<strong>物理表面温度</strong>。由于最后一个存储温度位于 该表面向内半个单元处，当前 cell-centred 闭合消去未存储的表面值， 并使用</p>
+<div class="math-display">\[
+  q''_{out,\xi}
+  =
+  \frac{
+    T_{\xi,\fdx{N_\xi}}-T_{\infty,end,\xi}
+  }{
+    \dfrac{\fdx{\Delta x_\xi}}{2\kappa_{\xi,\fdx{N_\xi}}}
+    +\dfrac{1}{h_{end,\xi}}
+  }.
+\]</div>
+<p>当 \(h_{end,\xi}=0\) 时得到绝热极限。端部自由度仍然是演化热状态的 组成部分；它不会在每个时间步之后被重置为给定环境温度。</p>
+<h2 id="9-semi-discrete-system">9. 半离散系统</h2>
+<p>完成空间闭合后，每个区域节点平衡可写为</p>
+<div class="math-display">\[
+  \rho_{\xi,\fdx{i}}c_{p,\xi,\fdx{i}}
+  \frac{dT_{\xi,\fdx{i}}}{d\temporal{t}}
+  =
+  \mathcal D_{h,\xi}(T)_{\fdx{i}}
+  +Q_{\xi,\fdx{i}}(T,\temporal{t}),
+\]</div>
+<p>其中 \(Q\) 表示由当前物理/工艺模型提供的已解析分布式源/汇贡献。</p>
+<p>等价地，</p>
+<div class="math-display">\[
+  \frac{d\mathbf T_\xi}{d\temporal{t}}
+  =
+  \mathbf F_\xi\!\left(
+    \temporal{t},\sideR{\mathbf T_R},\sideS{\mathbf T_S};\mathcal P(\temporal{t})
+  \right).
+\]</div>
+<p>FDM solver 将这一半离散右端项交给项目级共享时间积分器。 空间方法本身不规定固定的时间推进算法。</p>
+<h2 id="10-current-temporal-configuration">10. 当前时间配置</h2>
+<p>时间架构与方法无关。目前主要的显式配置是二阶 Adams--Bashforth （AB2），并以 Forward Euler 作为配置的启动/重启方法。</p>
+<p>对于右端项 \(\mathbf F^{\temporal{n}}\)，Forward Euler 为</p>
+<div class="math-display">\[
+  \mathbf T^{\temporal{n+1}}
+  =
+  \mathbf T^{\temporal{n}}
+  +\temporal{\Delta t}\,\mathbf F^{\temporal{n}},
+\]</div>
+<p>而 AB2 为</p>
+<div class="math-display">\[
+  \mathbf T^{\temporal{n+1}}
+  =
+  \mathbf T^{\temporal{n}}
+  +\temporal{\Delta t}
+  \left(
+    \frac{3}{2}\mathbf F^{\temporal{n}}
+    -\frac{1}{2}\mathbf F^{\temporal{n-1}}
+  \right).
+\]</div>
+<p>这是当前可复现配置，<strong>并不是 FDM 的定义</strong>。改变时间积分器不会重新 定义物理阶段转移定律，也不会重新定义有限差分空间算子。</p>
+<p>在工艺事件处，物理状态和科学工艺历史遵循模型层转移契约。 多步积分器的私有记忆只能按照时间积分器契约继续、重启或重构。</p>
+<h2 id="11-stability-reference">11. 稳定性参考</h2>
+<p>对于常系数四阶五点扩散算子，当前 runtime 参考所使用的最负 Fourier 特征值为</p>
+<div class="math-display">\[
+  \lambda_{min}
+  =
+  -\frac{16\alpha}{3\fdx{\Delta x}^2},
+  \qquad
+  \alpha=\frac{\kappa}{\rho c_p}.
+\]</div>
+<p>对于 AB2，在这里的归一化中，其当前负实轴稳定半径为一， 由此得到参考 Fourier 数上限</p>
+<div class="math-display">\[
+  \mathrm{Fo}
+  =
+  \frac{\alpha\temporal{\Delta t}}{\fdx{\Delta x}^2}
+  \leq
+  \frac{3}{16}.
+\]</div>
+<p>runtime 按所选时间积分器的负实轴稳定半径缩放所存储的空间参考值。 这一界限是常物性条件下的实用参考。温度相关系数、物理边界闭合、 界面耦合和事件驱动变化仍然需要网格/时间步细化与验证；超过配置参考值 会被当作错误，而不是静默继续推进。</p>
+<h2 id="12-accuracy-statement-local-high-order-does-not-imply-global-fourth-order">12. 精度说明：局部高阶并不意味着全局四阶</h2>
+<p>当前 FDM 实现保留了用于面梯度和相关内部重构的四阶中心与单边 <strong>构件</strong>。然而，项目针对当前变导热系数守恒 cell-centred 算子的 制造解测试明确接受<strong>约二阶的观测全局阶数</strong>，验收下限为 1.9。</p>
+<p>因此，当前公开表述为：</p>
+<blockquote><p>solver 在内部通量构造中使用高阶/四阶空间构件，而当前变导热系数 cell-centred 算子经批准的观测全局收敛阶约为二阶。</p></blockquote>
+<p>除非后续被接受的验证记录改变这一状态，否则完整 solver <strong>不得</strong> 被描述为全局四阶。</p>
+<h2 id="13-verification-evidence-represented-by-the-current-test-suite">13. 当前测试套件所代表的验证证据</h2>
+<p>当前源码树包含专门的验证逻辑，覆盖的项目包括：</p>
+<ul><li>精确的共享面差结构和边界通量守恒；</li><li>常导热系数重构以及重构面导热系数的正值性；</li><li>常导热系数下线性温度场的精确平衡；</li><li>当前变导热系数算子的制造解空间细化；</li><li>cell-centred Robin 闭合与稳态 Robin 细化；</li><li>界面源收敛与界面源能量守恒；</li><li>正导热系数生产 gates；</li><li>时间离散与重启行为；</li><li>通过规范上下文/阶段 API 执行的冻结阶段回归。</li></ul>
+<p>这些测试的存在表明项目实际检查哪些性质。当前已接受的原生 FDM/FEM 验证运行，为被测试的数值 snapshot 提供了执行证据。该证明仅属于数值和实现证据；它并不意味着 flash-butt welding 模型已经经过实验验证，而未来发生变化的 snapshot 需要各自适用的证据。</p>
+<h2 id="14-current-assumptions-and-limits">14. 当前假设与限制</h2>
+<p>本页面目前只描述当前有效的一维热 FDM 路径。它并不声称：</p>
+<ul><li>完整多物理平台是一维的；</li><li>所有未来 FDM 形式都必须使用相同的 cell-centred 支撑；</li><li>AB2/Forward Euler 是唯一允许的时间方案；</li><li>当前端部系数代表完全解析的物理夹具/电极模型；</li><li>固定网格 FDM 与 FEM 结果必须相同；</li><li>数值验证等同于实验验证。</li></ul>
+<p>当前模型把物理定律、数值方法和软件引擎保持为彼此分离的架构关注点， 使其中任何一项都可以演化，而不会静默重新定义其他项。</p>
+<h2 id="15-scientific-notation-used-on-this-page">15. 本页面使用的科学符号</h2>
+<p>语义颜色体系保留了源自重构后学位论文的第一空间轴约定和物理角色约定， 并以项目级评审通过的时间维度角色加以扩展：</p>
+<ul><li><code>\\fdx{...}</code> — 第一空间轴：坐标 \(\fdx{x}\) 以及沿该轴的空间离散增量、指标和计数。该宏名称出于历史原因；这一角色并不专属于有限差分法；</li><li><code>\\temporal{...}</code> — 时间维度：\(\temporal{t}\)、时间步长 \(\temporal{\Delta t}\) 以及时间层指标。该角色是项目级扩展，不属于学位论文的约定；</li><li><code>\\sideR{...}</code> — 工件角色 R；</li><li><code>\\sideS{...}</code> — 工件角色 S；</li><li><code>\\sideinterface{...}</code> — 焊接界面量。</li></ul>
+<p>颜色标记的是标识某一维度或角色的符号，而不是整个算子：在导数或积分中只有坐标着色， 时间层指标在带有其他角色的符号上仍保持时间颜色。</p>
+<p>这些颜色编码科学含义，并独立于网站的装饰性配色：每种配色都以经过对比度检查的同色相颜色呈现同一角色。 即使无法使用颜色，文本标签和数学符号仍必须足以识别相同角色。</p>
+      </article>
+    </div></template>
   </main>
   <footer class="site-footer">
   <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
@@ -383,6 +1249,7 @@ revision 2.1.0</code></pre>
     data-visible="false"
     tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
 </footer>
+<noscript><p class="noscript-notice" data-i18n="home.noScript">This page remains available without JavaScript in the site&#39;s default language. Changing the language requires JavaScript.</p></noscript>
 
   <script type="module" src="/assets/js/main.js"></script>
 </body>

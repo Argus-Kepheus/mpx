@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en" data-palette="blueprint" data-title-key="">
+<html lang="en" dir="ltr" data-palette="blueprint" data-title-key="technical.implementationsPage.pageTitle">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Calculation-engine implementations of the Multiphysics numerical framework.">
+  <meta name="description" content="Calculation-engine implementations of the Multiphysics numerical framework." data-i18n="technical.implementationsPage.pageDescription" data-i18n-attr="content">
   <meta name="theme-color" content="#17365d">
   <title>Implementations — Multiphysics</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -27,7 +27,7 @@
   <meta name="twitter:description" content="Calculation-engine implementations of the Multiphysics numerical framework.">
   <meta name="twitter:image" content="https://mpx.arguskepheus.com.br/og-multiphysics.png">
   <meta name="twitter:image:alt" content="A worn, translucent lilac floppy disk with the AK initials.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/technical/implementations/#webpage","url":"https://mpx.arguskepheus.com.br/technical/implementations/","name":"Implementations — Multiphysics","description":"Calculation-engine implementations of the Multiphysics numerical framework.","isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/technical/implementations/#webpage","url":"https://mpx.arguskepheus.com.br/technical/implementations/","name":"Implementations — Multiphysics","description":"Calculation-engine implementations of the Multiphysics numerical framework.","inLanguage":"en","publisher":{"@type":"Organization","@id":"https://www.arguskepheus.com.br/#organization","name":"Argus Kepheus","url":"https://www.arguskepheus.com.br/"},"isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
@@ -39,6 +39,7 @@
     <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
     <a href="/current-model/" data-i18n="nav.current">Current model</a>
     <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/references/" data-i18n="nav.references">References</a>
     <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
   </nav>
   <details class="site-nav-mobile">
@@ -49,16 +50,17 @@
       <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
       <a href="/current-model/" data-i18n="nav.current">Current model</a>
       <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/references/" data-i18n="nav.references">References</a>
       <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
     </nav>
   </details>
   <div class="site-controls">
     <label class="locale-control">
       <span class="sr-only" data-i18n="locale.label">Language</span>
-      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
-        <option value="en">English</option>
-        <option value="pt-BR">Português</option>
-        <option value="zh-CN">中文</option>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label" disabled>
+        <option value="en" data-i18n-invariant="language-autonym">English</option>
+        <option value="pt-BR" data-i18n-invariant="language-autonym">Português</option>
+        <option value="zh-CN" data-i18n-invariant="language-autonym">中文</option>
       </select>
     </label>
     <button
@@ -81,43 +83,48 @@
 
   <main id="main" class="technical-shell">
 <nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page"><span data-i18n="technical.labels.implementations">Implementations</span></span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Technical section navigation" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Technical layers</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a></li><li><a href="/technical/implementations/" aria-current="location"><span data-i18n="technical.labels.implementations">Implementations</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verification</span></a></li></ul>
+  </nav>
     <header class="technical-hero">
-      <p class="kicker">Technical · implementations</p>
-      <h1>Calculation environments</h1>
-      <p class="technical-lede">Calculation engines are independent implementations of numerical methods. They are not the numerical methods themselves.</p>
+      <p class="kicker" data-i18n="technical.implementationsPage.kicker">Technical · implementations</p>
+      <h1 data-i18n="technical.implementationsPage.heading">Calculation environments</h1>
+      <p class="technical-lede" data-i18n="technical.implementationsPage.lede">GNU Octave, C++17 and Julia are independent sibling implementations with complementary scientific-development and runtime roles. They are not the numerical methods themselves, and no engine is the numerical truth.</p>
       
     </header>
     <div class="technical-card-grid technical-card-grid-wide"><a class="technical-card available" href="/technical/implementations/octave/">
-    <span class="status-chip" data-status="active sibling">active sibling</span>
-    <h2>GNU Octave</h2>
-    <p>An active sibling engine with the broadest current workflow coverage. Its MATLAB-compatible, matrix-oriented environment supports rapid numerical development and scientific inspection.</p>
+    <span class="status-chip" data-status="active sibling" data-i18n="technical.implementationsPage.status.activeSibling">active sibling</span>
+    <h2 data-i18n-invariant="proper-name">GNU Octave</h2>
+    <p data-i18n="technical.implementationsPage.cards.octaveDescription">The transparent high-level sibling: MATLAB-compatible scientific inspection, rapid numerical development and the broadest current workflow coverage.</p>
   </a><a class="technical-card available" href="/technical/implementations/cpp/">
-    <span class="status-chip" data-status="active sibling">active sibling</span>
-    <h2>C++</h2>
-    <p>An active C++17 sibling engine with independent FDM/FEM/FVM resolved-case paths. It supports cross-engine verification, compiled implementation studies and LLM-assisted development; current workflow coverage remains narrower than Octave.</p>
-  </a><a class="technical-card available" href="#julia">
-    <span class="status-chip" data-status="planned sibling">planned sibling</span>
-    <h2>Julia</h2>
-    <p>A planned third sibling engine for independent implementation and verification, with future experiments focused on numerical expressiveness and execution efficiency under equivalent, reproducible workloads.</p>
+    <span class="status-chip" data-status="active sibling" data-i18n="technical.implementationsPage.status.activeSibling">active sibling</span>
+    <h2 data-i18n-invariant="proper-name">C++17</h2>
+    <p data-i18n="technical.implementationsPage.cards.cppDescription">The ahead-of-time compiled sibling: explicit type/data-layout and build/runtime control, standalone execution and a path toward deployment/HPC studies, with independent FDM/FEM/FVM resolved-case paths.</p>
+  </a><a class="technical-card available" href="/technical/implementations/julia/">
+    <span class="status-chip" data-status="FDM/FEM/FVM fixed-geometry native verification passed" data-i18n="technical.implementationsPage.status.juliaVerified">FDM/FEM/FVM fixed-geometry native verification passed</span>
+    <h2 data-i18n-invariant="proper-name">Julia</h2>
+    <p data-i18n="technical.implementationsPage.cards.juliaDescription">The high-level JIT sibling combines scientific expression with type-specialised compilation and natively verified FDM/FEM/FVM fixed-geometry paths. Geometry-changing FVM remains unpromoted. Governed P1/P2 measurements cover the declared numerical scope.</p>
   </a></div>
     <section class="computational-dossier" aria-labelledby="computational-dossier-title">
       <div class="dossier-heading">
-        <p class="kicker">Computational contract</p>
-        <h2 id="computational-dossier-title">How a resolved case reaches a history</h2>
-        <p>Method identity, physical case, temporal configuration and engine identity remain separate. GNU Octave and C++ are active sibling implementations; Julia is the planned third sibling. Their coverage may differ, but none is designated as the scientific truth or permanent backend of another.</p>
-        <p>The multi-engine strategy serves two purposes: independent implementation verification and deliberate exploration of language/runtime trade-offs. Engine-specific strengths can be retained where they are useful as the project matures, provided equivalent numerical contracts and reproducible evidence are preserved.</p>
+        <p class="kicker" data-i18n="technical.implementationsPage.computational.kicker">Computational contract</p>
+        <h2 id="computational-dossier-title" data-i18n="technical.implementationsPage.computational.title">How a resolved case reaches a history</h2>
+        <p data-i18n="technical.implementationsPage.computational.intro1">Method identity, physical case, temporal configuration and engine identity remain separate. GNU Octave and C++ are active sibling implementations; Julia FDM/FEM/FVM fixed geometry have passed native verification; Geometry-changing Julia FVM remains unpromoted. Their coverage may differ, but none is designated as the scientific truth or permanent backend of another.</p>
+        <p data-i18n="technical.implementationsPage.computational.intro2">The multi-engine strategy serves two purposes: independent implementation verification and deliberate exploration of language/runtime trade-offs. Engine-specific strengths can be retained where they are useful as the project matures, provided equivalent numerical contracts and reproducible evidence are preserved.</p>
+        <p data-i18n="technical.implementationsPage.computational.intro3">The downstream multi-engine consolidation validates histories before protected comparisons, and a neutral post-processing set can represent partial case/method/engine coverage without selecting a golden engine.</p>
       </div>
       <div class="execution-grid">
         <ol class="execution-steps">
-          <li><div><strong>Resolve the physical case</strong><span>Geometry, material laws, sources, boundaries, interface data and process schedule become solver-ready inputs.</span></div></li>
-          <li><div><strong>Select method and engine</strong><span>FDM, FEM or the restricted FVM path is selected independently from an available engine. GNU Octave and C++ are active today; Julia is planned.</span></div></li>
-          <li><div><strong>Build the spatial right-hand side</strong><span>Fluxes, assembly, boundary closures, interface exchange and source terms are evaluated by the method adapter.</span></div></li>
-          <li><div><strong>Advance the state</strong><span>The shared temporal service applies Forward Euler or AB2 according to the run specification and history policy.</span></div></li>
-          <li><div><strong>Write evidence-bearing outputs</strong><span>Temperature histories, diagnostics and comparison metadata remain distinct from claims of physical validation.</span></div></li>
+          <li><div><strong data-i18n="technical.implementationsPage.computational.step1Title">Resolve the physical case</strong><span data-i18n="technical.implementationsPage.computational.step1Body">Geometry, material laws, sources, boundaries, interface data and process schedule become solver-ready inputs.</span></div></li>
+          <li><div><strong data-i18n="technical.implementationsPage.computational.step2Title">Select method and engine</strong><span data-i18n="technical.implementationsPage.computational.step2Body">FDM, FEM or the restricted FVM path is selected independently from an available engine. GNU Octave and C++ are active today; Julia FDM/FEM/FVM fixed geometry are natively verified for the frozen engine-neutral reference cases; Geometry-changing Julia FVM remains unpromoted.</span></div></li>
+          <li><div><strong data-i18n="technical.implementationsPage.computational.step3Title">Build the spatial right-hand side</strong><span data-i18n="technical.implementationsPage.computational.step3Body">Fluxes, assembly, boundary closures, interface exchange and source terms are evaluated by the method adapter.</span></div></li>
+          <li><div><strong data-i18n="technical.implementationsPage.computational.step4Title">Advance the state</strong><span data-i18n="technical.implementationsPage.computational.step4Body">The shared temporal service applies Forward Euler or AB2 according to the run specification and history policy.</span></div></li>
+          <li><div><strong data-i18n="technical.implementationsPage.computational.step5Title">Write evidence-bearing outputs</strong><span data-i18n="technical.implementationsPage.computational.step5Body">Temperature histories, diagnostics and comparison metadata remain distinct from claims of physical validation.</span></div></li>
         </ol>
         <aside class="contract-panel">
-          <h3>Neutral exchange shape</h3>
-          <pre><code>resolved physical case
+          <h3 data-i18n="technical.implementationsPage.computational.exchangeTitle">Neutral exchange shape</h3>
+          <pre><code data-i18n="technical.implementationsPage.computational.exchangeShape">resolved physical case
  spatial method
  run specification
         ↓
@@ -131,34 +138,34 @@
         </aside>
       </div>
       <aside id="julia" class="contract-panel technical-anchor-target">
-        <h3>Julia — planned sibling engine</h3>
-        <p>Julia is reserved as a third independent implementation path. Its future role is to reproduce selected formulations, add another disagreement detector and investigate numerical expressiveness and execution efficiency under equivalent, reproducible workloads. No performance advantage is claimed before those measurements exist.</p>
+        <h3 data-i18n="technical.implementationsPage.computational.juliaTitle">Julia — FDM/FEM/FVM fixed-geometry native verification passed</h3>
+        <p data-i18n="technical.implementationsPage.computational.juliaBody">Julia is the third independent implementation path. Its FDM, FEM and fixed-geometry FVM paths passed native package tests under Julia 1.13.1, neutral history ingestion and same-method comparison with independent C++ and GNU Octave histories for all four frozen reference cases. The tested software environment is recorded internally for reproducibility. Geometry-changing Julia FVM remains unpromoted. Governed P1/P2 performance measurements are scoped to the recorded cases, machine, toolchains and timing modes. Engine agreement is implementation verification, not experimental validation.</p>
       </aside>
     </section><section id="python-tooling" class="computational-dossier technical-anchor-target" aria-labelledby="python-tooling-title">
       <div class="dossier-heading">
-        <p class="kicker">Scientific tooling</p>
-        <h2 id="python-tooling-title">Why Python is used</h2>
-        <p>Python is an active supporting language in Multiphysics, but it is not currently one of the calculation engines that implements the FDM/FEM/FVM solution path. Instead, it provides scientific infrastructure around the engines and the project evidence.</p>
+        <p class="kicker" data-i18n="technical.implementationsPage.python.kicker">Scientific tooling</p>
+        <h2 id="python-tooling-title" data-i18n="technical.implementationsPage.python.title">Why Python is used</h2>
+        <p data-i18n="technical.implementationsPage.python.intro">Python is an active supporting language in Multiphysics, but it is not currently one of the calculation engines that implements the FDM/FEM/FVM solution path. Instead, it provides scientific infrastructure around the engines and the project evidence.</p>
       </div>
       <div class="execution-grid">
         <div>
-          <p>Current Python tooling covers configuration and governance validation, material-data preparation and review, package/export isolation, provenance and freeze checks, semantic/naming validation, diagnostics and reference calculations, and cross-engine output comparison.</p>
-          <p>Python is useful in this role because these tasks depend heavily on automation, file and structured-data processing, schema/metadata checks and reproducible command-line workflows. Keeping them outside the calculation engines also helps the verification layer remain neutral: for example, Python compares GNU Octave and C++ histories above both engines rather than making either implementation the reference backend.</p>
-          <p>The role is therefore complementary. GNU Octave, C++ and the planned Julia implementation address independent numerical execution; Python helps prepare inputs, audit contracts, compare evidence and preserve reproducibility around those executions.</p>
+          <p data-i18n="technical.implementationsPage.python.body1">Current Python tooling covers configuration and governance validation, material-data preparation and review, package/export isolation, provenance and freeze checks, semantic/naming validation, diagnostics and reference calculations, and cross-engine output comparison.</p>
+          <p data-i18n="technical.implementationsPage.python.body2">Python is useful in this role because these tasks depend heavily on automation, file and structured-data processing, schema/metadata checks and reproducible command-line workflows. Keeping them outside the calculation engines also helps the verification layer remain neutral: for example, Python compares GNU Octave and C++ histories above both engines rather than making either implementation the reference backend.</p>
+          <p data-i18n="technical.implementationsPage.python.body3">The role is therefore complementary. GNU Octave and C++ address current independent numerical execution; Julia now supplies native FDM/FEM/FVM fixed-geometry evidence on the frozen engine-neutral reference cases; Python helps prepare inputs, audit contracts, compare evidence and preserve reproducibility around those executions.</p>
         </div>
         <aside class="contract-panel">
-          <h3>Current Python roles</h3>
+          <h3 data-i18n="technical.implementationsPage.python.rolesTitle">Current Python roles</h3>
           <ul>
-            <li>governance and configuration validators;</li>
-            <li>material-data and provenance tooling;</li>
-            <li>package validation, export and isolated-test orchestration;</li>
-            <li>semantic and nomenclature checks;</li>
-            <li>cross-engine comparison of resolved-case outputs;</li>
-            <li>diagnostic and reference calculations where an independent tooling path is useful.</li>
+            <li data-i18n="technical.implementationsPage.python.role1">governance and configuration validators;</li>
+            <li data-i18n="technical.implementationsPage.python.role2">material-data and provenance tooling;</li>
+            <li data-i18n="technical.implementationsPage.python.role3">package validation, export and isolated-test orchestration;</li>
+            <li data-i18n="technical.implementationsPage.python.role4">semantic and nomenclature checks;</li>
+            <li data-i18n="technical.implementationsPage.python.role5">cross-engine comparison of resolved-case outputs;</li>
+            <li data-i18n="technical.implementationsPage.python.role6">diagnostic and reference calculations where an independent tooling path is useful.</li>
           </ul>
         </aside>
       </div>
-      <p class="technical-note">Python output is not treated as automatically authoritative merely because it is independent. Its scripts remain subject to the same provenance, review and evidence boundaries as the rest of the research software.</p>
+      <p class="technical-note" data-i18n="technical.implementationsPage.python.note">Python output is not treated as automatically authoritative merely because it is independent. Its scripts remain subject to the same provenance, review and evidence boundaries as the rest of the research software.</p>
     </section>
   </main>
   <footer class="site-footer">
@@ -173,6 +180,7 @@
     data-visible="false"
     tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
 </footer>
+<noscript><p class="noscript-notice" data-i18n="home.noScript">This page remains available without JavaScript in the site&#39;s default language. Changing the language requires JavaScript.</p></noscript>
 
   <script type="module" src="/assets/js/main.js"></script>
 </body>

@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en" data-palette="blueprint" data-title-key="">
+<html lang="en" dir="ltr" data-palette="blueprint" data-title-key="technical.overview.pageTitle">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Technical documentation for the Multiphysics numerical and computational framework.">
+  <meta name="description" content="Technical documentation for the Multiphysics numerical and computational framework." data-i18n="technical.overview.pageDescription" data-i18n-attr="content">
   <meta name="theme-color" content="#17365d">
   <title>Technical — Multiphysics</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -27,7 +27,7 @@
   <meta name="twitter:description" content="Technical documentation for the Multiphysics numerical and computational framework.">
   <meta name="twitter:image" content="https://mpx.arguskepheus.com.br/og-multiphysics.png">
   <meta name="twitter:image:alt" content="A worn, translucent lilac floppy disk with the AK initials.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/technical/#webpage","url":"https://mpx.arguskepheus.com.br/technical/","name":"Technical — Multiphysics","description":"Technical documentation for the Multiphysics numerical and computational framework.","isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/technical/#webpage","url":"https://mpx.arguskepheus.com.br/technical/","name":"Technical — Multiphysics","description":"Technical documentation for the Multiphysics numerical and computational framework.","inLanguage":"en","publisher":{"@type":"Organization","@id":"https://www.arguskepheus.com.br/#organization","name":"Argus Kepheus","url":"https://www.arguskepheus.com.br/"},"isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
@@ -39,6 +39,7 @@
     <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
     <a href="/current-model/" data-i18n="nav.current">Current model</a>
     <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/references/" data-i18n="nav.references">References</a>
     <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
   </nav>
   <details class="site-nav-mobile">
@@ -49,16 +50,17 @@
       <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
       <a href="/current-model/" data-i18n="nav.current">Current model</a>
       <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/references/" data-i18n="nav.references">References</a>
       <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
     </nav>
   </details>
   <div class="site-controls">
     <label class="locale-control">
       <span class="sr-only" data-i18n="locale.label">Language</span>
-      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
-        <option value="en">English</option>
-        <option value="pt-BR">Português</option>
-        <option value="zh-CN">中文</option>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label" disabled>
+        <option value="en" data-i18n-invariant="language-autonym">English</option>
+        <option value="pt-BR" data-i18n-invariant="language-autonym">Português</option>
+        <option value="zh-CN" data-i18n-invariant="language-autonym">中文</option>
       </select>
     </label>
     <button
@@ -81,77 +83,85 @@
 
   <main id="main" class="technical-shell">
     <header class="technical-hero">
-      <p class="kicker">Living technical documentation</p>
-      <h1>Technical</h1>
-      <p class="technical-lede">This section provides a living overview of the current mathematical, numerical and computational state of the Multiphysics project.</p>
-      <p class="technical-note">It documents the present project state. Formal dissertations, papers and releases remain independently citable scientific outputs.</p>
+      <p class="kicker" data-i18n="technical.overview.kicker">Living technical documentation</p>
+      <h1 data-i18n="technical.overview.heading">Technical</h1>
+      <p class="technical-lede" data-i18n="technical.overview.lede">This section provides a living overview of the current mathematical, numerical and computational state of the Multiphysics project.</p>
+      <p class="technical-note" data-i18n="technical.overview.note">It documents the present project state. The current numerical baseline is reconciled, but this locally buildable website artifact is not itself a release authorization. Formal dissertations, papers and releases remain independent transactions.</p>
     </header>
+<nav class="technical-axis-nav" aria-label="Technical section navigation" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Technical layers</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementations</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verification</span></a></li></ul>
+  </nav>
 <section class="technical-group" aria-labelledby="numerics-title">
     <div>
-      <p class="kicker">Numerical formulation</p>
-      <h2 id="numerics-title"><a class="heading-link" href="/technical/numerics/">Spatial methods</a></h2>
+      <p class="kicker" data-i18n="technical.overview.groups.numericsKicker">Numerical formulation</p>
+      <h2 id="numerics-title"><a class="heading-link" href="/technical/numerics/" data-i18n="technical.overview.groups.numericsTitle">Spatial methods</a></h2>
     </div>
     <div class="technical-card-grid"><a class="technical-card available" href="/technical/numerics/fdm-1d/">
-    <span class="status-chip" data-status="technical preview">technical preview</span>
-    <h3>FDM — 1D</h3>
-    <p>Current cell-centred finite-difference formulation, physical closures, semi-discrete system, time-integration relationship and verification evidence.</p>
+    <span class="status-chip" data-status="technical preview" data-i18n="technical.overview.status.technicalPreview">technical preview</span>
+    <h3 data-i18n-invariant="proper-name">FDM — 1D</h3>
+    <p data-i18n="technical.overview.cards.fdmDescription">Current cell-centred finite-difference formulation, physical closures, semi-discrete system, time-integration relationship and verification evidence.</p>
   </a><a class="technical-card available" href="/technical/numerics/fem-1d/">
-    <span class="status-chip" data-status="technical preview">technical preview</span>
-    <h3>FEM — 1D</h3>
-    <p>Current cell-centred P1 Galerkin formulation, including weak form, element assembly, mass lumping, half-cell completion, physical flux coupling and stability reference.</p>
+    <span class="status-chip" data-status="technical preview" data-i18n="technical.overview.status.technicalPreview">technical preview</span>
+    <h3 data-i18n-invariant="proper-name">FEM — 1D</h3>
+    <p data-i18n="technical.overview.cards.femDescription">Current cell-centred P1 Galerkin formulation, including weak form, element assembly, mass lumping, half-cell completion, physical flux coupling and stability reference.</p>
   </a><a class="technical-card available" href="/technical/numerics/#fvm-1d">
-    <span class="status-chip" data-status="implemented / limited scope">implemented / limited scope</span>
-    <h3>FVM — 1D</h3>
-    <p>The 1D finite-volume solver has an implemented-and-verified fixed-geometry/current-heating path. Geometry-changing welding stages remain unpromoted and are not presented as experimentally validated.</p>
+    <span class="status-chip" data-status="implemented / limited scope" data-i18n="technical.overview.status.implementedLimitedScope">implemented / limited scope</span>
+    <h3 data-i18n-invariant="proper-name">FVM — 1D</h3>
+    <p data-i18n="technical.overview.cards.fvmDescription">The 1D finite-volume solver has an implemented-and-verified fixed-geometry/current-heating path and, in GNU Octave, a numerically verified Maturity-1 Flashing path (ADR 0036). Maturity-0 Flashing and geometry-changing Upsetting/Pressing remain unpromoted; none of these paths is presented as experimentally validated.</p>
   </a></div>
   </section>
 <section class="technical-group" aria-labelledby="engines-title">
     <div>
-      <p class="kicker">Implementations</p>
-      <h2 id="engines-title"><a class="heading-link" href="/technical/implementations/">Calculation environments</a></h2>
+      <p class="kicker" data-i18n="technical.overview.groups.implementationsKicker">Implementations</p>
+      <h2 id="engines-title"><a class="heading-link" href="/technical/implementations/" data-i18n="technical.overview.groups.implementationsTitle">Calculation environments</a></h2>
     </div>
     <div class="technical-card-grid"><a class="technical-card available" href="/technical/implementations/octave/">
-    <span class="status-chip" data-status="active sibling">active sibling</span>
-    <h3>GNU Octave</h3>
-    <p>An active sibling engine with the broadest current process-workflow coverage. MATLAB compatibility and high-level matrix/vector operations make it useful for numerical development, inspection and scientific prototyping.</p>
+    <span class="status-chip" data-status="active sibling" data-i18n="technical.overview.status.activeSibling">active sibling</span>
+    <h3 data-i18n-invariant="proper-name">GNU Octave</h3>
+    <p data-i18n="technical.overview.cards.octaveDescription">An active sibling engine with the broadest current process-workflow coverage. MATLAB compatibility and high-level matrix/vector operations make it useful for numerical development, inspection and scientific prototyping.</p>
   </a><a class="technical-card available" href="/technical/implementations/cpp/">
-    <span class="status-chip" data-status="active sibling">active sibling</span>
-    <h3>C++</h3>
-    <p>An active independent C++17 sibling engine used for same-method cross-engine verification, explicit compiled implementations and LLM-assisted development. Its current workflow coverage is narrower than Octave, but its architectural role is not secondary.</p>
-  </a><a class="technical-card available" href="/technical/implementations/#julia">
-    <span class="status-chip" data-status="planned sibling">planned sibling</span>
-    <h3>Julia</h3>
-    <p>A planned third independent engine for the same formulations, intended to broaden implementation redundancy and investigate numerical expressiveness and execution efficiency on selected workloads. No performance advantage is claimed before equivalent benchmarks exist.</p>
+    <span class="status-chip" data-status="active sibling" data-i18n="technical.overview.status.activeSibling">active sibling</span>
+    <h3 data-i18n-invariant="proper-name">C++</h3>
+    <p data-i18n="technical.overview.cards.cppDescription">An active independent C++17 sibling engine used for same-method cross-engine verification, explicit compiled implementations and LLM-assisted development. Its current workflow coverage is narrower than Octave, but its architectural role is not secondary.</p>
+  </a><a class="technical-card available" href="/technical/implementations/julia/">
+    <span class="status-chip" data-status="FDM/FEM/FVM fixed-geometry native verification passed" data-i18n="technical.overview.status.juliaVerified">FDM/FEM/FVM fixed-geometry native verification passed</span>
+    <h3 data-i18n-invariant="proper-name">Julia</h3>
+    <p data-i18n="technical.overview.cards.juliaDescription">Julia FDM/FEM/FVM fixed geometry passed native verification against four frozen engine-neutral reference cases, including neutral history ingestion and same-method cross-engine parity. Geometry-changing Julia FVM remains unpromoted. P1/P2 performance is measured within the recorded cases, machine and toolchains.</p>
   </a></div>
   </section>
 <section class="technical-group" aria-labelledby="tooling-title">
     <div>
-      <p class="kicker">Scientific tooling</p>
-      <h2 id="tooling-title"><a class="heading-link" href="/technical/implementations/#python-tooling">Automation and evidence infrastructure</a></h2>
+      <p class="kicker" data-i18n="technical.overview.groups.toolingKicker">Scientific tooling</p>
+      <h2 id="tooling-title"><a class="heading-link" href="/technical/implementations/#python-tooling" data-i18n="technical.overview.groups.toolingTitle">Automation and evidence infrastructure</a></h2>
     </div>
     <div class="technical-card-grid"><a class="technical-card available" href="/technical/implementations/#python-tooling">
-    <span class="status-chip" data-status="active supporting tooling">active supporting tooling</span>
-    <h3>Python</h3>
-    <p>Python supports validation, governance, material-data workflows, package isolation, provenance, semantics, diagnostics and neutral cross-engine comparison. It is supporting scientific infrastructure, not a calculation engine.</p>
+    <span class="status-chip" data-status="active supporting tooling" data-i18n="technical.overview.status.activeSupportingTooling">active supporting tooling</span>
+    <h3 data-i18n-invariant="proper-name">Python</h3>
+    <p data-i18n="technical.overview.cards.pythonDescription">Python supports validation, governance, material-data workflows, package isolation, provenance, semantics, diagnostics and neutral cross-engine comparison. It is supporting scientific infrastructure, not a calculation engine.</p>
+  </a><a class="technical-card available" href="/technical/verification/framework/#post-processing-and-publication-provenance">
+    <span class="status-chip" data-status="multi-engine consolidation validated" data-i18n="technical.overview.status.multiEngineValidated">multi-engine consolidation validated</span>
+    <h3 data-i18n="technical.overview.cards.postTitle">Post-processing</h3>
+    <p data-i18n="technical.overview.cards.postDescription">Recorded temperature histories use a neutral post-processing contract. Histories are validated before protected comparisons, and the multi-engine inventory remains deterministic without choosing a golden engine.</p>
   </a></div>
   </section>
 <section class="technical-group" aria-labelledby="verification-title">
     <div>
-      <p class="kicker">Verification</p>
-      <h2 id="verification-title"><a class="heading-link" href="/technical/verification/">Evidence and validation boundaries</a></h2>
+      <p class="kicker" data-i18n="technical.overview.groups.verificationKicker">Verification</p>
+      <h2 id="verification-title"><a class="heading-link" href="/technical/verification/" data-i18n="technical.overview.groups.verificationTitle">Evidence and validation boundaries</a></h2>
     </div>
     <div class="technical-card-grid"><a class="technical-card available" href="/technical/verification/framework/">
-    <span class="status-chip" data-status="technical preview">technical preview</span>
-    <h3>Verification framework</h3>
-    <p>How analytical/reference cases, conservation, refinement, cross-method and cross-engine evidence fit together without being confused with experimental validation.</p>
-  </a><a class="technical-card available" href="/technical/verification/framework/#evidence-layers">
-    <span class="status-chip" data-status="active / consolidating">active / consolidating</span>
-    <h3>Numerical verification</h3>
-    <p>Current evidence includes conservation checks, analytical/reference cases, spatial refinement, stability references and controlled FDM/FEM/FVM studies.</p>
+    <span class="status-chip" data-status="technical preview" data-i18n="technical.overview.status.technicalPreview">technical preview</span>
+    <h3 data-i18n="technical.overview.cards.frameworkTitle">Verification framework</h3>
+    <p data-i18n="technical.overview.cards.frameworkDescription">How analytical/reference cases, conservation, refinement, cross-method and cross-engine evidence fit together without being confused with experimental validation.</p>
+  </a><a class="technical-card available" href="/technical/verification/framework/#current-native-and-reference-case-baseline">
+    <span class="status-chip" data-status="current baseline reconciled" data-i18n="technical.overview.status.currentBaseline">current baseline reconciled</span>
+    <h3 data-i18n="technical.overview.cards.numericalVerificationTitle">Numerical verification</h3>
+    <p data-i18n="technical.overview.cards.numericalVerificationDescription">FDM/FEM have a current native attestation, fixed-geometry FVM remains verified, and four engine-neutral resolved reference inputs are frozen as implementation targets. These facts remain distinct from experimental validation.</p>
   </a><a class="technical-card available" href="/technical/verification/framework/#physical-calibration-and-experimental-validation">
-    <span class="status-chip" data-status="future evidence">future evidence</span>
-    <h3>Experimental validation</h3>
-    <p>Physical calibration and an independent validation case require traceable experimental observables and uncertainty treatment; the complete FBW model is not currently presented as experimentally validated.</p>
+    <span class="status-chip" data-status="future evidence" data-i18n="technical.overview.status.futureEvidence">future evidence</span>
+    <h3 data-i18n="technical.overview.cards.experimentalValidationTitle">Experimental validation</h3>
+    <p data-i18n="technical.overview.cards.experimentalValidationDescription">Physical calibration and an independent validation case require traceable experimental observables and uncertainty treatment; the complete FBW model is not currently presented as experimentally validated.</p>
   </a></div>
   </section>
   </main>
@@ -167,6 +177,7 @@
     data-visible="false"
     tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
 </footer>
+<noscript><p class="noscript-notice" data-i18n="home.noScript">This page remains available without JavaScript in the site&#39;s default language. Changing the language requires JavaScript.</p></noscript>
 
   <script type="module" src="/assets/js/main.js"></script>
 </body>

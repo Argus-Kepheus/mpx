@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="en" data-palette="blueprint" data-title-key="site.title">
+<html lang="en" dir="ltr" data-palette="blueprint" data-title-key="site.title">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="An open, modular research platform for computational modelling of coupled physical processes." data-i18n="site.description" data-i18n-attr="content">
   <meta name="theme-color" content="#17365d">
-  <title>Multiphysics</title>
+  <title>Multiphysics — Open modular process simulation</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="/manifest.json">
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="canonical" href="https://mpx.arguskepheus.com.br/">
   <meta name="robots" content="index,follow">
-  <meta property="og:title" content="Multiphysics">
+  <meta property="og:title" content="Multiphysics — Open modular process simulation">
   <meta property="og:description" content="An open, modular research platform for computational modelling of coupled physical processes.">
   <meta property="og:url" content="https://mpx.arguskepheus.com.br/">
   <meta property="og:site_name" content="Multiphysics">
@@ -23,11 +23,11 @@
   <meta property="og:image:height" content="348">
   <meta property="og:image:alt" content="A worn, translucent lilac floppy disk with the AK initials.">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Multiphysics">
+  <meta name="twitter:title" content="Multiphysics — Open modular process simulation">
   <meta name="twitter:description" content="An open, modular research platform for computational modelling of coupled physical processes.">
   <meta name="twitter:image" content="https://mpx.arguskepheus.com.br/og-multiphysics.png">
   <meta name="twitter:image:alt" content="A worn, translucent lilac floppy disk with the AK initials.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics","description":"An open, modular research platform for computational modelling of coupled physical processes."}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics","description":"An open, modular research platform for computational modelling of coupled physical processes.","inLanguage":"en","publisher":{"@type":"Organization","@id":"https://www.arguskepheus.com.br/#organization","name":"Argus Kepheus","url":"https://www.arguskepheus.com.br/"},"creator":{"@type":"Person","@id":"https://scc.arguskepheus.com.br/#person","name":"Sergio Cordero Calvimontes","url":"https://scc.arguskepheus.com.br/"}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
@@ -39,6 +39,7 @@
     <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
     <a href="/current-model/" data-i18n="nav.current">Current model</a>
     <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/references/" data-i18n="nav.references">References</a>
     <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
   </nav>
   <details class="site-nav-mobile">
@@ -49,16 +50,17 @@
       <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
       <a href="/current-model/" data-i18n="nav.current">Current model</a>
       <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/references/" data-i18n="nav.references">References</a>
       <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
     </nav>
   </details>
   <div class="site-controls">
     <label class="locale-control">
       <span class="sr-only" data-i18n="locale.label">Language</span>
-      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
-        <option value="en">English</option>
-        <option value="pt-BR">Português</option>
-        <option value="zh-CN">中文</option>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label" disabled>
+        <option value="en" data-i18n-invariant="language-autonym">English</option>
+        <option value="pt-BR" data-i18n-invariant="language-autonym">Português</option>
+        <option value="zh-CN" data-i18n-invariant="language-autonym">中文</option>
       </select>
     </label>
     <button
@@ -86,7 +88,7 @@
         <h1 id="home-title" data-i18n="home.hero.title">Multiphysics</h1>
         <p class="hero-subtitle" data-i18n="home.hero.subtitle">Open, modular simulation of coupled physical processes</p>
         <p class="lede" data-i18n="home.hero.lede">A research project aimed at developing a free and open-source computational environment in which materials, machines, process configurations, physical models, numerical methods, calculation engines and post-processing tools can evolve independently and be recombined as needed.</p>
-        <p class="status-note" data-i18n="home.hero.status">Current academic reference process: flash-butt welding. Current implementation: an evolving research platform, not a finished industrial product.</p>
+        <p class="status-note" data-i18n="home.hero.status">Current reference process: flash-butt welding. The platform is being refactored to also accommodate Gleeble tests and computational models and simulations of those tests. This extension is in development.</p>
         <div class="hero-actions">
           <a class="button primary" href="/technical/" data-i18n="home.hero.primaryCta">Explore the technical documentation</a>
           <a class="button secondary" href="/collaborate/" data-i18n="home.hero.secondaryCta">Contribute experimental data</a>
@@ -144,8 +146,8 @@
     data-visible="false"
     tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
 </footer>
+<noscript><p class="noscript-notice" data-i18n="home.noScript">This page remains available without JavaScript in the site&#39;s default language. Changing the language requires JavaScript.</p></noscript>
 
-  <noscript><p class="noscript-notice" data-i18n="home.noScript">The project overview is available without JavaScript. Interactive palette and language selection are disabled.</p></noscript>
   <script type="module" src="/assets/js/main.js"></script>
 </body>
 </html>

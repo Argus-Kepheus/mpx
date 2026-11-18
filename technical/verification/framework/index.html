@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-palette="blueprint" data-title-key="">
+<html lang="en" dir="ltr" data-palette="blueprint" data-title-key="">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,7 @@
   <meta name="twitter:description" content="Verification framework and current evidence — current technical documentation for the Multiphysics project.">
   <meta name="twitter:image" content="https://mpx.arguskepheus.com.br/og-multiphysics.png">
   <meta name="twitter:image:alt" content="A worn, translucent lilac floppy disk with the AK initials.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/technical/verification/framework/#webpage","url":"https://mpx.arguskepheus.com.br/technical/verification/framework/","name":"Verification framework and current evidence — Multiphysics","description":"Verification framework and current evidence — current technical documentation for the Multiphysics project.","isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/technical/verification/framework/#webpage","url":"https://mpx.arguskepheus.com.br/technical/verification/framework/","name":"Verification framework and current evidence — Multiphysics","description":"Verification framework and current evidence — current technical documentation for the Multiphysics project.","inLanguage":"en","publisher":{"@type":"Organization","@id":"https://www.arguskepheus.com.br/#organization","name":"Argus Kepheus","url":"https://www.arguskepheus.com.br/"},"isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
@@ -39,6 +39,7 @@
     <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
     <a href="/current-model/" data-i18n="nav.current">Current model</a>
     <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/references/" data-i18n="nav.references">References</a>
     <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
   </nav>
   <details class="site-nav-mobile">
@@ -49,16 +50,17 @@
       <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
       <a href="/current-model/" data-i18n="nav.current">Current model</a>
       <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/references/" data-i18n="nav.references">References</a>
       <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
     </nav>
   </details>
   <div class="site-controls">
     <label class="locale-control">
       <span class="sr-only" data-i18n="locale.label">Language</span>
-      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
-        <option value="en">English</option>
-        <option value="pt-BR">Português</option>
-        <option value="zh-CN">中文</option>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label" disabled>
+        <option value="en" data-i18n-invariant="language-autonym">English</option>
+        <option value="pt-BR" data-i18n-invariant="language-autonym">Português</option>
+        <option value="zh-CN" data-i18n-invariant="language-autonym">中文</option>
       </select>
     </label>
     <button
@@ -80,70 +82,318 @@
 </header>
 
   <main id="main" class="technical-shell technical-article-shell">
-<nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verification</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page">Verification framework</span></li></ol></nav>
+<div data-technical-article-host data-current-locale="en"><nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verification</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">Verification framework</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Technical section navigation" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Technical layers</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementations</span></a></li><li><a href="/technical/verification/" aria-current="location"><span data-i18n="technical.labels.verification">Verification</span></a></li></ul>
+  </nav>
     <header class="article-header">
-      <p class="kicker">Verification · Verification framework</p>
-      <h1>Verification framework and current evidence</h1>
+      <p class="kicker" data-i18n-meta="kicker">Verification · Verification framework</p>
+      <h1 id="verification-framework-and-current-evidence" data-i18n-meta="title">Verification framework and current evidence</h1>
       <div class="article-meta">
-        <span class="status-chip" data-status="technical preview">technical preview</span>
-        <span><span data-i18n="technical.labels.source">source</span> ab27f4f8e145</span>
-        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-09-30</span>
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">technical preview</span>
+        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-10-18</span>
       </div>
       
     </header>
 
-    <details class="provenance"><summary data-i18n="technical.labels.provenance">Provenance and source references</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.sourceRevision">Source revision</dt><dd><code>ab27f4f8e1455c157ac60c592c136161ed315ca5</code></dd></div><div><dt data-i18n="technical.labels.operatorRevision">Operator revision</dt><dd><code>not recorded</code></dd></div></dl></details>
+    
     <div class="article-layout">
       <details class="article-toc" open>
         <summary data-i18n="technical.labels.onThisPage">On this page</summary>
-        <ol><li><a href="#evidence-layers">Evidence layers</a></li><li><a href="#fdm-evidence-presently-represented-in-the-source-tree">FDM evidence presently represented in the source tree</a></li><li><a href="#fem-evidence-presently-represented-in-the-source-tree">FEM evidence presently represented in the source tree</a></li><li><a href="#controlled-cross-method-studies">Controlled cross-method studies</a></li><li><a href="#cross-method-and-cross-engine-questions-are-different">Cross-method and cross-engine questions are different</a></li><li><a href="#regression-evidence">Regression evidence</a></li><li><a href="#manufactured-solution-programme">Manufactured-solution programme</a></li><li><a href="#physical-calibration-and-experimental-validation">Physical calibration and experimental validation</a></li><li><a href="#publication-rule-for-verification-claims">Publication rule for verification claims</a></li><li><a href="#current-public-interpretation">Current public interpretation</a></li></ol>
+        <ol data-i18n-body="toc"><li><a href="#evidence-layers">Evidence layers</a></li><li><a href="#why-three-independent-calculation-engines">Why three independent calculation engines?</a></li><li><a href="#current-native-and-reference-case-baseline">Current native and reference-case baseline</a></li><li><a href="#post-processing-and-publication-provenance">Post-processing and publication provenance</a></li><li><a href="#reproducibility-and-release-boundary">Reproducibility and release boundary</a></li><li><a href="#fdm-verification-evidence">FDM verification evidence</a></li><li><a href="#fem-verification-evidence">FEM verification evidence</a></li><li><a href="#controlled-cross-method-studies">Controlled cross-method studies</a></li><li><a href="#cross-method-and-cross-engine-questions-are-different">Cross-method and cross-engine questions are different</a></li><li><a href="#regression-evidence">Regression evidence</a></li><li><a href="#manufactured-solution-programme">Manufactured-solution programme</a></li><li><a href="#physical-calibration-and-experimental-validation">Physical calibration and experimental validation</a></li><li><a href="#publication-rule-for-verification-claims">Publication rule for verification claims</a></li><li><a href="#current-public-interpretation">Current public interpretation</a></li></ol>
       </details>
-      <article class="technical-prose">
-        <h1 id="verification-framework-and-current-evidence">Verification framework and current evidence</h1>
-<p>The Multiphysics project separates <strong>numerical verification</strong> from <strong>physical validation</strong>. Numerical verification asks whether a mathematical and discrete formulation is implemented consistently and whether its numerical behaviour is understood. Physical validation asks whether the resulting model represents measured behaviour of the real process within a declared scope and uncertainty.</p>
+      <article class="technical-prose" data-i18n-body="article">
+        <p>The Multiphysics project separates <strong>numerical verification</strong> from <strong>physical validation</strong>. Numerical verification asks whether a mathematical and discrete formulation is implemented consistently and whether its numerical behaviour is understood. Physical validation asks whether the resulting model represents measured behaviour of the real process within a declared scope and uncertainty.</p>
 <p>Agreement between two numerical methods or two programming-language implementations is useful evidence, but it is not experimental validation.</p>
 <h2 id="evidence-layers">Evidence layers</h2>
 <p>The current verification strategy is deliberately layered. Different checks answer different questions and none is treated as a universal substitute for the others.</p>
-<ul><li><strong>Model contracts and invariants</strong> define the continuum meaning that every method and engine must preserve: units, signs, interface conservation, boundary-law meaning and state-transfer semantics.</li><li><strong>Method-level checks</strong> exercise discrete operators, assembly, source insertion, boundary closures, stability references and limiting cases.</li><li><strong>Analytical and manufactured/reference cases</strong> compare numerical output against a field or balance known independently of another solver.</li><li><strong>Conservation checks</strong> verify integrated energy/flux behaviour where the continuous problem supplies a conservation statement.</li><li><strong>Spatial and temporal refinement</strong> asks whether discrepancies decrease as the numerical resolution is refined.</li><li><strong>Cross-method comparison</strong> compares independent discretisations of the same continuous problem without designating one method as the exact solution.</li><li><strong>Cross-engine comparison</strong> compares independent software implementations of a nominally equivalent method using the same already-resolved input.</li><li><strong>Regression tests</strong> permanently lock in corrections for previously identified defects.</li><li><strong>Physical calibration and validation</strong> use traceable real-world observables and remain separate from synthetic numerical-verification cases.</li></ul>
-<h2 id="fdm-evidence-presently-represented-in-the-source-tree">FDM evidence presently represented in the source tree</h2>
-<p>The finite-difference verification surface includes several complementary checks.</p>
-<p><code>tests/solvers/fdm/test_conservative_conduction.m</code> exercises the conservative shared-face construction, exact face differencing, preservation of supplied physical boundary fluxes, positive reconstructed conductivity and the constant-conductivity linear-field limit.</p>
-<p><code>tests/solvers/fdm/test_fourth_order_convergence.m</code> uses a manufactured variable-conductivity problem. Its own accepted observed <strong>global</strong> convergence floor is 1.9. This is why the public FDM page describes fourth-order internal stencil ingredients without claiming that the complete active variable-conductivity operator is globally fourth order.</p>
-<p><code>tests/solvers/fdm/test_steady_conduction_robin_refinement.m</code> compares both FDM and FEM with an analytical one-dimensional steady conduction/Robin profile and checks the steady energy balance. Because the analytical solution is linear, the test uses the absolute finest-grid error as the meaningful criterion rather than treating an already near-exact linear field as an order-estimation exercise.</p>
-<p>The interface-source tests add two further checks: <code>test_interface_source_energy_conservation.m</code> checks stored energy against known injected interface energy, while <code>test_interface_source_convergence.m</code> checks that the FDM–FEM interface-temperature gap decreases under refinement after the corrected interface-source treatment.</p>
-<p>These files are evidence that the project has explicit verification procedures. This website does not convert their mere presence into a claim that every scientific gate has been rerun for every current source revision.</p>
-<h2 id="fem-evidence-presently-represented-in-the-source-tree">FEM evidence presently represented in the source tree</h2>
+<ul><li><strong>Model contracts and invariants</strong> define units, signs, conservation meaning, boundary/interface meaning and state-transfer semantics.</li><li><strong>Method-level checks</strong> exercise discrete operators, assembly, sources, boundary closures, stability references and limiting cases.</li><li><strong>Analytical and manufactured/reference cases</strong> compare numerical output with fields or balances known independently of another solver.</li><li><strong>Conservation checks</strong> verify integrated energy or flux behaviour when the continuous problem supplies a conservation statement.</li><li><strong>Spatial and temporal refinement</strong> asks whether discrepancies decrease as resolution is refined.</li><li><strong>Cross-method comparison</strong> compares independent discretisations of the same continuous problem without designating one as exact.</li><li><strong>Cross-engine comparison</strong> compares independent software implementations of the same method using equivalent resolved input.</li><li><strong>Regression tests</strong> preserve corrections for previously identified defects.</li><li><strong>Physical calibration and validation</strong> use traceable real-world observables and remain separate from synthetic numerical-verification cases.</li></ul>
+<h2 id="why-three-independent-calculation-engines">Why three independent calculation engines?</h2>
+<p>GNU Octave, C++17 and Julia are maintained as sibling calculation environments rather than choosing one language as numerical truth. Octave favours transparent scientific inspection and broad workflow coverage; C++17 provides ahead-of-time compiled runtime control; Julia combines high-level scientific expression with type-specialised JIT compilation.</p>
+<p>The engines consume common resolved scientific inputs while keeping their numerical implementations independent. Same-method agreement can therefore reduce the risk of implementation-specific defects, while disagreement supplies a diagnostic target.</p>
+<p>Agreement still cannot prove the shared physical model: a modelling, input or boundary/interface error may be reproduced by all engines. Cross-engine parity is implementation-verification evidence, not experimental validation.</p>
+<p>No engine is a golden reference and no language is ranked in advance. The accepted P1/P2 campaign measures fresh-process latency and warmed throughput separately because startup/JIT and steady compute cost are different questions. Project-current performance is <strong>CANONICAL_MEASURED</strong> within the recorded cases, machine, toolchains and timing modes. These measurements do not authorize an overall engine ranking or a universal speed claim.</p>
+<h2 id="current-native-and-reference-case-baseline">Current native and reference-case baseline</h2>
+<p>The current accepted FDM/FEM native verification provides a PASS for the tested numerical snapshot and remains implementation/numerical evidence rather than experimental validation of flash-butt welding.</p>
+<p>Fixed-geometry FVM retains its implemented-and-verified status. Maturity-1 Flashing on FVM is numerically verified under ADR 0036: its refinement campaign converges to the FDM/FEM limit. Maturity-0 Flashing and geometry-changing upsetting remain unpromoted on FVM.</p>
+<p>Four already-resolved, engine-neutral reference cases are frozen as common implementation targets:</p>
+<ul><li>a constant/asymmetric baseline with Adams–Bashforth 2;</li><li>the corresponding Forward-Euler variant;</li><li>a positive thermal-contact-resistance case;</li><li>a heterogeneous-material and unequal-spacing case.</li></ul>
+<p>These are frozen <strong>inputs</strong>, not golden outputs from Octave, C++ or Julia and not physical-validation datasets.</p>
+<h2 id="post-processing-and-publication-provenance">Post-processing and publication provenance</h2>
+<p>Recorded temperature histories enter an engine-neutral post-processing boundary. Summaries retain scientific identity such as case, engine, method and temporal integrator, while comparisons first validate the supplied histories before computing cross-engine quantities.</p>
+<p>The downstream layer can represent partial case/method/engine coverage without choosing a golden engine. Missing histories remain explicitly missing rather than being repaired or inferred.</p>
+<p>Experimental overlays remain downstream of the experimental-data contract and must preserve measurement identity, time/location semantics, uncertainty, processing history and publication rights. A plot does not promote an unadjudicated dataset or turn calibration data into independent validation.</p>
+<h2 id="reproducibility-and-release-boundary">Reproducibility and release boundary</h2>
+<p>The project keeps native execution evidence and frozen implementation targets as distinct reproducibility objects. A numerical PASS applies to the source and conditions actually exercised, while frozen inputs define a reusable target for independent implementations.</p>
+<p>Neither fact grants release authorization. A numerical PASS, frozen case, generated history or locally buildable website does not by itself authorize publication. Public deployment remains a separate reviewed transaction with rights and private-export checks.</p>
+<h2 id="fdm-verification-evidence">FDM verification evidence</h2>
+<p>The finite-difference verification surface includes conservative shared-face construction, boundary-flux accounting, positive reconstructed conductivity, constant-conductivity limits, equilibrium of a linear temperature field, manufactured-solution refinement, cell-centred Robin closure, steady Robin refinement, interface-source convergence and energy conservation.</p>
+<p>The manufactured variable-conductivity study accepts an observed <strong>global</strong> convergence floor of 1.9. This is why the public FDM page describes fourth-order internal stencil ingredients without claiming that the complete active operator is globally fourth order.</p>
+<p>These checks show what the project verifies. They do not imply experimental validation of the complete process model.</p>
+<h2 id="fem-verification-evidence">FEM verification evidence</h2>
 <p>The finite-element verification surface covers assembly, physical-domain accounting and explicit-time stability references.</p>
-<p><code>tests/solvers/fem/test_fem_domain_integrals.m</code> checks that the active cell-centred P1 representation, including the two boundary half-cell completions, recovers the correct integrated thermal capacity and volumetric source over the physical domain for constant properties. It also checks an independently constructed nodal mesh against the same continuous-domain measures.</p>
-<p><code>tests/solvers/fem/test_fem_stability.m</code> checks the constant-property reference for linear P1 FEM with row-sum lumped mass and AB2. It verifies an assembled critical Fourier number approaching 1/4 and separates the scalar AB2 recurrence immediately inside and outside that negative-real-axis boundary. The test itself states that this is not a nonlinear stability proof.</p>
-<p><code>tests/solvers/fem/test_fdm_fem_comparison.m</code> is deliberately a <strong>diagnostic</strong>, not a regression tolerance. It compares complete canonical FDM and FEM space-time temperature histories symmetrically and explicitly treats neither method as the exact reference.</p>
-<p>The accompanying <code>VALIDATION-NOTES.md</code> also draws an important evidence boundary: arithmetic reproduced independently during development can support the formulas used by the tests, but it does not by itself establish successful native execution of the complete GNU Octave stage engine.</p>
+<p>The checks include recovery of physical-domain thermal capacity and volumetric source under the half-cell completion, equivalence of vectorised and elementwise assembly, the constant-property lumped-mass stability reference, Robin boundary behaviour and cross-method FDM/FEM diagnostics.</p>
+<p>The FDM/FEM comparison is deliberately a <strong>diagnostic</strong>, not a regression tolerance. Complete space-time histories are compared symmetrically and neither method is treated as the exact reference.</p>
 <h2 id="controlled-cross-method-studies">Controlled cross-method studies</h2>
-<p><code>studies/numerical-verification/</code> provides a broader method-neutral verification layer. Its current-heating V0–V5 study asks whether the independent FDM, FEM and FVM spatial discretisations solve the same one-dimensional thermal problem consistently before any physical calibration.</p>
-<p>The controlled cases separate equilibrium, cooling, bimaterial behaviour, Joule heating and post-heating redistribution. The heterogeneous verification material is intentionally synthetic and is not a calibrated steel. Solver degrees of freedom are projected independently to a method-neutral observation grid, with spatially weighted L2 and Linf temperature discrepancies plus separate interface, Robin-surface and maximum-temperature observables.</p>
-<p>The quantitative refinement tier uses successive spatial resolutions while selecting a common method-independent timestep from the most restrictive active stability reference. No FDM, FEM or FVM solution is designated as the exact solution. These studies are classified as numerical verification, not physical validation.</p>
+<p>A broader method-neutral verification programme asks whether FDM, FEM and FVM solve the same one-dimensional thermal problem consistently before physical calibration.</p>
+<p>The controlled cases separate equilibrium, cooling, bimaterial behaviour, Joule heating and post-heating redistribution. Synthetic heterogeneous material data are used only for numerical verification and are not presented as calibrated steel data.</p>
+<p>The quantitative refinement tier uses successive spatial resolutions with a common method-independent timestep chosen from the most restrictive active stability reference. No method is designated as exact.</p>
 <h2 id="cross-method-and-cross-engine-questions-are-different">Cross-method and cross-engine questions are different</h2>
-<p>Cross-method comparison asks whether different spatial discretisations approach the same continuous problem. For example, FDM and FEM should not be expected to produce identical numbers on a fixed coarse mesh because their discrete operators are different.</p>
-<p>Cross-engine comparison asks whether independent software implementations of the <strong>same method</strong> produce sufficiently consistent output for the same resolved input. The current exchange layer under <code>tools/cross-engine/</code> supplies both GNU Octave and C++ with <code>multiphysics.resolved-thermal-case.v1</code> and compares <code>multiphysics.temperature-history.v1</code> outputs without allowing either engine to call the other.</p>
-<p>The comparison tooling reports quantities such as sample count, maximum and RMS temperature error, maximum-temperature difference and final-energy difference. Its current same-method tolerances are explicitly provisional development gates. Cross-language agreement is implementation-verification evidence; a defect shared by both engines would still be a defect.</p>
+<p>Cross-method comparison asks whether different spatial discretisations approach the same continuous problem. FDM and FEM are therefore not expected to produce identical numbers on a fixed coarse mesh.</p>
+<p>Cross-engine comparison asks whether independent software implementations of the <strong>same method</strong> produce sufficiently consistent output for equivalent resolved input. Each engine computes its own result before a neutral comparison is performed.</p>
+<p>Current same-method tolerances are development verification gates. Cross-language agreement is implementation-verification evidence; a defect shared by all engines would still be a defect.</p>
 <h2 id="regression-evidence">Regression evidence</h2>
-<p>The project reserves <code>tests/regression/</code> for permanent tests that lock in a correction after a specific bug has been identified. This is intentionally distinct from analytical/manufactured-solution correctness and from generic per-method numerical tests.</p>
-<p>Some existing solver tests already document the defects that motivated them, such as the corrected interface-source sign/normalisation treatment. The dedicated regression directory remains a formal destination as the verification suite is reorganised.</p>
+<p>Regression checks permanently preserve corrections after a specific defect has been identified. This is intentionally distinct from analytical or manufactured-solution correctness and from generic per-method verification.</p>
 <h2 id="manufactured-solution-programme">Manufactured-solution programme</h2>
-<p><code>tests/manufactured/</code> is reserved for method-independent manufactured-solution problems with known analytical fields and source terms. The repository explicitly states that FDM and FEM should be migrated into this layer progressively and that FVM must pass this layer before production acceptance.</p>
-<p>This means that the project already uses manufactured/reference reasoning in individual solver tests, but the method-independent manufactured-solution programme is not yet presented as complete.</p>
+<p>The project is progressively organising method-independent manufactured-solution problems with known analytical fields and source terms.</p>
+<p>FDM and FEM already use manufactured/reference reasoning in their verification surfaces, while broader common manufactured-solution coverage remains an ongoing verification layer rather than a completed universal claim.</p>
 <h2 id="physical-calibration-and-experimental-validation">Physical calibration and experimental validation</h2>
-<p>Physical calibration and validation are intentionally outside the numerical-verification studies. The current Flashing calibration study under <code>studies/physical-calibration/flashing/</code> first requires a defensible definition of the observables to be calibrated and warns against tuning several entangled parameters before sensitivity and identifiability are understood.</p>
-<p>Candidate observables include interface or near-interface thermal histories, electrical power, burn-off and stage timing, but only quantities supported by traceable source data should enter an objective function. Its expected outputs include an evidence ledger, sensitivity and identifiability analysis, calibrated parameters with uncertainty, and an <strong>independent validation case</strong>.</p>
-<p>The website therefore does not claim that the complete flash-butt-welding model is experimentally validated. Acquiring suitable experimental data and independent validation evidence is one of the reasons the project actively seeks research collaboration.</p>
+<p>Physical calibration and validation are intentionally outside the numerical-verification studies. Calibration first requires defensible observables and sensitivity/identifiability analysis before several entangled parameters are tuned.</p>
+<p>Candidate observables include interface or near-interface thermal histories, electrical power, burn-off and stage timing, but only quantities supported by traceable source data should enter an objective function.</p>
+<p>A defensible validation programme requires uncertainty treatment and an <strong>independent validation case</strong>. The website therefore does not claim that the complete flash-butt-welding model is experimentally validated.</p>
 <h2 id="publication-rule-for-verification-claims">Publication rule for verification claims</h2>
-<p>A future public verification result should identify, at minimum, the problem definition, physical inputs, numerical controls, method and engine revisions, spatial/time resolution, reference or comparison basis, error metrics, acceptance rule when one exists, and the source revision against which the result was reviewed.</p>
-<p>A diagnostic without a rigid tolerance should remain labelled as a diagnostic. A cross-engine parity result should not be presented as physical validation. A calibration case should not be reused as its own independent validation case. These distinctions are part of the scientific meaning of the published result, not merely website wording.</p>
+<p>A future public verification result should identify the problem definition, physical inputs, numerical controls, method and engine, spatial/time resolution, reference or comparison basis, error metrics, acceptance rule when one exists, and the reviewed scientific scope.</p>
+<p>A diagnostic without a rigid tolerance should remain labelled as a diagnostic. Cross-engine parity should not be presented as physical validation, and a calibration case should not be reused as its own independent validation case.</p>
 <h2 id="current-public-interpretation">Current public interpretation</h2>
-<p>The present project state supports a substantial numerical-verification programme for the one-dimensional thermal model, with active evidence around conservation, boundary/interface closures, refinement, stability and method/engine comparison. The evidence is still being consolidated into more method-independent verification suites.</p>
-<p>Experimental calibration and independent physical validation remain separate future work. The project will only promote those claims when traceable experimental observables, uncertainty treatment and an independent validation case support them.</p>
+<p>The present project state supports a substantial numerical-verification programme for the one-dimensional thermal model. FDM and FEM have accepted native execution evidence, fixed-geometry FVM remains verified, and four engine-neutral resolved inputs are frozen as common implementation targets.</p>
+<p>Method-independent manufactured-solution work and broader verification suites remain ongoing. Experimental calibration and independent physical validation remain separate future work and will only be promoted when traceable experimental observables, uncertainty treatment and an independent validation case support those claims.</p>
       </article>
-    </div>
+    </div></div>
+<template data-technical-locale="en" data-page-title="Verification framework and current evidence — Multiphysics" data-page-description="Verification framework and current evidence — current technical documentation for the Multiphysics project."><nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verification</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">Verification framework</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Technical section navigation" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Technical layers</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementations</span></a></li><li><a href="/technical/verification/" aria-current="location"><span data-i18n="technical.labels.verification">Verification</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">Verification · Verification framework</p>
+      <h1 id="verification-framework-and-current-evidence" data-i18n-meta="title">Verification framework and current evidence</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">technical preview</span>
+        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-10-18</span>
+      </div>
+      
+    </header>
+
+    
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">On this page</summary>
+        <ol data-i18n-body="toc"><li><a href="#evidence-layers">Evidence layers</a></li><li><a href="#why-three-independent-calculation-engines">Why three independent calculation engines?</a></li><li><a href="#current-native-and-reference-case-baseline">Current native and reference-case baseline</a></li><li><a href="#post-processing-and-publication-provenance">Post-processing and publication provenance</a></li><li><a href="#reproducibility-and-release-boundary">Reproducibility and release boundary</a></li><li><a href="#fdm-verification-evidence">FDM verification evidence</a></li><li><a href="#fem-verification-evidence">FEM verification evidence</a></li><li><a href="#controlled-cross-method-studies">Controlled cross-method studies</a></li><li><a href="#cross-method-and-cross-engine-questions-are-different">Cross-method and cross-engine questions are different</a></li><li><a href="#regression-evidence">Regression evidence</a></li><li><a href="#manufactured-solution-programme">Manufactured-solution programme</a></li><li><a href="#physical-calibration-and-experimental-validation">Physical calibration and experimental validation</a></li><li><a href="#publication-rule-for-verification-claims">Publication rule for verification claims</a></li><li><a href="#current-public-interpretation">Current public interpretation</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <p>The Multiphysics project separates <strong>numerical verification</strong> from <strong>physical validation</strong>. Numerical verification asks whether a mathematical and discrete formulation is implemented consistently and whether its numerical behaviour is understood. Physical validation asks whether the resulting model represents measured behaviour of the real process within a declared scope and uncertainty.</p>
+<p>Agreement between two numerical methods or two programming-language implementations is useful evidence, but it is not experimental validation.</p>
+<h2 id="evidence-layers">Evidence layers</h2>
+<p>The current verification strategy is deliberately layered. Different checks answer different questions and none is treated as a universal substitute for the others.</p>
+<ul><li><strong>Model contracts and invariants</strong> define units, signs, conservation meaning, boundary/interface meaning and state-transfer semantics.</li><li><strong>Method-level checks</strong> exercise discrete operators, assembly, sources, boundary closures, stability references and limiting cases.</li><li><strong>Analytical and manufactured/reference cases</strong> compare numerical output with fields or balances known independently of another solver.</li><li><strong>Conservation checks</strong> verify integrated energy or flux behaviour when the continuous problem supplies a conservation statement.</li><li><strong>Spatial and temporal refinement</strong> asks whether discrepancies decrease as resolution is refined.</li><li><strong>Cross-method comparison</strong> compares independent discretisations of the same continuous problem without designating one as exact.</li><li><strong>Cross-engine comparison</strong> compares independent software implementations of the same method using equivalent resolved input.</li><li><strong>Regression tests</strong> preserve corrections for previously identified defects.</li><li><strong>Physical calibration and validation</strong> use traceable real-world observables and remain separate from synthetic numerical-verification cases.</li></ul>
+<h2 id="why-three-independent-calculation-engines">Why three independent calculation engines?</h2>
+<p>GNU Octave, C++17 and Julia are maintained as sibling calculation environments rather than choosing one language as numerical truth. Octave favours transparent scientific inspection and broad workflow coverage; C++17 provides ahead-of-time compiled runtime control; Julia combines high-level scientific expression with type-specialised JIT compilation.</p>
+<p>The engines consume common resolved scientific inputs while keeping their numerical implementations independent. Same-method agreement can therefore reduce the risk of implementation-specific defects, while disagreement supplies a diagnostic target.</p>
+<p>Agreement still cannot prove the shared physical model: a modelling, input or boundary/interface error may be reproduced by all engines. Cross-engine parity is implementation-verification evidence, not experimental validation.</p>
+<p>No engine is a golden reference and no language is ranked in advance. The accepted P1/P2 campaign measures fresh-process latency and warmed throughput separately because startup/JIT and steady compute cost are different questions. Project-current performance is <strong>CANONICAL_MEASURED</strong> within the recorded cases, machine, toolchains and timing modes. These measurements do not authorize an overall engine ranking or a universal speed claim.</p>
+<h2 id="current-native-and-reference-case-baseline">Current native and reference-case baseline</h2>
+<p>The current accepted FDM/FEM native verification provides a PASS for the tested numerical snapshot and remains implementation/numerical evidence rather than experimental validation of flash-butt welding.</p>
+<p>Fixed-geometry FVM retains its implemented-and-verified status. Maturity-1 Flashing on FVM is numerically verified under ADR 0036: its refinement campaign converges to the FDM/FEM limit. Maturity-0 Flashing and geometry-changing upsetting remain unpromoted on FVM.</p>
+<p>Four already-resolved, engine-neutral reference cases are frozen as common implementation targets:</p>
+<ul><li>a constant/asymmetric baseline with Adams–Bashforth 2;</li><li>the corresponding Forward-Euler variant;</li><li>a positive thermal-contact-resistance case;</li><li>a heterogeneous-material and unequal-spacing case.</li></ul>
+<p>These are frozen <strong>inputs</strong>, not golden outputs from Octave, C++ or Julia and not physical-validation datasets.</p>
+<h2 id="post-processing-and-publication-provenance">Post-processing and publication provenance</h2>
+<p>Recorded temperature histories enter an engine-neutral post-processing boundary. Summaries retain scientific identity such as case, engine, method and temporal integrator, while comparisons first validate the supplied histories before computing cross-engine quantities.</p>
+<p>The downstream layer can represent partial case/method/engine coverage without choosing a golden engine. Missing histories remain explicitly missing rather than being repaired or inferred.</p>
+<p>Experimental overlays remain downstream of the experimental-data contract and must preserve measurement identity, time/location semantics, uncertainty, processing history and publication rights. A plot does not promote an unadjudicated dataset or turn calibration data into independent validation.</p>
+<h2 id="reproducibility-and-release-boundary">Reproducibility and release boundary</h2>
+<p>The project keeps native execution evidence and frozen implementation targets as distinct reproducibility objects. A numerical PASS applies to the source and conditions actually exercised, while frozen inputs define a reusable target for independent implementations.</p>
+<p>Neither fact grants release authorization. A numerical PASS, frozen case, generated history or locally buildable website does not by itself authorize publication. Public deployment remains a separate reviewed transaction with rights and private-export checks.</p>
+<h2 id="fdm-verification-evidence">FDM verification evidence</h2>
+<p>The finite-difference verification surface includes conservative shared-face construction, boundary-flux accounting, positive reconstructed conductivity, constant-conductivity limits, equilibrium of a linear temperature field, manufactured-solution refinement, cell-centred Robin closure, steady Robin refinement, interface-source convergence and energy conservation.</p>
+<p>The manufactured variable-conductivity study accepts an observed <strong>global</strong> convergence floor of 1.9. This is why the public FDM page describes fourth-order internal stencil ingredients without claiming that the complete active operator is globally fourth order.</p>
+<p>These checks show what the project verifies. They do not imply experimental validation of the complete process model.</p>
+<h2 id="fem-verification-evidence">FEM verification evidence</h2>
+<p>The finite-element verification surface covers assembly, physical-domain accounting and explicit-time stability references.</p>
+<p>The checks include recovery of physical-domain thermal capacity and volumetric source under the half-cell completion, equivalence of vectorised and elementwise assembly, the constant-property lumped-mass stability reference, Robin boundary behaviour and cross-method FDM/FEM diagnostics.</p>
+<p>The FDM/FEM comparison is deliberately a <strong>diagnostic</strong>, not a regression tolerance. Complete space-time histories are compared symmetrically and neither method is treated as the exact reference.</p>
+<h2 id="controlled-cross-method-studies">Controlled cross-method studies</h2>
+<p>A broader method-neutral verification programme asks whether FDM, FEM and FVM solve the same one-dimensional thermal problem consistently before physical calibration.</p>
+<p>The controlled cases separate equilibrium, cooling, bimaterial behaviour, Joule heating and post-heating redistribution. Synthetic heterogeneous material data are used only for numerical verification and are not presented as calibrated steel data.</p>
+<p>The quantitative refinement tier uses successive spatial resolutions with a common method-independent timestep chosen from the most restrictive active stability reference. No method is designated as exact.</p>
+<h2 id="cross-method-and-cross-engine-questions-are-different">Cross-method and cross-engine questions are different</h2>
+<p>Cross-method comparison asks whether different spatial discretisations approach the same continuous problem. FDM and FEM are therefore not expected to produce identical numbers on a fixed coarse mesh.</p>
+<p>Cross-engine comparison asks whether independent software implementations of the <strong>same method</strong> produce sufficiently consistent output for equivalent resolved input. Each engine computes its own result before a neutral comparison is performed.</p>
+<p>Current same-method tolerances are development verification gates. Cross-language agreement is implementation-verification evidence; a defect shared by all engines would still be a defect.</p>
+<h2 id="regression-evidence">Regression evidence</h2>
+<p>Regression checks permanently preserve corrections after a specific defect has been identified. This is intentionally distinct from analytical or manufactured-solution correctness and from generic per-method verification.</p>
+<h2 id="manufactured-solution-programme">Manufactured-solution programme</h2>
+<p>The project is progressively organising method-independent manufactured-solution problems with known analytical fields and source terms.</p>
+<p>FDM and FEM already use manufactured/reference reasoning in their verification surfaces, while broader common manufactured-solution coverage remains an ongoing verification layer rather than a completed universal claim.</p>
+<h2 id="physical-calibration-and-experimental-validation">Physical calibration and experimental validation</h2>
+<p>Physical calibration and validation are intentionally outside the numerical-verification studies. Calibration first requires defensible observables and sensitivity/identifiability analysis before several entangled parameters are tuned.</p>
+<p>Candidate observables include interface or near-interface thermal histories, electrical power, burn-off and stage timing, but only quantities supported by traceable source data should enter an objective function.</p>
+<p>A defensible validation programme requires uncertainty treatment and an <strong>independent validation case</strong>. The website therefore does not claim that the complete flash-butt-welding model is experimentally validated.</p>
+<h2 id="publication-rule-for-verification-claims">Publication rule for verification claims</h2>
+<p>A future public verification result should identify the problem definition, physical inputs, numerical controls, method and engine, spatial/time resolution, reference or comparison basis, error metrics, acceptance rule when one exists, and the reviewed scientific scope.</p>
+<p>A diagnostic without a rigid tolerance should remain labelled as a diagnostic. Cross-engine parity should not be presented as physical validation, and a calibration case should not be reused as its own independent validation case.</p>
+<h2 id="current-public-interpretation">Current public interpretation</h2>
+<p>The present project state supports a substantial numerical-verification programme for the one-dimensional thermal model. FDM and FEM have accepted native execution evidence, fixed-geometry FVM remains verified, and four engine-neutral resolved inputs are frozen as common implementation targets.</p>
+<p>Method-independent manufactured-solution work and broader verification suites remain ongoing. Experimental calibration and independent physical validation remain separate future work and will only be promoted when traceable experimental observables, uncertainty treatment and an independent validation case support those claims.</p>
+      </article>
+    </div></template>
+<template data-technical-locale="pt-BR" data-page-title="Estrutura de verificação e evidência atual — Multiphysics" data-page-description="Estrutura pública de verificação do projeto Multiphysics, incluindo camadas de evidência, comparação entre métodos e engines, refinamento, reprodutibilidade e separação entre verificação numérica e validação física."><nav class="technical-breadcrumb" aria-label="Trilha de navegação" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Técnico</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verificação</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">Estrutura de verificação</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Navegação da seção técnica" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Camadas técnicas</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Formulação numérica</span></a></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementações</span></a></li><li><a href="/technical/verification/" aria-current="location"><span data-i18n="technical.labels.verification">Verificação</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">Verificação · Estrutura de evidência</p>
+      <h1 id="verification-framework-and-current-evidence" data-i18n-meta="title">Estrutura de verificação e evidência atual</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">prévia técnica</span>
+        <span><span data-i18n="technical.labels.reviewed">revisado em</span> 2026-10-18</span>
+      </div>
+      
+    </header>
+
+    
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">Nesta página</summary>
+        <ol data-i18n-body="toc"><li><a href="#evidence-layers">Camadas de evidência</a></li><li><a href="#why-three-independent-calculation-engines">Por que três engines de cálculo independentes?</a></li><li><a href="#current-native-and-reference-case-baseline">Linha de base nativa e casos de referência atuais</a></li><li><a href="#post-processing-and-publication-provenance">Pós-processamento e proveniência de publicação</a></li><li><a href="#reproducibility-and-release-boundary">Fronteira de reprodutibilidade e release</a></li><li><a href="#fdm-verification-evidence">Evidência de verificação FDM</a></li><li><a href="#fem-verification-evidence">Evidência de verificação FEM</a></li><li><a href="#controlled-cross-method-studies">Estudos controlados entre métodos</a></li><li><a href="#cross-method-and-cross-engine-questions-are-different">Perguntas entre métodos e entre engines são diferentes</a></li><li><a href="#regression-evidence">Evidência de regressão</a></li><li><a href="#manufactured-solution-programme">Programa de soluções manufaturadas</a></li><li><a href="#physical-calibration-and-experimental-validation">Calibração física e validação experimental</a></li><li><a href="#publication-rule-for-verification-claims">Regra de publicação para afirmações de verificação</a></li><li><a href="#current-public-interpretation">Interpretação pública atual</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <p>O projeto Multiphysics separa <strong>verificação numérica</strong> de <strong>validação física</strong>. A verificação numérica pergunta se uma formulação matemática e discreta foi implementada de forma consistente e se seu comportamento numérico é compreendido. A validação física pergunta se o modelo resultante representa o comportamento medido do processo real dentro de um escopo e uma incerteza declarados.</p>
+<p>A concordância entre dois métodos numéricos ou entre duas implementações em linguagens de programação diferentes é evidência útil, mas não é validação experimental.</p>
+<h2 id="evidence-layers">Camadas de evidência</h2>
+<p>A estratégia atual de verificação é deliberadamente organizada em camadas. Verificações diferentes respondem a perguntas diferentes, e nenhuma delas é tratada como substituto universal das demais.</p>
+<ul><li><strong>Contratos e invariantes do modelo</strong> definem unidades, sinais, significado de conservação, significado de contorno/interface e semântica de transferência de estado.</li><li><strong>Verificações no nível do método</strong> exercitam operadores discretos, montagem, fontes, fechamentos de contorno, referências de estabilidade e casos limite.</li><li><strong>Casos analíticos e manufaturados/de referência</strong> comparam a saída numérica com campos ou balanços conhecidos independentemente de outro solver.</li><li><strong>Verificações de conservação</strong> avaliam o comportamento integrado de energia ou fluxo quando o problema contínuo fornece uma declaração de conservação.</li><li><strong>Refinamento espacial e temporal</strong> pergunta se as discrepâncias diminuem à medida que a resolução é refinada.</li><li><strong>Comparação entre métodos</strong> compara discretizações independentes do mesmo problema contínuo sem designar uma delas como exata.</li><li><strong>Comparação entre engines</strong> compara implementações de software independentes do mesmo método usando entrada resolvida equivalente.</li><li><strong>Testes de regressão</strong> preservam correções para defeitos previamente identificados.</li><li><strong>Calibração e validação físicas</strong> usam observáveis reais rastreáveis e permanecem separadas dos casos sintéticos de verificação numérica.</li></ul>
+<h2 id="why-three-independent-calculation-engines">Por que três engines de cálculo independentes?</h2>
+<p>GNU Octave, C++17 e Julia são mantidos como ambientes de cálculo irmãos, em vez de escolher uma linguagem como verdade numérica. Octave favorece inspeção científica transparente e ampla cobertura de workflow; C++17 fornece controle de runtime por compilação ahead-of-time; Julia combina expressão científica de alto nível com compilação JIT especializada por tipos.</p>
+<p>Os engines consomem entradas científicas resolvidas em comum, mantendo independentes suas implementações numéricas. Assim, a concordância do mesmo método pode reduzir o risco de defeitos específicos de implementação, enquanto a discordância fornece um alvo diagnóstico.</p>
+<p>A concordância ainda não pode provar o modelo físico compartilhado: um erro de modelagem, de entrada ou de contorno/interface pode ser reproduzido por todos os engines. Paridade entre engines é evidência de verificação de implementação, não validação experimental.</p>
+<p>Nenhum engine é referência dourada e nenhuma linguagem é classificada antecipadamente. A campanha P1/P2 aceita mede separadamente a latência de processo novo e o throughput aquecido, porque custo de inicialização/JIT e custo computacional em regime respondem a perguntas diferentes. O desempenho atual do projeto é <strong>CANONICAL_MEASURED</strong> no escopo dos casos, da máquina, das ferramentas e dos modos de medição registrados. Essas medições não autorizam uma classificação geral de engines nem uma afirmação universal de velocidade.</p>
+<h2 id="current-native-and-reference-case-baseline">Linha de base nativa e casos de referência atuais</h2>
+<p>A verificação nativa FDM/FEM atualmente aceita fornece um PASS para o snapshot numérico testado e permanece como evidência de implementação/numérica, não como validação experimental da soldagem flash-butt.</p>
+<p>FVM de geometria fixa mantém seu estado implementado e verificado. Flashing de Maturidade 1 em FVM é verificado numericamente conforme a ADR 0036: sua campanha de refinamento converge para o limite de FDM/FEM. Flashing de Maturidade 0 e upsetting com mudança de geometria permanecem não promovidos em FVM.</p>
+<p>Quatro casos de referência já resolvidos e neutros em relação ao engine estão congelados como alvos comuns de implementação:</p>
+<ul><li>uma linha de base constante/assimétrica com Adams–Bashforth 2;</li><li>a variante correspondente com Forward Euler;</li><li>um caso com resistência térmica de contato positiva;</li><li>um caso com material heterogêneo e espaçamento desigual.</li></ul>
+<p>Esses são <strong>inputs</strong> congelados, não saídas douradas de Octave, C++ ou Julia e não conjuntos de dados de validação física.</p>
+<h2 id="post-processing-and-publication-provenance">Pós-processamento e proveniência de publicação</h2>
+<p>Históricos de temperatura registrados entram em uma fronteira de pós-processamento neutra em relação ao engine. Os resumos preservam a identidade científica, como caso, engine, método e integrador temporal, enquanto as comparações validam primeiro os históricos fornecidos antes de calcular quantidades entre engines.</p>
+<p>A camada a jusante pode representar cobertura parcial de caso/método/engine sem escolher um engine dourado. Históricos ausentes permanecem explicitamente ausentes, em vez de serem reparados ou inferidos.</p>
+<p>Sobreposições experimentais permanecem a jusante do contrato de dados experimentais e devem preservar identidade da medição, semântica de tempo/local, incerteza, histórico de processamento e direitos de publicação. Um gráfico não promove um conjunto de dados não adjudicado nem transforma dados de calibração em validação independente.</p>
+<h2 id="reproducibility-and-release-boundary">Fronteira de reprodutibilidade e release</h2>
+<p>O projeto mantém evidência de execução nativa e alvos de implementação congelados como objetos distintos de reprodutibilidade. Um PASS numérico aplica-se ao código e às condições efetivamente exercitados, enquanto entradas congeladas definem um alvo reutilizável para implementações independentes.</p>
+<p>Nenhum desses fatos concede autorização de release. Um PASS numérico, um caso congelado, um histórico gerado ou um website localmente compilável não autoriza por si só a publicação. O deployment público permanece uma transação revisada separada, com verificações de direitos e exportação privada.</p>
+<h2 id="fdm-verification-evidence">Evidência de verificação FDM</h2>
+<p>A superfície de verificação por diferenças finitas inclui construção conservativa por faces compartilhadas, contabilização dos fluxos de contorno, condutividade reconstruída positiva, limites de condutividade constante, equilíbrio de um campo de temperatura linear, refinamento por solução manufaturada, fechamento Robin cell-centred, refinamento Robin em regime permanente, convergência de fonte de interface e conservação de energia.</p>
+<p>O estudo manufaturado com condutividade variável aceita um piso de convergência <strong>global</strong> observado igual a 1.9. Por isso a página pública FDM descreve ingredientes internos de stencil de quarta ordem sem afirmar que o operador ativo completo seja globalmente de quarta ordem.</p>
+<p>Essas verificações mostram o que o projeto verifica. Elas não implicam validação experimental do modelo completo de processo.</p>
+<h2 id="fem-verification-evidence">Evidência de verificação FEM</h2>
+<p>A superfície de verificação por elementos finitos abrange montagem, contabilização do domínio físico e referências de estabilidade no tempo explícito.</p>
+<p>As verificações incluem recuperação da capacidade térmica e da fonte volumétrica do domínio físico sob a completação de meia célula, equivalência entre montagem vetorizada e elemento a elemento, referência de estabilidade com massa lumped e propriedades constantes, comportamento de contorno Robin e diagnósticos FDM/FEM entre métodos.</p>
+<p>A comparação FDM/FEM é deliberadamente um <strong>diagnóstico</strong>, não uma tolerância de regressão. Históricos completos de espaço e tempo são comparados simetricamente e nenhum dos métodos é tratado como referência exata.</p>
+<h2 id="controlled-cross-method-studies">Estudos controlados entre métodos</h2>
+<p>Um programa mais amplo de verificação neutra em relação ao método pergunta se FDM, FEM e FVM resolvem de forma consistente o mesmo problema térmico unidimensional antes da calibração física.</p>
+<p>Os casos controlados separam equilíbrio, resfriamento, comportamento bimaterial, aquecimento Joule e redistribuição pós-aquecimento. Dados sintéticos de material heterogêneo são usados somente para verificação numérica e não são apresentados como dados calibrados de aço.</p>
+<p>O nível quantitativo de refinamento usa resoluções espaciais sucessivas com um passo de tempo comum, independente do método, escolhido a partir da referência de estabilidade ativa mais restritiva. Nenhum método é designado como exato.</p>
+<h2 id="cross-method-and-cross-engine-questions-are-different">Perguntas entre métodos e entre engines são diferentes</h2>
+<p>A comparação entre métodos pergunta se diferentes discretizações espaciais se aproximam do mesmo problema contínuo. Portanto, não se espera que FDM e FEM produzam números idênticos em uma malha grossa fixa.</p>
+<p>A comparação entre engines pergunta se implementações de software independentes do <strong>mesmo método</strong> produzem saídas suficientemente consistentes para uma entrada resolvida equivalente. Cada engine calcula seu próprio resultado antes que uma comparação neutra seja realizada.</p>
+<p>As tolerâncias atuais do mesmo método são gates de verificação de desenvolvimento. Concordância entre linguagens é evidência de verificação de implementação; um defeito compartilhado por todos os engines continuaria sendo um defeito.</p>
+<h2 id="regression-evidence">Evidência de regressão</h2>
+<p>Verificações de regressão preservam permanentemente correções depois que um defeito específico é identificado. Isso é intencionalmente diferente de correção por solução analítica ou manufaturada e de verificação numérica genérica por método.</p>
+<h2 id="manufactured-solution-programme">Programa de soluções manufaturadas</h2>
+<p>O projeto está organizando progressivamente problemas de solução manufaturada independentes do método, com campos analíticos e termos-fonte conhecidos.</p>
+<p>FDM e FEM já usam raciocínio manufaturado/de referência em suas superfícies de verificação, enquanto uma cobertura comum mais ampla por soluções manufaturadas permanece como camada de verificação em andamento, e não como afirmação universal concluída.</p>
+<h2 id="physical-calibration-and-experimental-validation">Calibração física e validação experimental</h2>
+<p>Calibração e validação físicas permanecem intencionalmente fora dos estudos de verificação numérica. A calibração exige primeiro observáveis defensáveis e análise de sensibilidade/identificabilidade antes do ajuste de vários parâmetros acoplados.</p>
+<p>Observáveis candidatos incluem históricos térmicos na interface ou próximos dela, potência elétrica, burn-off e temporização dos estágios, mas somente quantidades sustentadas por dados-fonte rastreáveis devem entrar em uma função objetivo.</p>
+<p>Um programa defensável de validação exige tratamento de incerteza e um <strong>caso de validação independente</strong>. O website, portanto, não afirma que o modelo completo de soldagem flash-butt esteja validado experimentalmente.</p>
+<h2 id="publication-rule-for-verification-claims">Regra de publicação para afirmações de verificação</h2>
+<p>Um futuro resultado público de verificação deve identificar a definição do problema, entradas físicas, controles numéricos, método e engine, resolução espacial/temporal, base de referência ou comparação, métricas de erro, regra de aceitação quando houver e o escopo científico revisado.</p>
+<p>Um diagnóstico sem tolerância rígida deve continuar rotulado como diagnóstico. Paridade entre engines não deve ser apresentada como validação física, e um caso de calibração não deve ser reutilizado como seu próprio caso de validação independente.</p>
+<h2 id="current-public-interpretation">Interpretação pública atual</h2>
+<p>O estado atual do projeto sustenta um programa substancial de verificação numérica para o modelo térmico unidimensional. FDM e FEM possuem evidência aceita de execução nativa, FVM de geometria fixa permanece verificado e quatro entradas resolvidas neutras em relação ao engine estão congeladas como alvos comuns de implementação.</p>
+<p>O trabalho de soluções manufaturadas independente do método e suítes mais amplas de verificação permanecem em andamento. Calibração experimental e validação física independente continuam como trabalho futuro separado e só serão promovidas quando observáveis experimentais rastreáveis, tratamento de incerteza e um caso independente de validação sustentarem essas afirmações.</p>
+      </article>
+    </div></template>
+<template data-technical-locale="zh-CN" data-page-title="验证框架与当前证据 — Multiphysics" data-page-description="Multiphysics 项目的公开验证框架，包括证据层、跨方法和跨引擎比较、细化、可复现性以及数值验证与物理验证之间的区分。"><nav class="technical-breadcrumb" aria-label="面包屑导航" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">技术</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">验证</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">验证框架</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="技术栏目导航" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">技术层次</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">数值形式</span></a></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">实现</span></a></li><li><a href="/technical/verification/" aria-current="location"><span data-i18n="technical.labels.verification">验证</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">验证 · 证据框架</p>
+      <h1 id="verification-framework-and-current-evidence" data-i18n-meta="title">验证框架与当前证据</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">技术预览</span>
+        <span><span data-i18n="technical.labels.reviewed">审阅日期</span> 2026-10-18</span>
+      </div>
+      
+    </header>
+
+    
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">本页内容</summary>
+        <ol data-i18n-body="toc"><li><a href="#evidence-layers">证据层</a></li><li><a href="#why-three-independent-calculation-engines">为什么使用三个独立计算引擎？</a></li><li><a href="#current-native-and-reference-case-baseline">当前原生验证与参考案例基线</a></li><li><a href="#post-processing-and-publication-provenance">后处理与发布来源</a></li><li><a href="#reproducibility-and-release-boundary">可复现性与发布边界</a></li><li><a href="#fdm-verification-evidence">FDM 验证证据</a></li><li><a href="#fem-verification-evidence">FEM 验证证据</a></li><li><a href="#controlled-cross-method-studies">受控跨方法研究</a></li><li><a href="#cross-method-and-cross-engine-questions-are-different">跨方法问题与跨引擎问题不同</a></li><li><a href="#regression-evidence">回归证据</a></li><li><a href="#manufactured-solution-programme">制造解计划</a></li><li><a href="#physical-calibration-and-experimental-validation">物理校准与实验验证</a></li><li><a href="#publication-rule-for-verification-claims">验证声明的发布规则</a></li><li><a href="#current-public-interpretation">当前公开解释</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <p>Multiphysics 项目明确区分<strong>数值验证</strong>与<strong>物理验证</strong>。数值验证关注数学形式和离散形式是否被一致实现，以及其数值行为是否得到理解。物理验证关注所得模型是否在声明的适用范围与不确定度内代表真实过程的测量行为。</p>
+<p>两个数值方法之间或两种编程语言实现之间的一致性是有用证据，但并不等于实验验证。</p>
+<h2 id="evidence-layers">证据层</h2>
+<p>当前验证策略有意采用分层结构。不同检查回答不同问题，任何一项都不会被视为其他证据的通用替代。</p>
+<ul><li><strong>模型契约与不变量</strong>定义单位、符号、守恒含义、边界/界面含义以及状态传递语义。</li><li><strong>方法级检查</strong>覆盖离散算子、组装、源项、边界闭合、稳定性参考以及极限情况。</li><li><strong>解析与制造解/参考案例</strong>把数值输出与独立于另一求解器而已知的场或平衡进行比较。</li><li><strong>守恒检查</strong>在连续问题提供守恒关系时验证积分能量或通量行为。</li><li><strong>空间和时间细化</strong>考察当数值分辨率提高时差异是否减小。</li><li><strong>跨方法比较</strong>比较同一连续问题的独立离散形式，而不把任何一种方法指定为精确解。</li><li><strong>跨引擎比较</strong>使用等价的已解析输入比较同一方法的独立软件实现。</li><li><strong>回归测试</strong>永久保留对已识别缺陷的修正。</li><li><strong>物理校准和验证</strong>使用可追溯的真实世界观测量，并与合成数值验证案例保持分离。</li></ul>
+<h2 id="why-three-independent-calculation-engines">为什么使用三个独立计算引擎？</h2>
+<p>GNU Octave、C++17 和 Julia 被维护为同级计算环境，而不是选择某一种语言作为数值真值。Octave 有利于透明的科学检查和广泛工作流覆盖；C++17 提供提前编译的运行时控制；Julia 把高层次科学表达与按类型专门化的 JIT 编译结合起来。</p>
+<p>这些引擎消费共同的已解析科学输入，同时保持数值实现相互独立。因此，同方法一致性可以降低实现专用缺陷的风险，而不一致则提供明确的诊断目标。</p>
+<p>一致性仍不能证明共享物理模型正确：所有引擎都可能重复同一个建模、输入或边界/界面错误。跨引擎一致性属于实现验证证据，而不是实验验证。</p>
+<p>任何引擎都不是黄金参考，任何语言也不会预先排名。已接受的 P1/P2 活动分别测量新进程延迟与预热后的吞吐量，因为启动/JIT 成本和稳态计算成本回答不同问题。项目当前性能状态为 <strong>CANONICAL_MEASURED</strong>，适用范围限于记录的案例、机器、工具链和计时模式。这些测量不授权整体引擎排名或通用速度声明。</p>
+<h2 id="current-native-and-reference-case-baseline">当前原生验证与参考案例基线</h2>
+<p>当前已接受的 FDM/FEM 原生验证针对所测试的数值快照给出 PASS，但它仍属于实现/数值证据，而不是对 flash-butt welding 的实验验证。</p>
+<p>固定几何 FVM 保持已实现并验证的状态。FVM 中的成熟度 1 Flashing 已依据 ADR 0036 通过数值检验，其加密研究收敛到 FDM/FEM 的极限。FVM 中的成熟度 0 Flashing 以及涉及几何变化的 upsetting 仍未提升。</p>
+<p>四个已经解析且与引擎无关的参考案例被冻结为共同实现目标：</p>
+<ul><li>使用 Adams–Bashforth 2 的常量/非对称基线；</li><li>对应的 Forward-Euler 变体；</li><li>正热接触电阻案例；</li><li>异质材料和不等间距案例。</li></ul>
+<p>这些是被冻结的<strong>输入</strong>，不是来自 Octave、C++ 或 Julia 的黄金输出，也不是物理验证数据集。</p>
+<h2 id="post-processing-and-publication-provenance">后处理与发布来源</h2>
+<p>记录的温度历史进入与引擎无关的后处理边界。摘要保留案例、引擎、方法和时间积分器等科学身份，而比较过程会先验证所提供的历史，再计算跨引擎量。</p>
+<p>下游层可以表示不完整的案例/方法/引擎覆盖，而无需选择黄金引擎。缺失历史保持明确缺失，不会被修复或推断。</p>
+<p>实验叠加数据仍位于实验数据契约下游，并必须保留测量身份、时间/位置语义、不确定度、处理历史和发布权利。一个图形不会自动提升未经裁定的数据集，也不会把校准数据转化为独立验证。</p>
+<h2 id="reproducibility-and-release-boundary">可复现性与发布边界</h2>
+<p>项目把原生执行证据和被冻结的实现目标保留为不同的可复现性对象。数值 PASS 适用于实际被执行的源代码与条件，而冻结输入则为独立实现定义可复用目标。</p>
+<p>这些事实都不会自动授予发布授权。数值 PASS、冻结案例、生成历史或本地可构建网站本身都不能授权公开发布。公开部署仍然是独立的受审交易，并需要权利和私有导出检查。</p>
+<h2 id="fdm-verification-evidence">FDM 验证证据</h2>
+<p>有限差分验证范围包括共享面守恒构造、边界通量核算、正导热系数重构、常导热系数极限、线性温度场平衡、制造解细化、cell-centred Robin 闭合、稳态 Robin 细化、界面源收敛以及能量守恒。</p>
+<p>变导热系数制造解研究接受观测到的<strong>全局</strong>收敛阶下限 1.9。因此，公开 FDM 页面描述四阶内部 stencil 构件，但不会声称完整活动算子具有全局四阶精度。</p>
+<p>这些检查说明项目验证了什么，但并不意味着完整流程模型已经得到实验验证。</p>
+<h2 id="fem-verification-evidence">FEM 验证证据</h2>
+<p>有限元验证范围覆盖组装、物理域核算以及显式时间稳定性参考。</p>
+<p>检查包括在半单元补齐条件下恢复物理域热容量和体积源、向量化组装与逐单元组装的等价性、常物性 lumped-mass 稳定性参考、Robin 边界行为以及 FDM/FEM 跨方法诊断。</p>
+<p>FDM/FEM 比较被明确视为<strong>诊断</strong>，而不是回归容差。完整时空历史被对称比较，并且任何方法都不被视为精确参考。</p>
+<h2 id="controlled-cross-method-studies">受控跨方法研究</h2>
+<p>一个更广泛且与方法无关的验证计划考察 FDM、FEM 和 FVM 是否在物理校准之前一致地求解同一个一维热问题。</p>
+<p>受控案例分别覆盖平衡、冷却、双材料行为、Joule 加热以及加热后的再分配。合成的异质材料数据只用于数值验证，不被描述为已校准钢材数据。</p>
+<p>定量细化层使用连续提高的空间分辨率，并从最严格的活动稳定性参考中选择与方法无关的共同时间步长。任何方法都不会被指定为精确解。</p>
+<h2 id="cross-method-and-cross-engine-questions-are-different">跨方法问题与跨引擎问题不同</h2>
+<p>跨方法比较考察不同空间离散是否趋向同一个连续问题。因此，不应要求 FDM 和 FEM 在固定粗网格上给出完全相同的数值。</p>
+<p>跨引擎比较考察<strong>同一方法</strong>的独立软件实现是否在等价已解析输入下产生足够一致的输出。每个引擎先独立计算自己的结果，随后才进行中立比较。</p>
+<p>当前同方法容差属于开发验证 gate。跨语言一致性是实现验证证据；即使所有引擎共享同一缺陷，该缺陷仍然存在。</p>
+<h2 id="regression-evidence">回归证据</h2>
+<p>回归检查在某个具体缺陷被识别后永久保留相应修正。这与解析或制造解正确性以及通用方法级数值验证有意保持区别。</p>
+<h2 id="manufactured-solution-programme">制造解计划</h2>
+<p>项目正在逐步组织与方法无关的制造解问题，其中解析场和源项是已知的。</p>
+<p>FDM 和 FEM 已经在各自验证范围中使用制造解/参考推理，而更广泛的共同制造解覆盖仍属于正在进行的验证层，并不是已经完成的通用声明。</p>
+<h2 id="physical-calibration-and-experimental-validation">物理校准与实验验证</h2>
+<p>物理校准和验证有意置于数值验证研究之外。校准首先需要可辩护的观测量以及敏感性/可辨识性分析，然后才能调整多个相互耦合的参数。</p>
+<p>候选观测量包括界面或近界面热历史、电功率、burn-off 和阶段时间，但只有由可追溯源数据支持的量才应进入目标函数。</p>
+<p>一个可信的验证计划需要不确定度处理以及一个<strong>独立验证案例</strong>。因此，本网站不会声称完整的 flash-butt-welding 模型已经通过实验验证。</p>
+<h2 id="publication-rule-for-verification-claims">验证声明的发布规则</h2>
+<p>未来公开的验证结果至少应标明问题定义、物理输入、数值控制、方法与引擎、空间/时间分辨率、参考或比较基础、误差指标、存在时的接受规则以及经过审查的科学范围。</p>
+<p>没有严格容差的诊断应继续标记为诊断。跨引擎一致性不应被表述为物理验证，校准案例也不应被重复用作自身的独立验证案例。</p>
+<h2 id="current-public-interpretation">当前公开解释</h2>
+<p>项目当前状态支持一个针对一维热模型的较完整数值验证计划。FDM 和 FEM 具有已接受的原生执行证据，固定几何 FVM 保持已验证状态，四个与引擎无关的已解析输入被冻结为共同实现目标。</p>
+<p>与方法无关的制造解工作和更广泛验证套件仍在继续。实验校准和独立物理验证仍属于未来的独立工作，只有在可追溯实验观测量、不确定度处理和独立验证案例提供支持后，相关声明才会被提升。</p>
+      </article>
+    </div></template>
   </main>
   <footer class="site-footer">
   <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
@@ -157,6 +407,7 @@
     data-visible="false"
     tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
 </footer>
+<noscript><p class="noscript-notice" data-i18n="home.noScript">This page remains available without JavaScript in the site&#39;s default language. Changing the language requires JavaScript.</p></noscript>
 
   <script type="module" src="/assets/js/main.js"></script>
 </body>

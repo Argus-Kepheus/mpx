@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-palette="blueprint" data-title-key="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Julia calculation engine — current technical documentation for the Multiphysics project.">
+  <meta name="theme-color" content="#17365d">
+  <title>Julia calculation engine — Multiphysics</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="canonical" href="https://mpx.arguskepheus.com.br/technical/implementations/julia/">
+  <meta name="robots" content="index,follow">
+  <meta property="og:title" content="Julia calculation engine — Multiphysics">
+  <meta property="og:description" content="Julia calculation engine — current technical documentation for the Multiphysics project.">
+  <meta property="og:url" content="https://mpx.arguskepheus.com.br/technical/implementations/julia/">
+  <meta property="og:site_name" content="Multiphysics">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://mpx.arguskepheus.com.br/og-multiphysics.png">
+  <meta property="og:image:secure_url" content="https://mpx.arguskepheus.com.br/og-multiphysics.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="400">
+  <meta property="og:image:height" content="348">
+  <meta property="og:image:alt" content="A worn, translucent lilac floppy disk with the AK initials.">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Julia calculation engine — Multiphysics">
+  <meta name="twitter:description" content="Julia calculation engine — current technical documentation for the Multiphysics project.">
+  <meta name="twitter:image" content="https://mpx.arguskepheus.com.br/og-multiphysics.png">
+  <meta name="twitter:image:alt" content="A worn, translucent lilac floppy disk with the AK initials.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/technical/implementations/julia/#webpage","url":"https://mpx.arguskepheus.com.br/technical/implementations/julia/","name":"Julia calculation engine — Multiphysics","description":"Julia calculation engine — current technical documentation for the Multiphysics project.","inLanguage":"en","publisher":{"@type":"Organization","@id":"https://www.arguskepheus.com.br/#organization","name":"Argus Kepheus","url":"https://www.arguskepheus.com.br/"},"isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
+  <header id="top" class="site-header">
+  <a class="brand" href="/" aria-label="Multiphysics home" data-i18n="accessibility.homeLink" data-i18n-attr="aria-label"><span data-i18n="home.hero.title">Multiphysics</span></a>
+  <nav class="site-nav site-nav-desktop" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+    <a href="/" data-i18n="nav.home">Home</a>
+    <a href="/vision/" data-i18n="nav.vision">Vision</a>
+    <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+    <a href="/current-model/" data-i18n="nav.current">Current model</a>
+    <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/references/" data-i18n="nav.references">References</a>
+    <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+  </nav>
+  <details class="site-nav-mobile">
+    <summary data-i18n="nav.menu">Sections</summary>
+    <nav class="site-nav-mobile-list" aria-label="Primary navigation" data-i18n="accessibility.primaryNavigation" data-i18n-attr="aria-label">
+      <a href="/" data-i18n="nav.home">Home</a>
+      <a href="/vision/" data-i18n="nav.vision">Vision</a>
+      <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
+      <a href="/current-model/" data-i18n="nav.current">Current model</a>
+      <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/references/" data-i18n="nav.references">References</a>
+      <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
+    </nav>
+  </details>
+  <div class="site-controls">
+    <label class="locale-control">
+      <span class="sr-only" data-i18n="locale.label">Language</span>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label" disabled>
+        <option value="en" data-i18n-invariant="language-autonym">English</option>
+        <option value="pt-BR" data-i18n-invariant="language-autonym">Português</option>
+        <option value="zh-CN" data-i18n-invariant="language-autonym">中文</option>
+      </select>
+    </label>
+    <button
+      class="palette-toggle"
+      id="palette-toggle"
+      type="button"
+      aria-pressed="false"
+      aria-label="Toggle palette"
+      title="Toggle palette"
+      data-i18n="palettes.toggle"
+      data-i18n-attr="aria-label,title">
+      <svg class="palette-toggle-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path>
+      </svg>
+      <span class="sr-only" data-i18n="palettes.toggle">Toggle palette</span>
+    </button>
+  </div>
+</header>
+
+  <main id="main" class="technical-shell technical-article-shell">
+<div data-technical-article-host data-current-locale="en"><nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementations</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">Julia</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Technical section navigation" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Technical layers</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a></li><li><a href="/technical/implementations/" aria-current="location"><span data-i18n="technical.labels.implementations">Implementations</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verification</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">Implementation · Julia</p>
+      <h1 id="julia-calculation-engine" data-i18n-meta="title">Julia calculation engine</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">technical preview</span>
+        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-10-07</span>
+      </div>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.engine">Engine</dt><dd data-i18n-invariant="engine-name">Julia</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Implementation status</dt><dd data-i18n-meta="implementation_status_label">active sibling / FDM-FEM-FVM fixed-geometry natively verified</dd></div></dl>
+    </header>
+
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">Provenance and source references</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">Curated authority records</dt><dd>7</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">Curated implementation records</dt><dd>10</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">Curated verification records</dt><dd>3</dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">On this page</summary>
+        <ol data-i18n-body="toc"><li><a href="#1-current-scope-and-maturity">Current scope and maturity</a></li><li><a href="#2-engine-independence">Engine independence</a></li><li><a href="#3-solver-ready-input-boundary">Solver-ready input boundary</a></li><li><a href="#4-package-and-environment">Package and environment</a></li><li><a href="#5-shared-temporal-and-physical-contracts">Shared temporal and physical contracts</a></li><li><a href="#6-fdm-native-evidence">FDM native evidence</a></li><li><a href="#7-fem-native-evidence">FEM native evidence</a></li><li><a href="#8-output-and-multi-engine-post-processing">Output and multi-engine post-processing</a></li><li><a href="#9-fixed-geometry-fvm-native-evidence">Fixed-geometry FVM native evidence</a></li><li><a href="#10-performance-boundary">Performance boundary</a></li><li><a href="#11-verification-is-not-validation">Verification is not validation</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>Julia is the third independent calculation engine in the current Multiphysics architecture. Its FDM, FEM and fixed-geometry FVM paths have native execution evidence against four frozen engine-neutral reference cases. Geometry-changing FVM remains unpromoted. Project-current performance is <code>CANONICAL_MEASURED</code> under the governed P1/P2 campaign, while cross-engine agreement remains implementation-verification evidence rather than experimental validation.</p></blockquote>
+<h2 id="1-current-scope-and-maturity">1. Current scope and maturity</h2>
+<p>Julia is an active sibling calculation engine.</p>
+<div class="table-wrap"><table data-columns="2"><thead><tr><th scope="col">Capability</th><th scope="col">Current state</th></tr></thead><tbody><tr><td>FDM resolved-case path</td><td>natively verified</td></tr><tr><td>FEM resolved-case path</td><td>natively verified</td></tr><tr><td>FVM fixed-geometry resolved-case path</td><td>natively verified</td></tr><tr><td>FVM geometry-changing path</td><td>unpromoted</td></tr><tr><td>whole-process workflow</td><td>not claimed complete</td></tr><tr><td>performance</td><td>CANONICAL_MEASURED — governed P1/P2 campaign; no universal ranking</td></tr><tr><td>experimental validation</td><td>not granted</td></tr></tbody></table></div>
+<p>This status is deliberately narrower than the complete Multiphysics process surface.</p>
+<h2 id="2-engine-independence">2. Engine independence</h2>
+<p>Julia is not a wrapper around GNU Octave or C++. The three engines consume common resolved inputs and emit equivalent result histories while implementing method-specific numerical work independently.</p>
+<p>That separation supports independent implementation evidence for the same mathematical method and later comparison of language/runtime trade-offs after equivalent numerical behaviour has been established.</p>
+<p>No engine is designated as numerical truth or as the permanent backend of another.</p>
+<h2 id="3-solver-ready-input-boundary">3. Solver-ready input boundary</h2>
+<p>Julia consumes already-resolved engine-neutral cases containing geometry, material laws, sources, boundary/interface data, electrical input, initial state and temporal configuration.</p>
+<p>Four current reference cases are frozen as common implementation targets. They are numerical verification inputs, not experimental-validation datasets and not golden outputs from another engine.</p>
+<h2 id="4-package-and-environment">4. Package and environment</h2>
+<p>The Julia implementation separates input/output contracts, material-property evaluation, shared thermal and electrical closures, temporal integration and independent spatial solvers.</p>
+<p>The current native verification was executed under Julia 1.13.1 with a recorded software environment. That environment belongs to the reproducibility record; it is not a performance claim.</p>
+<h2 id="5-shared-temporal-and-physical-contracts">5. Shared temporal and physical contracts</h2>
+<p>FDM, FEM and FVM reuse Julia-level representations of project concepts that are genuinely shared, including material-property evaluation, lateral heat exchange, distant-end Robin closure, thermal-contact behaviour, interface electrical-power partition, Forward Euler and Adams–Bashforth 2.</p>
+<p>The spatial method remains independent from those shared contracts.</p>
+<h2 id="6-fdm-native-evidence">6. FDM native evidence</h2>
+<p>The Julia FDM path passed native package verification across all four frozen reference cases. It also produced engine-neutral histories that were compared, method for method, with independently generated C++ and GNU Octave histories.</p>
+<p>This is numerical and software verification evidence, not physical validation of flash-butt welding.</p>
+<h2 id="7-fem-native-evidence">7. FEM native evidence</h2>
+<p>The Julia FEM path follows the accepted P1 Galerkin formulation with two-point Gauss integration, row-sum mass lumping, cell-centred half-cell completion and shared physical boundary/interface laws.</p>
+<p>Its native verification passed the same four reference cases and same-method comparison with independently generated C++ and GNU Octave FEM histories. The evidence remains method-scoped.</p>
+<h2 id="8-output-and-multi-engine-post-processing">8. Output and multi-engine post-processing</h2>
+<p>Julia results enter the same engine-neutral post-processing boundary used for the other engines. Histories are validated before comparison, explicitly supplied case/method/engine coverage can be inventoried without choosing a golden engine, and absent histories remain explicitly absent rather than being inferred or repaired.</p>
+<h2 id="9-fixed-geometry-fvm-native-evidence">9. Fixed-geometry FVM native evidence</h2>
+<p>The Julia FVM path uses harmonic face conductivity, conservative face-flux differences and the same shared thermal and temporal layers. Its native verification passed the frozen fixed-geometry reference cases and same-method comparison against independent C++ and GNU Octave histories.</p>
+<p>Geometry-changing FVM remains unpromoted. Fixed-geometry verification does not promote flashing, upsetting or whole-process workflow parity.</p>
+<h2 id="10-performance-boundary">10. Performance boundary</h2>
+<p>No public Julia performance advantage is claimed. Project-current performance is <code>CANONICAL_MEASURED</code> under <code>PERFORMANCE.STATUS.GOVERNANCE.2026-10-06.R1</code>, backed by canonical campaign <code>PERFORMANCE-MULTI-ENGINE-20261005-232449Z</code>.</p>
+<p>That status means the governed measurements exist; it does not make Julia universally faster, authorize an overall engine ranking or provide experimental validation. The campaign keeps fresh-process latency (P1) separate from warmed in-process throughput (P2) because startup and JIT costs answer a different question from steady execution.</p>
+<h2 id="11-verification-is-not-validation">11. Verification is not validation</h2>
+<p>The current Julia evidence supports statements about implementation consistency. It does not establish experimental agreement with the physical welding process.</p>
+<p>Agreement with C++ or Octave is not experimental validation, FDM/FEM agreement is not an exact-solution proof, frozen reference cases are not calibration datasets, and successful numerical verification does not itself authorize a public release.</p>
+<p>Physical calibration and independent experimental validation remain separate evidence horizons.</p>
+      </article>
+    </div></div>
+<template data-technical-locale="en" data-page-title="Julia calculation engine — Multiphysics" data-page-description="Julia calculation engine — current technical documentation for the Multiphysics project."><nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementations</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">Julia</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Technical section navigation" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Technical layers</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a></li><li><a href="/technical/implementations/" aria-current="location"><span data-i18n="technical.labels.implementations">Implementations</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verification</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">Implementation · Julia</p>
+      <h1 id="julia-calculation-engine" data-i18n-meta="title">Julia calculation engine</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">technical preview</span>
+        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-10-07</span>
+      </div>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.engine">Engine</dt><dd data-i18n-invariant="engine-name">Julia</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Implementation status</dt><dd data-i18n-meta="implementation_status_label">active sibling / FDM-FEM-FVM fixed-geometry natively verified</dd></div></dl>
+    </header>
+
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">Provenance and source references</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">Curated authority records</dt><dd>7</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">Curated implementation records</dt><dd>10</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">Curated verification records</dt><dd>3</dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">On this page</summary>
+        <ol data-i18n-body="toc"><li><a href="#1-current-scope-and-maturity">Current scope and maturity</a></li><li><a href="#2-engine-independence">Engine independence</a></li><li><a href="#3-solver-ready-input-boundary">Solver-ready input boundary</a></li><li><a href="#4-package-and-environment">Package and environment</a></li><li><a href="#5-shared-temporal-and-physical-contracts">Shared temporal and physical contracts</a></li><li><a href="#6-fdm-native-evidence">FDM native evidence</a></li><li><a href="#7-fem-native-evidence">FEM native evidence</a></li><li><a href="#8-output-and-multi-engine-post-processing">Output and multi-engine post-processing</a></li><li><a href="#9-fixed-geometry-fvm-native-evidence">Fixed-geometry FVM native evidence</a></li><li><a href="#10-performance-boundary">Performance boundary</a></li><li><a href="#11-verification-is-not-validation">Verification is not validation</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>Julia is the third independent calculation engine in the current Multiphysics architecture. Its FDM, FEM and fixed-geometry FVM paths have native execution evidence against four frozen engine-neutral reference cases. Geometry-changing FVM remains unpromoted. Project-current performance is <code>CANONICAL_MEASURED</code> under the governed P1/P2 campaign, while cross-engine agreement remains implementation-verification evidence rather than experimental validation.</p></blockquote>
+<h2 id="1-current-scope-and-maturity">1. Current scope and maturity</h2>
+<p>Julia is an active sibling calculation engine.</p>
+<div class="table-wrap"><table data-columns="2"><thead><tr><th scope="col">Capability</th><th scope="col">Current state</th></tr></thead><tbody><tr><td>FDM resolved-case path</td><td>natively verified</td></tr><tr><td>FEM resolved-case path</td><td>natively verified</td></tr><tr><td>FVM fixed-geometry resolved-case path</td><td>natively verified</td></tr><tr><td>FVM geometry-changing path</td><td>unpromoted</td></tr><tr><td>whole-process workflow</td><td>not claimed complete</td></tr><tr><td>performance</td><td>CANONICAL_MEASURED — governed P1/P2 campaign; no universal ranking</td></tr><tr><td>experimental validation</td><td>not granted</td></tr></tbody></table></div>
+<p>This status is deliberately narrower than the complete Multiphysics process surface.</p>
+<h2 id="2-engine-independence">2. Engine independence</h2>
+<p>Julia is not a wrapper around GNU Octave or C++. The three engines consume common resolved inputs and emit equivalent result histories while implementing method-specific numerical work independently.</p>
+<p>That separation supports independent implementation evidence for the same mathematical method and later comparison of language/runtime trade-offs after equivalent numerical behaviour has been established.</p>
+<p>No engine is designated as numerical truth or as the permanent backend of another.</p>
+<h2 id="3-solver-ready-input-boundary">3. Solver-ready input boundary</h2>
+<p>Julia consumes already-resolved engine-neutral cases containing geometry, material laws, sources, boundary/interface data, electrical input, initial state and temporal configuration.</p>
+<p>Four current reference cases are frozen as common implementation targets. They are numerical verification inputs, not experimental-validation datasets and not golden outputs from another engine.</p>
+<h2 id="4-package-and-environment">4. Package and environment</h2>
+<p>The Julia implementation separates input/output contracts, material-property evaluation, shared thermal and electrical closures, temporal integration and independent spatial solvers.</p>
+<p>The current native verification was executed under Julia 1.13.1 with a recorded software environment. That environment belongs to the reproducibility record; it is not a performance claim.</p>
+<h2 id="5-shared-temporal-and-physical-contracts">5. Shared temporal and physical contracts</h2>
+<p>FDM, FEM and FVM reuse Julia-level representations of project concepts that are genuinely shared, including material-property evaluation, lateral heat exchange, distant-end Robin closure, thermal-contact behaviour, interface electrical-power partition, Forward Euler and Adams–Bashforth 2.</p>
+<p>The spatial method remains independent from those shared contracts.</p>
+<h2 id="6-fdm-native-evidence">6. FDM native evidence</h2>
+<p>The Julia FDM path passed native package verification across all four frozen reference cases. It also produced engine-neutral histories that were compared, method for method, with independently generated C++ and GNU Octave histories.</p>
+<p>This is numerical and software verification evidence, not physical validation of flash-butt welding.</p>
+<h2 id="7-fem-native-evidence">7. FEM native evidence</h2>
+<p>The Julia FEM path follows the accepted P1 Galerkin formulation with two-point Gauss integration, row-sum mass lumping, cell-centred half-cell completion and shared physical boundary/interface laws.</p>
+<p>Its native verification passed the same four reference cases and same-method comparison with independently generated C++ and GNU Octave FEM histories. The evidence remains method-scoped.</p>
+<h2 id="8-output-and-multi-engine-post-processing">8. Output and multi-engine post-processing</h2>
+<p>Julia results enter the same engine-neutral post-processing boundary used for the other engines. Histories are validated before comparison, explicitly supplied case/method/engine coverage can be inventoried without choosing a golden engine, and absent histories remain explicitly absent rather than being inferred or repaired.</p>
+<h2 id="9-fixed-geometry-fvm-native-evidence">9. Fixed-geometry FVM native evidence</h2>
+<p>The Julia FVM path uses harmonic face conductivity, conservative face-flux differences and the same shared thermal and temporal layers. Its native verification passed the frozen fixed-geometry reference cases and same-method comparison against independent C++ and GNU Octave histories.</p>
+<p>Geometry-changing FVM remains unpromoted. Fixed-geometry verification does not promote flashing, upsetting or whole-process workflow parity.</p>
+<h2 id="10-performance-boundary">10. Performance boundary</h2>
+<p>No public Julia performance advantage is claimed. Project-current performance is <code>CANONICAL_MEASURED</code> under <code>PERFORMANCE.STATUS.GOVERNANCE.2026-10-06.R1</code>, backed by canonical campaign <code>PERFORMANCE-MULTI-ENGINE-20261005-232449Z</code>.</p>
+<p>That status means the governed measurements exist; it does not make Julia universally faster, authorize an overall engine ranking or provide experimental validation. The campaign keeps fresh-process latency (P1) separate from warmed in-process throughput (P2) because startup and JIT costs answer a different question from steady execution.</p>
+<h2 id="11-verification-is-not-validation">11. Verification is not validation</h2>
+<p>The current Julia evidence supports statements about implementation consistency. It does not establish experimental agreement with the physical welding process.</p>
+<p>Agreement with C++ or Octave is not experimental validation, FDM/FEM agreement is not an exact-solution proof, frozen reference cases are not calibration datasets, and successful numerical verification does not itself authorize a public release.</p>
+<p>Physical calibration and independent experimental validation remain separate evidence horizons.</p>
+      </article>
+    </div></template>
+<template data-technical-locale="pt-BR" data-page-title="Engine de cálculo Julia — Multiphysics" data-page-description="Estado público do engine Julia no projeto Multiphysics, incluindo independência entre engines, verificação nativa FDM/FEM/FVM de geometria fixa, pós-processamento neutro e fronteiras de desempenho e validação."><nav class="technical-breadcrumb" aria-label="Trilha de navegação" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Técnico</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementações</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">Julia</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Navegação da seção técnica" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Camadas técnicas</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Formulação numérica</span></a></li><li><a href="/technical/implementations/" aria-current="location"><span data-i18n="technical.labels.implementations">Implementações</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verificação</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">Implementação · Julia</p>
+      <h1 id="julia-calculation-engine" data-i18n-meta="title">Engine de cálculo Julia</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">prévia técnica</span>
+        <span><span data-i18n="technical.labels.reviewed">revisado em</span> 2026-10-07</span>
+      </div>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.engine">Ambiente de cálculo</dt><dd data-i18n-invariant="engine-name">Julia</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Estado da implementação</dt><dd data-i18n-meta="implementation_status_label">engine irmão ativo / FDM-FEM-FVM de geometria fixa verificados nativamente</dd></div></dl>
+    </header>
+
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">Proveniência e referências de fonte</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">Registros de autoridade selecionados</dt><dd>7</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">Registros de implementação selecionados</dt><dd>10</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">Registros de verificação selecionados</dt><dd>3</dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">Nesta página</summary>
+        <ol data-i18n-body="toc"><li><a href="#1-current-scope-and-maturity">Escopo e maturidade atuais</a></li><li><a href="#2-engine-independence">Independência do engine</a></li><li><a href="#3-solver-ready-input-boundary">Fronteira de entrada pronta para o solver</a></li><li><a href="#4-package-and-environment">Pacote e ambiente</a></li><li><a href="#5-shared-temporal-and-physical-contracts">Contratos físicos e temporais compartilhados</a></li><li><a href="#6-fdm-native-evidence">Evidência nativa FDM</a></li><li><a href="#7-fem-native-evidence">Evidência nativa FEM</a></li><li><a href="#8-output-and-multi-engine-post-processing">Saída e pós-processamento multi-engine</a></li><li><a href="#9-fixed-geometry-fvm-native-evidence">Evidência nativa FVM de geometria fixa</a></li><li><a href="#10-performance-boundary">Fronteira de desempenho</a></li><li><a href="#11-verification-is-not-validation">Verificação não é validação</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>Julia é o terceiro engine de cálculo independente da arquitetura Multiphysics. FDM, FEM e FVM de geometria fixa têm evidência nativa em quatro casos de referência congelados e neutros entre engines. FVM com mudança de geometria permanece não promovido. O desempenho corrente é <code>CANONICAL_MEASURED</code> na campanha P1/P2 governada; a concordância entre engines é evidência de verificação de implementação, não validação experimental.</p></blockquote>
+<h2 id="1-current-scope-and-maturity">1. Escopo e maturidade atuais</h2>
+<p>Julia é um engine de cálculo irmão ativo.</p>
+<div class="table-wrap"><table data-columns="2"><thead><tr><th scope="col">Capacidade</th><th scope="col">Estado atual</th></tr></thead><tbody><tr><td>caminho FDM para casos resolvidos</td><td>verificado nativamente</td></tr><tr><td>caminho FEM para casos resolvidos</td><td>verificado nativamente</td></tr><tr><td>caminho FVM de geometria fixa para casos resolvidos</td><td>verificado nativamente</td></tr><tr><td>caminho FVM com mudança de geometria</td><td>não promovido</td></tr><tr><td>workflow completo do processo</td><td>não declarado como completo</td></tr><tr><td>desempenho</td><td><code>CANONICAL_MEASURED</code> — campanha P1/P2 governada; sem ranking universal</td></tr><tr><td>validação experimental</td><td>não concedida</td></tr></tbody></table></div>
+<p>Esse estado é deliberadamente mais estreito que a superfície completa do processo Multiphysics.</p>
+<h2 id="2-engine-independence">2. Independência do engine</h2>
+<p>Julia não é um wrapper de GNU Octave ou C++. Os três engines consomem entradas resolvidas comuns e emitem históricos de resultados equivalentes, enquanto implementam de forma independente o trabalho numérico específico de cada método.</p>
+<p>Essa separação fornece evidência de implementação independente para o mesmo método matemático e permite comparar posteriormente compromissos de linguagem e runtime depois que um comportamento numérico equivalente tenha sido estabelecido.</p>
+<p>Nenhum engine é designado como verdade numérica nem como backend permanente de outro.</p>
+<h2 id="3-solver-ready-input-boundary">3. Fronteira de entrada pronta para o solver</h2>
+<p>Julia consome casos já resolvidos e neutros em relação ao engine, contendo geometria, leis de material, fontes, dados de contorno/interface, entrada elétrica, estado inicial e configuração temporal.</p>
+<p>Quatro casos de referência atuais estão congelados como alvos comuns de implementação. Eles são entradas de verificação numérica, e não conjuntos de dados de validação experimental nem saídas douradas de outro engine.</p>
+<h2 id="4-package-and-environment">4. Pacote e ambiente</h2>
+<p>A implementação Julia separa contratos de entrada e saída, avaliação de propriedades de material, fechamentos térmicos e elétricos compartilhados, integração temporal e solvers espaciais independentes.</p>
+<p>A verificação nativa atual foi executada com Julia 1.13.1 em um ambiente de software registrado. Esse ambiente pertence ao registro de reprodutibilidade; ele não constitui uma afirmação de desempenho.</p>
+<h2 id="5-shared-temporal-and-physical-contracts">5. Contratos físicos e temporais compartilhados</h2>
+<p>FDM, FEM e FVM reutilizam representações no nível de Julia dos conceitos do projeto que são genuinamente compartilhados, incluindo avaliação de propriedades de material, troca térmica lateral, fechamento Robin na extremidade distante, comportamento de contato térmico, partição de potência elétrica na interface, Forward Euler e Adams–Bashforth 2.</p>
+<p>O método espacial permanece independente desses contratos compartilhados.</p>
+<h2 id="6-fdm-native-evidence">6. Evidência nativa FDM</h2>
+<p>O caminho Julia FDM passou pela verificação nativa do pacote nos quatro casos de referência congelados. Também produziu históricos neutros em relação ao engine que foram comparados, método a método, com históricos gerados de forma independente em C++ e GNU Octave.</p>
+<p>Essa é evidência numérica e de software, e não validação física da soldagem flash-butt.</p>
+<h2 id="7-fem-native-evidence">7. Evidência nativa FEM</h2>
+<p>O caminho Julia FEM segue a formulação P1 Galerkin aceita, com integração de Gauss de dois pontos, mass lumping por soma de linhas, completação cell-centred de meia célula e leis físicas compartilhadas de contorno/interface.</p>
+<p>Sua verificação nativa passou nos mesmos quatro casos de referência e na comparação do mesmo método com históricos FEM gerados de forma independente em C++ e GNU Octave. A evidência permanece limitada ao método.</p>
+<h2 id="8-output-and-multi-engine-post-processing">8. Saída e pós-processamento multi-engine</h2>
+<p>Os resultados Julia entram na mesma fronteira de pós-processamento neutra em relação ao engine usada pelos demais engines. Os históricos são validados antes da comparação, a cobertura explicitamente fornecida de caso/método/engine pode ser inventariada sem escolher um engine dourado e históricos ausentes permanecem explicitamente ausentes, em vez de serem inferidos ou reparados.</p>
+<h2 id="9-fixed-geometry-fvm-native-evidence">9. Evidência nativa FVM de geometria fixa</h2>
+<p>O caminho Julia FVM usa condutividade harmônica nas faces, diferenças conservativas de fluxo nas faces e as mesmas camadas térmica e temporal compartilhadas. Sua verificação nativa passou nos casos de referência congelados de geometria fixa e na comparação do mesmo método contra históricos independentes de C++ e GNU Octave.</p>
+<p>FVM com mudança de geometria permanece não promovido. A verificação de geometria fixa não promove flashing, upsetting nem paridade do workflow completo do processo.</p>
+<h2 id="10-performance-boundary">10. Fronteira de desempenho</h2>
+<p>Nenhuma vantagem pública de desempenho do Julia é reivindicada. O desempenho corrente do projeto é <code>CANONICAL_MEASURED</code> sob <code>PERFORMANCE.STATUS.GOVERNANCE.2026-10-06.R1</code>, respaldado pela campanha canônica <code>PERFORMANCE-MULTI-ENGINE-20261005-232449Z</code>.</p>
+<p>Esse estado significa que as medições governadas existem; ele não torna Julia universalmente mais rápido, não autoriza um ranking global dos engines e não fornece validação experimental. A campanha mantém separadas a latência de processo novo (P1) e o throughput aquecido em processo (P2), pois os custos de inicialização e JIT respondem a uma questão diferente daquela da execução em regime.</p>
+<h2 id="11-verification-is-not-validation">11. Verificação não é validação</h2>
+<p>A evidência Julia atual sustenta afirmações sobre consistência de implementação. Ela não estabelece concordância experimental com o processo físico de soldagem.</p>
+<p>Concordância com C++ ou Octave não é validação experimental, concordância FDM/FEM não é prova por solução exata, casos de referência congelados não são conjuntos de calibração e uma verificação numérica bem-sucedida não autoriza por si só uma publicação pública.</p>
+<p>Calibração física e validação experimental independente permanecem horizontes de evidência separados.</p>
+      </article>
+    </div></template>
+<template data-technical-locale="zh-CN" data-page-title="Julia 计算引擎 — Multiphysics" data-page-description="Multiphysics 项目 Julia 引擎的公开状态，包括引擎独立性、固定几何 FDM/FEM/FVM 原生验证、中立后处理以及性能和验证边界。"><nav class="technical-breadcrumb" aria-label="面包屑导航" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">技术</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">实现</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">Julia</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="技术栏目导航" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">技术层次</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">数值形式</span></a></li><li><a href="/technical/implementations/" aria-current="location"><span data-i18n="technical.labels.implementations">实现</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">验证</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">实现 · Julia</p>
+      <h1 id="julia-calculation-engine" data-i18n-meta="title">Julia 计算引擎</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">技术预览</span>
+        <span><span data-i18n="technical.labels.reviewed">审阅日期</span> 2026-10-07</span>
+      </div>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.engine">计算引擎</dt><dd data-i18n-invariant="engine-name">Julia</dd></div><div><dt data-i18n="technical.labels.implementationStatus">实现状态</dt><dd data-i18n-meta="implementation_status_label">活跃同级引擎 / 固定几何 FDM-FEM-FVM 已通过原生验证</dd></div></dl>
+    </header>
+
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">来源与出处</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">已整理的权威记录</dt><dd>7</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">已整理的实现记录</dt><dd>10</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">已整理的验证记录</dt><dd>3</dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">本页内容</summary>
+        <ol data-i18n-body="toc"><li><a href="#1-current-scope-and-maturity">当前范围与成熟度</a></li><li><a href="#2-engine-independence">引擎独立性</a></li><li><a href="#3-solver-ready-input-boundary">求解器就绪输入边界</a></li><li><a href="#4-package-and-environment">软件包与环境</a></li><li><a href="#5-shared-temporal-and-physical-contracts">共享时间与物理契约</a></li><li><a href="#6-fdm-native-evidence">FDM 原生证据</a></li><li><a href="#7-fem-native-evidence">FEM 原生证据</a></li><li><a href="#8-output-and-multi-engine-post-processing">输出与多引擎后处理</a></li><li><a href="#9-fixed-geometry-fvm-native-evidence">固定几何 FVM 原生证据</a></li><li><a href="#10-performance-boundary">性能边界</a></li><li><a href="#11-verification-is-not-validation">验证并不等于实验验证</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>Julia 是当前 Multiphysics 架构中的第三个独立计算引擎。其 FDM、FEM 和固定几何 FVM 路径已针对四个冻结且与引擎无关的参考案例取得原生执行证据。涉及几何变化的 FVM 仍未提升。项目当前性能状态为 <code>CANONICAL_MEASURED</code>，依据受治理的 P1/P2 活动；跨引擎一致性仍属于实现验证证据，并非实验验证。</p></blockquote>
+<h2 id="1-current-scope-and-maturity">1. 当前范围与成熟度</h2>
+<p>Julia 是活跃的同级计算引擎。</p>
+<div class="table-wrap"><table data-columns="2"><thead><tr><th scope="col">能力</th><th scope="col">当前状态</th></tr></thead><tbody><tr><td>FDM 已解析案例路径</td><td>已通过原生验证</td></tr><tr><td>FEM 已解析案例路径</td><td>已通过原生验证</td></tr><tr><td>固定几何 FVM 已解析案例路径</td><td>已通过原生验证</td></tr><tr><td>几何变化 FVM 路径</td><td>尚未提升</td></tr><tr><td>完整流程工作流</td><td>未声明为完整</td></tr><tr><td>性能</td><td><code>CANONICAL_MEASURED</code> — 受治理的 P1/P2 活动；不构成普遍排名</td></tr><tr><td>实验验证</td><td>尚未获得</td></tr></tbody></table></div>
+<p>这一状态有意比完整的 Multiphysics 流程范围更窄。</p>
+<h2 id="2-engine-independence">2. 引擎独立性</h2>
+<p>Julia 不是 GNU Octave 或 C++ 的包装器。三个引擎消费共同的已解析输入，并输出等价的结果历史，同时独立实现各方法专用的数值工作。</p>
+<p>这种分离既支持针对同一数学方法的独立实现证据，也允许在建立等价数值行为之后比较不同语言和运行时的权衡。</p>
+<p>任何引擎都不会被指定为数值真值，也不会被指定为另一个引擎的永久后端。</p>
+<h2 id="3-solver-ready-input-boundary">3. 求解器就绪输入边界</h2>
+<p>Julia 消费已经解析且与引擎无关的案例，其中包含几何、材料定律、源项、边界/界面数据、电输入、初始状态和时间配置。</p>
+<p>当前四个参考案例被冻结为共同实现目标。它们是数值验证输入，而不是实验验证数据集，也不是来自其他引擎的黄金输出。</p>
+<h2 id="4-package-and-environment">4. 软件包与环境</h2>
+<p>Julia 实现将输入输出契约、材料性质评估、共享热学与电学闭合、时间积分以及独立空间求解器彼此分离。</p>
+<p>当前原生验证在 Julia 1.13.1 和已记录的软件环境中执行。该环境属于可复现性记录，而不是性能声明。</p>
+<h2 id="5-shared-temporal-and-physical-contracts">5. 共享时间与物理契约</h2>
+<p>FDM、FEM 和 FVM 复用真正属于项目公共层的 Julia 表示，包括材料性质评估、侧向热交换、远端 Robin 闭合、热接触行为、界面电功率分配、Forward Euler 以及 Adams–Bashforth 2。</p>
+<p>空间方法仍与这些共享契约保持独立。</p>
+<h2 id="6-fdm-native-evidence">6. FDM 原生证据</h2>
+<p>Julia FDM 路径在全部四个冻结参考案例上通过了原生软件包验证。它还产生了与引擎无关的历史，并按相同方法与 C++ 和 GNU Octave 独立生成的历史进行了比较。</p>
+<p>这是数值与软件验证证据，并不是对 flash-butt welding 的物理验证。</p>
+<h2 id="7-fem-native-evidence">7. FEM 原生证据</h2>
+<p>Julia FEM 路径遵循已接受的 P1 Galerkin 形式，包括两点 Gauss 积分、按行求和的 mass lumping、cell-centred 半单元补齐以及共享物理边界/界面定律。</p>
+<p>其原生验证通过了相同的四个参考案例，并完成了与 C++ 和 GNU Octave 独立生成的 FEM 历史的同方法比较。该证据仍限定在该方法范围内。</p>
+<h2 id="8-output-and-multi-engine-post-processing">8. 输出与多引擎后处理</h2>
+<p>Julia 结果进入与其他引擎相同的引擎中立后处理边界。历史在比较前接受验证，明确提供的案例/方法/引擎覆盖可以在不选择黄金引擎的情况下建立清单，而缺失历史仍保持明确缺失，不会被推断或修复。</p>
+<h2 id="9-fixed-geometry-fvm-native-evidence">9. 固定几何 FVM 原生证据</h2>
+<p>Julia FVM 路径使用谐和面导热系数、守恒面通量差以及相同的共享热学和时间层。其原生验证通过了冻结的固定几何参考案例，并与 C++ 和 GNU Octave 的独立历史完成了同方法比较。</p>
+<p>涉及几何变化的 FVM 仍未提升。固定几何验证不会自动提升 flashing、upsetting 或完整流程工作流等价性。</p>
+<h2 id="10-performance-boundary">10. 性能边界</h2>
+<p>目前没有公开声称 Julia 具有性能优势。项目当前性能状态为 <code>CANONICAL_MEASURED</code>，受 <code>PERFORMANCE.STATUS.GOVERNANCE.2026-10-06.R1</code> 管理，并由规范活动 <code>PERFORMANCE-MULTI-ENGINE-20261005-232449Z</code> 支持。</p>
+<p>该状态表示受治理的测量已经存在；它并不意味着 Julia 普遍更快，不授权引擎总体排名，也不提供实验验证。该活动将新进程延迟（P1）与进程内预热吞吐量（P2）分开，因为启动与 JIT 成本回答的问题不同于稳态执行。</p>
+<h2 id="11-verification-is-not-validation">11. 验证并不等于实验验证</h2>
+<p>当前 Julia 证据支持关于实现一致性的陈述，但不能建立与实际焊接过程的实验一致性。</p>
+<p>与 C++ 或 Octave 的一致性不是实验验证，FDM/FEM 一致性不是精确解证明，冻结参考案例不是校准数据集，而成功的数值验证本身也不会授权公开发布。</p>
+<p>物理校准和独立实验验证仍然是彼此分离的证据阶段。</p>
+      </article>
+    </div></template>
+  </main>
+  <footer class="site-footer">
+  <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
+  <a
+    id="back-to-top"
+    class="back-to-top"
+    href="#top"
+    data-i18n="nav.backToTop"
+    aria-label="Back to top"
+    data-i18n-attr="aria-label"
+    data-visible="false"
+    tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
+</footer>
+<noscript><p class="noscript-notice" data-i18n="home.noScript">This page remains available without JavaScript in the site&#39;s default language. Changing the language requires JavaScript.</p></noscript>
+
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

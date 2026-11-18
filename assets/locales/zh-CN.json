@@ -12,7 +12,10 @@
     "current": "当前模型",
     "collaborate": "合作",
     "technical": "技术",
-    "backToTop": "返回顶部"
+    "backToTop": "返回顶部",
+    "continueExploring": "继续浏览",
+    "technicalLayers": "技术层次",
+    "references": "参考文献"
   },
   "locale": {
     "label": "语言"
@@ -45,7 +48,172 @@
       "workpieceS": "工件 S",
       "interface": "焊接界面",
       "colourSupplement": "颜色仅作辅助；符号和标签仍是权威信息。",
-      "onThisPage": "本页内容"
+      "onThisPage": "本页内容",
+      "curatedAuthorityRecords": "已整理的权威记录",
+      "curatedDerivationRecords": "已整理的推导记录",
+      "curatedImplementationRecords": "已整理的实现记录",
+      "curatedVerificationRecords": "已整理的验证记录",
+      "equationLegendAria": "科学符号颜色图例",
+      "semanticAxis1": "空间轴 x 及其离散化",
+      "semanticTemporal": "时间及其离散化"
+    },
+    "numerics": {
+      "pageTitle": "数值形式 — Multiphysics",
+      "pageDescription": "Multiphysics 项目所记录的数值形式。",
+      "kicker": "技术 · 数值形式",
+      "heading": "空间离散方法",
+      "lede": "数值方法与编程语言和计算引擎相互独立地进行文档化。",
+      "status": {
+        "technicalPreview": "技术预览",
+        "implementedLimitedScope": "已实现 / 范围有限"
+      },
+      "cards": {
+        "fdmDescription": "当前以单元中心为支撑的一维有限差分形式，包括物理闭合、守恒通量构造、与时间积分的关系以及验证证据。",
+        "femDescription": "当前以单元中心为支撑的 P1 Galerkin 形式，包括弱形式、两点 Gauss 装配、行和质量集总、半单元补全以及共享的物理通量闭合。",
+        "fvmDescription": "一维有限体积求解器已实现并验证了固定几何/电流加热路径；在 GNU Octave 中，采用前沿部分控制体的成熟度 1 Flashing 路径已通过数值检验（ADR 0036）。成熟度 0 Flashing 以及几何变化的 Upsetting/Pressing 仍未推广，并保持独立的实验数据边界。"
+      },
+      "dossier": {
+        "kicker": "数值模型概览",
+        "title": "方法页面背后的方程",
+        "intro": "完整的 FDM 和 FEM 页面给出了推导、闭合关系、装配规则、稳定性参考以及验证边界。这个紧凑层在读者进入长篇技术文档之前，先展示控制方程和半离散对象。",
+        "sharedStatus": "共享物理模型",
+        "sharedTitle": "通量形式的热平衡",
+        "sharedBody": "材料定律、源项以及物理边界/界面条件先被解析，然后才应用空间离散方法。",
+        "fdmStatus": "FDM · 单元中心",
+        "fdmTitle": "守恒单元平衡",
+        "fdmBody": "共享的面通量序列使离散导热贡献可审计，并明确保留界面和边界通量。",
+        "femStatus": "FEM · P1 Galerkin",
+        "femTitle": "质量集总的半离散系统",
+        "femBody": "两点求积、行和质量集总以及显式半单元补全说明了单元中心支撑如何覆盖完整物理域。",
+        "temporalStatus": "时间积分合同",
+        "temporalTitle": "显式状态推进",
+        "temporalBody": "Adams–Bashforth 2 是当前主要配置；Forward Euler 提供兼容的起步和重启路径。",
+        "temporalNote": "时间积分仍是独立合同。当前主要显式配置为 AB2，并使用 Forward Euler 作为起步/重启路径；它不属于 FDM 或 FEM 的定义。",
+        "fvmTitle": "FVM 当前范围",
+        "fvmBody": "一维有限体积路径已经针对固定几何/电流加热工作实现并完成验证。在 GNU Octave 中，它还可运行采用前沿部分控制体的成熟度 1 Flashing，已依据 ADR 0036（2026-10-22 获接受）通过数值检验，并收敛到 FDM/FEM 的极限；该路径未经标定。成熟度 0 Flashing 以及几何变化的 Upsetting/Pressing 仍是独立且未推广的能力边界。上述路径均不会被表述为已经通过实验验证。"
+      }
+    },
+    "overview": {
+      "pageTitle": "技术 — Multiphysics",
+      "pageDescription": "Multiphysics 数值与计算框架的技术文档。",
+      "kicker": "持续更新的技术文档",
+      "heading": "技术",
+      "lede": "本节持续概述 Multiphysics 项目当前的数学、数值和计算状态。",
+      "note": "这里记录项目当前状态。数值基线已经协调，但本地可构建的网站工件本身并不构成发布授权。正式学位论文、论文和 release 仍是彼此独立的事务。",
+      "groups": {
+        "numericsKicker": "数值形式",
+        "numericsTitle": "空间方法",
+        "implementationsKicker": "实现",
+        "implementationsTitle": "计算环境",
+        "toolingKicker": "科学工具",
+        "toolingTitle": "自动化与证据基础设施",
+        "verificationKicker": "验证",
+        "verificationTitle": "证据与验证边界"
+      },
+      "status": {
+        "technicalPreview": "技术预览",
+        "implementedLimitedScope": "已实现 / 范围有限",
+        "activeSibling": "活跃同级引擎",
+        "juliaVerified": "固定几何 FDM/FEM/FVM 原生验证已通过",
+        "activeSupportingTooling": "活跃支持工具",
+        "multiEngineValidated": "多引擎整合已验证",
+        "currentBaseline": "当前基线已协调",
+        "futureEvidence": "未来证据"
+      },
+      "cards": {
+        "fdmDescription": "当前 cell-centred 有限差分形式，包括物理闭合、半离散系统、时间积分关系和验证证据。",
+        "femDescription": "当前 cell-centred P1 Galerkin 形式，包括弱形式、单元组装、mass lumping、半单元补齐、物理通量耦合和稳定性参考。",
+        "fvmDescription": "一维有限体积求解器已实现并验证固定几何/电流加热路径；在 GNU Octave 中，成熟度 1 Flashing 路径已通过数值检验（ADR 0036）。成熟度 0 Flashing 以及涉及几何变化的 Upsetting/Pressing 仍未提升；上述路径均不会被表述为已经通过实验验证。",
+        "octaveDescription": "具有当前最广流程工作流覆盖的活跃同级引擎。MATLAB 兼容性以及高层次矩阵/向量操作适合数值开发、检查和科学原型。",
+        "cppDescription": "活跃且独立的 C++17 同级引擎，用于同方法跨引擎验证、显式编译实现以及 LLM 辅助开发。其当前工作流覆盖比 Octave 窄，但架构角色并非次要。",
+        "juliaDescription": "Julia 的固定几何 FDM/FEM/FVM 已针对四个冻结且与引擎无关的参考案例通过原生验证，包括中立历史读取和同方法跨引擎一致性。涉及几何变化的 Julia FVM 仍未提升。P1/P2 性能已在记录的案例、机器和工具链范围内测量。",
+        "pythonDescription": "Python 支持验证、治理、材料数据工作流、包隔离、来源追踪、语义检查、诊断以及中立跨引擎比较。它是支持性科学基础设施，而不是计算引擎。",
+        "postTitle": "后处理",
+        "postDescription": "记录的温度历史使用中立后处理契约。历史在受保护比较之前接受验证，多引擎清单在不选择黄金引擎的情况下保持确定性。",
+        "frameworkTitle": "验证框架",
+        "frameworkDescription": "说明解析/参考案例、守恒、细化、跨方法和跨引擎证据如何组合，同时避免与实验验证混淆。",
+        "numericalVerificationTitle": "数值验证",
+        "numericalVerificationDescription": "FDM/FEM 具有当前原生执行证据，固定几何 FVM 保持已验证状态，四个与引擎无关的已解析参考输入被冻结为实现目标。这些事实仍与实验验证相互独立。",
+        "experimentalValidationTitle": "实验验证",
+        "experimentalValidationDescription": "物理校准和独立验证案例需要可追溯实验观测量和不确定度处理；完整 FBW 模型目前不会被描述为已经通过实验验证。"
+      }
+    },
+    "implementationsPage": {
+      "pageTitle": "实现 — Multiphysics",
+      "pageDescription": "Multiphysics 数值框架的计算引擎实现。",
+      "kicker": "技术 · 实现",
+      "heading": "计算环境",
+      "lede": "GNU Octave、C++17 和 Julia 是彼此独立的同级实现，在科学开发和运行时方面具有互补角色。它们本身不是数值方法，也没有任何一个引擎被视为数值真值。",
+      "status": {
+        "activeSibling": "活跃同级引擎",
+        "juliaVerified": "固定几何 FDM/FEM/FVM 原生验证已通过"
+      },
+      "cards": {
+        "octaveDescription": "透明的高层次同级实现：兼容 MATLAB 的科学检查、快速数值开发以及当前最广的工作流覆盖。",
+        "cppDescription": "提前编译的同级实现：明确控制类型/数据布局以及 build/runtime，可独立执行并为 deployment/HPC 研究提供路径，同时具有独立 FDM/FEM/FVM 已解析案例路径。",
+        "juliaDescription": "这一高层次 JIT 同级实现将科学表达与按类型专门化的编译相结合，固定几何 FDM/FEM/FVM 路径已通过原生验证。涉及几何变化的 FVM 仍未提升。受治理的 P1/P2 测量覆盖声明的数值范围。"
+      },
+      "computational": {
+        "kicker": "计算契约",
+        "title": "已解析案例如何形成历史",
+        "intro1": "方法身份、物理案例、时间配置和引擎身份保持分离。GNU Octave 和 C++ 是活跃同级实现；Julia 的固定几何 FDM/FEM/FVM 已通过原生验证；涉及几何变化的 Julia FVM 仍未提升。覆盖范围可以不同，但任何引擎都不会被指定为科学真值或另一个引擎的永久后端。",
+        "intro2": "多引擎策略有两个目的：独立实现验证，以及有意探索语言/运行时之间的权衡。随着项目成熟，只要保持等价数值契约和可复现证据，就可以保留各引擎有用的特性。",
+        "intro3": "下游多引擎整合会在受保护比较之前验证历史，中立后处理集合可以表示部分案例/方法/引擎覆盖，而无需选择黄金引擎。",
+        "step1Title": "解析物理案例",
+        "step1Body": "几何、材料定律、源项、边界、界面数据和流程计划被转换为求解器就绪输入。",
+        "step2Title": "选择方法与引擎",
+        "step2Body": "FDM、FEM 或受限 FVM 路径与可用引擎独立选择。GNU Octave 和 C++ 当前处于活跃状态；Julia 固定几何 FDM/FEM/FVM 已针对冻结且与引擎无关的参考案例通过原生验证；涉及几何变化的 Julia FVM 仍未提升。",
+        "step3Title": "构建空间右端项",
+        "step3Body": "通量、组装、边界闭合、界面交换和源项由方法适配器计算。",
+        "step4Title": "推进状态",
+        "step4Body": "共享时间服务根据执行规范和历史策略应用 Forward Euler 或 AB2。",
+        "step5Title": "写出携带证据的结果",
+        "step5Body": "温度历史、诊断和比较元数据与物理验证声明保持分离。",
+        "exchangeTitle": "中立交换形式",
+        "exchangeShape": "已解析物理案例\n 空间方法\n 执行规范\n        ↓\n 求解器适配器\n        ↓\n 半离散 RHS\n        ↓\n FE / AB2 推进\n        ↓\n 历史 + 诊断",
+        "juliaTitle": "Julia — 固定几何 FDM/FEM/FVM 原生验证已通过",
+        "juliaBody": "Julia 是第三个独立实现路径。其固定几何 FDM、FEM 和 FVM 路径在 Julia 1.13.1 下通过原生包测试、中立历史读取以及与独立 C++ 和 GNU Octave 历史的同方法比较，覆盖全部四个冻结参考案例。测试软件环境在内部记录以保证可复现性。涉及几何变化的 Julia FVM 仍未提升。受治理的 P1/P2 性能测量仅适用于记录的案例、机器、工具链和计时模式。引擎一致性属于实现验证，而不是实验验证。"
+      },
+      "python": {
+        "kicker": "科学工具",
+        "title": "为什么使用 Python",
+        "intro": "Python 是 Multiphysics 中活跃的支持语言，但目前不是实现 FDM/FEM/FVM 求解路径的计算引擎之一。它主要为引擎和项目证据提供外围科学基础设施。",
+        "body1": "当前 Python 工具覆盖配置与治理验证、材料数据准备与审查、包/导出隔离、来源与冻结检查、语义/命名验证、诊断与参考计算以及跨引擎输出比较。",
+        "body2": "Python 适合这一角色，因为这些任务高度依赖自动化、文件和结构化数据处理、schema/元数据检查以及可复现命令行工作流。将它们保持在计算引擎之外也有助于验证层保持中立：例如，Python 在 GNU Octave 和 C++ 之上比较两者的历史，而不会把任一实现变成参考后端。",
+        "body3": "因此该角色是互补的。GNU Octave 和 C++ 承担当前独立数值执行；Julia 在冻结且与引擎无关的参考案例上提供固定几何 FDM/FEM/FVM 原生证据；Python 则帮助准备输入、审计契约、比较证据并维护这些执行周围的可复现性。",
+        "rolesTitle": "Python 当前角色",
+        "role1": "治理与配置验证；",
+        "role2": "材料数据与来源工具；",
+        "role3": "包验证、导出与隔离测试编排；",
+        "role4": "语义和命名检查；",
+        "role5": "跨引擎比较已解析案例输出；",
+        "role6": "在需要独立工具路径时进行诊断和参考计算。",
+        "note": "Python 输出不会仅因其独立性而自动被视为权威。相关脚本仍受与其他研究软件相同的来源、审查和证据边界约束。"
+      }
+    },
+    "verificationPage": {
+      "pageTitle": "验证 — Multiphysics",
+      "pageDescription": "Multiphysics 项目的验证框架与证据边界。",
+      "kicker": "技术 · 验证",
+      "heading": "证据与验证边界",
+      "lede": "验证被组织为一系列互补证据，而不是单一的求解器一致性测试。",
+      "note": "数值验证、跨方法比较、跨引擎一致性、物理校准和实验验证回答不同问题，并采用不同的证据要求进行发布。",
+      "status": {
+        "technicalPreview": "技术预览",
+        "currentBaseline": "当前基线已协调",
+        "active": "活跃",
+        "futureEvidence": "未来证据"
+      },
+      "cards": {
+        "frameworkTitle": "验证框架",
+        "frameworkDescription": "当前证据层级、活跃 FDM/FEM 检查、受控 FDM/FEM/FVM 研究、跨引擎边界以及验证声明的发布规则。",
+        "numericalTitle": "数值验证",
+        "numericalDescription": "当前 FDM/FEM 原生快照已有执行证据，四个与引擎无关的实现目标被冻结；与方法无关的制造解工作仍是独立且持续进行的验证层。",
+        "crossEngineTitle": "跨引擎验证",
+        "crossEngineDescription": "GNU Octave、C++17 和 Julia 同级引擎通过明确的中立契约消费共同的已解析案例。同方法一致性属于实现证据；当前容差是验证 gate，而不是性能或物理验证声明。",
+        "experimentalTitle": "实验验证",
+        "experimentalDescription": "校准和独立验证需要可追溯的真实过程观测量、敏感性/可辨识性工作、不确定度处理以及独立验证案例。"
+      }
     }
   },
   "home": {
@@ -54,7 +222,7 @@
       "title": "Multiphysics",
       "subtitle": "开放、模块化的耦合物理过程模拟",
       "lede": "这是一个研究项目，旨在开发自由且开放的计算环境，使材料、机器、过程配置、物理模型、数值方法、计算引擎和后处理工具能够独立演进，并可按需要重新组合。",
-      "status": "当前学术参考过程：闪光对焊。当前实现：持续演进中的研究平台，而非完成的工业产品。",
+      "status": "当前参考工艺为闪光对焊。平台正在重构，以进一步支持 Gleeble 试验以及这些试验的计算模型与数值模拟。这项扩展仍在开发中。",
       "primaryCta": "浏览技术文档",
       "secondaryCta": "贡献实验数据",
       "diagram": {
@@ -102,7 +270,7 @@
     "architecture": {
       "kicker": "模块化设计",
       "title": "相互独立的科学与计算轴",
-      "intro": "架构有意将问题定义、物理建模、数值离散、计算引擎和后处理保持为不同层次。",
+      "intro": "架构有意将问题定义、物理建模、数值离散、计算引擎和后处理保持为不同层次。 正在进行的重构旨在将这种分离方式用于 Gleeble 试验，使设备、试样和试验条件与物理模型及数值方法保持独立。",
       "layers": [
         {
           "title": "定义问题",
@@ -127,18 +295,18 @@
           "items": [
             "FDM",
             "FEM",
-            "FVM — 固定几何已验证；几何变化范围尚未推广",
+            "FVM — 固定几何已验证；成熟度 1 Flashing 已通过数值检验；几何变化的 Upsetting 尚未推广",
             "时间积分",
             "GNU Octave",
             "C++",
-            "Julia — 计划中"
+            "Julia — FDM/FEM/固定几何 FVM 原生验证已通过"
           ]
         },
         {
           "title": "解释结果",
           "items": [
             "结果",
-            "后处理 — 早期阶段",
+            "后处理 — 多引擎整合已验证",
             "分析",
             "可视化",
             "验证",
@@ -156,23 +324,23 @@
     },
     "current": {
       "kicker": "当前开发阶段",
-      "title": "巩固一维模型",
+      "title": "数值基线与当前实现范围",
       "principle": "先建立正确且可追溯的模型，再扩展到更大的模型。",
-      "body": "当前优先事项是在扩大计算规模之前确保方法正确性和实验可追溯性。工作重点是巩固一维数值证据、机器参数化、过程配置、材料属性数据，以及在闪光/顶锻建模、校准和验证进一步推进之前所需的实验基础。",
+      "body": "一维数值基线覆盖 FDM、FEM 和固定几何 FVM，GNU Octave、C++17 与 Julia 的独立实现已针对声明的参考案例通过验证。项目当前性能已在受治理的 P1/P2 活动中测量，适用范围限于记录的案例、机器和工具链。跨引擎后处理与可复现性契约已建立。预测性成熟度 1 Flashing 闭合关系已在 FDM 和 FEM 中实现，须显式选择，并已依据 ADR 0035 通过数值检验（I1–I4 于 2026-10-21 获接受），未经标定，未经实验验证。自 ADR 0036（2026-10-22 获接受）起，该闭合关系也可在 FVM 中以前沿部分控制体运行，并收敛到 FDM/FEM 的极限。该路径从冷界面开始：每次实际发生的金属桥断裂都会移除材料；固相线焓阈值仅用于诊断。成熟度 0 仍为 Flashing 的默认路径。闭合关系的参考参数是类比值，并非已确立的 DP600 或 CSN/NMW 数值。Upsetting 公式仍未确定；FVM 中的成熟度 0 Flashing 以及涉及几何变化的 Upsetting/Pressing 仍未提升。数值一致性不构成实验验证，实验验证仍属于未来工作。",
       "methodsTitle": "空间方法",
       "enginesTitle": "计算环境",
       "methods": [
         {
           "name": "FDM",
-          "state": "已实现"
+          "state": "已实现 · 原生认证通过"
         },
         {
           "name": "FEM",
-          "state": "已实现"
+          "state": "已实现 · 原生认证通过"
         },
         {
           "name": "FVM",
-          "state": "固定几何已实现并验证"
+          "state": "固定几何已实现并验证 · 成熟度 1 Flashing 已通过数值检验"
         }
       ],
       "engines": [
@@ -186,16 +354,22 @@
         },
         {
           "name": "Julia",
-          "state": "计划中的同级引擎"
+          "state": "FDM/FEM/固定几何 FVM 原生验证已通过"
         }
       ],
       "pageTitle": "当前模型 — Multiphysics",
-      "pageDescription": "Multiphysics 当前的数值方法、计算环境与开发范围。"
+      "pageDescription": "Multiphysics 当前的数值方法、计算环境与开发范围。",
+      "gleeble": {
+        "title": "开发中：Gleeble 试验与模型",
+        "body": "Multiphysics 正在重构，以支持在 Gleeble 设备上开展的物理模拟试验，并建立这些试验的计算模型与数值模拟。目标是将平台的热电核心用于闪光对焊以外的研究。",
+        "scope": "初期重点是给定电激励下的热电响应，包括试样几何、自由段长度及试样与夹具之间的传热。计算温度将与热电偶测量值进行比较。机器控制策略将在加热、闪光和顶锻三个过程的被控对象模型通过验证后开展。",
+        "status": "这项工作仍在进行中。复现 Gleeble 试验并将模型与实验测量进行比较，仍需完成相关实现、获得可追溯数据，并事先确定比较准则。"
+      }
     },
     "collaborate": {
       "kicker": "实验合作",
-      "title": "当前瓶颈是数据",
-      "body": "参与合作不以软件开发为前提。当前最需要的是有实验依据的信息，用于约束、校准和验证模型。",
+      "title": "用实验数据理解焊接过程",
+      "body": "我们邀请焊接研究人员提供测量数据或技术意见，共同推动未来物理模型的建立、校准与验证。软件与架构工作独立推进，不以收到数据或回复为前提。",
       "machineTitle": "机器信息",
       "processTitle": "过程历史",
       "validationTitle": "材料与验证数据",
@@ -214,12 +388,10 @@
         {
           "title": "过程历史",
           "items": [
-            "电流与电压",
-            "阶段时序",
-            "闪光参数",
-            "烧损或位移",
-            "顶锻力",
-            "预热与后热序列"
+            "阶段顺序与持续时间",
+            "闪光工艺设置",
+            "区分烧损量与机器行程",
+            "预热与后热条件"
           ]
         },
         {
@@ -237,30 +409,96 @@
       ],
       "rights": "数据所有权、再分发权和发表许可分别处理。科学使用并不自动意味着可以发表原始数据。",
       "credit": "贡献可以促成正式的项目参与；当科学贡献足够充分时，也可以成为后续出版物的共同作者。",
-      "questionsKicker": "已提出的问题",
-      "questionsTitle": "有针对性的科研问题示例",
-      "questionsIntro": "项目已经根据研究人员的已发表工作向其提出具体问题。以下示例经过匿名化，用于说明本项目所寻求的科学交流形式。",
+      "questionsKicker": "科学交流",
+      "questionsTitle": "其他参与方式",
+      "questionsIntro": "除顶锻研究外，以下建模与数据问题也可作为合作方向：",
       "questions": {
-        "thermalCycles": "能否将实测焊接热循环以数值化的时间–温度序列形式共享，而不仅仅以图形形式呈现？",
-        "processHistories": "能否以处理后、匿名化或按阶段汇总的形式提供代表性的工艺时序、阶段边界、电信号、位移或烧损历史？",
-        "validationObservables": "当无法直接测量界面时，哪些观测量最适合用于验证简化的闪光对焊模型？",
-        "materialTransfer": "可复用材料库应优先包含哪些材料状态变量和相变数据？又应如何将材料属性与工艺特定校准区分开来？"
+        "thermalCycles": "您是否有时间—温度数值序列，并能说明测量位置和方法？",
+        "processHistories": "哪些机器设置和边界条件对解读焊接试验至关重要？",
+        "validationObservables": "无法直接测量界面温度时，哪些测量结果最适合评估简化的闪光对焊模型？",
+        "materialTransfer": "材料库应优先纳入哪些随温度变化的材料属性和相变数据？"
       },
       "confidentialityTitle": "保密与工业限制",
       "confidentialityBody": "部分相关数据集可能归企业所有、受合同保密约束，或属于工业敏感信息，因此无法公开。项目不要求任何研究人员违反这些义务，提供原始专有数据也不是参与合作的前提。",
-      "criticalFeedback": "当数据无法公开时，对于选择参与的研究人员，项目会明确请求其提供批判性的技术评估。对可疑假设、缺失物理机制、不现实的机器或工艺输入、不合适的验证观测量，或相关文献的意见，都可以直接发送给项目负责人。这类反馈被视为实质性的科学贡献，并受到高度重视。",
+      "criticalFeedback": "我们同样重视批判性的技术评估：欢迎向项目负责人提出关于模型假设、缺失物理机制、测量方法或相关文献的意见。",
       "pageTitle": "合作 — Multiphysics",
-      "pageDescription": "Multiphysics 项目的实验合作需求与参与方式。"
+      "pageDescription": "欢迎提供焊接实验数据：同步信号、接头几何和飞边质量，用于研究顶锻、压缩功与温度。",
+      "contactKicker": "发起合作",
+      "contactTitle": "联系项目开发者与负责人",
+      "contactBody": "请通过下方机构邮箱介绍您的试验、可提供的数据或意见，以及任何共享限制。我们可以在您发送文件前商定合作范围与使用许可。",
+      "upsetting": {
+        "kicker": "正在开展的研究",
+        "title": "顶锻如何影响接头温度？",
+        "question": "在闪光对焊中，我们希望通过力和位移测量压缩功，并评估接头附近的变形集中如何影响温度。这项研究仍在进行中。",
+        "signalsTitle": "同步信号。",
+        "signals": "采用同一时间轴的力、位移、电流和电压序列，覆盖闪光末期及顶锻阶段。如有相关信息，请附上单位、阶段标记，以及位移的定义或修正方法（例如，记录的是机器行程还是试样缩短量）。",
+        "geometryTitle": "接头形状或切除的飞边。",
+        "geometry": "去除飞边前接头的实测几何轮廓或带比例尺的图像，或切除飞边的质量。",
+        "weldTitle": "关联同一次焊接。",
+        "weld": "使用共同标识符，将信号、轮廓、图像或飞边质量关联到同一次焊接。",
+        "why": "力和位移有助于估算机械功；电流和电压有助于识别可能仍然存在的电加热。接头形状或飞边质量有助于评估材料的变形情况。",
+        "partial": "部分数据或匿名化数据也可能有帮助；无需具备完整数据集即可开始交流。",
+        "contact": "请告诉我们您可以分享哪些资料。"
+      }
     },
     "footer": {
       "statement": "本网站展示 Multiphysics 项目可公开发表的科学状态，不公开私人通信、内部研究人员资料或未发表的合作材料。"
     },
-    "noScript": "项目概览可在没有 JavaScript 的情况下访问。交互式配色和语言切换已禁用。"
+    "noScript": "未启用 JavaScript 时，本页面仍以网站默认语言提供。切换语言需要 JavaScript。"
   },
   "accessibility": {
     "skipToContent": "跳到主要内容",
     "primaryNavigation": "主导航",
     "homeLink": "Multiphysics 首页",
-    "breadcrumb": "面包屑导航"
+    "breadcrumb": "面包屑导航",
+    "continueExploring": "继续浏览相关页面",
+    "technicalNavigation": "技术栏目导航"
+  },
+  "references": {
+    "kicker": "研究文献库",
+    "title": "参考文献",
+    "pageTitle": "参考文献 — Multiphysics",
+    "description": "检索 Multiphysics 的焊接、Gleeble 试验、材料性能及数值方法文献，访问原始来源和开放 PDF。",
+    "intro": "检索焊接、热机械试验、材料性能和数值方法的参考文献。可按题名、作者或 DOI 搜索，并使用筛选条件缩小范围。",
+    "accessNote": "PDF 链接指向原始来源，使用时须遵守来源的条款。收录文献并不表示项目已对其进行验证。",
+    "filterLabel": "筛选参考文献",
+    "search": "搜索",
+    "placeholder": "题名、作者或 DOI",
+    "topic": "主题",
+    "type": "文献类型",
+    "accessLabel": "访问状态",
+    "from": "起始年份",
+    "to": "截止年份",
+    "all": "全部",
+    "clear": "清除筛选",
+    "results": "条参考文献",
+    "empty": "没有符合筛选条件的参考文献。请减少搜索词或清除筛选。",
+    "source": "原始来源",
+    "pdf": "来源网站 PDF ↗",
+    "permalink": "本条文献链接",
+    "edition": "版次：",
+    "topics": {
+      "welding": "焊接与电加热",
+      "gleeble": "Gleeble 与热机械试验",
+      "materials": "材料性能",
+      "numerics": "数值方法",
+      "measurement": "测量与实验",
+      "foundations": "基础与背景"
+    },
+    "types": {
+      "article": "期刊论文",
+      "book": "书籍",
+      "chapter": "书籍章节",
+      "conference": "会议论文",
+      "thesis": "学位论文",
+      "report": "报告",
+      "manual": "手册",
+      "other": "其他文献"
+    },
+    "access": {
+      "open": "有开放副本",
+      "unknown": "访问状态待核查",
+      "restricted": "受限访问"
+    }
   }
 }

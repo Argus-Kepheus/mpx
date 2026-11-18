@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-palette="blueprint" data-title-key="home.architecture.pageTitle">
+<html lang="en" dir="ltr" data-palette="blueprint" data-title-key="home.architecture.pageTitle">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,7 @@
   <meta name="twitter:description" content="Scientific and computational architecture of the Multiphysics research platform.">
   <meta name="twitter:image" content="https://mpx.arguskepheus.com.br/og-multiphysics.png">
   <meta name="twitter:image:alt" content="A worn, translucent lilac floppy disk with the AK initials.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/architecture/#webpage","url":"https://mpx.arguskepheus.com.br/architecture/","name":"Architecture — Multiphysics","description":"Scientific and computational architecture of the Multiphysics research platform.","isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/architecture/#webpage","url":"https://mpx.arguskepheus.com.br/architecture/","name":"Architecture — Multiphysics","description":"Scientific and computational architecture of the Multiphysics research platform.","inLanguage":"en","publisher":{"@type":"Organization","@id":"https://www.arguskepheus.com.br/#organization","name":"Argus Kepheus","url":"https://www.arguskepheus.com.br/"},"isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
@@ -39,6 +39,7 @@
     <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
     <a href="/current-model/" data-i18n="nav.current">Current model</a>
     <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/references/" data-i18n="nav.references">References</a>
     <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
   </nav>
   <details class="site-nav-mobile">
@@ -49,16 +50,17 @@
       <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
       <a href="/current-model/" data-i18n="nav.current">Current model</a>
       <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/references/" data-i18n="nav.references">References</a>
       <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
     </nav>
   </details>
   <div class="site-controls">
     <label class="locale-control">
       <span class="sr-only" data-i18n="locale.label">Language</span>
-      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
-        <option value="en">English</option>
-        <option value="pt-BR">Português</option>
-        <option value="zh-CN">中文</option>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label" disabled>
+        <option value="en" data-i18n-invariant="language-autonym">English</option>
+        <option value="pt-BR" data-i18n-invariant="language-autonym">Português</option>
+        <option value="zh-CN" data-i18n-invariant="language-autonym">中文</option>
       </select>
     </label>
     <button
@@ -82,15 +84,14 @@
   <main id="main" class="section-shell">
     <section id="architecture" class="content-section section-anchor" aria-labelledby="architecture-title">
           <p class="kicker" data-i18n="home.architecture.kicker">Modular by design</p>
-          <h2 id="architecture-title" data-i18n="home.architecture.title">Independent scientific and computational axes</h2>
-          <p class="section-copy" data-i18n="home.architecture.intro">The architecture deliberately keeps problem definition, physical modelling, numerical discretisation, calculation engines and post-processing distinct.</p>
-          <div id="architecture-layers" class="architecture-grid">
-            <section class="arch-layer"><h3>Define the problem</h3><ul><li>Materials</li><li>Machines</li><li>Welding configurations</li><li>Simulation methods</li></ul></section>
-            <section class="arch-layer"><h3>Assemble the model</h3><ul><li>Geometry</li><li>Physics</li><li>Process stages</li><li>Couplings</li></ul></section>
-            <section class="arch-layer"><h3>Solve</h3><ul><li>FDM</li><li>FEM</li><li>FVM — fixed geometry verified; geometry-changing unpromoted</li><li>Time integration</li><li>GNU Octave</li><li>C++</li><li>Julia — planned</li></ul></section>
-            <section class="arch-layer"><h3>Interpret</h3><ul><li>Results</li><li>Post-processing — early stage</li><li>Analysis</li><li>Visualisation</li><li>Validation</li><li>Scientific outputs</li></ul></section>
-          </div>
+          <h1 id="architecture-title" class="section-page-title" data-i18n="home.architecture.title">Independent scientific and computational axes</h1>
+          <p class="section-copy" data-i18n="home.architecture.intro">The architecture deliberately keeps problem definition, physical modelling, numerical discretisation, calculation engines and post-processing distinct. The ongoing refactoring aims to reuse this separation for Gleeble tests, keeping the equipment, specimen and test conditions distinct from the physical models and numerical methods.</p>
+          <div id="architecture-layers" class="architecture-grid" data-i18n-runtime="home.architecture.layers"><section class="arch-layer"><h3>Define the problem</h3><ul><li>Materials</li><li>Machines</li><li>Welding configurations</li><li>Simulation methods</li></ul></section><section class="arch-layer"><h3>Assemble the model</h3><ul><li>Geometry</li><li>Physics</li><li>Process stages</li><li>Couplings</li></ul></section><section class="arch-layer"><h3>Solve</h3><ul><li>FDM</li><li>FEM</li><li>FVM — fixed geometry verified; Maturity-1 Flashing numerically verified; geometry-changing Upsetting unpromoted</li><li>Time integration</li><li>GNU Octave</li><li>C++</li><li>Julia — FDM/FEM/FVM fixed-geometry native verification passed</li></ul></section><section class="arch-layer"><h3>Interpret</h3><ul><li>Results</li><li>Post-processing — multi-engine consolidation validated</li><li>Analysis</li><li>Visualisation</li><li>Validation</li><li>Scientific outputs</li></ul></section></div>
         </section>
+<nav class="section-continuation" aria-label="Continue exploring related pages" data-i18n="accessibility.continueExploring" data-i18n-attr="aria-label">
+    <span class="section-continuation-label" data-i18n="nav.continueExploring">Continue exploring</span>
+    <div class="section-continuation-links"><a href="/current-model/"><span data-i18n="nav.current">Current model</span></a><a href="/technical/"><span data-i18n="nav.technical">Technical</span></a></div>
+  </nav>
   </main>
   <footer class="site-footer">
   <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
@@ -104,6 +105,7 @@
     data-visible="false"
     tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
 </footer>
+<noscript><p class="noscript-notice" data-i18n="home.noScript">This page remains available without JavaScript in the site&#39;s default language. Changing the language requires JavaScript.</p></noscript>
 
   <script type="module" src="/assets/js/main.js"></script>
 </body>

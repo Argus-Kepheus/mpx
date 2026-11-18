@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-palette="blueprint" data-title-key="">
+<html lang="en" dir="ltr" data-palette="blueprint" data-title-key="">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,7 @@
   <meta name="twitter:description" content="C++ calculation engine — current technical documentation for the Multiphysics project.">
   <meta name="twitter:image" content="https://mpx.arguskepheus.com.br/og-multiphysics.png">
   <meta name="twitter:image:alt" content="A worn, translucent lilac floppy disk with the AK initials.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/technical/implementations/cpp/#webpage","url":"https://mpx.arguskepheus.com.br/technical/implementations/cpp/","name":"C++ calculation engine — Multiphysics","description":"C++ calculation engine — current technical documentation for the Multiphysics project.","isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/technical/implementations/cpp/#webpage","url":"https://mpx.arguskepheus.com.br/technical/implementations/cpp/","name":"C++ calculation engine — Multiphysics","description":"C++ calculation engine — current technical documentation for the Multiphysics project.","inLanguage":"en","publisher":{"@type":"Organization","@id":"https://www.arguskepheus.com.br/#organization","name":"Argus Kepheus","url":"https://www.arguskepheus.com.br/"},"isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
@@ -39,6 +39,7 @@
     <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
     <a href="/current-model/" data-i18n="nav.current">Current model</a>
     <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/references/" data-i18n="nav.references">References</a>
     <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
   </nav>
   <details class="site-nav-mobile">
@@ -49,16 +50,17 @@
       <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
       <a href="/current-model/" data-i18n="nav.current">Current model</a>
       <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/references/" data-i18n="nav.references">References</a>
       <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
     </nav>
   </details>
   <div class="site-controls">
     <label class="locale-control">
       <span class="sr-only" data-i18n="locale.label">Language</span>
-      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
-        <option value="en">English</option>
-        <option value="pt-BR">Português</option>
-        <option value="zh-CN">中文</option>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label" disabled>
+        <option value="en" data-i18n-invariant="language-autonym">English</option>
+        <option value="pt-BR" data-i18n-invariant="language-autonym">Português</option>
+        <option value="zh-CN" data-i18n-invariant="language-autonym">中文</option>
       </select>
     </label>
     <button
@@ -80,110 +82,266 @@
 </header>
 
   <main id="main" class="technical-shell technical-article-shell">
-<nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementations</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page">C++</span></li></ol></nav>
+<div data-technical-article-host data-current-locale="en"><nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementations</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">C++</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Technical section navigation" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Technical layers</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a></li><li><a href="/technical/implementations/" aria-current="location"><span data-i18n="technical.labels.implementations">Implementations</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verification</span></a></li></ul>
+  </nav>
     <header class="article-header">
-      <p class="kicker">Implementation · C++</p>
-      <h1>C++ calculation engine</h1>
+      <p class="kicker" data-i18n-meta="kicker">Implementation · C++</p>
+      <h1 id="c-calculation-engine" data-i18n-meta="title">C++ calculation engine</h1>
       <div class="article-meta">
-        <span class="status-chip" data-status="technical preview">technical preview</span>
-        <span><span data-i18n="technical.labels.source">source</span> 967e466af56c</span>
-        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-10-02</span>
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">technical preview</span>
+        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-10-07</span>
       </div>
-      <dl class="article-summary"><div><dt data-i18n="technical.labels.engine">Engine</dt><dd>C++</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Implementation status</dt><dd>active sibling / resolved-case coverage</dd></div></dl>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.engine">Engine</dt><dd data-i18n-invariant="engine-name">C++</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Implementation status</dt><dd data-i18n-meta="implementation_status_label">active sibling / resolved-case coverage</dd></div></dl>
     </header>
 
-    <details class="provenance"><summary data-i18n="technical.labels.provenance">Provenance and source references</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.sourceRevision">Source revision</dt><dd><code>967e466af56ccc5fc41c939464096e5d72c19c37</code></dd></div><div><dt data-i18n="technical.labels.operatorRevision">Operator revision</dt><dd><code>not recorded</code></dd></div><div><dt>Curated authority records</dt><dd>5</dd></div><div><dt>Curated implementation records</dt><dd>8</dd></div><div><dt>Curated verification records</dt><dd>3</dd></div></dl></details>
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">Provenance and source references</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">Curated authority records</dt><dd>7</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">Curated implementation records</dt><dd>8</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">Curated verification records</dt><dd>3</dd></div></dl></details>
     <div class="article-layout">
       <details class="article-toc" open>
         <summary data-i18n="technical.labels.onThisPage">On this page</summary>
-        <ol><li><a href="#1-purpose-and-maturity">1. Purpose and maturity</a></li><li><a href="#2-compatibility-target">2. Compatibility target</a></li><li><a href="#3-engine-structure">3. Engine structure</a></li><li><a href="#4-method-and-engine-remain-separate">4. Method and engine remain separate</a></li><li><a href="#5-solver-ready-input-contract">5. Solver-ready input contract</a></li><li><a href="#6-independent-temporal-integration">6. Independent temporal integration</a></li><li><a href="#7-fdm-path">7. FDM path</a></li><li><a href="#8-fem-path">8. FEM path</a></li><li><a href="#9-fvm-path">9. FVM path</a></li><li><a href="#10-output-contract">10. Output contract</a></li><li><a href="#11-cross-engine-comparison">11. Cross-engine comparison</a></li><li><a href="#12-tests-and-build-surface">12. Tests and build surface</a></li><li><a href="#13-relationship-to-gnu-octave-and-julia">13. Relationship to GNU Octave and Julia</a></li><li><a href="#14-current-limitations-and-publication-boundary">14. Current limitations and publication boundary</a></li></ol>
+        <ol data-i18n-body="toc"><li><a href="#1-purpose-and-maturity">Purpose and maturity</a></li><li><a href="#2-language-and-runtime-role">Language and runtime role</a></li><li><a href="#3-architectural-organisation">Architectural organisation</a></li><li><a href="#4-method-and-engine-remain-separate">Method and engine remain separate</a></li><li><a href="#5-solver-ready-input-boundary">Solver-ready input boundary</a></li><li><a href="#6-independent-temporal-integration">Independent temporal integration</a></li><li><a href="#7-fdm-path">FDM path</a></li><li><a href="#8-fem-path">FEM path</a></li><li><a href="#9-fvm-path">FVM path</a></li><li><a href="#10-result-history-boundary">Result-history boundary</a></li><li><a href="#11-cross-engine-comparison">Cross-engine comparison</a></li><li><a href="#12-verification-and-benchmark-boundary">Verification and benchmark boundary</a></li><li><a href="#13-relationship-to-gnu-octave-and-julia">Relationship to GNU Octave and Julia</a></li><li><a href="#14-current-limitations-and-publication-boundary">Current limitations and publication boundary</a></li></ol>
       </details>
-      <article class="technical-prose">
-        <h1 id="c-calculation-engine">C++ calculation engine</h1>
-<blockquote><p>The C++ engine is an active sibling calculation engine of GNU Octave. It currently has narrower process-workflow coverage, centred on independent resolved-case implementations, cross-engine verification and compiled-engine studies. Narrower coverage does not make its architectural role secondary.</p></blockquote>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>The C++ engine is an active sibling calculation engine of GNU Octave and Julia. It provides an independent compiled implementation of selected Multiphysics formulations. Narrower workflow coverage does not make its architectural role secondary.</p></blockquote>
 <h2 id="1-purpose-and-maturity">1. Purpose and maturity</h2>
-<p>The C++ engine provides an independent active implementation of selected Multiphysics formulations. Its scientific purpose includes cross-language redundancy: the same resolved physical/numerical problem can be executed independently in GNU Octave and C++ and the resulting histories can then be compared above both engines.</p>
-<p>Its current coverage is best described as:</p>
-<pre><code class="language-text">architectural role: active sibling engine
-resolved-case FDM/FEM/FVM paths: implemented
-full process-workflow coverage: narrower than GNU Octave</code></pre>
-<p>The project also values C++ as an explicit compiled-language implementation surface that is well suited to LLM-assisted code generation, review and cross-checking. That is a development rationale, not evidence that C++ is scientifically superior to another engine.</p>
-<p>Implementation coverage, deployment maturity, numerical verification and experimental validation are separate concepts.</p>
-<h2 id="2-compatibility-target">2. Compatibility target</h2>
-<p>The current engine targets <strong>C++17</strong> and the C++ standard library. Its foundation requires CMake 3.16 or newer and deliberately avoids mandatory HPC-specific libraries.</p>
-<p>The present base implementation does not require Eigen, BLAS, OpenMP, CUDA or a vendor numerical library. Future acceleration may be added, but project policy requires such paths to carry their own reproducibility record rather than being introduced only to produce favourable timing numbers.</p>
-<h2 id="3-engine-structure">3. Engine structure</h2>
-<p>The public/private implementation boundary is organised around headers under <code>engines/cpp/include/multiphysics_cpp/</code> and source files under <code>engines/cpp/src/</code>:</p>
-<pre><code class="language-text">types.hpp          shared data structures
-engine.hpp/cpp     common engine contracts and orchestration
-physics.hpp/cpp    shared physical/numerical closures
-fdm.hpp/cpp        finite-difference implementation
-fem.hpp/cpp        finite-element implementation
-fvm.hpp/cpp        finite-volume implementation path
-time.hpp/cpp       temporal integration
-io.hpp/cpp         resolved-case input and history output</code></pre>
-<p>This mirrors project concepts without requiring the C++ directory layout to be a textual copy of the Octave package tree.</p>
+<p>The C++ engine provides independent implementations of selected numerical formulations so that the same resolved physical and numerical problem can be executed in more than one language and compared only after each engine has produced its own result.</p>
+<p>Its present scope includes resolved-case FDM, FEM and FVM paths. Whole-process workflow coverage remains narrower than GNU Octave. Implementation coverage, numerical verification, benchmark maturity and experimental validation are treated as separate concepts.</p>
+<h2 id="2-language-and-runtime-role">2. Language and runtime role</h2>
+<p>The current engine targets C++17. Ahead-of-time compilation provides explicit control over types, data layout, compiler settings and standalone runtime packaging, with a natural path toward deployment and high-performance-computing studies when those become scientifically justified.</p>
+<p>The project also uses C++ as an independent implementation surface for LLM-assisted code generation, review and cross-checking. These are architectural advantages, not evidence that C++ is scientifically superior or faster than another engine before equivalent benchmarking.</p>
+<h2 id="3-architectural-organisation">3. Architectural organisation</h2>
+<p>The public architecture separates common engine contracts and orchestration, shared physical and numerical closures, method-neutral temporal integration, independent FDM/FEM/FVM spatial implementations, and engine-neutral input/output boundaries.</p>
+<p>The implementation details remain native to C++; it does not call GNU Octave or Julia for spatial derivatives or time steps.</p>
 <h2 id="4-method-and-engine-remain-separate">4. Method and engine remain separate</h2>
-<p>FDM, FEM and FVM are numerical methods. C++ is an implementation environment. The engine currently contains resolved-case paths for all three methods, while their overall project maturity differs.</p>
-<p>At the reviewed revision:</p>
-<pre><code class="language-text">Method   GNU Octave                          C++
-FDM      active / broad workflow coverage   active / resolved-case path
-FEM      active / broad workflow coverage   active / resolved-case path
-FVM      active / fixed-geometry scope      active / resolved-case path</code></pre>
-<p>This matrix describes implementation availability and coverage only. It is not a ranking of engines or methods, and it does not imply equal workflow coverage or equal verification depth.</p>
-<h2 id="5-solver-ready-input-contract">5. Solver-ready input contract</h2>
-<p>Cross-engine work uses the text contract <code>multiphysics.resolved-thermal-case.v1</code>. The fixture is deliberately already resolved: it carries numerical geometry, time settings, boundary data, electrical input, initial state, source fields and resolved material-property laws.</p>
-<p>It intentionally does <strong>not</strong> carry high-level identifiers such as material IDs, dataset/profile IDs, publication configuration or plotting controls. Those belong upstream from a solver-ready numerical contract.</p>
-<p>The C++ engine therefore consumes resolved material-property functions rather than owning the project Material Library taxonomy.</p>
+<p>FDM, FEM and FVM are numerical methods. C++ is an implementation environment.</p>
+<div class="table-wrap"><table data-columns="2"><thead><tr><th scope="col">Method</th><th scope="col">Current C++ coverage</th></tr></thead><tbody><tr><td>FDM</td><td>active resolved-case path</td></tr><tr><td>FEM</td><td>active resolved-case path</td></tr><tr><td>FVM</td><td>active resolved-case path within the currently promoted fixed-geometry scope</td></tr></tbody></table></div>
+<p>This table describes implementation availability only. It is not a ranking of engines or methods and does not imply equal whole-workflow coverage.</p>
+<h2 id="5-solver-ready-input-boundary">5. Solver-ready input boundary</h2>
+<p>Cross-engine studies begin from already-resolved, engine-neutral cases containing numerical geometry, temporal settings, boundary and interface data, source terms, initial state and resolved material-property laws.</p>
+<p>High-level material taxonomy, publication configuration and plotting concerns remain upstream from this solver-ready boundary. This prevents an engine from silently redefining the scientific input while being compared with another implementation.</p>
 <h2 id="6-independent-temporal-integration">6. Independent temporal integration</h2>
-<p>Implementation-specific temporal memory is not exchanged between Octave and C++. The v1 resolved-case contract requires the imported history to be invalid, so each engine initialises the configured temporal method independently.</p>
-<p>The C++ time layer currently provides a method-neutral <code>advance_time()</code> path with explicit integrator configuration and method-owned memory. Forward Euler and Adams--Bashforth 2 are implemented, with AB2 using its configured starter and restart behaviour.</p>
-<p>This matches the project-level rule that temporal integration is independent of the selected spatial method.</p>
+<p>Implementation-specific temporal memory is not exchanged between engines. Each engine initialises and advances the configured temporal method independently.</p>
+<p>The C++ temporal layer supports Forward Euler and Adams–Bashforth 2 with explicit starter and restart behaviour, while remaining independent from the selected spatial method.</p>
 <h2 id="7-fdm-path">7. FDM path</h2>
-<p>The C++ FDM implementation is an independent transcription of the active cell-centred conservative flux-form formulation. The current engine documentation identifies the promoted positive-<code>log(kappa)</code> FDM path and checks it against a frozen GNU Octave reference bundle for development qualification.</p>
-<p>The implementation remains separate source code: the C++ solver does not call Octave to obtain spatial derivatives or time steps.</p>
+<p>The C++ FDM implementation independently represents the active cell-centred conservative flux formulation, including the promoted positive-conductivity reconstruction and shared physical boundary/interface meaning.</p>
 <h2 id="8-fem-path">8. FEM path</h2>
-<p>The C++ FEM path independently implements the current linear P1 Galerkin formulation with two-point Gauss quadrature, row-sum lumped mass and the cell-centred half-cell capacity/source completion used by the active model.</p>
-<p>Shared physical closures such as distant-end exchange and welding-interface thermal/electrical coupling are represented according to the same model contracts, while their code is native to the C++ engine.</p>
+<p>The C++ FEM path independently represents the current linear P1 Galerkin formulation with two-point Gauss quadrature, row-sum mass lumping, cell-centred half-cell completion and the same model-level boundary/interface laws.</p>
 <h2 id="9-fvm-path">9. FVM path</h2>
-<p>A C++ FVM resolved-case path is implemented with a two-point cell-centred control-volume operator. This does not mean that FVM has the same overall project stage coverage as FDM/FEM. The public project status therefore keeps FVM in the partial / under-development category until its broader method-level scope and verification are closed.</p>
-<h2 id="10-output-contract">10. Output contract</h2>
-<p>Resolved-case runs write <code>multiphysics.temperature-history.v1</code> CSV output. The history contains the states from step zero to the final step, local R/S distance from the interface, and the reconstructed interface temperature.</p>
-<p>The verification-export metadata currently includes:</p>
-<pre><code class="language-text">classification=development-cross-verification
-timing_authoritative=false</code></pre>
-<p>This classification belongs to the <strong>exported verification artifact and its benchmark maturity</strong>, not to the C++ engine. C++ remains an active calculation engine. The metadata prevents resolved-case parity files from being mistaken for a formal performance benchmark campaign.</p>
+<p>The C++ FVM path uses a cell-centred control-volume formulation. Fixed-geometry work is implemented within the currently verified scope; broader geometry-changing welding capability remains a separate promotion boundary.</p>
+<h2 id="10-result-history-boundary">10. Result-history boundary</h2>
+<p>Resolved-case runs produce an engine-neutral temperature history suitable for post-processing and same-method comparison. Development parity histories are deliberately distinguished from authoritative performance benchmark results.</p>
 <h2 id="11-cross-engine-comparison">11. Cross-engine comparison</h2>
-<p>Cross-engine tooling sits outside both implementations:</p>
-<pre><code class="language-text">resolved case
-    |--------------------|
-    v                    v
- GNU Octave             C++
-    |                    |
-    v                    v
- temperature history   temperature history
-    |____________________|
-              |
-              v
-       neutral comparison</code></pre>
-<p>Same-method/different-engine comparison is the primary parity question. A cross-method comparison such as FDM versus FEM is possible but is explicitly a different verification question and therefore requires an opt-in mismatch flag in the comparison tool.</p>
-<p>The current default tolerances are development gates, not frozen publication or formal benchmark tolerances.</p>
-<h2 id="12-tests-and-build-surface">12. Tests and build surface</h2>
-<p>The C++ engine uses CMake/CTest and has unit/smoke coverage for common engine operations, FDM, FEM, FVM, physics, I/O and temporal integration. Resolved-case integration fixtures exercise the solver-ready path.</p>
-<p>A typical development build is:</p>
-<pre><code class="language-sh">cmake -S engines/cpp -B build/cpp-engine -DCMAKE_BUILD_TYPE=Release
-cmake --build build/cpp-engine --parallel
-ctest --test-dir build/cpp-engine --output-on-failure</code></pre>
-<p>Performance numbers are intentionally excluded from the public technical claim set until the project freezes equivalent inputs, tolerances and a benchmark protocol including compiler, CPU, OS, warm-up/iteration rules and timing scope.</p>
+<p>Same-method comparison between independently executed engines is the principal software-parity question. Cross-method comparison, such as FDM versus FEM, is a different numerical-verification question because different discretisations need not produce identical values on a fixed coarse mesh.</p>
+<p>Current comparison tolerances are verification gates rather than claims about physical validation or performance superiority.</p>
+<h2 id="12-verification-and-benchmark-boundary">12. Verification and benchmark boundary</h2>
+<p>The C++ verification surface covers common engine operations, the three spatial methods, shared physical closures, temporal integration, input/output handling and resolved-case execution.</p>
+<p>The project-current public performance claim is now limited to the accepted canonical P1/P2 campaign, where equivalent cases, numerical acceptance criteria, compiler/runtime identity, machine conditions, warm-up rules and timing scope were frozen and executed under the reproducible protocol. P1 fresh-process latency and P2 warm in-process throughput remain separate measurement modes; no combined score, overall engine ranking or universal speed claim is authorized.</p>
 <h2 id="13-relationship-to-gnu-octave-and-julia">13. Relationship to GNU Octave and Julia</h2>
-<p>GNU Octave and C++ are active sibling engines; neither is implemented as a backend of the other. This is essential to the verification strategy: agreement between independently maintained implementations can expose transcription defects, while shared disagreement can still reveal a problem in the common model or formulation.</p>
-<p>Julia is planned as a third sibling engine. It is being considered both to add another independent implementation path and to investigate whether its numerical language/runtime model offers useful execution-efficiency or expressiveness advantages on selected workloads. No Julia performance advantage is claimed before equivalent cases and a reproducible benchmark protocol exist.</p>
-<p>Cross-engine agreement therefore remains <strong>implementation-verification evidence</strong>, not proof that the physical model has been experimentally validated.</p>
+<p>GNU Octave, C++ and Julia are active sibling engines. Their differing languages and runtime models provide implementation diversity while preserving common scientific contracts.</p>
+<p>Julia FDM, FEM and fixed-geometry FVM have native verification evidence across four frozen engine-neutral reference cases with same-method comparison against C++ and Octave. Geometry-changing Julia FVM remains unpromoted. Project-current performance is <code>CANONICAL_MEASURED</code> under <code>PERFORMANCE.STATUS.GOVERNANCE.2026-10-06.R1</code>, scoped to campaign <code>PERFORMANCE-MULTI-ENGINE-20261005-232449Z</code>; this does not imply experimental validation or C++ performance superiority.</p>
+<p>Cross-engine agreement is implementation-verification evidence. It is not proof that the shared physical model has been experimentally validated.</p>
 <h2 id="14-current-limitations-and-publication-boundary">14. Current limitations and publication boundary</h2>
-<p>The C++ engine is active, but its current process-workflow coverage remains narrower than GNU Octave&#39;s. Its resolved-case paths should therefore not be presented as complete workflow parity. This coverage distinction does not turn C++ into a secondary or disposable verification-only engine.</p>
-<p>MPX documents only the public technical architecture and maturity state. Private case material, restricted datasets and unpublished collaboration information remain outside the generated website.</p>
+<p>The C++ engine remains narrower than GNU Octave in whole-process workflow coverage. Its resolved-case paths should not be presented as complete process parity.</p>
+<p>The public website presents architecture, capability and evidence boundaries. Repository paths, internal campaign names, raw artifact identifiers and development workflow labels remain in the private engineering record rather than the public explanatory surface.</p>
       </article>
-    </div>
+    </div></div>
+<template data-technical-locale="en" data-page-title="C++ calculation engine — Multiphysics" data-page-description="C++ calculation engine — current technical documentation for the Multiphysics project."><nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementations</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">C++</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Technical section navigation" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Technical layers</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a></li><li><a href="/technical/implementations/" aria-current="location"><span data-i18n="technical.labels.implementations">Implementations</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verification</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">Implementation · C++</p>
+      <h1 id="c-calculation-engine" data-i18n-meta="title">C++ calculation engine</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">technical preview</span>
+        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-10-07</span>
+      </div>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.engine">Engine</dt><dd data-i18n-invariant="engine-name">C++</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Implementation status</dt><dd data-i18n-meta="implementation_status_label">active sibling / resolved-case coverage</dd></div></dl>
+    </header>
+
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">Provenance and source references</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">Curated authority records</dt><dd>7</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">Curated implementation records</dt><dd>8</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">Curated verification records</dt><dd>3</dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">On this page</summary>
+        <ol data-i18n-body="toc"><li><a href="#1-purpose-and-maturity">Purpose and maturity</a></li><li><a href="#2-language-and-runtime-role">Language and runtime role</a></li><li><a href="#3-architectural-organisation">Architectural organisation</a></li><li><a href="#4-method-and-engine-remain-separate">Method and engine remain separate</a></li><li><a href="#5-solver-ready-input-boundary">Solver-ready input boundary</a></li><li><a href="#6-independent-temporal-integration">Independent temporal integration</a></li><li><a href="#7-fdm-path">FDM path</a></li><li><a href="#8-fem-path">FEM path</a></li><li><a href="#9-fvm-path">FVM path</a></li><li><a href="#10-result-history-boundary">Result-history boundary</a></li><li><a href="#11-cross-engine-comparison">Cross-engine comparison</a></li><li><a href="#12-verification-and-benchmark-boundary">Verification and benchmark boundary</a></li><li><a href="#13-relationship-to-gnu-octave-and-julia">Relationship to GNU Octave and Julia</a></li><li><a href="#14-current-limitations-and-publication-boundary">Current limitations and publication boundary</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>The C++ engine is an active sibling calculation engine of GNU Octave and Julia. It provides an independent compiled implementation of selected Multiphysics formulations. Narrower workflow coverage does not make its architectural role secondary.</p></blockquote>
+<h2 id="1-purpose-and-maturity">1. Purpose and maturity</h2>
+<p>The C++ engine provides independent implementations of selected numerical formulations so that the same resolved physical and numerical problem can be executed in more than one language and compared only after each engine has produced its own result.</p>
+<p>Its present scope includes resolved-case FDM, FEM and FVM paths. Whole-process workflow coverage remains narrower than GNU Octave. Implementation coverage, numerical verification, benchmark maturity and experimental validation are treated as separate concepts.</p>
+<h2 id="2-language-and-runtime-role">2. Language and runtime role</h2>
+<p>The current engine targets C++17. Ahead-of-time compilation provides explicit control over types, data layout, compiler settings and standalone runtime packaging, with a natural path toward deployment and high-performance-computing studies when those become scientifically justified.</p>
+<p>The project also uses C++ as an independent implementation surface for LLM-assisted code generation, review and cross-checking. These are architectural advantages, not evidence that C++ is scientifically superior or faster than another engine before equivalent benchmarking.</p>
+<h2 id="3-architectural-organisation">3. Architectural organisation</h2>
+<p>The public architecture separates common engine contracts and orchestration, shared physical and numerical closures, method-neutral temporal integration, independent FDM/FEM/FVM spatial implementations, and engine-neutral input/output boundaries.</p>
+<p>The implementation details remain native to C++; it does not call GNU Octave or Julia for spatial derivatives or time steps.</p>
+<h2 id="4-method-and-engine-remain-separate">4. Method and engine remain separate</h2>
+<p>FDM, FEM and FVM are numerical methods. C++ is an implementation environment.</p>
+<div class="table-wrap"><table data-columns="2"><thead><tr><th scope="col">Method</th><th scope="col">Current C++ coverage</th></tr></thead><tbody><tr><td>FDM</td><td>active resolved-case path</td></tr><tr><td>FEM</td><td>active resolved-case path</td></tr><tr><td>FVM</td><td>active resolved-case path within the currently promoted fixed-geometry scope</td></tr></tbody></table></div>
+<p>This table describes implementation availability only. It is not a ranking of engines or methods and does not imply equal whole-workflow coverage.</p>
+<h2 id="5-solver-ready-input-boundary">5. Solver-ready input boundary</h2>
+<p>Cross-engine studies begin from already-resolved, engine-neutral cases containing numerical geometry, temporal settings, boundary and interface data, source terms, initial state and resolved material-property laws.</p>
+<p>High-level material taxonomy, publication configuration and plotting concerns remain upstream from this solver-ready boundary. This prevents an engine from silently redefining the scientific input while being compared with another implementation.</p>
+<h2 id="6-independent-temporal-integration">6. Independent temporal integration</h2>
+<p>Implementation-specific temporal memory is not exchanged between engines. Each engine initialises and advances the configured temporal method independently.</p>
+<p>The C++ temporal layer supports Forward Euler and Adams–Bashforth 2 with explicit starter and restart behaviour, while remaining independent from the selected spatial method.</p>
+<h2 id="7-fdm-path">7. FDM path</h2>
+<p>The C++ FDM implementation independently represents the active cell-centred conservative flux formulation, including the promoted positive-conductivity reconstruction and shared physical boundary/interface meaning.</p>
+<h2 id="8-fem-path">8. FEM path</h2>
+<p>The C++ FEM path independently represents the current linear P1 Galerkin formulation with two-point Gauss quadrature, row-sum mass lumping, cell-centred half-cell completion and the same model-level boundary/interface laws.</p>
+<h2 id="9-fvm-path">9. FVM path</h2>
+<p>The C++ FVM path uses a cell-centred control-volume formulation. Fixed-geometry work is implemented within the currently verified scope; broader geometry-changing welding capability remains a separate promotion boundary.</p>
+<h2 id="10-result-history-boundary">10. Result-history boundary</h2>
+<p>Resolved-case runs produce an engine-neutral temperature history suitable for post-processing and same-method comparison. Development parity histories are deliberately distinguished from authoritative performance benchmark results.</p>
+<h2 id="11-cross-engine-comparison">11. Cross-engine comparison</h2>
+<p>Same-method comparison between independently executed engines is the principal software-parity question. Cross-method comparison, such as FDM versus FEM, is a different numerical-verification question because different discretisations need not produce identical values on a fixed coarse mesh.</p>
+<p>Current comparison tolerances are verification gates rather than claims about physical validation or performance superiority.</p>
+<h2 id="12-verification-and-benchmark-boundary">12. Verification and benchmark boundary</h2>
+<p>The C++ verification surface covers common engine operations, the three spatial methods, shared physical closures, temporal integration, input/output handling and resolved-case execution.</p>
+<p>The project-current public performance claim is now limited to the accepted canonical P1/P2 campaign, where equivalent cases, numerical acceptance criteria, compiler/runtime identity, machine conditions, warm-up rules and timing scope were frozen and executed under the reproducible protocol. P1 fresh-process latency and P2 warm in-process throughput remain separate measurement modes; no combined score, overall engine ranking or universal speed claim is authorized.</p>
+<h2 id="13-relationship-to-gnu-octave-and-julia">13. Relationship to GNU Octave and Julia</h2>
+<p>GNU Octave, C++ and Julia are active sibling engines. Their differing languages and runtime models provide implementation diversity while preserving common scientific contracts.</p>
+<p>Julia FDM, FEM and fixed-geometry FVM have native verification evidence across four frozen engine-neutral reference cases with same-method comparison against C++ and Octave. Geometry-changing Julia FVM remains unpromoted. Project-current performance is <code>CANONICAL_MEASURED</code> under <code>PERFORMANCE.STATUS.GOVERNANCE.2026-10-06.R1</code>, scoped to campaign <code>PERFORMANCE-MULTI-ENGINE-20261005-232449Z</code>; this does not imply experimental validation or C++ performance superiority.</p>
+<p>Cross-engine agreement is implementation-verification evidence. It is not proof that the shared physical model has been experimentally validated.</p>
+<h2 id="14-current-limitations-and-publication-boundary">14. Current limitations and publication boundary</h2>
+<p>The C++ engine remains narrower than GNU Octave in whole-process workflow coverage. Its resolved-case paths should not be presented as complete process parity.</p>
+<p>The public website presents architecture, capability and evidence boundaries. Repository paths, internal campaign names, raw artifact identifiers and development workflow labels remain in the private engineering record rather than the public explanatory surface.</p>
+      </article>
+    </div></template>
+<template data-technical-locale="pt-BR" data-page-title="Engine de cálculo C++ — Multiphysics" data-page-description="Arquitetura pública do engine de cálculo C++17 do projeto Multiphysics, incluindo caminhos FDM/FEM/FVM independentes, contratos neutros entre engines e fronteiras de verificação e benchmark."><nav class="technical-breadcrumb" aria-label="Trilha de navegação" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Técnico</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementações</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">C++</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Navegação da seção técnica" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Camadas técnicas</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Formulação numérica</span></a></li><li><a href="/technical/implementations/" aria-current="location"><span data-i18n="technical.labels.implementations">Implementações</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verificação</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">Implementação · C++</p>
+      <h1 id="c-calculation-engine" data-i18n-meta="title">Engine de cálculo C++</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">prévia técnica</span>
+        <span><span data-i18n="technical.labels.reviewed">revisado em</span> 2026-10-07</span>
+      </div>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.engine">Ambiente de cálculo</dt><dd data-i18n-invariant="engine-name">C++</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Estado da implementação</dt><dd data-i18n-meta="implementation_status_label">engine irmão ativo / cobertura de casos resolvidos</dd></div></dl>
+    </header>
+
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">Proveniência e referências de fonte</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">Registros de autoridade selecionados</dt><dd>7</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">Registros de implementação selecionados</dt><dd>8</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">Registros de verificação selecionados</dt><dd>3</dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">Nesta página</summary>
+        <ol data-i18n-body="toc"><li><a href="#1-purpose-and-maturity">Propósito e maturidade</a></li><li><a href="#2-language-and-runtime-role">Papel da linguagem e do runtime</a></li><li><a href="#3-architectural-organisation">Organização arquitetural</a></li><li><a href="#4-method-and-engine-remain-separate">Método e engine permanecem separados</a></li><li><a href="#5-solver-ready-input-boundary">Fronteira de entrada pronta para o solver</a></li><li><a href="#6-independent-temporal-integration">Integração temporal independente</a></li><li><a href="#7-fdm-path">Caminho FDM</a></li><li><a href="#8-fem-path">Caminho FEM</a></li><li><a href="#9-fvm-path">Caminho FVM</a></li><li><a href="#10-result-history-boundary">Fronteira do histórico de resultados</a></li><li><a href="#11-cross-engine-comparison">Comparação entre engines</a></li><li><a href="#12-verification-and-benchmark-boundary">Fronteira entre verificação e benchmark</a></li><li><a href="#13-relationship-to-gnu-octave-and-julia">Relação com GNU Octave e Julia</a></li><li><a href="#14-current-limitations-and-publication-boundary">Limitações atuais e fronteira de publicação</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>O engine C++ é um engine de cálculo irmão ativo de GNU Octave e Julia. Ele fornece uma implementação compilada independente de formulações selecionadas do Multiphysics. Uma cobertura de workflow mais estreita não torna seu papel arquitetural secundário.</p></blockquote>
+<h2 id="1-purpose-and-maturity">1. Propósito e maturidade</h2>
+<p>O engine C++ fornece implementações independentes de formulações numéricas selecionadas para que o mesmo problema físico e numérico resolvido possa ser executado em mais de uma linguagem e comparado somente depois que cada engine produza seu próprio resultado.</p>
+<p>Seu escopo atual inclui caminhos FDM, FEM e FVM para casos resolvidos. A cobertura do workflow completo do processo permanece mais estreita que a do GNU Octave. Cobertura de implementação, verificação numérica, maturidade de benchmark e validação experimental são tratadas como conceitos distintos.</p>
+<h2 id="2-language-and-runtime-role">2. Papel da linguagem e do runtime</h2>
+<p>O engine atual tem como alvo C++17. A compilação ahead-of-time oferece controle explícito sobre tipos, layout de dados, configurações do compilador e empacotamento de runtime independente, com um caminho natural para estudos de implantação e computação de alto desempenho quando isso for cientificamente justificado.</p>
+<p>O projeto também usa C++ como uma superfície de implementação independente para geração de código assistida por LLM, revisão e verificação cruzada. Essas são vantagens arquiteturais, não evidência de que C++ seja cientificamente superior ou mais rápido que outro engine antes de um benchmark equivalente.</p>
+<h2 id="3-architectural-organisation">3. Organização arquitetural</h2>
+<p>A arquitetura pública separa contratos comuns do engine e orquestração, fechamentos físicos e numéricos compartilhados, integração temporal neutra em relação ao método, implementações espaciais FDM/FEM/FVM independentes e fronteiras de entrada e saída neutras entre engines.</p>
+<p>Os detalhes de implementação permanecem nativos em C++; o engine não chama GNU Octave nem Julia para obter derivadas espaciais ou passos de tempo.</p>
+<h2 id="4-method-and-engine-remain-separate">4. Método e engine permanecem separados</h2>
+<p>FDM, FEM e FVM são métodos numéricos. C++ é um ambiente de implementação.</p>
+<div class="table-wrap"><table data-columns="2"><thead><tr><th scope="col">Método</th><th scope="col">Cobertura atual em C++</th></tr></thead><tbody><tr><td>FDM</td><td>caminho ativo para casos resolvidos</td></tr><tr><td>FEM</td><td>caminho ativo para casos resolvidos</td></tr><tr><td>FVM</td><td>caminho ativo para casos resolvidos dentro do escopo atualmente promovido de geometria fixa</td></tr></tbody></table></div>
+<p>Esta tabela descreve somente a disponibilidade de implementação. Ela não é uma classificação de engines ou métodos e não implica cobertura igual do workflow completo.</p>
+<h2 id="5-solver-ready-input-boundary">5. Fronteira de entrada pronta para o solver</h2>
+<p>Estudos entre engines começam a partir de casos já resolvidos e neutros em relação ao engine, contendo geometria numérica, configurações temporais, dados de contorno e interface, termos-fonte, estado inicial e leis resolvidas de propriedades de material.</p>
+<p>Taxonomia de materiais em alto nível, configuração de publicação e aspectos de plotagem permanecem a montante dessa fronteira pronta para o solver. Isso evita que um engine redefina silenciosamente a entrada científica enquanto é comparado com outra implementação.</p>
+<h2 id="6-independent-temporal-integration">6. Integração temporal independente</h2>
+<p>A memória temporal específica da implementação não é trocada entre engines. Cada engine inicializa e avança o método temporal configurado de forma independente.</p>
+<p>A camada temporal C++ suporta Forward Euler e Adams–Bashforth 2 com comportamento explícito de inicialização e reinício, mantendo-se independente do método espacial selecionado.</p>
+<h2 id="7-fdm-path">7. Caminho FDM</h2>
+<p>A implementação FDM em C++ representa de forma independente a formulação ativa conservativa, cell-centred e em forma de fluxo, incluindo a reconstrução promovida de condutividade positiva e o mesmo significado físico de contornos e interfaces.</p>
+<h2 id="8-fem-path">8. Caminho FEM</h2>
+<p>O caminho FEM em C++ representa de forma independente a formulação atual de Galerkin linear P1, com quadratura de Gauss de dois pontos, mass lumping por soma de linhas, completação cell-centred de meia célula e as mesmas leis de contorno e interface no nível do modelo.</p>
+<h2 id="9-fvm-path">9. Caminho FVM</h2>
+<p>O caminho FVM em C++ usa uma formulação de volumes de controle cell-centred. O trabalho com geometria fixa está implementado dentro do escopo atualmente verificado; uma capacidade de soldagem mais ampla com mudança de geometria permanece como uma fronteira separada de promoção.</p>
+<h2 id="10-result-history-boundary">10. Fronteira do histórico de resultados</h2>
+<p>Execuções de casos resolvidos produzem um histórico de temperatura neutro em relação ao engine, adequado para pós-processamento e comparação do mesmo método. Históricos de paridade de desenvolvimento são deliberadamente distinguidos de resultados autoritativos de benchmark de desempenho.</p>
+<h2 id="11-cross-engine-comparison">11. Comparação entre engines</h2>
+<p>A comparação do mesmo método entre engines executados independentemente é a principal questão de paridade de software. A comparação entre métodos, como FDM versus FEM, é uma questão diferente de verificação numérica, pois discretizações distintas não precisam produzir valores idênticos em uma malha grossa fixa.</p>
+<p>As tolerâncias atuais de comparação são gates de verificação, e não afirmações de validação física ou de superioridade de desempenho.</p>
+<h2 id="12-verification-and-benchmark-boundary">12. Fronteira entre verificação e benchmark</h2>
+<p>A superfície de verificação do C++ abrange operações comuns do engine, os três métodos espaciais, fechamentos físicos compartilhados, integração temporal, manipulação de entrada e saída e execução de casos resolvidos.</p>
+<p>A afirmação pública corrente sobre desempenho está limitada à campanha canônica P1/P2 aceita, na qual casos equivalentes, critérios de aceitação numérica, identidade de compilador/runtime, condições da máquina, regras de aquecimento e escopo de medição foram congelados e executados sob o protocolo reprodutível. A latência de processo novo (P1) e o throughput aquecido em processo (P2) permanecem modos de medição separados; nenhum score combinado, ranking global dos engines ou afirmação universal de velocidade é autorizado.</p>
+<h2 id="13-relationship-to-gnu-octave-and-julia">13. Relação com GNU Octave e Julia</h2>
+<p>GNU Octave, C++ e Julia são engines irmãos ativos. Suas diferentes linguagens e modelos de runtime fornecem diversidade de implementação enquanto preservam contratos científicos comuns.</p>
+<p>Julia FDM, FEM e FVM de geometria fixa possuem evidência de verificação nativa em quatro casos de referência congelados e neutros em relação ao engine, com comparação do mesmo método contra C++ e Octave. Julia FVM com mudança de geometria permanece não promovido. O desempenho corrente do projeto é <code>CANONICAL_MEASURED</code> sob <code>PERFORMANCE.STATUS.GOVERNANCE.2026-10-06.R1</code>, limitado à campanha <code>PERFORMANCE-MULTI-ENGINE-20261005-232449Z</code>; isso não implica validação experimental nem superioridade de desempenho do C++.</p>
+<p>A concordância entre engines é evidência de verificação de implementação. Ela não prova que o modelo físico compartilhado tenha sido validado experimentalmente.</p>
+<h2 id="14-current-limitations-and-publication-boundary">14. Limitações atuais e fronteira de publicação</h2>
+<p>O engine C++ permanece mais estreito que GNU Octave na cobertura do workflow completo do processo. Seus caminhos para casos resolvidos não devem ser apresentados como paridade completa de processo.</p>
+<p>O website público apresenta arquitetura, capacidade e fronteiras de evidência. Caminhos do repositório, nomes internos de campanhas, identificadores brutos de artefatos e rótulos do workflow de desenvolvimento permanecem no registro privado de engenharia, e não na superfície explicativa pública.</p>
+      </article>
+    </div></template>
+<template data-technical-locale="zh-CN" data-page-title="C++ 计算引擎 — Multiphysics" data-page-description="Multiphysics 项目 C++17 计算引擎的公开架构，包括独立 FDM/FEM/FVM 路径、引擎中立契约以及验证和基准测试边界。"><nav class="technical-breadcrumb" aria-label="面包屑导航" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">技术</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">实现</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">C++</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="技术栏目导航" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">技术层次</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">数值形式</span></a></li><li><a href="/technical/implementations/" aria-current="location"><span data-i18n="technical.labels.implementations">实现</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">验证</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">实现 · C++</p>
+      <h1 id="c-calculation-engine" data-i18n-meta="title">C++ 计算引擎</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">技术预览</span>
+        <span><span data-i18n="technical.labels.reviewed">审阅日期</span> 2026-10-07</span>
+      </div>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.engine">计算引擎</dt><dd data-i18n-invariant="engine-name">C++</dd></div><div><dt data-i18n="technical.labels.implementationStatus">实现状态</dt><dd data-i18n-meta="implementation_status_label">活跃同级引擎 / 已解析案例覆盖</dd></div></dl>
+    </header>
+
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">来源与出处</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">已整理的权威记录</dt><dd>7</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">已整理的实现记录</dt><dd>8</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">已整理的验证记录</dt><dd>3</dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">本页内容</summary>
+        <ol data-i18n-body="toc"><li><a href="#1-purpose-and-maturity">目的与成熟度</a></li><li><a href="#2-language-and-runtime-role">语言与运行时角色</a></li><li><a href="#3-architectural-organisation">架构组织</a></li><li><a href="#4-method-and-engine-remain-separate">方法与引擎保持分离</a></li><li><a href="#5-solver-ready-input-boundary">求解器就绪输入边界</a></li><li><a href="#6-independent-temporal-integration">独立时间积分</a></li><li><a href="#7-fdm-path">FDM 路径</a></li><li><a href="#8-fem-path">FEM 路径</a></li><li><a href="#9-fvm-path">FVM 路径</a></li><li><a href="#10-result-history-boundary">结果历史边界</a></li><li><a href="#11-cross-engine-comparison">跨引擎比较</a></li><li><a href="#12-verification-and-benchmark-boundary">验证与基准测试边界</a></li><li><a href="#13-relationship-to-gnu-octave-and-julia">与 GNU Octave 和 Julia 的关系</a></li><li><a href="#14-current-limitations-and-publication-boundary">当前限制与发布边界</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>C++ 引擎是 GNU Octave 和 Julia 的活跃同级计算引擎。它为选定的 Multiphysics 数值形式提供独立的编译型实现。较窄的工作流覆盖并不意味着其架构角色是次要的。</p></blockquote>
+<h2 id="1-purpose-and-maturity">1. 目的与成熟度</h2>
+<p>C++ 引擎为选定的数值形式提供独立实现，使同一个已解析的物理与数值问题能够用多种语言独立执行，并且只在各引擎分别产生结果之后进行比较。</p>
+<p>当前范围包括已解析案例的 FDM、FEM 和 FVM 路径。完整流程工作流覆盖仍比 GNU Octave 窄。实现覆盖、数值验证、基准测试成熟度和实验验证被视为彼此独立的概念。</p>
+<h2 id="2-language-and-runtime-role">2. 语言与运行时角色</h2>
+<p>当前引擎以 C++17 为目标。提前编译能够明确控制类型、数据布局、编译器设置和独立运行时封装，并在科学上有充分依据时为部署和高性能计算研究提供自然路径。</p>
+<p>项目还把 C++ 作为一种独立实现表面，用于 LLM 辅助代码生成、审查和交叉核对。这些是架构优势，并不意味着在执行等价基准测试之前 C++ 在科学上更优或性能更高。</p>
+<h2 id="3-architectural-organisation">3. 架构组织</h2>
+<p>公开架构将通用引擎契约与编排、共享物理和数值闭合、与方法无关的时间积分、独立 FDM/FEM/FVM 空间实现以及引擎中立的输入输出边界分离开来。</p>
+<p>实现细节保持为原生 C++；该引擎不会调用 GNU Octave 或 Julia 来获得空间导数或时间推进结果。</p>
+<h2 id="4-method-and-engine-remain-separate">4. 方法与引擎保持分离</h2>
+<p>FDM、FEM 和 FVM 是数值方法。C++ 是实现环境。</p>
+<div class="table-wrap"><table data-columns="2"><thead><tr><th scope="col">方法</th><th scope="col">当前 C++ 覆盖</th></tr></thead><tbody><tr><td>FDM</td><td>活跃的已解析案例路径</td></tr><tr><td>FEM</td><td>活跃的已解析案例路径</td></tr><tr><td>FVM</td><td>在当前已提升的固定几何范围内具有活跃的已解析案例路径</td></tr></tbody></table></div>
+<p>该表只描述实现可用性。它不是对引擎或方法的排名，也不意味着完整工作流覆盖相同。</p>
+<h2 id="5-solver-ready-input-boundary">5. 求解器就绪输入边界</h2>
+<p>跨引擎研究从已经解析且与引擎无关的案例开始，其中包含数值几何、时间设置、边界与界面数据、源项、初始状态以及已解析的材料性质定律。</p>
+<p>高层材料分类、发布配置和绘图控制位于该求解器就绪边界的上游。这样可以避免一个引擎在与其他实现比较时悄然重新定义科学输入。</p>
+<h2 id="6-independent-temporal-integration">6. 独立时间积分</h2>
+<p>实现专用的时间记忆不会在引擎之间交换。每个引擎独立初始化并推进已配置的时间方法。</p>
+<p>C++ 时间层支持 Forward Euler 和 Adams–Bashforth 2，并具有明确的启动和重启行为，同时保持与所选空间方法相互独立。</p>
+<h2 id="7-fdm-path">7. FDM 路径</h2>
+<p>C++ FDM 实现独立表示当前的 cell-centred 守恒通量形式，包括已提升的正导热系数重构以及共享的物理边界和界面含义。</p>
+<h2 id="8-fem-path">8. FEM 路径</h2>
+<p>C++ FEM 路径独立表示当前线性 P1 Galerkin 形式，包括两点 Gauss 积分、按行求和的 mass lumping、cell-centred 半单元补齐以及相同的模型级边界和界面定律。</p>
+<h2 id="9-fvm-path">9. FVM 路径</h2>
+<p>C++ FVM 路径采用 cell-centred 控制体形式。固定几何工作已在当前验证范围内实现；更广泛的几何变化焊接能力仍是独立的能力提升边界。</p>
+<h2 id="10-result-history-boundary">10. 结果历史边界</h2>
+<p>已解析案例执行会产生与引擎无关的温度历史，可用于后处理和同方法比较。开发阶段的奇偶性历史被明确区别于具有权威性的性能基准测试结果。</p>
+<h2 id="11-cross-engine-comparison">11. 跨引擎比较</h2>
+<p>对独立执行的引擎进行同方法比较，是软件一致性的主要问题。FDM 与 FEM 之类的跨方法比较属于不同的数值验证问题，因为不同离散方法在固定粗网格上不必产生完全相同的数值。</p>
+<p>当前比较容差是验证 gate，而不是物理验证或性能优越性的声明。</p>
+<h2 id="12-verification-and-benchmark-boundary">12. 验证与基准测试边界</h2>
+<p>C++ 验证范围覆盖常见引擎操作、三种空间方法、共享物理闭合、时间积分、输入输出处理以及已解析案例执行。</p>
+<p>项目当前公开的性能声明仅限于已接受的 P1/P2 规范活动；在该活动中，等价案例、数值接受标准、编译器/运行时身份、机器条件、预热规则和计时范围均已冻结并按照可复现协议执行。新进程延迟（P1）与进程内预热吞吐量（P2）仍是彼此分离的测量模式；不授权合并评分、引擎总体排名或普遍速度声明。</p>
+<h2 id="13-relationship-to-gnu-octave-and-julia">13. 与 GNU Octave 和 Julia 的关系</h2>
+<p>GNU Octave、C++ 和 Julia 是活跃的同级引擎。不同语言和运行时模型带来实现多样性，同时保持共同的科学契约。</p>
+<p>Julia 的 FDM、FEM 和固定几何 FVM 已在四个冻结且与引擎无关的参考案例上获得原生验证证据，并与 C++ 和 Octave 进行了同方法比较。涉及几何变化的 Julia FVM 仍未提升。项目当前性能状态为 <code>CANONICAL_MEASURED</code>，受 <code>PERFORMANCE.STATUS.GOVERNANCE.2026-10-06.R1</code> 管理，并限定于活动 <code>PERFORMANCE-MULTI-ENGINE-20261005-232449Z</code>；这并不意味着实验验证，也不意味着 C++ 具有性能优越性。</p>
+<p>跨引擎一致性属于实现验证证据，并不能证明共享物理模型已经得到实验验证。</p>
+<h2 id="14-current-limitations-and-publication-boundary">14. 当前限制与发布边界</h2>
+<p>在完整流程工作流覆盖方面，C++ 引擎仍比 GNU Octave 窄。其已解析案例路径不应被表述为完整流程等价。</p>
+<p>公开网站呈现架构、能力和证据边界。仓库路径、内部活动名称、原始工件标识符和开发工作流标签保留在私有工程记录中，而不进入公开说明页面。</p>
+      </article>
+    </div></template>
   </main>
   <footer class="site-footer">
   <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
@@ -197,6 +355,7 @@ ctest --test-dir build/cpp-engine --output-on-failure</code></pre>
     data-visible="false"
     tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
 </footer>
+<noscript><p class="noscript-notice" data-i18n="home.noScript">This page remains available without JavaScript in the site&#39;s default language. Changing the language requires JavaScript.</p></noscript>
 
   <script type="module" src="/assets/js/main.js"></script>
 </body>

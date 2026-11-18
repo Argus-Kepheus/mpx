@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en" data-palette="blueprint" data-title-key="home.collaborate.pageTitle">
+<html lang="en" dir="ltr" data-palette="blueprint" data-title-key="home.collaborate.pageTitle">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Experimental collaboration needs and contribution paths for the Multiphysics project." data-i18n="home.collaborate.pageDescription" data-i18n-attr="content">
+  <meta name="description" content="Contribute experimental welding data: synchronized signals, joint geometry and flash mass to study upsetting, compression work and temperature." data-i18n="home.collaborate.pageDescription" data-i18n-attr="content">
   <meta name="theme-color" content="#17365d">
   <title>Collaborate — Multiphysics</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -12,7 +12,7 @@
   <link rel="canonical" href="https://mpx.arguskepheus.com.br/collaborate/">
   <meta name="robots" content="index,follow">
   <meta property="og:title" content="Collaborate — Multiphysics">
-  <meta property="og:description" content="Experimental collaboration needs and contribution paths for the Multiphysics project.">
+  <meta property="og:description" content="Contribute experimental welding data: synchronized signals, joint geometry and flash mass to study upsetting, compression work and temperature.">
   <meta property="og:url" content="https://mpx.arguskepheus.com.br/collaborate/">
   <meta property="og:site_name" content="Multiphysics">
   <meta property="og:type" content="website">
@@ -24,10 +24,10 @@
   <meta property="og:image:alt" content="A worn, translucent lilac floppy disk with the AK initials.">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Collaborate — Multiphysics">
-  <meta name="twitter:description" content="Experimental collaboration needs and contribution paths for the Multiphysics project.">
+  <meta name="twitter:description" content="Contribute experimental welding data: synchronized signals, joint geometry and flash mass to study upsetting, compression work and temperature.">
   <meta name="twitter:image" content="https://mpx.arguskepheus.com.br/og-multiphysics.png">
   <meta name="twitter:image:alt" content="A worn, translucent lilac floppy disk with the AK initials.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/collaborate/#webpage","url":"https://mpx.arguskepheus.com.br/collaborate/","name":"Collaborate — Multiphysics","description":"Experimental collaboration needs and contribution paths for the Multiphysics project.","isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/collaborate/#webpage","url":"https://mpx.arguskepheus.com.br/collaborate/","name":"Collaborate — Multiphysics","description":"Contribute experimental welding data: synchronized signals, joint geometry and flash mass to study upsetting, compression work and temperature.","inLanguage":"en","publisher":{"@type":"Organization","@id":"https://www.arguskepheus.com.br/#organization","name":"Argus Kepheus","url":"https://www.arguskepheus.com.br/"},"isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
@@ -39,6 +39,7 @@
     <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
     <a href="/current-model/" data-i18n="nav.current">Current model</a>
     <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/references/" data-i18n="nav.references">References</a>
     <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
   </nav>
   <details class="site-nav-mobile">
@@ -49,16 +50,17 @@
       <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
       <a href="/current-model/" data-i18n="nav.current">Current model</a>
       <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/references/" data-i18n="nav.references">References</a>
       <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
     </nav>
   </details>
   <div class="site-controls">
     <label class="locale-control">
       <span class="sr-only" data-i18n="locale.label">Language</span>
-      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
-        <option value="en">English</option>
-        <option value="pt-BR">Português</option>
-        <option value="zh-CN">中文</option>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label" disabled>
+        <option value="en" data-i18n-invariant="language-autonym">English</option>
+        <option value="pt-BR" data-i18n-invariant="language-autonym">Português</option>
+        <option value="zh-CN" data-i18n-invariant="language-autonym">中文</option>
       </select>
     </label>
     <button
@@ -82,37 +84,61 @@
   <main id="main" class="section-shell">
     <section id="collaborate" class="content-section section-anchor" aria-labelledby="collaborate-title">
           <p class="kicker" data-i18n="home.collaborate.kicker">Experimental collaboration</p>
-          <h2 id="collaborate-title" data-i18n="home.collaborate.title">The current bottleneck is data</h2>
-          <p class="section-copy" data-i18n="home.collaborate.body">Software development is not a prerequisite for collaboration. The immediate need is experimentally grounded information capable of constraining, calibrating and validating the models.</p>
-          <div id="collaboration-groups" class="collaboration-grid" role="list">
-            <section class="collab-card"><h3 data-i18n="home.collaborate.machineTitle">Machine information</h3><ul><li>machine architecture</li><li>electrical characteristics</li><li>electrode or jaw geometry</li><li>motion systems</li><li>force capabilities</li><li>control strategies</li></ul></section>
-            <section class="collab-card"><h3 data-i18n="home.collaborate.processTitle">Process histories</h3><ul><li>current and voltage</li><li>stage timing</li><li>flashing parameters</li><li>burn-off or displacement</li><li>upset force</li><li>pre- and post-heating sequences</li></ul></section>
-            <section class="collab-card"><h3 data-i18n="home.collaborate.validationTitle">Material and validation data</h3><ul><li>temperature-dependent properties</li><li>thermal and electrical properties</li><li>mechanical properties</li><li>metallography</li><li>hardness maps</li><li>temperature histories</li><li>mechanical-test results</li></ul></section>
-          </div>
+          <h1 id="collaborate-title" class="section-page-title" data-i18n="home.collaborate.title">Experimental data to understand welding</h1>
+          <p class="section-copy" data-i18n="home.collaborate.body">We welcome welding researchers who can share measurements or technical feedback to help develop, calibrate and validate future physical models. Software and architecture work continue independently of receiving data or replies.</p>
+    
+          <section id="upsetting-research" class="collaboration-example section-anchor" aria-labelledby="upsetting-research-title">
+            <p class="kicker" data-i18n="home.collaborate.upsetting.kicker">Research in progress</p>
+            <h3 id="upsetting-research-title" data-i18n="home.collaborate.upsetting.title">How does upsetting affect the joint temperature?</h3>
+            <p data-i18n="home.collaborate.upsetting.question">In flash-butt welding, we want to measure the compression work from force and displacement, and assess how deformation concentrated near the joint affects temperature. This investigation is ongoing.</p>
+            <ul class="collaboration-question-list">
+              <li><strong data-i18n="home.collaborate.upsetting.signalsTitle">Synchronized signals.</strong> <span data-i18n="home.collaborate.upsetting.signals">Force, displacement, current and voltage series on the same time axis, covering the end of flashing and the upsetting stage. If available, include units, stage markers and how displacement was defined or corrected (for example, machine travel or specimen shortening).</span></li>
+              <li><strong data-i18n="home.collaborate.upsetting.geometryTitle">Joint shape or removed flash.</strong> <span data-i18n="home.collaborate.upsetting.geometry">A measured geometric profile or a scaled image of the joint before flash trimming, or the mass of the removed flash.</span></li>
+              <li><strong data-i18n="home.collaborate.upsetting.weldTitle">A link to the same weld.</strong> <span data-i18n="home.collaborate.upsetting.weld">A common identifier connecting the signals, profile, image or flash mass to the same weld.</span></li>
+            </ul>
+            <p data-i18n="home.collaborate.upsetting.why">Force and displacement help estimate the mechanical work; current and voltage help identify electrical heating that may still be present. Joint shape or flash mass helps assess how the material deformed.</p>
+            <p><span data-i18n="home.collaborate.upsetting.partial">Partial or anonymized data can also help; a complete dataset is not required to start a conversation.</span> <a href="#collaboration-contact" data-i18n="home.collaborate.upsetting.contact">Tell us what you can share.</a></p>
+          </section>
+    
+          <div id="collaboration-groups" class="collaboration-grid" role="list" data-i18n-runtime="home.collaborate.groups"><section class="collab-card" role="listitem"><h3>Machine information</h3><ul><li>machine architecture</li><li>electrical characteristics</li><li>electrode or jaw geometry</li><li>motion systems</li><li>force capabilities</li><li>control strategies</li></ul></section><section class="collab-card" role="listitem"><h3>Process histories</h3><ul><li>stage sequence and duration</li><li>flashing settings</li><li>burn-off distinguished from machine travel</li><li>pre- and post-heating conditions</li></ul></section><section class="collab-card" role="listitem"><h3>Material and validation data</h3><ul><li>temperature-dependent properties</li><li>thermal and electrical properties</li><li>mechanical properties</li><li>metallography</li><li>hardness maps</li><li>temperature histories</li><li>mechanical-test results</li></ul></section></div>
     
           <section class="collaboration-example" aria-labelledby="collaboration-questions-title">
-            <p class="kicker" data-i18n="home.collaborate.questionsKicker">Questions already sent</p>
-            <h3 id="collaboration-questions-title" data-i18n="home.collaborate.questionsTitle">Examples of targeted research questions</h3>
-            <p data-i18n="home.collaborate.questionsIntro">Researchers have already been approached with questions derived from their published work. The examples below are anonymized and illustrate the type of scientific exchange sought by the project.</p>
+            <p class="kicker" data-i18n="home.collaborate.questionsKicker">Scientific exchange</p>
+            <h3 id="collaboration-questions-title" data-i18n="home.collaborate.questionsTitle">Other ways to contribute</h3>
+            <p data-i18n="home.collaborate.questionsIntro">Beyond upsetting, these model and data questions can guide a collaboration:</p>
             <ul class="collaboration-question-list">
-              <li data-i18n="home.collaborate.questions.thermalCycles">Can measured welding thermal cycles be shared as numerical time–temperature series rather than only as plotted figures?</li>
-              <li data-i18n="home.collaborate.questions.processHistories">Can representative process schedules, stage boundaries, electrical signals, displacement or burn-off histories be made available in processed, anonymized or stage-averaged form?</li>
-              <li data-i18n="home.collaborate.questions.validationObservables">Which observables are most reliable for validating a reduced flash-butt-welding model when direct interface measurements are unavailable?</li>
-              <li data-i18n="home.collaborate.questions.materialTransfer">Which material-state variables and phase-transformation data should a reusable material library prioritize, and how should material properties be separated from process-specific calibration?</li>
+              <li data-i18n="home.collaborate.questions.thermalCycles">Do you have numerical time–temperature series, with the measurement location and method?</li>
+              <li data-i18n="home.collaborate.questions.processHistories">Which machine settings and boundary conditions are essential to interpret a welding test?</li>
+              <li data-i18n="home.collaborate.questions.validationObservables">Which measurements best assess a reduced flash-butt-welding model when direct interface temperatures are unavailable?</li>
+              <li data-i18n="home.collaborate.questions.materialTransfer">Which temperature-dependent material properties and phase-transformation data should the material library prioritize?</li>
             </ul>
           </section>
     
           <aside class="collaboration-confidentiality" aria-labelledby="collaboration-confidentiality-title">
             <h3 id="collaboration-confidentiality-title" data-i18n="home.collaborate.confidentialityTitle">Confidentiality and industrial constraints</h3>
             <p data-i18n="home.collaborate.confidentialityBody">Some relevant datasets may be owned by companies, protected by contractual confidentiality, or constitute industrially sensitive information and therefore cannot be disclosed. No researcher is expected to violate those obligations, and sharing raw proprietary data is not a prerequisite for contributing.</p>
-            <p data-i18n="home.collaborate.criticalFeedback">When data cannot be released, researchers who choose to engage are explicitly asked for a critical technical assessment instead. Comments on questionable assumptions, missing physics, unrealistic machine or process inputs, unsuitable validation observables, or relevant literature may be sent directly to the project lead. This kind of feedback is treated as a substantive scientific contribution and is highly valued.</p>
+            <p data-i18n="home.collaborate.criticalFeedback">A critical technical assessment is also highly valued: send the project lead comments on model assumptions, missing physics, measurement methods or relevant literature.</p>
           </aside>
     
           <div class="collaboration-notes">
             <p data-i18n="home.collaborate.rights">Data ownership, redistribution rights and publication permissions are treated independently. Scientific use does not automatically imply permission to publish raw data.</p>
             <p data-i18n="home.collaborate.credit">Contributions may lead to formal project participation and, where the scientific contribution justifies it, co-authorship of resulting publications.</p>
           </div>
+          <aside id="collaboration-contact" class="collaboration-contact-status" aria-labelledby="collaboration-contact-title">
+            <p class="kicker" data-i18n="home.collaborate.contactKicker">Start a collaboration</p>
+            <h3 id="collaboration-contact-title" data-i18n="home.collaborate.contactTitle">Contact the project developer and lead</h3>
+            <p data-i18n="home.collaborate.contactBody">Use the institutional email below to describe your test, the data or feedback you can offer, and any sharing restrictions. We can discuss scope and permissions before you send files.</p>
+            <p class="collaboration-contact-identity" data-i18n-invariant="approved-public-contact">
+              <a href="https://scc.arguskepheus.com.br/#home" rel="author">Calvimontes S. C.</a>
+              <span aria-hidden="true"> · </span>
+              <a href="mailto:sergiocc@id.uff.br">sergiocc@id.uff.br</a>
+            </p>
+          </aside>
         </section>
+<nav class="section-continuation" aria-label="Continue exploring related pages" data-i18n="accessibility.continueExploring" data-i18n-attr="aria-label">
+    <span class="section-continuation-label" data-i18n="nav.continueExploring">Continue exploring</span>
+    <div class="section-continuation-links"><a href="/current-model/"><span data-i18n="nav.current">Current model</span></a><a href="/technical/"><span data-i18n="nav.technical">Technical</span></a></div>
+  </nav>
   </main>
   <footer class="site-footer">
   <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
@@ -126,6 +152,7 @@
     data-visible="false"
     tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
 </footer>
+<noscript><p class="noscript-notice" data-i18n="home.noScript">This page remains available without JavaScript in the site&#39;s default language. Changing the language requires JavaScript.</p></noscript>
 
   <script type="module" src="/assets/js/main.js"></script>
 </body>

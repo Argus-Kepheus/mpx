@@ -1,96 +1,21 @@
-import { applyTranslations } from './i18n/runtime.js';
+import { assertLocaleConfig, isSupportedLocale, resolveLocale } from './i18n/locale.js';
+import { runLocaleTransaction } from './i18n/transaction.js';
 import { setupPalette } from './ui/palette.js';
-import { captureReadingPosition, restoreReadingPosition } from './i18n/reading-position.js';
+import {
+  captureInitialReadingPosition,
+  captureReadingPosition,
+  restoreInitialReadingPosition,
+  restoreReadingPosition
+} from './i18n/reading-position.js';
 import { setupBackToTop } from './ui/back-to-top.js';
-
-const localeStorageKey = 'mpx-locale';
+import { setupArticleToc } from './ui/article-toc.js';
+import { createLocaleSurface, readSavedLocale } from './i18n/browser-surface.js';
+import { syncTechnicalLayerNavigation } from './ui/technical-axis-nav.js';
 
 async function loadJson(url) {
   const response = await fetch(url);
   if (!response.ok) throw new Error(`Failed to load ${url}: ${response.status}`);
   return response.json();
-}
-
-function renderArchitecture(layers = []) {
-  const host = document.querySelector('#architecture-layers');
-  if (!host) return;
-  host.replaceChildren();
-  for (const layer of layers) {
-    const section = document.createElement('section');
-    section.className = 'arch-layer';
-    const title = document.createElement('h3');
-    title.textContent = layer.title;
-    const list = document.createElement('ul');
-    for (const item of layer.items) {
-      const li = document.createElement('li'); li.textContent = item; list.appendChild(li);
-    }
-    section.append(title, list); host.appendChild(section);
-  }
-}
-
-function renderStates(selector, states = []) {
-  const host = document.querySelector(selector);
-  if (!host) return;
-  host.replaceChildren();
-  for (const state of states) {
-    const row = document.createElement('div'); row.className = 'state-row';
-    row.setAttribute('role', 'listitem');
-    const name = document.createElement('span'); name.textContent = state.name;
-    const badge = document.createElement('span'); badge.className = 'state-badge'; badge.textContent = state.state;
-    row.append(name, badge); host.appendChild(row);
-  }
-}
-
-function renderCollaboration(groups = []) {
-  const host = document.querySelector('#collaboration-groups');
-  if (!host) return;
-  host.replaceChildren();
-  for (const group of groups) {
-    const card = document.createElement('section'); card.className = 'collab-card';
-    card.setAttribute('role', 'listitem');
-    const title = document.createElement('h3'); title.textContent = group.title;
-    const list = document.createElement('ul');
-    for (const item of group.items) { const li = document.createElement('li'); li.textContent = item; list.appendChild(li); }
-    card.append(title, list); host.appendChild(card);
-  }
-}
-
-function readSavedLocale() {
-  try {
-    return localStorage.getItem(localeStorageKey);
-  } catch {
-    return null;
-  }
-}
-
-function saveLocale(value) {
-  try {
-    localStorage.setItem(localeStorageKey, value);
-  } catch {
-    // The current locale still applies when storage is unavailable.
-  }
-}
-
-function chooseLocale(config) {
-  const supported = new Set(config.supportedLocales);
-  const requested = new URLSearchParams(window.location.search).get('lang');
-  const saved = readSavedLocale();
-  if (supported.has(requested)) return requested;
-  if (supported.has(saved)) return saved;
-  return config.defaultLocale;
-}
-
-function renderLocaleOptions(config, selected) {
-  const select = document.querySelector('#locale-select');
-  if (!select) return;
-  select.replaceChildren();
-  for (const option of config.localeOptions) {
-    const element = document.createElement('option');
-    element.value = option.code;
-    element.textContent = option.label;
-    element.selected = option.code === selected;
-    select.appendChild(element);
-  }
 }
 
 function markCurrentNavigation() {
@@ -105,56 +30,82 @@ function markCurrentNavigation() {
   });
 }
 
-function updateLocaleUrl(locale) {
-  const url = new URL(window.location.href);
-  if (locale === 'en') url.searchParams.delete('lang');
-  else url.searchParams.set('lang', locale);
-  window.history.replaceState(null, '', url);
+function reportFallback(result) {
+  if (result.rejected.length) console.warn('Locale fallback applied', result);
 }
 
 async function init() {
-  const config = await loadJson('/assets/site.config.json');
-  let locale = chooseLocale(config);
-  renderLocaleOptions(config, locale);
+  const config = assertLocaleConfig(await loadJson('/assets/site.config.json'));
   setupPalette(config);
   markCurrentNavigation();
   setupBackToTop();
+  if (document.querySelector('#reference-filters')) {
+    const { setupReferences } = await import('./ui/references.js');
+    setupReferences();
+  }
+  // Before the first locale transaction, so a hash target is restored against
+  // the layout the reader will actually see.
+  const syncArticleToc = setupArticleToc();
+  const mobileMenu = document.querySelector('.site-nav-mobile');
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu.open = false;
+    });
+  });
+  // A keyboard reader who tabs out of the open disclosure must not carry an
+  // expanded sticky header over the document content. Keep the native details
+  // control, but collapse it once focus leaves the disclosure.
+  mobileMenu?.addEventListener('focusout', (event) => {
+    if (!event.relatedTarget || !mobileMenu.contains(event.relatedTarget)) {
+      mobileMenu.open = false;
+    }
+  });
 
-  const applyLocale = (messages) => {
-    document.documentElement.lang = locale;
-    document.documentElement.dir = config.rtlLocales.includes(locale) ? 'rtl' : 'ltr';
-    applyTranslations(messages);
-    renderLocaleOptions(config, locale);
-    renderArchitecture(messages.home?.architecture?.layers);
-    renderStates('#method-states', messages.home?.current?.methods);
-    renderStates('#engine-states', messages.home?.current?.engines);
-    renderCollaboration(messages.home?.collaborate?.groups);
-  };
+  const surface = createLocaleSurface(config, {
+    afterArticleRender: syncArticleToc,
+    afterCommit: syncTechnicalLayerNavigation
+  });
+  const loadMessages = (locale) => loadJson(`/assets/locales/${locale}.json`);
+  const resolution = resolveLocale({ search: window.location.search, savedLocale: readSavedLocale() }, config);
+  let current = await runLocaleTransaction({
+    config,
+    selectedLocale: resolution.selectedLocale,
+    source: resolution.source,
+    surface,
+    loadMessages,
+    position: { capture: captureInitialReadingPosition, restore: restoreInitialReadingPosition }
+  });
+  reportFallback(current);
 
-  applyLocale(await loadJson(`/assets/locales/${locale}.json`));
+  // The selector is inert in the static HTML and only becomes operational
+  // once a locale has been applied successfully.
   const localeSelect = document.querySelector('#locale-select');
-  localeSelect?.addEventListener('change', async () => {
+  if (!localeSelect) return;
+  localeSelect.addEventListener('change', async () => {
     const nextLocale = localeSelect.value;
-    if (!config.supportedLocales.includes(nextLocale) || nextLocale === locale) return;
+    if (!isSupportedLocale(config, nextLocale) || nextLocale === current.renderedLocale) {
+      localeSelect.value = current.renderedLocale;
+      return;
+    }
     localeSelect.disabled = true;
-    const readingPosition = captureReadingPosition();
     try {
-      const nextMessages = await loadJson(`/assets/locales/${nextLocale}.json`);
-      locale = nextLocale;
-      saveLocale(locale);
-      updateLocaleUrl(locale);
-      applyLocale(nextMessages);
-      await restoreReadingPosition(readingPosition);
+      current = await runLocaleTransaction({
+        config,
+        selectedLocale: nextLocale,
+        source: 'selector',
+        surface,
+        loadMessages,
+        position: { capture: captureReadingPosition, restore: restoreReadingPosition }
+      });
+      reportFallback(current);
+    } catch (error) {
+      console.error(error);
+      localeSelect.value = current.renderedLocale;
     } finally {
       localeSelect.disabled = false;
     }
   });
-  document.querySelectorAll('.site-nav-mobile a').forEach((link) => {
-    link.addEventListener('click', () => {
-      const menu = link.closest('details');
-      if (menu) menu.open = false;
-    });
-  });
+  localeSelect.disabled = false;
 }
 
 init().catch((error) => {

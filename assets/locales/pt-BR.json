@@ -12,7 +12,10 @@
     "current": "Modelo atual",
     "collaborate": "Colaborar",
     "technical": "Técnico",
-    "backToTop": "Voltar ao topo"
+    "backToTop": "Voltar ao topo",
+    "continueExploring": "Continuar explorando",
+    "technicalLayers": "Camadas técnicas",
+    "references": "Referências"
   },
   "locale": {
     "label": "Idioma"
@@ -45,7 +48,172 @@
       "workpieceS": "peça S",
       "interface": "interface de soldagem",
       "colourSupplement": "A cor é suplementar; símbolos e rótulos permanecem autoritativos.",
-      "onThisPage": "Nesta página"
+      "onThisPage": "Nesta página",
+      "curatedAuthorityRecords": "Registros de autoridade selecionados",
+      "curatedDerivationRecords": "Registros de derivação selecionados",
+      "curatedImplementationRecords": "Registros de implementação selecionados",
+      "curatedVerificationRecords": "Registros de verificação selecionados",
+      "equationLegendAria": "Legenda de cores da notação científica",
+      "semanticAxis1": "eixo espacial x e sua discretização",
+      "semanticTemporal": "tempo e sua discretização"
+    },
+    "numerics": {
+      "pageTitle": "Formulação numérica — Multiphysics",
+      "pageDescription": "Formulações numéricas documentadas pelo projeto Multiphysics.",
+      "kicker": "Técnico · formulação numérica",
+      "heading": "Métodos espaciais",
+      "lede": "Os métodos numéricos são documentados de forma independente da linguagem de programação e do ambiente de cálculo.",
+      "status": {
+        "technicalPreview": "prévia técnica",
+        "implementedLimitedScope": "implementado / escopo limitado"
+      },
+      "cards": {
+        "fdmDescription": "Formulação atual de diferenças finitas centrada em células, incluindo fechamentos físicos, construção conservativa de fluxos, relação com a integração temporal e evidências de verificação.",
+        "femDescription": "Formulação atual de Galerkin P1 centrada em células, incluindo forma fraca, montagem com Gauss de dois pontos, lumping de massa por soma das linhas, complementação de meias células e fechamentos físicos de fluxo compartilhados.",
+        "fvmDescription": "O solver 1D de volumes finitos possui um caminho de geometria fixa/aquecimento por corrente implementado e verificado e, em GNU Octave, um caminho de Flashing de Maturidade 1 com volumes de controle parciais na frente, verificado numericamente (ADR 0036). Flashing de Maturidade 0 e Upsetting/Pressing com mudança de geometria permanecem não promovidos e mantêm uma fronteira separada de dados experimentais."
+      },
+      "dossier": {
+        "kicker": "Modelo numérico em resumo",
+        "title": "As equações por trás das páginas dos métodos",
+        "intro": "As páginas completas de FDM e FEM apresentam a derivação, os fechamentos, as regras de montagem, as referências de estabilidade e os limites da verificação. Esta camada compacta torna visíveis os objetos governantes e semidiscretos antes de o leitor entrar na documentação detalhada.",
+        "sharedStatus": "modelo físico compartilhado",
+        "sharedTitle": "Balanço térmico em forma de fluxo",
+        "sharedBody": "As leis de materiais, as fontes e as condições físicas de contorno/interface são resolvidas antes da aplicação de um método espacial.",
+        "fdmStatus": "FDM · centrado em células",
+        "fdmTitle": "Balanço conservativo da célula",
+        "fdmBody": "Uma sequência compartilhada de fluxos nas faces torna auditável a contribuição discreta da condução e mantém explícitos os fluxos de interface e de contorno.",
+        "femStatus": "FEM · Galerkin P1",
+        "femTitle": "Sistema semidiscreto com massa concentrada",
+        "femBody": "A quadratura de dois pontos, o lumping de massa por soma das linhas e a complementação explícita das meias células mostram como o suporte centrado em células fecha o domínio físico.",
+        "temporalStatus": "contrato temporal",
+        "temporalTitle": "Avanço explícito do estado",
+        "temporalBody": "Adams–Bashforth 2 é a configuração principal atual; Forward Euler fornece o caminho compatível de inicialização e reinício.",
+        "temporalNote": "A integração temporal permanece um contrato separado. A configuração explícita principal atual é AB2 com inicialização/reinício por Forward Euler; ela não faz parte da definição de FDM ou FEM.",
+        "fvmTitle": "Escopo atual de FVM",
+        "fvmBody": "O caminho 1D de volumes finitos está implementado e verificado para trabalhos de geometria fixa/aquecimento por corrente. Em GNU Octave, ele também executa Flashing de Maturidade 1 com volumes de controle parciais na frente, verificado numericamente conforme a ADR 0036 (aceita em 2026-10-22) e convergindo para o limite de FDM/FEM; não é calibrado. Flashing de Maturidade 0 e Upsetting/Pressing com mudança de geometria permanecem uma fronteira de capacidade separada, não promovida. Nenhum desses caminhos é apresentado como validado experimentalmente."
+      }
+    },
+    "overview": {
+      "pageTitle": "Técnico — Multiphysics",
+      "pageDescription": "Documentação técnica do framework numérico e computacional Multiphysics.",
+      "kicker": "Documentação técnica viva",
+      "heading": "Técnico",
+      "lede": "Esta seção oferece uma visão atualizada do estado matemático, numérico e computacional do projeto Multiphysics.",
+      "note": "Ela documenta o estado atual do projeto. A linha de base numérica está reconciliada, mas este artefato de website compilável localmente não constitui autorização de release. Dissertações, artigos e releases formais permanecem transações independentes.",
+      "groups": {
+        "numericsKicker": "Formulação numérica",
+        "numericsTitle": "Métodos espaciais",
+        "implementationsKicker": "Implementações",
+        "implementationsTitle": "Ambientes de cálculo",
+        "toolingKicker": "Ferramentas científicas",
+        "toolingTitle": "Automação e infraestrutura de evidência",
+        "verificationKicker": "Verificação",
+        "verificationTitle": "Fronteiras de evidência e validação"
+      },
+      "status": {
+        "technicalPreview": "prévia técnica",
+        "implementedLimitedScope": "implementado / escopo limitado",
+        "activeSibling": "engine irmão ativo",
+        "juliaVerified": "verificação nativa FDM/FEM/FVM de geometria fixa aprovada",
+        "activeSupportingTooling": "ferramenta de apoio ativa",
+        "multiEngineValidated": "consolidação multi-engine validada",
+        "currentBaseline": "linha de base atual reconciliada",
+        "futureEvidence": "evidência futura"
+      },
+      "cards": {
+        "fdmDescription": "Formulação atual de diferenças finitas cell-centred, fechamentos físicos, sistema semidiscreto, relação com a integração temporal e evidências de verificação.",
+        "femDescription": "Formulação atual de Galerkin P1 cell-centred, incluindo forma fraca, montagem de elementos, mass lumping, completação de meia célula, acoplamento de fluxos físicos e referência de estabilidade.",
+        "fvmDescription": "O solver 1D de volumes finitos possui um caminho de geometria fixa/aquecimento por corrente implementado e verificado e, em GNU Octave, um caminho de Flashing de Maturidade 1 verificado numericamente (ADR 0036). Flashing de Maturidade 0 e Upsetting/Pressing com mudança de geometria permanecem não promovidos; nenhum desses caminhos é apresentado como validado experimentalmente.",
+        "octaveDescription": "Engine irmão ativo com a cobertura atual mais ampla do workflow de processo. A compatibilidade com MATLAB e as operações matriciais/vetoriais de alto nível favorecem desenvolvimento numérico, inspeção e prototipagem científica.",
+        "cppDescription": "Engine irmão C++17 ativo e independente, usado para verificação entre engines do mesmo método, implementações compiladas explícitas e desenvolvimento assistido por LLM. Sua cobertura atual de workflow é menor que a do Octave, mas seu papel arquitetural não é secundário.",
+        "juliaDescription": "Julia FDM/FEM/FVM de geometria fixa passou pela verificação nativa contra quatro casos de referência congelados e neutros em relação ao engine, incluindo ingestão neutra de históricos e paridade entre engines do mesmo método. Julia FVM com mudança de geometria permanece não promovido. O desempenho P1/P2 foi medido no escopo dos casos, da máquina e das ferramentas registrados.",
+        "pythonDescription": "Python apoia validação, governança, workflows de dados de materiais, isolamento de pacotes, proveniência, semântica, diagnósticos e comparação neutra entre engines. É infraestrutura científica de apoio, não um engine de cálculo.",
+        "postTitle": "Pós-processamento",
+        "postDescription": "Históricos de temperatura usam um contrato neutro de pós-processamento. Os históricos são validados antes das comparações protegidas, e o inventário multi-engine permanece determinístico sem escolher um engine dourado.",
+        "frameworkTitle": "Estrutura de verificação",
+        "frameworkDescription": "Como casos analíticos/de referência, conservação, refinamento e evidências entre métodos e engines se combinam sem serem confundidos com validação experimental.",
+        "numericalVerificationTitle": "Verificação numérica",
+        "numericalVerificationDescription": "FDM/FEM possuem atestação nativa atual, FVM de geometria fixa permanece verificado e quatro entradas de referência resolvidas e neutras em relação ao engine estão congeladas como alvos de implementação. Esses fatos permanecem distintos de validação experimental.",
+        "experimentalValidationTitle": "Validação experimental",
+        "experimentalValidationDescription": "Calibração física e um caso independente de validação exigem observáveis experimentais rastreáveis e tratamento de incerteza; o modelo FBW completo não é atualmente apresentado como validado experimentalmente."
+      }
+    },
+    "implementationsPage": {
+      "pageTitle": "Implementações — Multiphysics",
+      "pageDescription": "Implementações dos engines de cálculo do framework numérico Multiphysics.",
+      "kicker": "Técnico · implementações",
+      "heading": "Ambientes de cálculo",
+      "lede": "GNU Octave, C++17 e Julia são implementações irmãs independentes com papéis complementares no desenvolvimento científico e no runtime. Elas não são os próprios métodos numéricos, e nenhum engine é a verdade numérica.",
+      "status": {
+        "activeSibling": "engine irmão ativo",
+        "juliaVerified": "verificação nativa FDM/FEM/FVM de geometria fixa aprovada"
+      },
+      "cards": {
+        "octaveDescription": "O irmão transparente de alto nível: inspeção científica compatível com MATLAB, desenvolvimento numérico rápido e a cobertura atual mais ampla do workflow.",
+        "cppDescription": "O irmão compilado ahead-of-time: controle explícito de tipos/layout de dados e build/runtime, execução independente e caminho para estudos de deployment/HPC, com caminhos FDM/FEM/FVM independentes para casos resolvidos.",
+        "juliaDescription": "O irmão JIT de alto nível combina expressão científica com compilação especializada por tipos e caminhos FDM/FEM/FVM de geometria fixa verificados nativamente. FVM com mudança de geometria permanece não promovido. As medições P1/P2 governadas cobrem o escopo numérico declarado."
+      },
+      "computational": {
+        "kicker": "Contrato computacional",
+        "title": "Como um caso resolvido chega a um histórico",
+        "intro1": "Identidade do método, caso físico, configuração temporal e identidade do engine permanecem separadas. GNU Octave e C++ são implementações irmãs ativas; Julia FDM/FEM/FVM de geometria fixa passou pela verificação nativa; Julia FVM com mudança de geometria permanece não promovido. As coberturas podem diferir, mas nenhum engine é designado como verdade científica ou backend permanente de outro.",
+        "intro2": "A estratégia multi-engine atende a dois propósitos: verificação independente de implementação e exploração deliberada dos compromissos entre linguagem e runtime. Pontos fortes específicos de cada engine podem ser preservados onde forem úteis, desde que contratos numéricos equivalentes e evidência reprodutível sejam mantidos.",
+        "intro3": "A consolidação multi-engine a jusante valida os históricos antes das comparações protegidas, e um conjunto neutro de pós-processamento pode representar cobertura parcial de caso/método/engine sem selecionar um engine dourado.",
+        "step1Title": "Resolver o caso físico",
+        "step1Body": "Geometria, leis de material, fontes, contornos, dados de interface e cronograma do processo tornam-se entradas prontas para o solver.",
+        "step2Title": "Selecionar método e engine",
+        "step2Body": "FDM, FEM ou o caminho FVM restrito é selecionado independentemente de um engine disponível. GNU Octave e C++ estão ativos; Julia FDM/FEM/FVM de geometria fixa foi verificado nativamente para os casos de referência congelados e neutros em relação ao engine; Julia FVM com mudança de geometria permanece não promovido.",
+        "step3Title": "Construir o lado direito espacial",
+        "step3Body": "Fluxos, montagem, fechamentos de contorno, troca na interface e termos-fonte são avaliados pelo adaptador do método.",
+        "step4Title": "Avançar o estado",
+        "step4Body": "O serviço temporal compartilhado aplica Forward Euler ou AB2 conforme a especificação da execução e a política de histórico.",
+        "step5Title": "Gravar saídas com evidência",
+        "step5Body": "Históricos de temperatura, diagnósticos e metadados de comparação permanecem distintos de afirmações de validação física.",
+        "exchangeTitle": "Forma neutra de intercâmbio",
+        "exchangeShape": "caso físico resolvido\n método espacial\n especificação da execução\n        ↓\n adaptador do solver\n        ↓\n RHS semidiscreto\n        ↓\n avanço FE / AB2\n        ↓\n histórico + diagnósticos",
+        "juliaTitle": "Julia — verificação nativa FDM/FEM/FVM de geometria fixa aprovada",
+        "juliaBody": "Julia é o terceiro caminho de implementação independente. Seus caminhos FDM, FEM e FVM de geometria fixa passaram pelos testes nativos do pacote com Julia 1.13.1, ingestão neutra de históricos e comparação do mesmo método com históricos independentes de C++ e GNU Octave nos quatro casos de referência congelados. O ambiente de software testado é registrado internamente para reprodutibilidade. Julia FVM com mudança de geometria permanece não promovido. As medições de desempenho P1/P2 governadas se limitam aos casos, à máquina, às ferramentas e aos modos de medição registrados. Concordância entre engines é verificação de implementação, não validação experimental."
+      },
+      "python": {
+        "kicker": "Ferramentas científicas",
+        "title": "Por que Python é usado",
+        "intro": "Python é uma linguagem de apoio ativa no Multiphysics, mas atualmente não é um dos engines de cálculo que implementam o caminho de solução FDM/FEM/FVM. Em vez disso, fornece infraestrutura científica ao redor dos engines e da evidência do projeto.",
+        "body1": "As ferramentas Python atuais cobrem validação de configuração e governança, preparação e revisão de dados de materiais, isolamento de pacotes/exportações, verificações de proveniência e congelamento, validação semântica/de nomenclatura, diagnósticos e cálculos de referência e comparação de saídas entre engines.",
+        "body2": "Python é útil nesse papel porque essas tarefas dependem fortemente de automação, processamento de arquivos e dados estruturados, verificações de schema/metadados e workflows reprodutíveis de linha de comando. Mantê-las fora dos engines de cálculo também ajuda a camada de verificação a permanecer neutra: por exemplo, Python compara históricos de GNU Octave e C++ acima de ambos os engines, sem transformar uma implementação em backend de referência.",
+        "body3": "O papel é, portanto, complementar. GNU Octave e C++ atendem à execução numérica independente atual; Julia fornece evidência nativa FDM/FEM/FVM de geometria fixa nos casos de referência congelados e neutros em relação ao engine; Python ajuda a preparar entradas, auditar contratos, comparar evidências e preservar reprodutibilidade ao redor dessas execuções.",
+        "rolesTitle": "Papéis atuais do Python",
+        "role1": "validadores de governança e configuração;",
+        "role2": "ferramentas de dados de materiais e proveniência;",
+        "role3": "validação de pacotes, exportação e orquestração de testes isolados;",
+        "role4": "verificações semânticas e de nomenclatura;",
+        "role5": "comparação entre engines das saídas de casos resolvidos;",
+        "role6": "cálculos diagnósticos e de referência quando um caminho independente de ferramentas é útil.",
+        "note": "A saída de Python não é tratada como automaticamente autoritativa apenas por ser independente. Seus scripts permanecem sujeitos às mesmas fronteiras de proveniência, revisão e evidência do restante do software de pesquisa."
+      }
+    },
+    "verificationPage": {
+      "pageTitle": "Verificação — Multiphysics",
+      "pageDescription": "Estrutura de verificação e fronteiras de evidência do projeto Multiphysics.",
+      "kicker": "Técnico · verificação",
+      "heading": "Fronteiras de evidência e validação",
+      "lede": "A verificação é organizada como uma cadeia de evidências complementares, e não como um único teste de concordância entre solvers.",
+      "note": "Verificação numérica, comparação entre métodos, paridade entre engines, calibração física e validação experimental respondem a perguntas diferentes e são publicadas com requisitos de evidência distintos.",
+      "status": {
+        "technicalPreview": "prévia técnica",
+        "currentBaseline": "linha de base atual reconciliada",
+        "active": "ativo",
+        "futureEvidence": "evidência futura"
+      },
+      "cards": {
+        "frameworkTitle": "Estrutura de verificação",
+        "frameworkDescription": "A escada atual de evidências, verificações FDM/FEM ativas, estudos controlados FDM/FEM/FVM, fronteiras entre engines e regras de publicação para afirmações de validação.",
+        "numericalTitle": "Verificação numérica",
+        "numericalDescription": "O snapshot nativo FDM/FEM atual possui atestação e quatro alvos de implementação neutros em relação ao engine estão congelados; o trabalho de solução manufaturada independente do método permanece como camada separada de verificação em andamento.",
+        "crossEngineTitle": "Verificação entre engines",
+        "crossEngineDescription": "Os engines irmãos GNU Octave, C++17 e Julia consomem casos resolvidos comuns por contratos neutros explícitos. Paridade do mesmo método é evidência de implementação; as tolerâncias atuais são gates de verificação, não afirmações de desempenho ou validação física.",
+        "experimentalTitle": "Validação experimental",
+        "experimentalDescription": "Calibração e validação independente exigem observáveis rastreáveis do processo real, análise de sensibilidade/identificabilidade, tratamento de incerteza e um caso independente de validação."
+      }
     }
   },
   "home": {
@@ -54,7 +222,7 @@
       "title": "Multiphysics",
       "subtitle": "Simulação aberta e modular de processos físicos acoplados",
       "lede": "Um projeto de pesquisa voltado ao desenvolvimento de um ambiente computacional livre e aberto, no qual materiais, máquinas, configurações de processo, modelos físicos, métodos numéricos, ambientes de cálculo e ferramentas de pós-processamento possam evoluir de forma independente e ser recombinados conforme necessário.",
-      "status": "Processo acadêmico de referência atual: soldagem de topo por centelhamento. Implementação atual: uma plataforma de pesquisa em evolução, não um produto industrial concluído.",
+      "status": "Processo de referência atual: soldagem de topo por centelhamento. A plataforma está sendo refatorada para contemplar também ensaios Gleeble e modelos e simulações computacionais desses ensaios. Essa ampliação está em desenvolvimento.",
       "primaryCta": "Explorar a documentação técnica",
       "secondaryCta": "Contribuir com dados experimentais",
       "diagram": {
@@ -102,7 +270,7 @@
     "architecture": {
       "kicker": "Modular por projeto",
       "title": "Eixos científicos e computacionais independentes",
-      "intro": "A arquitetura mantém deliberadamente distintos a definição do problema, a modelagem física, a discretização numérica, os mecanismos de cálculo e o pós-processamento.",
+      "intro": "A arquitetura mantém deliberadamente distintos a definição do problema, a modelagem física, a discretização numérica, os mecanismos de cálculo e o pós-processamento. A refatoração em andamento busca reutilizar essa separação em ensaios Gleeble, mantendo equipamento, corpo de prova e condições de ensaio distintos dos modelos físicos e métodos numéricos.",
       "layers": [
         {
           "title": "Definir o problema",
@@ -127,18 +295,18 @@
           "items": [
             "FDM",
             "FEM",
-            "FVM — geometria fixa verificada; geometria variável não promovida",
+            "FVM — geometria fixa verificada; Flashing de Maturidade 1 verificado numericamente; Upsetting com geometria variável não promovido",
             "Integração temporal",
             "GNU Octave",
             "C++",
-            "Julia — planejado"
+            "Julia — verificação nativa FDM/FEM/FVM de geometria fixa aprovada"
           ]
         },
         {
           "title": "Interpretar",
           "items": [
             "Resultados",
-            "Pós-processamento — estágio inicial",
+            "Pós-processamento — consolidação multi-engine validada",
             "Análise",
             "Visualização",
             "Validação",
@@ -156,23 +324,23 @@
     },
     "current": {
       "kicker": "Etapa atual de desenvolvimento",
-      "title": "Consolidando o modelo unidimensional",
+      "title": "Baseline numérico e escopo atual de implementação",
       "principle": "Modelos corretos e rastreáveis antes de modelos maiores.",
-      "body": "A prioridade atual é a correção metodológica e a rastreabilidade experimental antes da escala computacional. O trabalho concentra-se na consolidação das evidências numéricas 1D, parametrização de máquinas, configuração de processos, dados de propriedades dos materiais e na base experimental necessária antes que a modelagem de faiscamento/recalque, a calibração e a validação possam avançar.",
+      "body": "O baseline numérico 1D abrange FDM, FEM e FVM de geometria fixa, com implementações independentes em GNU Octave, C++17 e Julia verificadas nos casos de referência declarados. O desempenho atual do projeto foi medido na campanha P1/P2 governada, no escopo dos casos, da máquina e das ferramentas registrados. Os contratos de pós-processamento entre engines e de reprodutibilidade estão definidos. O fechamento preditivo de Flashing (Maturidade 1) está implementado como opção explícita para FDM e FEM e verificado numericamente conforme a ADR 0035 (I1–I4 aceitos em 2026-10-21), não calibrado, não validado. Desde a ADR 0036 (aceita em 2026-10-22), ele também executa em FVM com volumes de controle parciais na frente e converge para o limite de FDM/FEM. Ele parte de uma interface fria: toda ruptura de ponte efetivamente realizada remove material; o limiar de entalpia no solidus tem função apenas diagnóstica. Maturidade 0 permanece como o caminho padrão de Flashing. Os parâmetros de referência do fechamento são valores de análogos, não valores estabelecidos para DP600 ou CSN/NMW. A formulação de Upsetting permanece aberta; em FVM, Flashing de Maturidade 0 e Upsetting/Pressing com mudança de geometria permanecem não promovidos. Concordância numérica não estabelece validação experimental, que permanece como trabalho futuro.",
       "methodsTitle": "Métodos espaciais",
       "enginesTitle": "Ambientes de cálculo",
       "methods": [
         {
           "name": "FDM",
-          "state": "implementado"
+          "state": "implementado · atestado nativamente"
         },
         {
           "name": "FEM",
-          "state": "implementado"
+          "state": "implementado · atestado nativamente"
         },
         {
           "name": "FVM",
-          "state": "geometria fixa implementada e verificada"
+          "state": "geometria fixa implementada e verificada · Flashing de Maturidade 1 verificado numericamente"
         }
       ],
       "engines": [
@@ -186,16 +354,22 @@
         },
         {
           "name": "Julia",
-          "state": "implementação-irmã planejada"
+          "state": "FDM/FEM/FVM de geometria fixa verificados nativamente"
         }
       ],
       "pageTitle": "Modelo atual — Multiphysics",
-      "pageDescription": "Métodos numéricos, ambientes de cálculo e escopo atual de desenvolvimento do Multiphysics."
+      "pageDescription": "Métodos numéricos, ambientes de cálculo e escopo atual de desenvolvimento do Multiphysics.",
+      "gleeble": {
+        "title": "Em desenvolvimento: ensaios e modelos Gleeble",
+        "body": "O Multiphysics está sendo refatorado para contemplar ensaios de simulação física realizados em equipamentos Gleeble e desenvolver modelos e simulações computacionais desses ensaios. O objetivo é reutilizar o núcleo termoelétrico da plataforma além da soldagem de topo por centelhamento.",
+        "scope": "O foco inicial é a resposta termoelétrica com excitação elétrica prescrita, incluindo geometria, vão livre e troca de calor com os mordentes. As temperaturas calculadas serão comparadas com medições de termopares. As estratégias de controle da máquina virão após a validação da planta no aquecimento, centelhamento e recalque.",
+        "status": "Esse trabalho está em andamento. A reprodução dos ensaios Gleeble e a avaliação dos modelos frente a medições experimentais ainda dependem de implementação, dados rastreáveis e critérios de comparação definidos previamente."
+      }
     },
     "collaborate": {
       "kicker": "Colaboração experimental",
-      "title": "O gargalo atual são os dados",
-      "body": "O desenvolvimento de software não é pré-requisito para colaborar. A necessidade imediata é de informação fundamentada experimentalmente, capaz de restringir, calibrar e validar os modelos.",
+      "title": "Dados experimentais para compreender a soldagem",
+      "body": "Convidamos pesquisadores de soldagem a contribuir com medições ou avaliação técnica para desenvolver, calibrar e validar modelos físicos futuros. O trabalho de software e arquitetura continua independentemente do recebimento de dados ou respostas.",
       "machineTitle": "Informações da máquina",
       "processTitle": "Históricos do processo",
       "validationTitle": "Dados de material e validação",
@@ -214,12 +388,10 @@
         {
           "title": "Históricos do processo",
           "items": [
-            "corrente e tensão",
-            "temporização das etapas",
-            "parâmetros de faiscamento",
-            "perda de comprimento ou deslocamento",
-            "força de recalque",
-            "sequências de pré e pós-aquecimento"
+            "sequência e duração das etapas",
+            "ajustes de centelhamento",
+            "perda de material (burn-off) distinta do movimento da máquina",
+            "condições de pré e pós-aquecimento"
           ]
         },
         {
@@ -237,30 +409,96 @@
       ],
       "rights": "Propriedade dos dados, direitos de redistribuição e permissões de publicação são tratados de forma independente. Uso científico não implica automaticamente permissão para publicar dados brutos.",
       "credit": "Contribuições podem levar à participação formal no projeto e, quando a contribuição científica justificar, à coautoria das publicações resultantes.",
-      "questionsKicker": "Perguntas já encaminhadas",
-      "questionsTitle": "Exemplos de perguntas de pesquisa direcionadas",
-      "questionsIntro": "Pesquisadores já foram contatados com perguntas derivadas de suas publicações. Os exemplos abaixo são anonimizados e ilustram o tipo de intercâmbio científico buscado pelo projeto.",
+      "questionsKicker": "Intercâmbio científico",
+      "questionsTitle": "Outras formas de contribuir",
+      "questionsIntro": "Além do recalque, estas questões de modelagem e dados podem orientar uma colaboração:",
       "questions": {
-        "thermalCycles": "Os ciclos térmicos medidos durante a soldagem podem ser compartilhados como séries numéricas tempo–temperatura, em vez de apenas como figuras?",
-        "processHistories": "Cronogramas representativos do processo, limites entre etapas, sinais elétricos, históricos de deslocamento ou perda de comprimento (burn-off) podem ser disponibilizados de forma processada, anonimizada ou agregada por etapa?",
-        "validationObservables": "Quais observáveis são mais confiáveis para validar um modelo reduzido de soldagem por centelhamento quando medições diretas na interface não estão disponíveis?",
-        "materialTransfer": "Quais variáveis de estado do material e dados de transformação de fase devem ter prioridade em uma biblioteca de materiais reutilizável, e como separar propriedades do material de calibrações específicas do processo?"
+        "thermalCycles": "Você tem séries numéricas de tempo e temperatura, com o local e o método de medição?",
+        "processHistories": "Quais ajustes da máquina e condições de contorno são essenciais para interpretar um ensaio de soldagem?",
+        "validationObservables": "Quais medições melhor avaliam um modelo reduzido de soldagem de topo por centelhamento quando a temperatura da interface não pode ser medida diretamente?",
+        "materialTransfer": "Quais propriedades do material dependentes da temperatura e dados de transformação de fase devem ter prioridade na biblioteca de materiais?"
       },
       "confidentialityTitle": "Confidencialidade e restrições industriais",
       "confidentialityBody": "Alguns conjuntos de dados relevantes podem pertencer a empresas, estar protegidos por confidencialidade contratual ou constituir informação industrialmente sensível e, por isso, não poder ser divulgados. Nenhum pesquisador deve violar essas obrigações, e o compartilhamento de dados proprietários brutos não é pré-requisito para contribuir.",
-      "criticalFeedback": "Quando os dados não puderem ser divulgados, solicita-se explicitamente aos pesquisadores que decidam participar uma avaliação técnica crítica. Comentários sobre hipóteses questionáveis, fenômenos físicos ausentes, entradas de máquina ou processo pouco realistas, observáveis de validação inadequados ou literatura relevante podem ser encaminhados diretamente ao responsável pelo projeto. Esse tipo de feedback é tratado como contribuição científica substantiva e é altamente valorizado.",
+      "criticalFeedback": "Uma avaliação técnica crítica também é muito bem-vinda: envie ao responsável pelo projeto comentários sobre hipóteses do modelo, fenômenos físicos ausentes, métodos de medição ou literatura relevante.",
       "pageTitle": "Colaborar — Multiphysics",
-      "pageDescription": "Necessidades de colaboração experimental e formas de contribuição para o projeto Multiphysics."
+      "pageDescription": "Contribua com dados experimentais de soldagem: sinais sincronizados, geometria da junta e massa da rebarba para estudar recalque, trabalho de compressão e temperatura.",
+      "contactKicker": "Iniciar uma colaboração",
+      "contactTitle": "Entre em contato com o desenvolvedor e responsável pelo projeto",
+      "contactBody": "Use o e-mail institucional abaixo para descrever seu ensaio, os dados ou comentários que pode oferecer e eventuais restrições de compartilhamento. Podemos combinar o escopo e as permissões antes do envio de arquivos.",
+      "upsetting": {
+        "kicker": "Pesquisa em andamento",
+        "title": "Como o recalque afeta a temperatura da junta?",
+        "question": "Na soldagem de topo por centelhamento, queremos medir o trabalho de compressão a partir da força e do deslocamento e avaliar como a concentração da deformação perto da junta afeta a temperatura. Esta investigação está em andamento.",
+        "signalsTitle": "Sinais sincronizados.",
+        "signals": "Séries de força, deslocamento, corrente e tensão no mesmo eixo de tempo, cobrindo o fim do centelhamento e o recalque. Se disponíveis, incluir unidades, marcadores de etapa e como o deslocamento foi definido ou corrigido (por exemplo, movimento da máquina ou encurtamento do corpo de prova).",
+        "geometryTitle": "Forma da junta ou rebarba removida.",
+        "geometry": "Um perfil geométrico medido ou uma imagem com escala da junta antes da rebarbação, ou a massa da rebarba removida.",
+        "weldTitle": "Vínculo com a mesma solda.",
+        "weld": "Um identificador comum que vincule os sinais, o perfil, a imagem ou a massa da rebarba à mesma solda.",
+        "why": "Força e deslocamento ajudam a estimar o trabalho mecânico; corrente e tensão ajudam a identificar o aquecimento elétrico que ainda pode estar presente. A forma da junta ou a massa da rebarba ajuda a avaliar como o material se deformou.",
+        "partial": "Dados parciais ou anonimizados também podem ajudar; não é preciso ter um conjunto completo para iniciar uma conversa.",
+        "contact": "Conte o que você pode compartilhar."
+      }
     },
     "footer": {
       "statement": "Este website apresenta o estado científico publicável do projeto Multiphysics. Ele não expõe correspondência privada, perfis internos de pesquisadores ou material colaborativo não publicado."
     },
-    "noScript": "A visão geral do projeto está disponível sem JavaScript. A alternância interativa de paleta e idioma está desabilitada."
+    "noScript": "Esta página continua disponível sem JavaScript no idioma padrão do site. A troca de idioma requer JavaScript."
   },
   "accessibility": {
     "skipToContent": "Pular para o conteúdo",
     "primaryNavigation": "Navegação principal",
     "homeLink": "Página inicial do Multiphysics",
-    "breadcrumb": "Trilha de navegação"
+    "breadcrumb": "Trilha de navegação",
+    "continueExploring": "Navegação para continuar explorando páginas relacionadas",
+    "technicalNavigation": "Navegação da seção técnica"
+  },
+  "references": {
+    "kicker": "Biblioteca de pesquisa",
+    "title": "Referências",
+    "pageTitle": "Referências — Multiphysics",
+    "description": "Pesquise a bibliografia do Multiphysics: soldagem, ensaios Gleeble, propriedades de materiais e métodos numéricos, com fontes originais e PDFs abertos.",
+    "intro": "Referências sobre soldagem, ensaios termomecânicos, propriedades de materiais e métodos numéricos. Busque por título, autor ou DOI e refine pelos filtros.",
+    "accessNote": "Os PDFs abrem na fonte original e seguem suas condições de uso. A inclusão no catálogo não representa validação pelo projeto.",
+    "filterLabel": "Filtrar referências",
+    "search": "Buscar",
+    "placeholder": "Título, autor ou DOI",
+    "topic": "Tema",
+    "type": "Tipo de publicação",
+    "accessLabel": "Acesso",
+    "from": "Ano inicial",
+    "to": "Ano final",
+    "all": "Todos",
+    "clear": "Limpar filtros",
+    "results": "referências",
+    "empty": "Nenhuma referência corresponde a esses filtros. Tente menos termos ou limpe os filtros.",
+    "source": "Fonte original",
+    "pdf": "PDF na fonte ↗",
+    "permalink": "Link desta referência",
+    "edition": "Edição:",
+    "topics": {
+      "welding": "Soldagem e aquecimento elétrico",
+      "gleeble": "Gleeble e ensaios termomecânicos",
+      "materials": "Propriedades de materiais",
+      "numerics": "Métodos numéricos",
+      "measurement": "Medições e experimentos",
+      "foundations": "Fundamentos e contexto"
+    },
+    "types": {
+      "article": "Artigo de periódico",
+      "book": "Livro",
+      "chapter": "Capítulo de livro",
+      "conference": "Trabalho de congresso",
+      "thesis": "Tese ou dissertação",
+      "report": "Relatório",
+      "manual": "Manual",
+      "other": "Outra referência"
+    },
+    "access": {
+      "open": "Cópia aberta disponível",
+      "unknown": "Acesso ainda não conferido",
+      "restricted": "Acesso restrito"
+    }
   }
 }

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-palette="blueprint" data-title-key="home.vision.pageTitle">
+<html lang="en" dir="ltr" data-palette="blueprint" data-title-key="home.vision.pageTitle">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,7 @@
   <meta name="twitter:description" content="Long-term vision for the Multiphysics open modular research platform.">
   <meta name="twitter:image" content="https://mpx.arguskepheus.com.br/og-multiphysics.png">
   <meta name="twitter:image:alt" content="A worn, translucent lilac floppy disk with the AK initials.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/vision/#webpage","url":"https://mpx.arguskepheus.com.br/vision/","name":"Vision — Multiphysics","description":"Long-term vision for the Multiphysics open modular research platform.","isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/vision/#webpage","url":"https://mpx.arguskepheus.com.br/vision/","name":"Vision — Multiphysics","description":"Long-term vision for the Multiphysics open modular research platform.","inLanguage":"en","publisher":{"@type":"Organization","@id":"https://www.arguskepheus.com.br/#organization","name":"Argus Kepheus","url":"https://www.arguskepheus.com.br/"},"isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
@@ -39,6 +39,7 @@
     <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
     <a href="/current-model/" data-i18n="nav.current">Current model</a>
     <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/references/" data-i18n="nav.references">References</a>
     <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
   </nav>
   <details class="site-nav-mobile">
@@ -49,16 +50,17 @@
       <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
       <a href="/current-model/" data-i18n="nav.current">Current model</a>
       <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/references/" data-i18n="nav.references">References</a>
       <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
     </nav>
   </details>
   <div class="site-controls">
     <label class="locale-control">
       <span class="sr-only" data-i18n="locale.label">Language</span>
-      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
-        <option value="en">English</option>
-        <option value="pt-BR">Português</option>
-        <option value="zh-CN">中文</option>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label" disabled>
+        <option value="en" data-i18n-invariant="language-autonym">English</option>
+        <option value="pt-BR" data-i18n-invariant="language-autonym">Português</option>
+        <option value="zh-CN" data-i18n-invariant="language-autonym">中文</option>
       </select>
     </label>
     <button
@@ -82,7 +84,7 @@
   <main id="main" class="section-shell">
     <section id="vision" class="content-section section-anchor" aria-labelledby="vision-title">
           <p class="kicker" data-i18n="home.vision.kicker">Long-term vision</p>
-          <h2 id="vision-title" data-i18n="home.vision.title">A reusable FOSS process-simulation platform</h2>
+          <h1 id="vision-title" class="section-page-title" data-i18n="home.vision.title">A reusable FOSS process-simulation platform</h1>
           <p class="section-copy" data-i18n="home.vision.body">Multiphysics explores how an integrated process-simulation environment can be developed with a FOSS architecture, open scientific access and explicit separation between physical models, numerical methods and software implementations. The software is the long-term engineering artifact; modelling, numerical, experimental and validation problems encountered along the way are expected to generate independent scientific contributions and publications.</p>
           <aside class="paragraph-note" aria-labelledby="vision-terminology-title">
             <p id="vision-terminology-title" class="paragraph-note-title" data-i18n="home.vision.terminology.title">Terminology note</p>
@@ -106,6 +108,10 @@
             </dl>
           </aside>
         </section>
+<nav class="section-continuation" aria-label="Continue exploring related pages" data-i18n="accessibility.continueExploring" data-i18n-attr="aria-label">
+    <span class="section-continuation-label" data-i18n="nav.continueExploring">Continue exploring</span>
+    <div class="section-continuation-links"><a href="/architecture/"><span data-i18n="nav.architecture">Architecture</span></a><a href="/current-model/"><span data-i18n="nav.current">Current model</span></a></div>
+  </nav>
   </main>
   <footer class="site-footer">
   <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
@@ -119,6 +125,7 @@
     data-visible="false"
     tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
 </footer>
+<noscript><p class="noscript-notice" data-i18n="home.noScript">This page remains available without JavaScript in the site&#39;s default language. Changing the language requires JavaScript.</p></noscript>
 
   <script type="module" src="/assets/js/main.js"></script>
 </body>

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-palette="blueprint" data-title-key="">
+<html lang="en" dir="ltr" data-palette="blueprint" data-title-key="">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,7 +27,7 @@
   <meta name="twitter:description" content="GNU Octave implementation — current technical documentation for the Multiphysics project.">
   <meta name="twitter:image" content="https://mpx.arguskepheus.com.br/og-multiphysics.png">
   <meta name="twitter:image:alt" content="A worn, translucent lilac floppy disk with the AK initials.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/technical/implementations/octave/#webpage","url":"https://mpx.arguskepheus.com.br/technical/implementations/octave/","name":"GNU Octave implementation — Multiphysics","description":"GNU Octave implementation — current technical documentation for the Multiphysics project.","isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://mpx.arguskepheus.com.br/technical/implementations/octave/#webpage","url":"https://mpx.arguskepheus.com.br/technical/implementations/octave/","name":"GNU Octave implementation — Multiphysics","description":"GNU Octave implementation — current technical documentation for the Multiphysics project.","inLanguage":"en","publisher":{"@type":"Organization","@id":"https://www.arguskepheus.com.br/#organization","name":"Argus Kepheus","url":"https://www.arguskepheus.com.br/"},"isPartOf":{"@type":"WebSite","@id":"https://mpx.arguskepheus.com.br/#website","url":"https://mpx.arguskepheus.com.br/","name":"Multiphysics"}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="accessibility.skipToContent">Skip to content</a>
@@ -39,6 +39,7 @@
     <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
     <a href="/current-model/" data-i18n="nav.current">Current model</a>
     <a href="/technical/" data-i18n="nav.technical">Technical</a>
+    <a href="/references/" data-i18n="nav.references">References</a>
     <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
   </nav>
   <details class="site-nav-mobile">
@@ -49,16 +50,17 @@
       <a href="/architecture/" data-i18n="nav.architecture">Architecture</a>
       <a href="/current-model/" data-i18n="nav.current">Current model</a>
       <a href="/technical/" data-i18n="nav.technical">Technical</a>
+      <a href="/references/" data-i18n="nav.references">References</a>
       <a href="/collaborate/" data-i18n="nav.collaborate">Collaborate</a>
     </nav>
   </details>
   <div class="site-controls">
     <label class="locale-control">
       <span class="sr-only" data-i18n="locale.label">Language</span>
-      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label">
-        <option value="en">English</option>
-        <option value="pt-BR">Português</option>
-        <option value="zh-CN">中文</option>
+      <select id="locale-select" aria-label="Language" data-i18n="locale.label" data-i18n-attr="aria-label" disabled>
+        <option value="en" data-i18n-invariant="language-autonym">English</option>
+        <option value="pt-BR" data-i18n-invariant="language-autonym">Português</option>
+        <option value="zh-CN" data-i18n-invariant="language-autonym">中文</option>
       </select>
     </label>
     <button
@@ -80,114 +82,226 @@
 </header>
 
   <main id="main" class="technical-shell technical-article-shell">
-<nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementations</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page">GNU Octave</span></li></ol></nav>
+<div data-technical-article-host data-current-locale="en"><nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementations</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">GNU Octave</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Technical section navigation" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Technical layers</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a></li><li><a href="/technical/implementations/" aria-current="location"><span data-i18n="technical.labels.implementations">Implementations</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verification</span></a></li></ul>
+  </nav>
     <header class="article-header">
-      <p class="kicker">Implementation · GNU Octave</p>
-      <h1>GNU Octave implementation</h1>
+      <p class="kicker" data-i18n-meta="kicker">Implementation · GNU Octave</p>
+      <h1 id="gnu-octave-implementation" data-i18n-meta="title">GNU Octave implementation</h1>
       <div class="article-meta">
-        <span class="status-chip" data-status="technical preview">technical preview</span>
-        <span><span data-i18n="technical.labels.source">source</span> 967e466af56c</span>
-        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-10-02</span>
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">technical preview</span>
+        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-10-07</span>
       </div>
-      <dl class="article-summary"><div><dt data-i18n="technical.labels.engine">Engine</dt><dd>GNU Octave</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Implementation status</dt><dd>active sibling / broad workflow coverage</dd></div></dl>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.engine">Engine</dt><dd data-i18n-invariant="engine-name">GNU Octave</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Implementation status</dt><dd data-i18n-meta="implementation_status_label">active sibling / broad workflow coverage</dd></div></dl>
     </header>
 
-    <details class="provenance"><summary data-i18n="technical.labels.provenance">Provenance and source references</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.sourceRevision">Source revision</dt><dd><code>967e466af56ccc5fc41c939464096e5d72c19c37</code></dd></div><div><dt data-i18n="technical.labels.operatorRevision">Operator revision</dt><dd><code>not recorded</code></dd></div><div><dt>Curated authority records</dt><dd>4</dd></div><div><dt>Curated implementation records</dt><dd>8</dd></div><div><dt>Curated verification records</dt><dd>5</dd></div></dl></details>
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">Provenance and source references</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">Curated authority records</dt><dd>6</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">Curated implementation records</dt><dd>8</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">Curated verification records</dt><dd>5</dd></div></dl></details>
     <div class="article-layout">
       <details class="article-toc" open>
         <summary data-i18n="technical.labels.onThisPage">On this page</summary>
-        <ol><li><a href="#1-role-in-the-project">1. Role in the project</a></li><li><a href="#2-canonical-entry-points">2. Canonical entry points</a></li><li><a href="#3-solver-registry">3. Solver registry</a></li><li><a href="#4-solver-adapters">4. Solver adapters</a></li><li><a href="#5-process-orchestration">5. Process orchestration</a></li><li><a href="#6-spatial-method-packages">6. Spatial method packages</a></li><li><a href="#7-shared-numerical-services">7. Shared numerical services</a></li><li><a href="#8-physical-and-numerical-ownership">8. Physical and numerical ownership</a></li><li><a href="#9-verification-surfaces">9. Verification surfaces</a></li><li><a href="#10-relationship-to-the-c-and-julia-engines">10. Relationship to the C++ and Julia engines</a></li><li><a href="#11-current-limitations-and-publication-boundary">11. Current limitations and publication boundary</a></li></ol>
+        <ol data-i18n-body="toc"><li><a href="#1-role-in-the-project">Role in the project</a></li><li><a href="#2-method-neutral-execution">Method-neutral execution</a></li><li><a href="#3-solver-selection-and-extensibility">Solver selection and extensibility</a></li><li><a href="#4-shared-solver-interface">Shared solver interface</a></li><li><a href="#5-process-orchestration">Process orchestration</a></li><li><a href="#6-method-specific-and-shared-numerical-services">Method-specific and shared numerical services</a></li><li><a href="#7-physical-and-numerical-ownership">Physical and numerical ownership</a></li><li><a href="#8-verification-surfaces">Verification surfaces</a></li><li><a href="#9-relationship-to-c-and-julia">Relationship to C++ and Julia</a></li><li><a href="#10-current-limitations-and-publication-boundary">Current limitations and publication boundary</a></li></ol>
       </details>
-      <article class="technical-prose">
-        <h1 id="gnu-octave-implementation">GNU Octave implementation</h1>
-<blockquote><p>GNU Octave is one of the active sibling calculation engines of the Multiphysics project. It currently has the broadest process-workflow coverage, but this does not make it the scientific reference or permanent primary engine. This page describes software architecture and execution flow; it does not redefine the FDM, FEM or FVM numerical formulations.</p></blockquote>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>GNU Octave is one of the active sibling calculation engines of the Multiphysics project. It currently has the broadest process-workflow coverage, but this does not make it the scientific reference or permanent primary engine. This page describes public software architecture and execution concepts without exposing repository-internal workflow labels.</p></blockquote>
 <h2 id="1-role-in-the-project">1. Role in the project</h2>
-<p>The Octave codebase is the original calculation environment and remains an active sibling of the C++ engine. Numerical method identity remains independent from engine identity: FDM, FEM and FVM are spatial methods, while GNU Octave is one implementation environment capable of hosting those methods.</p>
-<p>Octave is retained deliberately because its MATLAB-compatible language and high-level matrix/vector operations make numerical prototyping, array-oriented data manipulation, diagnostics and comparison with MATLAB-oriented scientific workflows straightforward. These are engine-specific advantages, not grounds for treating Octave results as scientific truth.</p>
-<p>The project remains in <code>research-development</code>. Octave currently has the broadest end-to-end process-workflow coverage, while the C++ sibling has a narrower resolved-case surface. Coverage and architectural status are separate: both engines are active. FDM and FEM are implemented. FVM is also implemented for the fixed-geometry/current-heating scope, and that target is implemented-and-verified under the R2 attestation. Broader geometry-changing welding stages remain unpromoted, so the package-level capability is still limited in scope; this is a capability boundary, not an unfinished fixed-geometry solver.</p>
-<h2 id="2-canonical-entry-points">2. Canonical entry points</h2>
-<p>New solver execution is expected to enter through the method-neutral API:</p>
-<pre><code class="language-octave">ctx = multiphysics.api.create_context(&#39;fdm&#39;, case_id);
-[T, T_sample, memory] = multiphysics.api.run_stage( ...
-    ctx, &#39;current_heating&#39;, profile, 1, 1, stage_input, nsteps);</code></pre>
-<p><code>create_context()</code> combines four things without collapsing their meanings:</p>
-<ul><li>a selected spatial method;</li><li>a physical/research case loaded from the project configuration layer;</li><li>a <code>RunSpecification</code> carrying numerical execution choices such as target</li></ul>
-<p>spacing and time step;</p>
-<ul><li>a solver factory obtained from the central solver registry.</li></ul>
-<p>The resulting context stores the method, resolved case, component metadata, run specification, solver adapter and the registry entry used to construct it.</p>
-<h2 id="3-solver-registry">3. Solver registry</h2>
-<p><code>+multiphysics/+api/solver_registry.m</code> is the central registry for spatial solver plugins. A method-specific entry declares whether the solver is implemented, its factory, contract version and advertised capabilities.</p>
-<p>The architectural intention is that adding a new spatial method requires its own solver package and registry entry, rather than adding method branches to the shared physics or process engine.</p>
-<p>At the current reviewed revision, the registry exposes:</p>
-<pre><code class="language-text">FDM  implemented   independent spatial solver
-FEM  implemented   independent spatial solver
-FVM  implemented   fixed geometry/current heating verified; geometry-changing unpromoted</code></pre>
-<p>The public website therefore describes FVM as implemented for a verified fixed-geometry scope while keeping geometry-changing welding capability explicitly unpromoted.</p>
-<h2 id="4-solver-adapters">4. Solver adapters</h2>
-<p>Each active spatial method supplies a small adapter with a shared shape:</p>
-<pre><code class="language-text">solver.id
-solver.operator_id
-solver.operator_revision
-solver.case
-solver.run_spec
-solver.config
-solver.step_fn</code></pre>
-<p>For example, the FDM adapter binds the current FDM runtime constants and <code>fdm_core_step</code>, while the FEM adapter binds its own runtime constants and <code>fem_core_step</code>. The shared process engine depends on the adapter contract, not on a hard-coded FDM or FEM implementation.</p>
-<p>This is the key separation:</p>
-<pre><code class="language-text">physical case + run specification
-             |
-             v
-       create_context()
-             |
-             v
-       solver registry
-             |
-       +-----+-----+
-       |           |
-      FDM         FEM        ...
-       |           |
-       +-----+-----+
-             |
-             v
-      shared process engine</code></pre>
+<p>GNU Octave is the original calculation environment and remains an active sibling of the C++ and Julia engines. Numerical method identity remains independent from engine identity: FDM, FEM and FVM are spatial methods, while GNU Octave is one implementation environment capable of hosting them.</p>
+<p>Octave is retained because its MATLAB-compatible language and high-level matrix and vector operations make numerical prototyping, diagnostics and scientific inspection straightforward. Its broad workflow coverage complements the compiled/runtime-control role of C++17 and the high-level JIT scientific-computing role of Julia. These are complementary engineering characteristics, not a ranking of scientific validity or performance.</p>
+<p>FDM and FEM are implemented. FVM is implemented and verified for the fixed-geometry/current-heating scope. It also runs Maturity-1 Flashing with partial front control volumes, numerically verified under ADR 0036. Maturity-0 Flashing and geometry-changing Upsetting/Pressing remain unpromoted.</p>
+<h2 id="2-method-neutral-execution">2. Method-neutral execution</h2>
+<p>The Octave architecture uses a method-neutral execution layer. A simulation context combines the selected spatial method, a resolved physical case, numerical execution choices and the appropriate solver implementation without collapsing those concepts into one object.</p>
+<p>The same process orchestration can therefore advance different spatial discretisations while preserving common process chronology, state transfer and temporal-integration rules.</p>
+<h2 id="3-solver-selection-and-extensibility">3. Solver selection and extensibility</h2>
+<p>A central solver registry connects method identities to their implementations and declared capabilities. Adding another spatial method is intended to introduce another solver implementation rather than adding method-specific branches throughout shared physics and process logic.</p>
+<div class="table-wrap"><table data-columns="2"><thead><tr><th scope="col">Method</th><th scope="col">GNU Octave status</th></tr></thead><tbody><tr><td>FDM</td><td>implemented with broad workflow coverage</td></tr><tr><td>FEM</td><td>implemented with broad workflow coverage</td></tr><tr><td>FVM</td><td>fixed-geometry/current-heating implemented and verified; Maturity-1 Flashing numerically verified (ADR 0036); geometry-changing Upsetting/Pressing unpromoted</td></tr></tbody></table></div>
+<h2 id="4-shared-solver-interface">4. Shared solver interface</h2>
+<p>Each spatial method exposes the common information needed by the process layer: method identity, resolved case, numerical configuration and a step operation. The process layer depends on that shared interface rather than on a hard-coded FDM, FEM or FVM implementation.</p>
 <h2 id="5-process-orchestration">5. Process orchestration</h2>
-<p><code>multiphysics.api.run_stage()</code> delegates to the solver-independent <code>run_stage_engine()</code>. The shared engine owns process chronology, state chaining, remapping/event handling, sampling and stage-handler dispatch. A spatial solver supplies the spatial step through <code>solver.step_fn</code>.</p>
-<p>The process controller therefore does not duplicate a complete sequence for FDM and another for FEM. Stage bodies live under the shared process namespace, and stage dispatch is itself registry-based.</p>
-<p>For schedule-oriented studies, <code>run_process()</code> reads the process schedule from the case and chains the stage outputs and private integrator memory through the selected solver.</p>
-<h2 id="6-spatial-method-packages">6. Spatial method packages</h2>
-<p>Method-specific Octave code is organised under:</p>
-<pre><code class="language-text">+multiphysics/+solvers/+fdm/
-+multiphysics/+solvers/+fem/
-+multiphysics/+solvers/+fvm/</code></pre>
-<p>FDM and FEM currently separate method-specific concerns into areas such as:</p>
-<pre><code class="language-text">configuration/
-numerics/
-runtime/
-stages/       historical compatibility surface
-variants/     historical compatibility surface</code></pre>
-<p>The <code>stages/</code>, <code>variants/</code> and <code>main.m</code> compatibility APIs are retained for transition/regression purposes. Current project documentation directs new code toward <code>create_context()</code> + <code>run_stage()</code> instead of those historical wrappers.</p>
-<h2 id="7-shared-numerical-services">7. Shared numerical services</h2>
-<p>Not every numerical operation belongs inside a spatial-method tree. Shared services live under <code>+multiphysics/+numerics/</code>, including:</p>
-<ul><li>boundary/interface numerical support;</li><li>interpolation;</li><li>meshes;</li><li>remapping;</li><li>temporal integration.</li></ul>
-<p>The time integrator is intentionally method-neutral. After a spatial solver constructs a semi-discrete right-hand side, <code>multiphysics.numerics.time.advance()</code> selects the configured temporal algorithm. The current implementation supports primary Forward Euler and Adams--Bashforth 2 with its configured starter/restart policy.</p>
-<p>Private integrator memory remains a numerical object distinct from the physical state and from the scientific process history.</p>
-<h2 id="8-physical-and-numerical-ownership">8. Physical and numerical ownership</h2>
-<p>The Octave solver trees do not own the universal definitions of materials, physical interface laws or stage semantics. Those responsibilities are shared project-level concepts and are resolved upstream or through common modules.</p>
-<p>Consequently, changing from FDM to FEM should not redefine:</p>
-<ul><li>the identity of R and S workpiece roles;</li><li>the physical thermal-contact law;</li><li>the physical distant-end condition;</li><li>the material dataset identity;</li><li>the process schedule itself.</li></ul>
-<p>Only the appropriate numerical representation changes.</p>
-<h2 id="9-verification-surfaces">9. Verification surfaces</h2>
-<p>The Octave implementation has separate verification surfaces for architecture and for individual spatial methods. Examples include solver-registry tests, canonical-API versus historical-wrapper equivalence, process-sequence tests, FDM conservation/refinement tests and FEM assembly/stability tests.</p>
-<p><code>test_api_wrapper_equivalence.m</code> specifically checks that direct use of the canonical context/stage API reproduces the historical wrapper outputs for the covered FDM and FEM calls, including the carried AB2 history objects.</p>
-<p>These tests are implementation evidence. Their existence must not be interpreted as experimental validation of the underlying physical model.</p>
-<h2 id="10-relationship-to-the-c-and-julia-engines">10. Relationship to the C++ and Julia engines</h2>
-<p>GNU Octave and C++ are active sibling engines. The Octave implementation does not call the C++ engine, and the C++ engine does not call Octave. Cross-language comparison is intentionally performed above both engines through resolved-case fixtures and neutral comparison tooling.</p>
-<p>This prevents one implementation from becoming an opaque backend of the other and makes cross-engine agreement useful as independent implementation evidence. Julia is planned as a third sibling rather than as a replacement. Its eventual role is to reproduce selected formulations independently and to investigate language/runtime trade-offs under equivalent numerical and benchmark contracts.</p>
-<h2 id="11-current-limitations-and-publication-boundary">11. Current limitations and publication boundary</h2>
-<p>This page documents architecture visible in the reviewed private source revision. It does not expose private cases, unpublished datasets or restricted collaboration material. It also does not claim that every registered method has the same stage coverage or verification maturity.</p>
-<p>The canonical private repository remains the implementation authority. MPX is a curated public technical view of that state rather than an independently edited copy of the solver code.</p>
+<p>The shared process engine owns chronology, state chaining, remapping and event handling, sampling and stage dispatch. A spatial solver supplies the method-specific spatial update.</p>
+<p>Schedule-oriented studies therefore reuse one process orchestration layer instead of maintaining a complete process sequence separately for every numerical method.</p>
+<h2 id="6-method-specific-and-shared-numerical-services">6. Method-specific and shared numerical services</h2>
+<p>Spatial discretisation remains method-specific, while interpolation, meshes, remapping, boundary/interface support and temporal integration can be shared when their governing assumptions are method-neutral.</p>
+<p>The current temporal layer supports Forward Euler and Adams–Bashforth 2 with explicit starter/restart semantics. Private integrator memory remains distinct from the physical state and scientific process history.</p>
+<h2 id="7-physical-and-numerical-ownership">7. Physical and numerical ownership</h2>
+<p>The calculation engine does not own the universal definitions of materials, physical interface laws or process-stage meaning. Those are project-level model concepts resolved before or alongside numerical execution.</p>
+<p>Changing from FDM to FEM should therefore change the spatial discretisation, not the identity of the workpieces, material laws, thermal-contact law, distant-end condition or process schedule.</p>
+<h2 id="8-verification-surfaces">8. Verification surfaces</h2>
+<p>The Octave implementation is checked at both architecture and numerical-method levels. The verification surface covers solver selection, process-sequence consistency, compatibility of supported execution paths, FDM conservation and refinement behaviour, and FEM assembly and stability references.</p>
+<p>Those checks are implementation and numerical evidence. They are not experimental validation of the physical welding model.</p>
+<h2 id="9-relationship-to-c-and-julia">9. Relationship to C++ and Julia</h2>
+<p>GNU Octave, C++ and Julia are independent sibling engines. None obtains its numerical result by calling another engine. Same-method cross-engine comparison is performed only after each engine has produced its own history.</p>
+<p>Julia FDM, FEM and fixed-geometry FVM have native verification evidence across four frozen engine-neutral reference cases with same-method comparison against the other engines. Geometry-changing Julia FVM remains unpromoted. Project-current performance is <code>CANONICAL_MEASURED</code> under <code>PERFORMANCE.STATUS.GOVERNANCE.2026-10-06.R1</code>, backed by governed P1/P2 campaign <code>PERFORMANCE-MULTI-ENGINE-20261005-232449Z</code>; the measurements are scoped to the recorded machine, toolchain, cases, methods and timing mode and do not establish an overall engine ranking or experimental validation.</p>
+<h2 id="10-current-limitations-and-publication-boundary">10. Current limitations and publication boundary</h2>
+<p>Octave currently has the broadest process-workflow coverage, but this does not imply that every numerical method has equal stage coverage or equal verification maturity.</p>
+<p>The public website presents the scientific architecture, verified scope and capability boundaries. Repository paths, campaign identifiers, internal workflow labels and restricted data remain part of the private implementation and evidence layer rather than the public explanatory surface.</p>
       </article>
-    </div>
+    </div></div>
+<template data-technical-locale="en" data-page-title="GNU Octave implementation — Multiphysics" data-page-description="GNU Octave implementation — current technical documentation for the Multiphysics project."><nav class="technical-breadcrumb" aria-label="Breadcrumb" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Technical</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementations</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">GNU Octave</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Technical section navigation" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Technical layers</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Numerical formulation</span></a></li><li><a href="/technical/implementations/" aria-current="location"><span data-i18n="technical.labels.implementations">Implementations</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verification</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">Implementation · GNU Octave</p>
+      <h1 id="gnu-octave-implementation" data-i18n-meta="title">GNU Octave implementation</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">technical preview</span>
+        <span><span data-i18n="technical.labels.reviewed">reviewed</span> 2026-10-07</span>
+      </div>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.engine">Engine</dt><dd data-i18n-invariant="engine-name">GNU Octave</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Implementation status</dt><dd data-i18n-meta="implementation_status_label">active sibling / broad workflow coverage</dd></div></dl>
+    </header>
+
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">Provenance and source references</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">Curated authority records</dt><dd>6</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">Curated implementation records</dt><dd>8</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">Curated verification records</dt><dd>5</dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">On this page</summary>
+        <ol data-i18n-body="toc"><li><a href="#1-role-in-the-project">Role in the project</a></li><li><a href="#2-method-neutral-execution">Method-neutral execution</a></li><li><a href="#3-solver-selection-and-extensibility">Solver selection and extensibility</a></li><li><a href="#4-shared-solver-interface">Shared solver interface</a></li><li><a href="#5-process-orchestration">Process orchestration</a></li><li><a href="#6-method-specific-and-shared-numerical-services">Method-specific and shared numerical services</a></li><li><a href="#7-physical-and-numerical-ownership">Physical and numerical ownership</a></li><li><a href="#8-verification-surfaces">Verification surfaces</a></li><li><a href="#9-relationship-to-c-and-julia">Relationship to C++ and Julia</a></li><li><a href="#10-current-limitations-and-publication-boundary">Current limitations and publication boundary</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>GNU Octave is one of the active sibling calculation engines of the Multiphysics project. It currently has the broadest process-workflow coverage, but this does not make it the scientific reference or permanent primary engine. This page describes public software architecture and execution concepts without exposing repository-internal workflow labels.</p></blockquote>
+<h2 id="1-role-in-the-project">1. Role in the project</h2>
+<p>GNU Octave is the original calculation environment and remains an active sibling of the C++ and Julia engines. Numerical method identity remains independent from engine identity: FDM, FEM and FVM are spatial methods, while GNU Octave is one implementation environment capable of hosting them.</p>
+<p>Octave is retained because its MATLAB-compatible language and high-level matrix and vector operations make numerical prototyping, diagnostics and scientific inspection straightforward. Its broad workflow coverage complements the compiled/runtime-control role of C++17 and the high-level JIT scientific-computing role of Julia. These are complementary engineering characteristics, not a ranking of scientific validity or performance.</p>
+<p>FDM and FEM are implemented. FVM is implemented and verified for the fixed-geometry/current-heating scope. It also runs Maturity-1 Flashing with partial front control volumes, numerically verified under ADR 0036. Maturity-0 Flashing and geometry-changing Upsetting/Pressing remain unpromoted.</p>
+<h2 id="2-method-neutral-execution">2. Method-neutral execution</h2>
+<p>The Octave architecture uses a method-neutral execution layer. A simulation context combines the selected spatial method, a resolved physical case, numerical execution choices and the appropriate solver implementation without collapsing those concepts into one object.</p>
+<p>The same process orchestration can therefore advance different spatial discretisations while preserving common process chronology, state transfer and temporal-integration rules.</p>
+<h2 id="3-solver-selection-and-extensibility">3. Solver selection and extensibility</h2>
+<p>A central solver registry connects method identities to their implementations and declared capabilities. Adding another spatial method is intended to introduce another solver implementation rather than adding method-specific branches throughout shared physics and process logic.</p>
+<div class="table-wrap"><table data-columns="2"><thead><tr><th scope="col">Method</th><th scope="col">GNU Octave status</th></tr></thead><tbody><tr><td>FDM</td><td>implemented with broad workflow coverage</td></tr><tr><td>FEM</td><td>implemented with broad workflow coverage</td></tr><tr><td>FVM</td><td>fixed-geometry/current-heating implemented and verified; Maturity-1 Flashing numerically verified (ADR 0036); geometry-changing Upsetting/Pressing unpromoted</td></tr></tbody></table></div>
+<h2 id="4-shared-solver-interface">4. Shared solver interface</h2>
+<p>Each spatial method exposes the common information needed by the process layer: method identity, resolved case, numerical configuration and a step operation. The process layer depends on that shared interface rather than on a hard-coded FDM, FEM or FVM implementation.</p>
+<h2 id="5-process-orchestration">5. Process orchestration</h2>
+<p>The shared process engine owns chronology, state chaining, remapping and event handling, sampling and stage dispatch. A spatial solver supplies the method-specific spatial update.</p>
+<p>Schedule-oriented studies therefore reuse one process orchestration layer instead of maintaining a complete process sequence separately for every numerical method.</p>
+<h2 id="6-method-specific-and-shared-numerical-services">6. Method-specific and shared numerical services</h2>
+<p>Spatial discretisation remains method-specific, while interpolation, meshes, remapping, boundary/interface support and temporal integration can be shared when their governing assumptions are method-neutral.</p>
+<p>The current temporal layer supports Forward Euler and Adams–Bashforth 2 with explicit starter/restart semantics. Private integrator memory remains distinct from the physical state and scientific process history.</p>
+<h2 id="7-physical-and-numerical-ownership">7. Physical and numerical ownership</h2>
+<p>The calculation engine does not own the universal definitions of materials, physical interface laws or process-stage meaning. Those are project-level model concepts resolved before or alongside numerical execution.</p>
+<p>Changing from FDM to FEM should therefore change the spatial discretisation, not the identity of the workpieces, material laws, thermal-contact law, distant-end condition or process schedule.</p>
+<h2 id="8-verification-surfaces">8. Verification surfaces</h2>
+<p>The Octave implementation is checked at both architecture and numerical-method levels. The verification surface covers solver selection, process-sequence consistency, compatibility of supported execution paths, FDM conservation and refinement behaviour, and FEM assembly and stability references.</p>
+<p>Those checks are implementation and numerical evidence. They are not experimental validation of the physical welding model.</p>
+<h2 id="9-relationship-to-c-and-julia">9. Relationship to C++ and Julia</h2>
+<p>GNU Octave, C++ and Julia are independent sibling engines. None obtains its numerical result by calling another engine. Same-method cross-engine comparison is performed only after each engine has produced its own history.</p>
+<p>Julia FDM, FEM and fixed-geometry FVM have native verification evidence across four frozen engine-neutral reference cases with same-method comparison against the other engines. Geometry-changing Julia FVM remains unpromoted. Project-current performance is <code>CANONICAL_MEASURED</code> under <code>PERFORMANCE.STATUS.GOVERNANCE.2026-10-06.R1</code>, backed by governed P1/P2 campaign <code>PERFORMANCE-MULTI-ENGINE-20261005-232449Z</code>; the measurements are scoped to the recorded machine, toolchain, cases, methods and timing mode and do not establish an overall engine ranking or experimental validation.</p>
+<h2 id="10-current-limitations-and-publication-boundary">10. Current limitations and publication boundary</h2>
+<p>Octave currently has the broadest process-workflow coverage, but this does not imply that every numerical method has equal stage coverage or equal verification maturity.</p>
+<p>The public website presents the scientific architecture, verified scope and capability boundaries. Repository paths, campaign identifiers, internal workflow labels and restricted data remain part of the private implementation and evidence layer rather than the public explanatory surface.</p>
+      </article>
+    </div></template>
+<template data-technical-locale="pt-BR" data-page-title="Implementação GNU Octave — Multiphysics" data-page-description="Arquitetura pública da implementação GNU Octave do projeto Multiphysics, incluindo execução neutra em relação ao método, orquestração compartilhada, serviços numéricos e limites de verificação."><nav class="technical-breadcrumb" aria-label="Trilha de navegação" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">Técnico</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">Implementações</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">GNU Octave</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="Navegação da seção técnica" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">Camadas técnicas</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">Formulação numérica</span></a></li><li><a href="/technical/implementations/" aria-current="location"><span data-i18n="technical.labels.implementations">Implementações</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">Verificação</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">Implementação · GNU Octave</p>
+      <h1 id="gnu-octave-implementation" data-i18n-meta="title">Implementação GNU Octave</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">prévia técnica</span>
+        <span><span data-i18n="technical.labels.reviewed">revisado em</span> 2026-10-07</span>
+      </div>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.engine">Ambiente de cálculo</dt><dd data-i18n-invariant="engine-name">GNU Octave</dd></div><div><dt data-i18n="technical.labels.implementationStatus">Estado da implementação</dt><dd data-i18n-meta="implementation_status_label">engine irmão ativo / ampla cobertura de workflow</dd></div></dl>
+    </header>
+
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">Proveniência e referências de fonte</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">Registros de autoridade selecionados</dt><dd>6</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">Registros de implementação selecionados</dt><dd>8</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">Registros de verificação selecionados</dt><dd>5</dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">Nesta página</summary>
+        <ol data-i18n-body="toc"><li><a href="#1-role-in-the-project">Papel no projeto</a></li><li><a href="#2-method-neutral-execution">Execução neutra em relação ao método</a></li><li><a href="#3-solver-selection-and-extensibility">Seleção de solver e extensibilidade</a></li><li><a href="#4-shared-solver-interface">Interface compartilhada dos solvers</a></li><li><a href="#5-process-orchestration">Orquestração do processo</a></li><li><a href="#6-method-specific-and-shared-numerical-services">Serviços numéricos específicos e compartilhados</a></li><li><a href="#7-physical-and-numerical-ownership">Responsabilidade física e numérica</a></li><li><a href="#8-verification-surfaces">Superfícies de verificação</a></li><li><a href="#9-relationship-to-c-and-julia">Relação com C++ e Julia</a></li><li><a href="#10-current-limitations-and-publication-boundary">Limitações atuais e fronteira de publicação</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>GNU Octave é um dos engines de cálculo irmãos ativos do projeto Multiphysics. Atualmente possui a cobertura mais ampla do workflow de processo, mas isso não o transforma na referência científica nem no engine primário permanente. Esta página descreve arquitetura pública de software e conceitos de execução sem expor rótulos internos do workflow do repositório.</p></blockquote>
+<h2 id="1-role-in-the-project">1. Papel no projeto</h2>
+<p>GNU Octave é o ambiente de cálculo original e permanece como um irmão ativo dos engines C++ e Julia. A identidade do método numérico permanece independente da identidade do engine: FDM, FEM e FVM são métodos espaciais, enquanto GNU Octave é um ambiente de implementação capaz de hospedá-los.</p>
+<p>Octave é mantido porque sua linguagem compatível com MATLAB e suas operações matriciais e vetoriais de alto nível tornam diretos o prototipagem numérica, os diagnósticos e a inspeção científica. Sua ampla cobertura de workflow complementa o papel compilado e de controle de runtime do C++17 e o papel de computação científica JIT de alto nível do Julia. Essas são características de engenharia complementares, não uma classificação de validade científica ou desempenho.</p>
+<p>FDM e FEM estão implementados. FVM está implementado e verificado para o escopo de geometria fixa/aquecimento por corrente. Ele também executa Flashing de Maturidade 1 com volumes de controle parciais na frente, verificado numericamente conforme a ADR 0036. Flashing de Maturidade 0 e Upsetting/Pressing com mudança de geometria permanecem não promovidos.</p>
+<h2 id="2-method-neutral-execution">2. Execução neutra em relação ao método</h2>
+<p>A arquitetura Octave usa uma camada de execução neutra em relação ao método. Um contexto de simulação combina o método espacial selecionado, um caso físico resolvido, escolhas de execução numérica e a implementação apropriada do solver sem colapsar esses conceitos em um único objeto.</p>
+<p>A mesma orquestração de processo pode, portanto, avançar diferentes discretizações espaciais preservando a cronologia comum do processo, a transferência de estado e as regras de integração temporal.</p>
+<h2 id="3-solver-selection-and-extensibility">3. Seleção de solver e extensibilidade</h2>
+<p>Um registro central de solvers conecta identidades de métodos às suas implementações e capacidades declaradas. A inclusão de outro método espacial deve introduzir outra implementação de solver, em vez de adicionar ramificações específicas de método por toda a física compartilhada e pela lógica de processo.</p>
+<div class="table-wrap"><table data-columns="2"><thead><tr><th scope="col">Método</th><th scope="col">Estado no GNU Octave</th></tr></thead><tbody><tr><td>FDM</td><td>implementado com ampla cobertura de workflow</td></tr><tr><td>FEM</td><td>implementado com ampla cobertura de workflow</td></tr><tr><td>FVM</td><td>geometria fixa/aquecimento por corrente implementado e verificado; Flashing de Maturidade 1 verificado numericamente (ADR 0036); Upsetting/Pressing com mudança de geometria não promovidos</td></tr></tbody></table></div>
+<h2 id="4-shared-solver-interface">4. Interface compartilhada dos solvers</h2>
+<p>Cada método espacial expõe as informações comuns necessárias à camada de processo: identidade do método, caso resolvido, configuração numérica e uma operação de avanço. A camada de processo depende dessa interface compartilhada, e não de uma implementação FDM, FEM ou FVM codificada diretamente.</p>
+<h2 id="5-process-orchestration">5. Orquestração do processo</h2>
+<p>O engine de processo compartilhado controla cronologia, encadeamento de estados, remapeamento e tratamento de eventos, amostragem e despacho de estágios. Um solver espacial fornece a atualização específica do método.</p>
+<p>Assim, estudos orientados por cronograma reutilizam uma única camada de orquestração de processo, em vez de manter uma sequência completa de processo separada para cada método numérico.</p>
+<h2 id="6-method-specific-and-shared-numerical-services">6. Serviços numéricos específicos e compartilhados</h2>
+<p>A discretização espacial permanece específica de cada método, enquanto interpolação, malhas, remapeamento, suporte de contorno/interface e integração temporal podem ser compartilhados quando suas hipóteses de governo são neutras em relação ao método.</p>
+<p>A camada temporal atual suporta Forward Euler e Adams–Bashforth 2 com semântica explícita de inicialização e reinício. A memória privada do integrador permanece distinta do estado físico e do histórico científico do processo.</p>
+<h2 id="7-physical-and-numerical-ownership">7. Responsabilidade física e numérica</h2>
+<p>O engine de cálculo não é proprietário das definições universais de materiais, leis físicas de interface ou significado dos estágios do processo. Esses são conceitos de modelo no nível do projeto, resolvidos antes ou em conjunto com a execução numérica.</p>
+<p>Mudar de FDM para FEM deve, portanto, alterar a discretização espacial, e não a identidade das peças, as leis de material, a lei de contato térmico, a condição da extremidade distante ou o cronograma do processo.</p>
+<h2 id="8-verification-surfaces">8. Superfícies de verificação</h2>
+<p>A implementação Octave é verificada tanto no nível de arquitetura quanto no nível dos métodos numéricos. A superfície de verificação abrange seleção de solver, consistência da sequência de processo, compatibilidade dos caminhos de execução suportados, comportamento de conservação e refinamento do FDM e referências de montagem e estabilidade do FEM.</p>
+<p>Essas verificações constituem evidência de implementação e evidência numérica. Elas não constituem validação experimental do modelo físico de soldagem.</p>
+<h2 id="9-relationship-to-c-and-julia">9. Relação com C++ e Julia</h2>
+<p>GNU Octave, C++ e Julia são engines irmãos independentes. Nenhum obtém seu resultado numérico chamando outro engine. A comparação entre engines para o mesmo método ocorre somente depois que cada engine produz seu próprio histórico.</p>
+<p>Julia FDM, FEM e FVM de geometria fixa possuem evidência de verificação nativa em quatro casos de referência congelados e neutros em relação ao engine, com comparação do mesmo método contra os outros engines. Julia FVM com mudança de geometria permanece não promovido. O estado de desempenho corrente do projeto é <code>CANONICAL_MEASURED</code> sob <code>PERFORMANCE.STATUS.GOVERNANCE.2026-10-06.R1</code>, respaldado pela campanha P1/P2 governada <code>PERFORMANCE-MULTI-ENGINE-20261005-232449Z</code>; as medições são limitadas à máquina, toolchain, casos, métodos e modo de medição registrados e não estabelecem um ranking global dos engines nem validação experimental.</p>
+<h2 id="10-current-limitations-and-publication-boundary">10. Limitações atuais e fronteira de publicação</h2>
+<p>Octave possui atualmente a cobertura mais ampla do workflow de processo, mas isso não implica que todos os métodos numéricos tenham a mesma cobertura de estágios ou a mesma maturidade de verificação.</p>
+<p>O website público apresenta a arquitetura científica, o escopo verificado e os limites de capacidade. Caminhos do repositório, identificadores de campanhas, rótulos internos do workflow e dados restritos permanecem na camada privada de implementação e evidência, e não na superfície explicativa pública.</p>
+      </article>
+    </div></template>
+<template data-technical-locale="zh-CN" data-page-title="GNU Octave 实现 — Multiphysics" data-page-description="Multiphysics 项目 GNU Octave 实现的公开架构，包括方法中立执行、共享流程编排、数值服务以及验证边界。"><nav class="technical-breadcrumb" aria-label="面包屑导航" data-i18n="accessibility.breadcrumb" data-i18n-attr="aria-label"><ol><li><a href="/technical/"><span data-i18n="technical.labels.technical">技术</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><a href="/technical/implementations/"><span data-i18n="technical.labels.implementations">实现</span></a><span class="breadcrumb-separator" aria-hidden="true">/</span></li><li><span aria-current="page" data-i18n-meta="short_title">GNU Octave</span></li></ol></nav>
+<nav class="technical-axis-nav" aria-label="技术栏目导航" data-i18n="accessibility.technicalNavigation" data-i18n-attr="aria-label">
+    <span class="technical-axis-label" data-i18n="nav.technicalLayers">技术层次</span>
+    <ul><li><a href="/technical/numerics/"><span data-i18n="technical.labels.numericalFormulation">数值形式</span></a></li><li><a href="/technical/implementations/" aria-current="location"><span data-i18n="technical.labels.implementations">实现</span></a></li><li><a href="/technical/verification/"><span data-i18n="technical.labels.verification">验证</span></a></li></ul>
+  </nav>
+    <header class="article-header">
+      <p class="kicker" data-i18n-meta="kicker">实现 · GNU Octave</p>
+      <h1 id="gnu-octave-implementation" data-i18n-meta="title">GNU Octave 实现</h1>
+      <div class="article-meta">
+        <span class="status-chip" data-status="technical preview" data-i18n-meta="publication_status_label">技术预览</span>
+        <span><span data-i18n="technical.labels.reviewed">审阅日期</span> 2026-10-07</span>
+      </div>
+      <dl class="article-summary"><div><dt data-i18n="technical.labels.engine">计算引擎</dt><dd data-i18n-invariant="engine-name">GNU Octave</dd></div><div><dt data-i18n="technical.labels.implementationStatus">实现状态</dt><dd data-i18n-meta="implementation_status_label">活跃同级引擎 / 广泛的工作流覆盖</dd></div></dl>
+    </header>
+
+    <details class="provenance"><summary data-i18n="technical.labels.provenance">来源与出处</summary><dl class="provenance-grid"><div><dt data-i18n="technical.labels.curatedAuthorityRecords">已整理的权威记录</dt><dd>6</dd></div><div><dt data-i18n="technical.labels.curatedImplementationRecords">已整理的实现记录</dt><dd>8</dd></div><div><dt data-i18n="technical.labels.curatedVerificationRecords">已整理的验证记录</dt><dd>5</dd></div></dl></details>
+    <div class="article-layout">
+      <details class="article-toc" open>
+        <summary data-i18n="technical.labels.onThisPage">本页内容</summary>
+        <ol data-i18n-body="toc"><li><a href="#1-role-in-the-project">在项目中的角色</a></li><li><a href="#2-method-neutral-execution">与方法无关的执行</a></li><li><a href="#3-solver-selection-and-extensibility">求解器选择与可扩展性</a></li><li><a href="#4-shared-solver-interface">共享求解器接口</a></li><li><a href="#5-process-orchestration">流程编排</a></li><li><a href="#6-method-specific-and-shared-numerical-services">方法专用与共享数值服务</a></li><li><a href="#7-physical-and-numerical-ownership">物理与数值职责</a></li><li><a href="#8-verification-surfaces">验证范围</a></li><li><a href="#9-relationship-to-c-and-julia">与 C++ 和 Julia 的关系</a></li><li><a href="#10-current-limitations-and-publication-boundary">当前限制与发布边界</a></li></ol>
+      </details>
+      <article class="technical-prose" data-i18n-body="article">
+        <blockquote><p>GNU Octave 是 Multiphysics 项目中活跃的同级计算引擎之一。目前它拥有最广泛的流程工作流覆盖，但这并不意味着它是科学参考或永久的主引擎。本页面描述公开的软件架构和执行概念，而不暴露仓库内部的工作流标签。</p></blockquote>
+<h2 id="1-role-in-the-project">1. 在项目中的角色</h2>
+<p>GNU Octave 是最初的计算环境，并继续作为 C++ 和 Julia 引擎的活跃同级实现。数值方法身份与引擎身份彼此独立：FDM、FEM 和 FVM 是空间方法，而 GNU Octave 是能够承载这些方法的一种实现环境。</p>
+<p>保留 Octave 的原因在于其 MATLAB 兼容语言以及高层次矩阵和向量运算，使数值原型开发、诊断和科学检查较为直接。它广泛的工作流覆盖与 C++17 的编译型运行时控制角色以及 Julia 的高层次 JIT 科学计算角色互为补充。这些是互补的工程特性，并不构成科学有效性或性能排名。</p>
+<p>FDM 和 FEM 已实现。FVM 在固定几何/电流加热范围内已实现并通过验证；它还可运行采用前沿部分控制体的成熟度 1 Flashing，已依据 ADR 0036 通过数值检验。成熟度 0 Flashing 以及涉及几何变化的 Upsetting/Pressing 仍未提升为受支持能力。</p>
+<h2 id="2-method-neutral-execution">2. 与方法无关的执行</h2>
+<p>Octave 架构使用与方法无关的执行层。一个仿真上下文将所选空间方法、已解析物理案例、数值执行选择以及适当的求解器实现组合在一起，而不会把这些概念折叠成同一个对象。</p>
+<p>因此，同一流程编排可以推进不同的空间离散方法，同时保持共同的流程时间顺序、状态传递以及时间积分规则。</p>
+<h2 id="3-solver-selection-and-extensibility">3. 求解器选择与可扩展性</h2>
+<p>中央求解器注册表把方法身份连接到相应实现和声明的能力。增加新的空间方法时，应增加新的求解器实现，而不是在共享物理和流程逻辑中到处加入方法专用分支。</p>
+<div class="table-wrap"><table data-columns="2"><thead><tr><th scope="col">方法</th><th scope="col">GNU Octave 当前状态</th></tr></thead><tbody><tr><td>FDM</td><td>已实现，具有广泛工作流覆盖</td></tr><tr><td>FEM</td><td>已实现，具有广泛工作流覆盖</td></tr><tr><td>FVM</td><td>固定几何/电流加热已实现并验证；成熟度 1 Flashing 已通过数值检验（ADR 0036）；几何变化的 Upsetting/Pressing 尚未提升</td></tr></tbody></table></div>
+<h2 id="4-shared-solver-interface">4. 共享求解器接口</h2>
+<p>每种空间方法都公开流程层所需的共同信息：方法身份、已解析案例、数值配置和一步推进操作。流程层依赖这一共享接口，而不是依赖硬编码的 FDM、FEM 或 FVM 实现。</p>
+<h2 id="5-process-orchestration">5. 流程编排</h2>
+<p>共享流程引擎负责时间顺序、状态链、重映射和事件处理、采样以及阶段分派。空间求解器负责提供方法专用的空间更新。</p>
+<p>因此，按计划执行的研究可以复用同一个流程编排层，而无需为每一种数值方法分别维护完整的流程序列。</p>
+<h2 id="6-method-specific-and-shared-numerical-services">6. 方法专用与共享数值服务</h2>
+<p>空间离散保持方法专用，而插值、网格、重映射、边界/界面支持以及时间积分在其控制假设与方法无关时可以共享。</p>
+<p>当前时间层支持 Forward Euler 和 Adams–Bashforth 2，并具有明确的启动和重启语义。积分器的私有记忆与物理状态以及科学流程历史保持分离。</p>
+<h2 id="7-physical-and-numerical-ownership">7. 物理与数值职责</h2>
+<p>计算引擎不拥有材料、物理界面定律或流程阶段含义的通用定义。这些属于项目级模型概念，在数值执行之前或执行过程中由公共层解析。</p>
+<p>因此，从 FDM 切换到 FEM 应改变空间离散，而不应改变工件身份、材料定律、热接触定律、远端条件或流程计划。</p>
+<h2 id="8-verification-surfaces">8. 验证范围</h2>
+<p>Octave 实现同时在架构层和数值方法层接受检查。验证范围包括求解器选择、流程序列一致性、受支持执行路径的兼容性、FDM 的守恒和细化行为，以及 FEM 的组装与稳定性参考。</p>
+<p>这些检查构成实现和数值证据，并不构成对焊接物理模型的实验验证。</p>
+<h2 id="9-relationship-to-c-and-julia">9. 与 C++ 和 Julia 的关系</h2>
+<p>GNU Octave、C++ 和 Julia 是彼此独立的同级引擎。任何一个引擎都不会通过调用另一个引擎来取得自己的数值结果。同一方法的跨引擎比较只在各引擎分别产生自己的历史之后进行。</p>
+<p>Julia 的 FDM、FEM 和固定几何 FVM 已在四个冻结且与引擎无关的参考案例上取得原生验证证据，并与其他引擎进行了同方法比较。涉及几何变化的 Julia FVM 仍未提升。项目当前性能状态为 <code>CANONICAL_MEASURED</code>，受 <code>PERFORMANCE.STATUS.GOVERNANCE.2026-10-06.R1</code> 管理，并由 P1/P2 治理活动 <code>PERFORMANCE-MULTI-ENGINE-20261005-232449Z</code> 支持；这些测量仅适用于已记录的机器、工具链、案例、方法和计时模式，并不建立引擎总体排名，也不构成实验验证。</p>
+<h2 id="10-current-limitations-and-publication-boundary">10. 当前限制与发布边界</h2>
+<p>Octave 目前拥有最广的流程工作流覆盖，但这并不意味着所有数值方法都具有相同的阶段覆盖或验证成熟度。</p>
+<p>公开网站展示科学架构、已验证范围和能力边界。仓库路径、活动标识符、内部工作流标签和受限数据保留在私有实现与证据层，而不进入公开说明页面。</p>
+      </article>
+    </div></template>
   </main>
   <footer class="site-footer">
   <p data-i18n="home.footer.statement">This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material.</p>
@@ -201,6 +315,7 @@ variants/     historical compatibility surface</code></pre>
     data-visible="false"
     tabindex="-1"><span data-i18n="nav.backToTop">Back to top</span></a>
 </footer>
+<noscript><p class="noscript-notice" data-i18n="home.noScript">This page remains available without JavaScript in the site&#39;s default language. Changing the language requires JavaScript.</p></noscript>
 
   <script type="module" src="/assets/js/main.js"></script>
 </body>

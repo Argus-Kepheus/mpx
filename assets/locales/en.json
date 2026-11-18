@@ -12,7 +12,10 @@
     "current": "Current model",
     "collaborate": "Collaborate",
     "technical": "Technical",
-    "backToTop": "Back to top"
+    "backToTop": "Back to top",
+    "continueExploring": "Continue exploring",
+    "technicalLayers": "Technical layers",
+    "references": "References"
   },
   "locale": {
     "label": "Language"
@@ -45,7 +48,172 @@
       "workpieceS": "workpiece S",
       "interface": "welding interface",
       "colourSupplement": "Colour is supplementary; symbols and labels remain authoritative.",
-      "onThisPage": "On this page"
+      "onThisPage": "On this page",
+      "curatedAuthorityRecords": "Curated authority records",
+      "curatedDerivationRecords": "Curated derivation records",
+      "curatedImplementationRecords": "Curated implementation records",
+      "curatedVerificationRecords": "Curated verification records",
+      "equationLegendAria": "Scientific notation colour legend",
+      "semanticAxis1": "spatial axis x and its discretisation",
+      "semanticTemporal": "time and its discretisation"
+    },
+    "numerics": {
+      "pageTitle": "Numerical formulation — Multiphysics",
+      "pageDescription": "Numerical formulations documented by the Multiphysics project.",
+      "kicker": "Technical · numerical formulation",
+      "heading": "Spatial methods",
+      "lede": "Numerical methods are documented independently from programming language and calculation engine.",
+      "status": {
+        "technicalPreview": "technical preview",
+        "implementedLimitedScope": "implemented / limited scope"
+      },
+      "cards": {
+        "fdmDescription": "Current cell-centred finite-difference formulation, including physical closures, conservative flux construction, time-integration relationship and verification evidence.",
+        "femDescription": "Current cell-centred P1 Galerkin formulation, including weak form, two-point Gauss assembly, row-sum mass lumping, half-cell completion and shared physical flux closures.",
+        "fvmDescription": "The 1D finite-volume solver has an implemented-and-verified fixed-geometry/current-heating path and, in GNU Octave, a numerically verified Maturity-1 Flashing path with partial front control volumes (ADR 0036). Maturity-0 Flashing and geometry-changing Upsetting/Pressing remain unpromoted and retain a separate experimental-data boundary."
+      },
+      "dossier": {
+        "kicker": "Numerical model at a glance",
+        "title": "The equations behind the method pages",
+        "intro": "The full FDM and FEM pages carry the derivation, closures, assembly rules, stability references and verification boundaries. This compact layer makes the governing and semi-discrete objects visible before the reader enters the long-form documentation.",
+        "sharedStatus": "shared physical model",
+        "sharedTitle": "Flux-form thermal balance",
+        "sharedBody": "Material laws, sources and physical boundary/interface conditions are resolved before a spatial method is applied.",
+        "fdmStatus": "FDM · cell-centred",
+        "fdmTitle": "Conservative cell balance",
+        "fdmBody": "A shared face-flux sequence makes the discrete conduction contribution auditable and keeps interface/boundary fluxes explicit.",
+        "femStatus": "FEM · P1 Galerkin",
+        "femTitle": "Lumped semi-discrete system",
+        "femBody": "Two-point quadrature, row-sum mass lumping and explicit half-cell completion expose how the cell-centred support closes the physical domain.",
+        "temporalStatus": "temporal contract",
+        "temporalTitle": "Explicit state advance",
+        "temporalBody": "Adams–Bashforth 2 is the current principal configuration; Forward Euler supplies the compatible starter and restart path.",
+        "temporalNote": "Time integration remains a separate contract. The current principal explicit configuration is AB2 with a Forward-Euler starter/restart path; it is not part of the definition of FDM or FEM.",
+        "fvmTitle": "FVM current scope",
+        "fvmBody": "The 1D finite-volume path is implemented and verified for fixed-geometry/current-heating work. In GNU Octave it also runs Maturity-1 Flashing with partial front control volumes, numerically verified under ADR 0036 (accepted on 2026-10-22) and converging to the FDM/FEM limit; it is not calibrated. Maturity-0 Flashing and geometry-changing Upsetting/Pressing remain a separate, unpromoted capability boundary. None of these paths is presented as experimentally validated."
+      }
+    },
+    "overview": {
+      "pageTitle": "Technical — Multiphysics",
+      "pageDescription": "Technical documentation for the Multiphysics numerical and computational framework.",
+      "kicker": "Living technical documentation",
+      "heading": "Technical",
+      "lede": "This section provides a living overview of the current mathematical, numerical and computational state of the Multiphysics project.",
+      "note": "It documents the present project state. The current numerical baseline is reconciled, but this locally buildable website artifact is not itself a release authorization. Formal dissertations, papers and releases remain independent transactions.",
+      "groups": {
+        "numericsKicker": "Numerical formulation",
+        "numericsTitle": "Spatial methods",
+        "implementationsKicker": "Implementations",
+        "implementationsTitle": "Calculation environments",
+        "toolingKicker": "Scientific tooling",
+        "toolingTitle": "Automation and evidence infrastructure",
+        "verificationKicker": "Verification",
+        "verificationTitle": "Evidence and validation boundaries"
+      },
+      "status": {
+        "technicalPreview": "technical preview",
+        "implementedLimitedScope": "implemented / limited scope",
+        "activeSibling": "active sibling",
+        "juliaVerified": "FDM/FEM/FVM fixed-geometry native verification passed",
+        "activeSupportingTooling": "active supporting tooling",
+        "multiEngineValidated": "multi-engine consolidation validated",
+        "currentBaseline": "current baseline reconciled",
+        "futureEvidence": "future evidence"
+      },
+      "cards": {
+        "fdmDescription": "Current cell-centred finite-difference formulation, physical closures, semi-discrete system, time-integration relationship and verification evidence.",
+        "femDescription": "Current cell-centred P1 Galerkin formulation, including weak form, element assembly, mass lumping, half-cell completion, physical flux coupling and stability reference.",
+        "fvmDescription": "The 1D finite-volume solver has an implemented-and-verified fixed-geometry/current-heating path and, in GNU Octave, a numerically verified Maturity-1 Flashing path (ADR 0036). Maturity-0 Flashing and geometry-changing Upsetting/Pressing remain unpromoted; none of these paths is presented as experimentally validated.",
+        "octaveDescription": "An active sibling engine with the broadest current process-workflow coverage. MATLAB compatibility and high-level matrix/vector operations make it useful for numerical development, inspection and scientific prototyping.",
+        "cppDescription": "An active independent C++17 sibling engine used for same-method cross-engine verification, explicit compiled implementations and LLM-assisted development. Its current workflow coverage is narrower than Octave, but its architectural role is not secondary.",
+        "juliaDescription": "Julia FDM/FEM/FVM fixed geometry passed native verification against four frozen engine-neutral reference cases, including neutral history ingestion and same-method cross-engine parity. Geometry-changing Julia FVM remains unpromoted. P1/P2 performance is measured within the recorded cases, machine and toolchains.",
+        "pythonDescription": "Python supports validation, governance, material-data workflows, package isolation, provenance, semantics, diagnostics and neutral cross-engine comparison. It is supporting scientific infrastructure, not a calculation engine.",
+        "postTitle": "Post-processing",
+        "postDescription": "Recorded temperature histories use a neutral post-processing contract. Histories are validated before protected comparisons, and the multi-engine inventory remains deterministic without choosing a golden engine.",
+        "frameworkTitle": "Verification framework",
+        "frameworkDescription": "How analytical/reference cases, conservation, refinement, cross-method and cross-engine evidence fit together without being confused with experimental validation.",
+        "numericalVerificationTitle": "Numerical verification",
+        "numericalVerificationDescription": "FDM/FEM have a current native attestation, fixed-geometry FVM remains verified, and four engine-neutral resolved reference inputs are frozen as implementation targets. These facts remain distinct from experimental validation.",
+        "experimentalValidationTitle": "Experimental validation",
+        "experimentalValidationDescription": "Physical calibration and an independent validation case require traceable experimental observables and uncertainty treatment; the complete FBW model is not currently presented as experimentally validated."
+      }
+    },
+    "implementationsPage": {
+      "pageTitle": "Implementations — Multiphysics",
+      "pageDescription": "Calculation-engine implementations of the Multiphysics numerical framework.",
+      "kicker": "Technical · implementations",
+      "heading": "Calculation environments",
+      "lede": "GNU Octave, C++17 and Julia are independent sibling implementations with complementary scientific-development and runtime roles. They are not the numerical methods themselves, and no engine is the numerical truth.",
+      "status": {
+        "activeSibling": "active sibling",
+        "juliaVerified": "FDM/FEM/FVM fixed-geometry native verification passed"
+      },
+      "cards": {
+        "octaveDescription": "The transparent high-level sibling: MATLAB-compatible scientific inspection, rapid numerical development and the broadest current workflow coverage.",
+        "cppDescription": "The ahead-of-time compiled sibling: explicit type/data-layout and build/runtime control, standalone execution and a path toward deployment/HPC studies, with independent FDM/FEM/FVM resolved-case paths.",
+        "juliaDescription": "The high-level JIT sibling combines scientific expression with type-specialised compilation and natively verified FDM/FEM/FVM fixed-geometry paths. Geometry-changing FVM remains unpromoted. Governed P1/P2 measurements cover the declared numerical scope."
+      },
+      "computational": {
+        "kicker": "Computational contract",
+        "title": "How a resolved case reaches a history",
+        "intro1": "Method identity, physical case, temporal configuration and engine identity remain separate. GNU Octave and C++ are active sibling implementations; Julia FDM/FEM/FVM fixed geometry have passed native verification; Geometry-changing Julia FVM remains unpromoted. Their coverage may differ, but none is designated as the scientific truth or permanent backend of another.",
+        "intro2": "The multi-engine strategy serves two purposes: independent implementation verification and deliberate exploration of language/runtime trade-offs. Engine-specific strengths can be retained where they are useful as the project matures, provided equivalent numerical contracts and reproducible evidence are preserved.",
+        "intro3": "The downstream multi-engine consolidation validates histories before protected comparisons, and a neutral post-processing set can represent partial case/method/engine coverage without selecting a golden engine.",
+        "step1Title": "Resolve the physical case",
+        "step1Body": "Geometry, material laws, sources, boundaries, interface data and process schedule become solver-ready inputs.",
+        "step2Title": "Select method and engine",
+        "step2Body": "FDM, FEM or the restricted FVM path is selected independently from an available engine. GNU Octave and C++ are active today; Julia FDM/FEM/FVM fixed geometry are natively verified for the frozen engine-neutral reference cases; Geometry-changing Julia FVM remains unpromoted.",
+        "step3Title": "Build the spatial right-hand side",
+        "step3Body": "Fluxes, assembly, boundary closures, interface exchange and source terms are evaluated by the method adapter.",
+        "step4Title": "Advance the state",
+        "step4Body": "The shared temporal service applies Forward Euler or AB2 according to the run specification and history policy.",
+        "step5Title": "Write evidence-bearing outputs",
+        "step5Body": "Temperature histories, diagnostics and comparison metadata remain distinct from claims of physical validation.",
+        "exchangeTitle": "Neutral exchange shape",
+        "exchangeShape": "resolved physical case\n spatial method\n run specification\n        ↓\n solver adapter\n        ↓\n semi-discrete RHS\n        ↓\n FE / AB2 advance\n        ↓\n history + diagnostics",
+        "juliaTitle": "Julia — FDM/FEM/FVM fixed-geometry native verification passed",
+        "juliaBody": "Julia is the third independent implementation path. Its FDM, FEM and fixed-geometry FVM paths passed native package tests under Julia 1.13.1, neutral history ingestion and same-method comparison with independent C++ and GNU Octave histories for all four frozen reference cases. The tested software environment is recorded internally for reproducibility. Geometry-changing Julia FVM remains unpromoted. Governed P1/P2 performance measurements are scoped to the recorded cases, machine, toolchains and timing modes. Engine agreement is implementation verification, not experimental validation."
+      },
+      "python": {
+        "kicker": "Scientific tooling",
+        "title": "Why Python is used",
+        "intro": "Python is an active supporting language in Multiphysics, but it is not currently one of the calculation engines that implements the FDM/FEM/FVM solution path. Instead, it provides scientific infrastructure around the engines and the project evidence.",
+        "body1": "Current Python tooling covers configuration and governance validation, material-data preparation and review, package/export isolation, provenance and freeze checks, semantic/naming validation, diagnostics and reference calculations, and cross-engine output comparison.",
+        "body2": "Python is useful in this role because these tasks depend heavily on automation, file and structured-data processing, schema/metadata checks and reproducible command-line workflows. Keeping them outside the calculation engines also helps the verification layer remain neutral: for example, Python compares GNU Octave and C++ histories above both engines rather than making either implementation the reference backend.",
+        "body3": "The role is therefore complementary. GNU Octave and C++ address current independent numerical execution; Julia now supplies native FDM/FEM/FVM fixed-geometry evidence on the frozen engine-neutral reference cases; Python helps prepare inputs, audit contracts, compare evidence and preserve reproducibility around those executions.",
+        "rolesTitle": "Current Python roles",
+        "role1": "governance and configuration validators;",
+        "role2": "material-data and provenance tooling;",
+        "role3": "package validation, export and isolated-test orchestration;",
+        "role4": "semantic and nomenclature checks;",
+        "role5": "cross-engine comparison of resolved-case outputs;",
+        "role6": "diagnostic and reference calculations where an independent tooling path is useful.",
+        "note": "Python output is not treated as automatically authoritative merely because it is independent. Its scripts remain subject to the same provenance, review and evidence boundaries as the rest of the research software."
+      }
+    },
+    "verificationPage": {
+      "pageTitle": "Verification — Multiphysics",
+      "pageDescription": "Verification framework and evidence boundaries for the Multiphysics project.",
+      "kicker": "Technical · verification",
+      "heading": "Evidence and validation boundaries",
+      "lede": "Verification is organised as a chain of complementary evidence rather than a single solver-to-solver agreement test.",
+      "note": "Numerical verification, cross-method comparison, cross-engine parity, physical calibration and experimental validation answer different questions and are published with different evidentiary requirements.",
+      "status": {
+        "technicalPreview": "technical preview",
+        "currentBaseline": "current baseline reconciled",
+        "active": "active",
+        "futureEvidence": "future evidence"
+      },
+      "cards": {
+        "frameworkTitle": "Verification framework",
+        "frameworkDescription": "The current evidence ladder, active FDM/FEM checks, controlled FDM/FEM/FVM studies, cross-engine boundaries and publication rules for validation claims.",
+        "numericalTitle": "Numerical verification",
+        "numericalDescription": "The current FDM/FEM native snapshot is attested and four engine-neutral implementation targets are frozen; method-independent manufactured-solution work remains a separate ongoing verification layer.",
+        "crossEngineTitle": "Cross-engine verification",
+        "crossEngineDescription": "GNU Octave, C++17 and Julia sibling engines consume common resolved cases through explicit neutral contracts. Same-method parity is implementation evidence; current tolerances are verification gates, not performance or physical-validation claims.",
+        "experimentalTitle": "Experimental validation",
+        "experimentalDescription": "Calibration and independent validation require traceable real-process observables, sensitivity/identifiability work, uncertainty treatment and an independent validation case."
+      }
     }
   },
   "home": {
@@ -54,7 +222,7 @@
       "title": "Multiphysics",
       "subtitle": "Open, modular simulation of coupled physical processes",
       "lede": "A research project aimed at developing a free and open-source computational environment in which materials, machines, process configurations, physical models, numerical methods, calculation engines and post-processing tools can evolve independently and be recombined as needed.",
-      "status": "Current academic reference process: flash-butt welding. Current implementation: an evolving research platform, not a finished industrial product.",
+      "status": "Current reference process: flash-butt welding. The platform is being refactored to also accommodate Gleeble tests and computational models and simulations of those tests. This extension is in development.",
       "primaryCta": "Explore the technical documentation",
       "secondaryCta": "Contribute experimental data",
       "diagram": {
@@ -102,7 +270,7 @@
     "architecture": {
       "kicker": "Modular by design",
       "title": "Independent scientific and computational axes",
-      "intro": "The architecture deliberately keeps problem definition, physical modelling, numerical discretisation, calculation engines and post-processing distinct.",
+      "intro": "The architecture deliberately keeps problem definition, physical modelling, numerical discretisation, calculation engines and post-processing distinct. The ongoing refactoring aims to reuse this separation for Gleeble tests, keeping the equipment, specimen and test conditions distinct from the physical models and numerical methods.",
       "layers": [
         {
           "title": "Define the problem",
@@ -127,18 +295,18 @@
           "items": [
             "FDM",
             "FEM",
-            "FVM — fixed geometry verified; geometry-changing unpromoted",
+            "FVM — fixed geometry verified; Maturity-1 Flashing numerically verified; geometry-changing Upsetting unpromoted",
             "Time integration",
             "GNU Octave",
             "C++",
-            "Julia — planned"
+            "Julia — FDM/FEM/FVM fixed-geometry native verification passed"
           ]
         },
         {
           "title": "Interpret",
           "items": [
             "Results",
-            "Post-processing — early stage",
+            "Post-processing — multi-engine consolidation validated",
             "Analysis",
             "Visualisation",
             "Validation",
@@ -156,23 +324,23 @@
     },
     "current": {
       "kicker": "Current development stage",
-      "title": "Consolidating the one-dimensional model",
+      "title": "Numerical baseline and current implementation scope",
       "principle": "Correct and traceable models before larger models.",
-      "body": "The present priority is methodological correctness and experimental traceability before computational scale. Work is concentrated on consolidating the 1D numerical evidence, machine parametrisation, process configuration, material-property data, and the experimental basis required before flashing/upsetting modelling, calibration and validation can advance.",
+      "body": "The 1D numerical baseline covers FDM, FEM and fixed-geometry FVM, with independent GNU Octave, C++17 and Julia implementations verified on the declared reference cases. Project-current performance is measured under the governed P1/P2 campaign, within its recorded cases, machine and toolchains. Cross-engine post-processing and reproducibility contracts are in place. The predictive Maturity-1 Flashing closure is implemented opt-in for FDM and FEM and numerically verified under ADR 0035 (I1–I4 accepted on 2026-10-21), not calibrated, not validated. Since ADR 0036 (accepted on 2026-10-22) it also runs on FVM with partial front control volumes and converges to the FDM/FEM limit. It starts from a cold interface: every realized bridge rupture removes material; the solidus enthalpy gate is diagnostic only. Maturity 0 remains the default Flashing path. Reference closure parameters are analogue values, not established DP600 or CSN/NMW values. The Upsetting formulation remains open; on FVM, Maturity-0 Flashing and geometry-changing Upsetting/Pressing remain unpromoted. Numerical agreement does not establish experimental validation, which remains future work.",
       "methodsTitle": "Spatial methods",
       "enginesTitle": "Calculation environments",
       "methods": [
         {
           "name": "FDM",
-          "state": "implemented"
+          "state": "implemented · native-attested"
         },
         {
           "name": "FEM",
-          "state": "implemented"
+          "state": "implemented · native-attested"
         },
         {
           "name": "FVM",
-          "state": "fixed geometry implemented & verified"
+          "state": "fixed geometry implemented & verified · Maturity-1 Flashing numerically verified"
         }
       ],
       "engines": [
@@ -186,16 +354,22 @@
         },
         {
           "name": "Julia",
-          "state": "planned sibling"
+          "state": "FDM/FEM/FVM fixed-geometry native verification passed"
         }
       ],
       "pageTitle": "Current model — Multiphysics",
-      "pageDescription": "Current numerical methods, calculation environments and development scope of Multiphysics."
+      "pageDescription": "Current numerical methods, calculation environments and development scope of Multiphysics.",
+      "gleeble": {
+        "title": "In development: Gleeble tests and models",
+        "body": "Multiphysics is being refactored to accommodate physical-simulation tests performed on Gleeble equipment and to develop computational models and simulations of those tests. The aim is to reuse the platform’s thermoelectric core beyond flash-butt welding.",
+        "scope": "The initial focus is the thermoelectric response under prescribed electrical excitation, including specimen geometry, free span and heat exchange with the jaws. Calculated temperatures will be compared with thermocouple measurements. Machine-control strategies follow plant validation across heating, flashing and upsetting.",
+        "status": "This is work in progress. Reproducing Gleeble tests and assessing the models against experimental measurements still require implementation, traceable datasets and comparison criteria defined in advance."
+      }
     },
     "collaborate": {
       "kicker": "Experimental collaboration",
-      "title": "The current bottleneck is data",
-      "body": "Software development is not a prerequisite for collaboration. The immediate need is experimentally grounded information capable of constraining, calibrating and validating the models.",
+      "title": "Experimental data to understand welding",
+      "body": "We welcome welding researchers who can share measurements or technical feedback to help develop, calibrate and validate future physical models. Software and architecture work continue independently of receiving data or replies.",
       "machineTitle": "Machine information",
       "processTitle": "Process histories",
       "validationTitle": "Material and validation data",
@@ -214,12 +388,10 @@
         {
           "title": "Process histories",
           "items": [
-            "current and voltage",
-            "stage timing",
-            "flashing parameters",
-            "burn-off or displacement",
-            "upset force",
-            "pre- and post-heating sequences"
+            "stage sequence and duration",
+            "flashing settings",
+            "burn-off distinguished from machine travel",
+            "pre- and post-heating conditions"
           ]
         },
         {
@@ -237,30 +409,96 @@
       ],
       "rights": "Data ownership, redistribution rights and publication permissions are treated independently. Scientific use does not automatically imply permission to publish raw data.",
       "credit": "Contributions may lead to formal project participation and, where the scientific contribution justifies it, co-authorship of resulting publications.",
-      "questionsKicker": "Questions already sent",
-      "questionsTitle": "Examples of targeted research questions",
-      "questionsIntro": "Researchers have already been approached with questions derived from their published work. The examples below are anonymized and illustrate the type of scientific exchange sought by the project.",
+      "questionsKicker": "Scientific exchange",
+      "questionsTitle": "Other ways to contribute",
+      "questionsIntro": "Beyond upsetting, these model and data questions can guide a collaboration:",
       "questions": {
-        "thermalCycles": "Can measured welding thermal cycles be shared as numerical time–temperature series rather than only as plotted figures?",
-        "processHistories": "Can representative process schedules, stage boundaries, electrical signals, displacement or burn-off histories be made available in processed, anonymized or stage-averaged form?",
-        "validationObservables": "Which observables are most reliable for validating a reduced flash-butt-welding model when direct interface measurements are unavailable?",
-        "materialTransfer": "Which material-state variables and phase-transformation data should a reusable material library prioritize, and how should material properties be separated from process-specific calibration?"
+        "thermalCycles": "Do you have numerical time–temperature series, with the measurement location and method?",
+        "processHistories": "Which machine settings and boundary conditions are essential to interpret a welding test?",
+        "validationObservables": "Which measurements best assess a reduced flash-butt-welding model when direct interface temperatures are unavailable?",
+        "materialTransfer": "Which temperature-dependent material properties and phase-transformation data should the material library prioritize?"
       },
       "confidentialityTitle": "Confidentiality and industrial constraints",
       "confidentialityBody": "Some relevant datasets may be owned by companies, protected by contractual confidentiality, or constitute industrially sensitive information and therefore cannot be disclosed. No researcher is expected to violate those obligations, and sharing raw proprietary data is not a prerequisite for contributing.",
-      "criticalFeedback": "When data cannot be released, researchers who choose to engage are explicitly asked for a critical technical assessment instead. Comments on questionable assumptions, missing physics, unrealistic machine or process inputs, unsuitable validation observables, or relevant literature may be sent directly to the project lead. This kind of feedback is treated as a substantive scientific contribution and is highly valued.",
+      "criticalFeedback": "A critical technical assessment is also highly valued: send the project lead comments on model assumptions, missing physics, measurement methods or relevant literature.",
       "pageTitle": "Collaborate — Multiphysics",
-      "pageDescription": "Experimental collaboration needs and contribution paths for the Multiphysics project."
+      "pageDescription": "Contribute experimental welding data: synchronized signals, joint geometry and flash mass to study upsetting, compression work and temperature.",
+      "contactKicker": "Start a collaboration",
+      "contactTitle": "Contact the project developer and lead",
+      "contactBody": "Use the institutional email below to describe your test, the data or feedback you can offer, and any sharing restrictions. We can discuss scope and permissions before you send files.",
+      "upsetting": {
+        "kicker": "Research in progress",
+        "title": "How does upsetting affect the joint temperature?",
+        "question": "In flash-butt welding, we want to measure the compression work from force and displacement, and assess how deformation concentrated near the joint affects temperature. This investigation is ongoing.",
+        "signalsTitle": "Synchronized signals.",
+        "signals": "Force, displacement, current and voltage series on the same time axis, covering the end of flashing and the upsetting stage. If available, include units, stage markers and how displacement was defined or corrected (for example, machine travel or specimen shortening).",
+        "geometryTitle": "Joint shape or removed flash.",
+        "geometry": "A measured geometric profile or a scaled image of the joint before flash trimming, or the mass of the removed flash.",
+        "weldTitle": "A link to the same weld.",
+        "weld": "A common identifier connecting the signals, profile, image or flash mass to the same weld.",
+        "why": "Force and displacement help estimate the mechanical work; current and voltage help identify electrical heating that may still be present. Joint shape or flash mass helps assess how the material deformed.",
+        "partial": "Partial or anonymized data can also help; a complete dataset is not required to start a conversation.",
+        "contact": "Tell us what you can share."
+      }
     },
     "footer": {
       "statement": "This website presents the publishable scientific state of the Multiphysics project. It does not expose private correspondence, internal researcher profiles or unpublished collaborative material."
     },
-    "noScript": "The project overview is available without JavaScript. Interactive palette and language selection are disabled."
+    "noScript": "This page remains available without JavaScript in the site's default language. Changing the language requires JavaScript."
   },
   "accessibility": {
     "skipToContent": "Skip to content",
     "primaryNavigation": "Primary navigation",
     "homeLink": "Multiphysics home",
-    "breadcrumb": "Breadcrumb"
+    "breadcrumb": "Breadcrumb",
+    "continueExploring": "Continue exploring related pages",
+    "technicalNavigation": "Technical section navigation"
+  },
+  "references": {
+    "kicker": "Research library",
+    "title": "References",
+    "pageTitle": "References — Multiphysics",
+    "description": "Search the Multiphysics bibliography: welding, Gleeble testing, material properties and numerical methods, with links to original sources and open PDFs.",
+    "intro": "References on welding, thermomechanical testing, material properties and numerical methods. Search by title, author or DOI and refine the list with filters.",
+    "accessNote": "PDFs open at the original source and remain subject to its terms of use. Inclusion in the catalogue does not imply validation by the project.",
+    "filterLabel": "Filter references",
+    "search": "Search",
+    "placeholder": "Title, author or DOI",
+    "topic": "Topic",
+    "type": "Publication type",
+    "accessLabel": "Access",
+    "from": "From year",
+    "to": "To year",
+    "all": "All",
+    "clear": "Clear filters",
+    "results": "references",
+    "empty": "No references match these filters. Try fewer terms or clear the filters.",
+    "source": "Original source",
+    "pdf": "PDF at source ↗",
+    "permalink": "Link to reference",
+    "edition": "Edition:",
+    "topics": {
+      "welding": "Welding and electrical heating",
+      "gleeble": "Gleeble and thermomechanical testing",
+      "materials": "Material properties",
+      "numerics": "Numerical methods",
+      "measurement": "Measurements and experiments",
+      "foundations": "Foundations and context"
+    },
+    "types": {
+      "article": "Journal article",
+      "book": "Book",
+      "chapter": "Book chapter",
+      "conference": "Conference paper",
+      "thesis": "Thesis or dissertation",
+      "report": "Report",
+      "manual": "Manual",
+      "other": "Other reference"
+    },
+    "access": {
+      "open": "Open copy available",
+      "unknown": "Access not yet checked",
+      "restricted": "Restricted access"
+    }
   }
 }
